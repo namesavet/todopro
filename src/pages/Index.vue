@@ -1,15 +1,29 @@
 <template>
   <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
+    
+    <head1 />
+
+
+
   </q-page>
 </template>
 
 <script>
+
+import head1 from "../components/head.vue"
+
 export default {
-  name: 'PageIndex'
+  name: 'PageIndex',
+  components:{
+    head1
+  }
 }
+
+
+
 </script>
+ 
+
+ <style scoped>
+ *{background: #22343C;}
+ </style>
