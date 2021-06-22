@@ -7,16 +7,16 @@ const routes = [
  
       { 
         path: '', component: ()  => import('pages/Index.vue') ,
-        path: '/Subject', component: ()  => import('pages/Subject.vue') ,
-        path: '/addsubject', component: () => import('pages/addsubject.vue')
+        path: 'subject', component: ()  => import('pages/subject.vue') ,
+        path: 'addsubject', component: () => import('pages/addsubject.vue') 
+      }
     
-    
+     ]
     
     },
   
 
-    ]
-  },
+
 
   // Always leave this as last one,
   // but you can also remove it
