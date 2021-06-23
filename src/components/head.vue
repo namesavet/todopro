@@ -51,7 +51,8 @@
   width: 110px;
   height: 110px;
   border: dashed gray 2px;
-  border-radius: 20%;
+  
+  
 }
 
 </style>

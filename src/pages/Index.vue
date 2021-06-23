@@ -1,8 +1,13 @@
 <template>
   <q-page >
     
-    <head1 />
-
+    <div>
+       <head1 />
+    </div>
+    <div>
+    <todolist /> 
+    </div>
+   
 
 
   </q-page>
@@ -11,11 +16,13 @@
 <script>
 
 import head1 from "../components/head.vue"
-
+import todolist from "../components/todolist.vue"
 export default {
   name: 'PageIndex',
   components:{
-    head1
+    head1,
+
+    todolist
   }
 }
 
