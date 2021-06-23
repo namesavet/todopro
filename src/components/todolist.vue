@@ -70,13 +70,13 @@
       <q-tabs
         v-model="tab"
         class=" shadow-2 "
-        style="background: #30444E;color:#3DD598;bottom:0 ;
+        style="background: #30444E;color:white;bottom:0 ;
         position:absolute ;width:100% ;
         border-radius: 15px 15px 0px 0px;"
       >
-        <q-tab name="mails" icon="mail" />
-        <q-tab name="alarms" icon="alarm" />
-        <q-tab name="movies" icon="movie" />
+        <q-tab name="calendar" icon="calendar_today" />
+        <q-tab name="home" icon="home" />
+        <q-tab name="book" icon="menu_book" />
       </q-tabs>
   
 
