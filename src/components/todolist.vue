@@ -9,6 +9,7 @@
 
     <div class="row q-mt-md q-px-md">
       <div class="col q-gutter-md">
+        <router-link to="gotosubject">
         <div class="row justify-center">
           <div class="subject" style="overflow: hidden">
             <div class="texttitle1 q-mt-sm">Subject</div>
@@ -19,6 +20,9 @@
             />
           </div>
         </div>
+        </router-link>
+        
+
         <div class="row justify-center">
           <div class="read" style="overflow: hidden">
             <div class="texttitle2 q-ml-lg q-mt-sm">
@@ -70,7 +74,7 @@
 
      
       <q-tabs
-        v-model="tab"
+        
         class=" shadow-2 "
         style="background: #30444E;color:white;bottom:0 ;
         position:absolute ;width:100% ;

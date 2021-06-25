@@ -9,9 +9,12 @@ const routes = [
       {path: 'addsubject', component: () => import('pages/Addsubject.vue')},
       {path: 'course', component: ()  => import('pages/Course.vue')},
       {path: 'addsubject', component: () => import('pages/Addsubject.vue')},
-      {path: 'backtosubject', component: () => import('pages/Subject.vue')}
-
-
+      {path: 'backtohome', component: () => import('pages/Index.vue')},
+      {path: 'backtosubject', component: () => import('pages/Subject.vue')},
+      {path: 'gotosubject', component: () => import('pages/Subject.vue')},
+      {path: 'gotoaddsubject', component: () => import('pages/Addsubject.vue')},
+      
+      
       
     
      ]

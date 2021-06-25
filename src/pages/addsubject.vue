@@ -125,11 +125,20 @@
           <div class="text-white text-bold" style="font-size: 30px">Desired grade</div>
         </div>
       </div>
+
       <div class="row ">
-      <div class="col-8 q-ml-md  q-gutter-xs ">
-        <q-select v-model="grade" :options="grades" label="Your grade" color="#22343c"   />
+        <div class="col-8 q-ml-md  q-gutter-xs ">
+          <q-select v-model="grade" :options="grades" label="Your grade" color="#22343c"   />
+        </div>
       </div>
-    </div>
+     
+       <div class="row">
+        <div class="col q-ml-md q-mt-sm q-gutter-xs">
+          <div class="text-white text-bold" style="font-size: 30px">Desired grade</div>
+        </div>
+      </div>
+      
+      
       
 
   </q-page>

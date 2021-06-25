@@ -1,37 +1,22 @@
 <template>
   <q-page class="subject">
-    <div class="col q-ml-md q-mt-sm q-gutter-xs">
-      <div class="q-pa-md">
+   
         <q-toolbar>
-          <q-btn
-            flat
-            round
-            dense
-            text-color="white"
-            icon="keyboard_arrow_left"
-          />
-
-          <q-toolbar-title>
-            <div class="text-white text-slim" style="font-size: 20px">Back</div>
+         <q-toolbar-title>
+           <router-link to="backtohome">
+          <q-btn flat color="" icon="keyboard_arrow_left" label="Back" style="font-size:16px ;color:#96A7AF" />
+          </router-link>
           </q-toolbar-title>
-          <q-space />
-
-          <q-btn
-            flat
-            round
-            dense
-            text-color="white"
-            icon="search"
-            class="q-mr-xs"
-          />
+          <q-btn flat round dense text-color="white" icon="search" class="q-mr-xs"/>
         </q-toolbar>
-      </div>
-
-      <div class="row">
-        <div class="text-white text-bold" style="font-size: 30px">Subject</div>
-      </div>
-
-      <br />
+      
+      <div class="col q-ml-md q-mt-sm q-gutter-xs">
+        <div class="q-pa-md">
+          <div class="row">
+            <div class="text-white text-bold" style="font-size: 30px">Subject</div>
+          </div>
+        </div>
+     
 
       <div>
         <div class="row justify-center">
@@ -160,15 +145,15 @@
         <div class="q-mr-lg"><q-separator color="grey" inset="item" /></div>
       </div>
     </div>
-
+  
     <div class="q-px-sm q-py-lg">
       <div
         class="column items-center"
         style="margin-top: 20px; "
       >
-        <div>
+       
           <div class="row items-center justify-center">
-            <router-link to="backtosubject">
+            <router-link to="gotoaddsubject">
             <q-btn 
             size="20px" 
             round color="" 
@@ -181,15 +166,14 @@
                 "
                 />
             </router-link>
-
-            
-
           </div>
         </div>
 
-        <div class="fontaddsubject">Add Subject</div>
+        <div class="row items-center justify-center">
+          <div class="fontaddsubject">Add Subject</div>
+        </div>
       </div>
-    </div>
+    
   </q-page>
 </template>
 
