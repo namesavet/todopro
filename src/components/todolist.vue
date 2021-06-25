@@ -9,7 +9,7 @@
     <div class="row q-mt-md q-px-md">
       <div class="col q-gutter-md">
         <div class="row justify-center">
-          <div class="subject" style="overflow: hidden" >
+          <div class="subject" style="overflow: hidden">
             <div class="texttitle1 q-mt-sm">Subject</div>
 
             <q-img
@@ -40,15 +40,12 @@
               <div class="row">Test</div>
               <div class="row">and</div>
               <div class="row">Score</div>
-  <div id="testimg">
-
-              <q-img 
-                src="../image/test.png"
-                style="height: 100%; max-width: 100%"
-              />
-
-
-  </div>
+              <div id="testimg">
+                <q-img
+                  src="../image/test.png"
+                  style="height: 100%; max-width: 100%"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -121,7 +118,13 @@
   color: white;
 }
 #testimg {
-  -webkit-box-reflect: below -10px -webkit-gradient(linear, right top, right bottom, from(transparent), color-stop(50%, transparent), to(rgba(255, 255, 255, 0.5)));
-  
+  -webkit-box-reflect: below -10px -webkit-gradient(
+      linear,
+      right top,
+      right bottom,
+      from(transparent),
+      color-stop(50%, transparent),
+      to(rgba(255, 255, 255, 0.5))
+    );
 }
 </style>
