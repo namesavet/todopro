@@ -1,5 +1,6 @@
 <template>
   <q-container>
+
     <div class="row justify-center">
       <div class="today">
         <div class="texttitle q-mt-sm q-ml-lg">TODAY DO</div>
@@ -40,16 +41,14 @@
               <div class="row">Test</div>
               <div class="row">and</div>
               <div class="row">Score</div>
-  <div id="testimg">
+                       <div id="testimg">
 
-              <q-img 
-                src="../image/test.png"
-                style="height: 100%; max-width: 100%"
+                       <q-img 
+                    src="../image/test.png"
+                 style="height: 100%; max-width: 100%"
               />
-
-
-  </div>
-            </div>
+      </div>
+           </div>
           </div>
         </div>
         <div class="row justify-center">
@@ -64,6 +63,26 @@
         </div>
       </div>
     </div>
+
+
+
+     
+      <q-tabs
+        v-model="tab"
+        class=" shadow-2 "
+        style="background: #30444E;color:white;bottom:0 ;
+        position:absolute ;width:100% ;
+        border-radius: 15px 15px 0px 0px;"
+      >
+        <q-tab name="calendar" icon="calendar_today" />
+        <q-tab name="home" icon="home" />
+        <q-tab name="book" icon="menu_book" />
+      </q-tabs>
+  
+
+
+    
+     
   </q-container>
 </template>
 
