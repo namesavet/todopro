@@ -7,10 +7,15 @@
       </div>
     </div>
 
-    <div class="row q-mt-md q-px-md">
-      <div class="col q-gutter-md">
+    <div class="row q-mt-md q-px-md ">
+      <div class="col q-gutter-md ">
+
+
         <router-link to="gotosubject">
-        <div class="row justify-center">
+
+
+
+        <div class="row justify-center q-ml-md">
           <div class="subject" style="overflow: hidden">
             <div class="texttitle1 q-mt-sm">Subject</div>
 
@@ -38,7 +43,16 @@
         </div>
       </div>
 
+
+
+
+
       <div class="col q-gutter-md">
+
+
+    <router-link to="gototestandscore">
+
+      
         <div class="row justify-center">
           <div class="test" style="overflow: hidden">
             <div class="texttitle2 q-ml-lg q-mt-sm">
@@ -57,6 +71,9 @@
 
           </div>
         </div>
+ </router-link>
+
+
         <div class="row justify-center">
           <div class="calendar" style="overflow: hidden">
             <div class="texttitle1 q-mt-sm">Calendar</div>
