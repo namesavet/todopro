@@ -17,8 +17,9 @@
           </div>
         </div>
      
-
+ 
       <div>
+ <router-link to="gotosubjectscore">
         <div class="row justify-center">
           <div class="profilesubject1" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-sm">
@@ -29,22 +30,26 @@
             </div>
           </div>
 
+
           <div class="col self-center q-ml-md">
             <div class="text-white">SPI</div>
             <div class="text-blue-grey-4">ดร.กุลศิริ</div>
           </div>
 
           <div
-            class="q-mr-lg numberchapter text-white self-center"
+            class="q-mr-lg  text-white self-center"
             style="overflow: hidden"
           >
             <div class="row items-center justify-center">1</div>
           </div>
         </div>
-        <br />
-        <div class="q-mr-lg"><q-separator color="grey" inset="item" /></div>
 
-        <br />
+      
+        <div class="q-mr-lg q-my-lg">
+            <q-separator color="grey" inset="item" />
+        </div>
+
+  </router-link> 
 
         <div class="row justify-center">
           <div class="profilesubject2" style="overflow: hidden">
@@ -66,9 +71,9 @@
             <div class="row items-center justify-center">2</div>
           </div>
         </div>
-        <br />
-        <div class="q-mr-lg"><q-separator color="grey" inset="item" /></div>
-        <br />
+        
+        <div class="q-mr-lg q-my-lg"><q-separator color="grey" inset="item" /></div>
+      
 
         <div class="row justify-center">
           <div class="profilesubject3" style="overflow: hidden">
@@ -90,9 +95,9 @@
             <div class="row items-center justify-center">3</div>
           </div>
         </div>
-        <br />
-        <div class="q-mr-lg"><q-separator color="grey" inset="item" /></div>
-        <br />
+        
+        <div class="q-mr-lg q-my-lg"><q-separator color="grey" inset="item" /></div>
+      
 
         <div class="row justify-center">
           <div class="profilesubject4" style="overflow: hidden">
@@ -115,11 +120,10 @@
           </div>
         </div>
 
-        <br />
-        <div class="q-mr-lg"><q-separator color="grey" inset="item" /></div>
+      
+        <div class="q-mr-lg q-my-lg"><q-separator color="grey" inset="item" /></div>
 
-        <br />
-
+        
         <div class="row justify-center">
           <div class="profilesubject5" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-sm">
@@ -141,8 +145,8 @@
             <div class="row items-center justify-center">5</div>
           </div>
         </div>
-        <br />
-        <div class="q-mr-lg"><q-separator color="grey" inset="item" /></div>
+     
+        <div class="q-mr-lg q-my-lg"><q-separator color="grey" inset="item" /></div>
       </div>
     </div>
      

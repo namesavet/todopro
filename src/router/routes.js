@@ -14,8 +14,9 @@ const routes = [
       {path: 'gotosubject', component: () => import('pages/Subject.vue')},
       {path: 'gotoaddsubject', component: () => import('pages/Addsubject.vue')},
        {path: 'gototestandscore', component: () => import('pages/Testandscore.vue')},
-      
-      
+       {path: 'gotosubjectscore', component: () => import('pages/Subjectscore.vue')},
+       {path: 'backtotestandscore', component: () => import('pages/Testandscore.vue')},
+       
     
      ]
     
