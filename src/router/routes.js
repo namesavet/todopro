@@ -13,6 +13,7 @@ const routes = [
       {path: 'backtosubject', component: () => import('pages/Subject.vue')},
       {path: 'gotosubject', component: () => import('pages/Subject.vue')},
       {path: 'gotoaddsubject', component: () => import('pages/Addsubject.vue')},
+      {path: 'Begin', component: () => import('pages/Begin.vue')},
        {path: 'gototestandscore', component: () => import('pages/Testandscore.vue')},
       
       
