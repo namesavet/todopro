@@ -15,7 +15,7 @@
       </div>
 
       <div
-        class="read-icon absolute-bottom-right q-mr-md justify-center "
+        class="read-icon absolute-bottom-right q-mr-md justify-center"
         style="overflow: hidden"
       >
         <q-img src="../image/read.png" style="height: 100%; max-width: 80%" />
