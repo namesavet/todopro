@@ -90,19 +90,18 @@
 
 
      
-      <q-tabs
-        
-        class=" shadow-2 "
+      <q-footer elevated>
+        <q-toolbar  class=" shadow-2 "
         style="background: #30444E;color:white;bottom:0 ;
         position:absolute ;width:100% ;
-        border-radius: 15px 15px 0px 0px;"
-      >
-        <q-tab name="calendar" icon="calendar_today" />
-        <q-tab name="home" icon="home" />
-        <q-tab name="book" icon="menu_book" />
-      </q-tabs>
-  
-
+        border-radius: 15px 15px 0px 0px;"> 
+          <q-toolbar-title class="row justify-evenly">
+             <q-btn flat name="calendar" icon="calendar_today" />
+        <q-btn flat name="home" icon="home" />
+        <q-btn flat name="book" icon="menu_book" />
+          </q-toolbar-title>
+        </q-toolbar>
+      </q-footer>
 
     
      
