@@ -8,6 +8,7 @@
     </div>
 
     <div class="row q-mt-md q-px-md">
+      
       <div class="col q-gutter-md">
         <router-link to="gotosubject">
         <div class="row justify-center">
@@ -22,7 +23,7 @@
         </div>
         </router-link>
         
-
+      <router-link to="gotoreadabook">
         <div class="row justify-center">
           <div class="read" style="overflow: hidden">
             <div class="texttitle2 q-ml-lg q-mt-sm">
@@ -36,7 +37,9 @@
             </div>
           </div>
         </div>
+      </router-link>
       </div>
+      
 
       <div class="col q-gutter-md">
         <div class="row justify-center">
@@ -52,11 +55,11 @@
                     src="../image/test.png"
                  style="height: 100%; max-width: 100%"
               />
-      </div>
+            </div>
            </div>
-
           </div>
         </div>
+
         <div class="row justify-center">
           <div class="calendar" style="overflow: hidden">
             <div class="texttitle1 q-mt-sm">Calendar</div>
