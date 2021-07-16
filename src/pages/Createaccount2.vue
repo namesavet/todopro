@@ -13,7 +13,7 @@
         </div>
         <div class="enter-name col-9 q-ml-md q-gutter-xs">
           <q-input
-            v-model="Your_fullname"
+            v-model="create_password"
             label-color="#96A7AF"
             label="Create password"
           />
@@ -27,7 +27,11 @@
           </div>
         </div>
         <div class="enter-name col-9 q-ml-md q-gutter-xs">
-          <q-input v-model="Username" label-color="#96A7AF" label="Repeat your password" />
+          <q-input
+            v-model="repeat_password"
+            label-color="#96A7AF"
+            label="Repeat your password"
+          />
         </div>
       </div>
 
@@ -60,8 +64,8 @@
 export default {
   data() {
     return {
-      Your_fullname: "",
-      Username: "",
+      create_password: "",
+      repeat_password: "",
     };
   },
 };
