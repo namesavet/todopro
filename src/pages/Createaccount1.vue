@@ -34,6 +34,7 @@
       <div class="row justify-center items-center">
         <div class="button-Sign_in q-mt-lg">
           <q-btn
+            push
             align="center"
             no-caps
             icon-right="arrow_back"
@@ -43,6 +44,7 @@
         </div>
         <div class="button-Sign_in q-mt-lg q-ml-md">
           <q-btn
+            push
             align="center"
             no-caps
             label="Next "

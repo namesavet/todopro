@@ -1,7 +1,5 @@
 <template>
   <q-page class="Welcome q-pt-xl">
-    
-    
     <div class="col">
       <div class="Logo q-ml-lg"></div>
       <div class="texttitle1 q-ml-lg q-mt-lg">Welcome !</div>
@@ -40,6 +38,7 @@
       <div class="row justify-center items-center">
         <div class="button-Sign_in q-mt-lg">
           <q-btn
+            push
             align="center"
             no-caps
             label="Sign in "
@@ -53,6 +52,7 @@
       <div class="row justify-center items-center">
         <div class="button-Sign_in q-mt-md">
           <q-btn
+            push
             align="center"
             no-caps
             label="Sign in with google"
@@ -69,6 +69,7 @@
       <div class="row justify-center items-center">
         <div class="button-Create_acc q-mt-md">
           <q-btn
+            push
             align="center"
             no-caps
             label="Create an account"
