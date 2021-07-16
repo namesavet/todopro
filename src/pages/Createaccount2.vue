@@ -36,7 +36,7 @@
       </div>
 
       <div class="row justify-center items-center">
-        <div class="button-Sign_in q-mt-lg">
+        <div class="button-back q-mt-lg">
           <q-btn
             align="center"
             no-caps
@@ -45,7 +45,7 @@
             style="width: 50px; background: #286053; color: #3dd598"
           />
         </div>
-        <div class="button-Sign_in q-mt-lg q-ml-md">
+        <div class="button-next q-mt-lg q-ml-md">
           <q-btn
             align="center"
             no-caps
