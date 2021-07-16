@@ -3,7 +3,7 @@
     <div class="col">
       <div class="Logo q-ml-lg"></div>
       <div class="texttitle1 q-ml-lg q-mt-lg">Hello !</div>
-      <div class="texttitle2 q-ml-lg q-mt-sm">Lets introduce</div>
+      <div class="texttitle2 q-ml-lg q-mt-sm">Ratchaya Narueradanan</div>
 
       <div class="row q-ml-lg q-mt-xl">
         <div class="icon-password" style="overflow: hidden">
