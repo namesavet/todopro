@@ -17,6 +17,7 @@ const routes = [
       {path: 'Welcome', component: () => import('pages/Welcome.vue')},
       {path: 'Createaccount1', component: () => import('pages/Createaccount1.vue')},
       {path: 'Createaccount2', component: () => import('pages/Createaccount2.vue')},
+      {path: 'Createaccount3', component: () => import('pages/Createaccount3.vue')},
       {path: 'gototestandscore', component: () => import('pages/Testandscore.vue')},
       
       
