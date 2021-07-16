@@ -1,7 +1,5 @@
 <template>
   <q-page class="Welcome q-pt-xl">
-    
-    
     <div class="col">
       <div class="Logo q-ml-lg"></div>
       <div class="texttitle1 q-ml-lg q-mt-lg">Hello !</div>
@@ -29,17 +27,12 @@
           </div>
         </div>
         <div class="enter-name col-9 q-ml-md q-gutter-xs">
-          <q-input
-            v-model="Username"
-            label-color="#96A7AF"
-            label="Username"
-          />
+          <q-input v-model="Username" label-color="#96A7AF" label="Username" />
         </div>
       </div>
 
       <div class="row justify-center items-center">
         <div class="button-Sign_in q-mt-lg">
-            
           <q-btn
             align="center"
             no-caps
@@ -48,8 +41,7 @@
             style="width: 50px; background: #286053; color: #3dd598"
           />
         </div>
-        <div class="button-Sign_in q-mt-lg q-ml-md ">
-            
+        <div class="button-Sign_in q-mt-lg q-ml-md">
           <q-btn
             align="center"
             no-caps
@@ -60,12 +52,6 @@
           />
         </div>
       </div>
-
-     
-
-      
-
-      
     </div>
   </q-page>
 </template>
@@ -108,6 +94,4 @@ export default {
   background: #625b39;
   border-radius: 15%;
 }
-
-
 </style>
