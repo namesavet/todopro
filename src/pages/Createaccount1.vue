@@ -13,7 +13,7 @@
         </div>
         <div class="enter-name col-9 q-ml-md q-gutter-xs">
           <q-input
-            v-model="Your_fullname"
+            v-model="your_fullname"
             label-color="#96A7AF"
             label="Your full name"
           />
@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="enter-name col-9 q-ml-md q-gutter-xs">
-          <q-input v-model="Username" label-color="#96A7AF" label="Username" />
+          <q-input v-model="username" label-color="#96A7AF" label="Username" />
         </div>
       </div>
 
@@ -60,8 +60,8 @@
 export default {
   data() {
     return {
-      Your_fullname: "",
-      Username: "",
+      your_fullname: "",
+      username: "",
     };
   },
 };
