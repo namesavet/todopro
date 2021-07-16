@@ -12,7 +12,7 @@
             no-caps
             icon="flag"
             label="+31"
-             size="20px"
+            size="20px"
             style="width: 138px; background: #286053; color: #3dd598"
           >
             <q-list>
@@ -45,7 +45,7 @@
           </q-btn-dropdown>
         </div>
 
-        <div class="enter-tel col-5 q-mt-lg q-ml-md  ">
+        <div class="enter-tel col-5 q-mt-lg q-ml-md">
           <q-input v-model="tel" label-color="#96A7AF" label="20 666 13 13" />
         </div>
       </div>
