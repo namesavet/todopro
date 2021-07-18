@@ -1,32 +1,25 @@
 <template>
   <q-container>
-
     <div class="row justify-center">
       <div class="today">
         <div class="texttitle q-mt-sm q-ml-lg">TODAY DO</div>
       </div>
     </div>
 
-    <div class="row q-mt-md q-px-md ">
-      <div class="col q-gutter-md ">
-
-
+    <div class="row q-mt-md q-px-md">
+      <div class="col q-gutter-md">
         <router-link to="gotosubject">
+          <div class="row justify-center q-ml-md">
+            <div class="subject" style="overflow: hidden">
+              <div class="texttitle1 q-mt-sm">Subject</div>
 
-
-
-        <div class="row justify-center q-ml-md">
-          <div class="subject" style="overflow: hidden">
-            <div class="texttitle1 q-mt-sm">Subject</div>
-
-            <q-img
-              src="../image/subject.png"
-              style="height: 100%; max-width: 100%"
-            />
+              <q-img
+                src="../image/subject.png"
+                style="height: 100%; max-width: 100%"
+              />
+            </div>
           </div>
-        </div>
         </router-link>
-        
 
         <div class="row justify-center">
           <div class="read" style="overflow: hidden">
@@ -43,76 +36,67 @@
         </div>
       </div>
 
-
-
-
-
       <div class="col q-gutter-md">
+        <router-link to="gototestandscore">
+          <div class="row justify-center">
+            <div class="test" style="overflow: hidden">
+              <div class="texttitle2 q-ml-lg q-mt-sm">
+                <div class="row">Test</div>
+                <div class="row">and</div>
+                <div class="row">Score</div>
 
-
-    <router-link to="gototestandscore">
-
-      
-        <div class="row justify-center">
-          <div class="test" style="overflow: hidden">
-            <div class="texttitle2 q-ml-lg q-mt-sm">
-              <div class="row">Test</div>
-              <div class="row">and</div>
-              <div class="row">Score</div>
-
-                       <div id="testimg">
-
-                       <q-img 
+                <div id="testimg">
+                  <q-img
                     src="../image/test.png"
-                 style="height: 100%; max-width: 100%"
+                    style="height: 100%; max-width: 100%"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </router-link>
+
+        <router-link to="gotocalendar">
+          <div class="row justify-center">
+            <div class="calendar" style="overflow: hidden">
+              <div class="texttitle1 q-mt-sm">Calendar</div>
+
+              <q-img
+                src="../image/calendar.png"
+                style="height: 100%; max-width: 100%"
               />
-      </div>
-           </div>
-
+            </div>
           </div>
-        </div>
- </router-link>
-
-<router-link to="gotocalendar">
-        <div class="row justify-center">
-          <div class="calendar" style="overflow: hidden">
-            <div class="texttitle1 q-mt-sm">Calendar</div>
-
-            <q-img
-              src="../image/calendar.png"
-              style="height: 100%; max-width: 100%"
-            />
-          </div>
-        </div>
- </router-link>
-
-
-
+        </router-link>
       </div>
     </div>
 
-
-
-     
-      <q-footer elevated>
-        <q-toolbar  class=" shadow-2 "
-        style="background: #30444E;color:white;bottom:0 ;
-        position:absolute ;width:100% ;
-        border-radius: 15px 15px 0px 0px;"> 
-          <q-toolbar-title class="row justify-evenly">
-             <q-btn flat name="calendar" icon="calendar_today" />
-        <q-btn flat name="home" icon="home" />
-        <q-btn flat name="book" icon="menu_book" />
-          </q-toolbar-title>
-        </q-toolbar>
-      </q-footer>
-
-    
-     
+    <q-footer elevated>
+      <q-toolbar
+        class="shadow-2"
+        style="
+          background: #30444e;
+          color: white;
+          bottom: 0;
+          position: absolute;
+          width: 100%;
+          border-radius: 15px 15px 0px 0px;
+        "
+      >
+        <q-toolbar-title class="row justify-evenly">
+          <q-btn flat name="calendar" icon="calendar_today" />
+          <q-btn flat name="home" icon="home" />
+          <q-btn flat name="book" icon="menu_book" />
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
   </q-container>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "Todolist",}
+</script>
 
 <style scoped>
 .today {

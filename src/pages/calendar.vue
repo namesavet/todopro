@@ -19,18 +19,20 @@
       </router-link>
     </q-toolbar>
 
+    <div class="q-pa-md row justify-center">
+      <div class="q-gutter-md text-white">
+        <q-date
+        style="background-color: #2a3c44;  width: 375px;
+                height: 380px;
+                "
 
-  <div class="q-pa-md row justify-center ">
-    <div class="q-gutter-md text-white" >
-      <q-date  style="background: #30444e; width: 375px;
-  height: 380px; "
-        v-model="date"
-        :events="events"
-        :event-color="(date) => date[9] % 2 === 0 ? 'teal' : 'orange'"
-      />
+          v-model="date"
+         color="green-5"
+          :events="events"
+          :event-color="(date) => (date[9] % 2 === 0 ? 'teal' : 'orange')"
+        />
+      </div>
     </div>
-  </div>
-
 
     <br />
     <br />
@@ -56,32 +58,45 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
+
+
   </q-page>
+  
+
+
 </template>
 
 <script>
-import { ref } from 'vue'
+
 
 export default {
-  setup () {
+  name: "calendar",
+  data() {
     return {
-      date: ref('2019/02/01'),
-      events: [ '2019/02/01', '2019/02/05', '2019/02/06', '2019/02/09', '2019/02/23' ],
-      eventsFn (date) {
-        if (date === '2019/02/01' ||
-          date === '2019/02/05' ||
-          date === '2019/02/06' ||
-          date === '2019/02/09' ||
-          date === '2019/02/23') {
-          return true
+      date:"2019/02/01",
+      events: [
+        "2019/02/01",
+        "2019/02/05",
+        "2019/02/06",
+        "2019/02/09",
+        "2019/02/23",
+      ],
+      eventsFn(date) {
+        if (
+          date === "2019/02/01" ||
+          date === "2019/02/05" ||
+          date === "2019/02/06" ||
+          date === "2019/02/09" ||
+          date === "2019/02/23"
+        ) {
+          return true;
         }
-        return false
-      }
-    }
-  }
-}
+        return false;
+      },
+    };
+  },
+};
 </script>
-
 
 <style scoped>
 .subject {
@@ -113,8 +128,4 @@ export default {
   background: #2a3c44;
   border-radius: 25px;
 }
-
 </style >
-
-<script>
-</script>
