@@ -71,7 +71,7 @@
             </div>
         </div>
         <div class="col-8">
-          <div class="row q-mt-sm">
+          <div class="row q-mt-md">
             <div class="col">
                 <div class="titlesubject">OOP 63</div>
              </div>
@@ -94,7 +94,7 @@
             </div>
         </div>
         <div class="col-8">
-          <div class="row q-mt-sm">
+          <div class="row q-mt-md">
             <div class="col">
                 <div class="titlesubject">Data Sci 63</div>
              </div>
@@ -117,7 +117,7 @@
             </div>
         </div>
         <div class="col-8">
-          <div class="row q-mt-sm">
+          <div class="row q-mt-md">
             <div class="col">
                 <div class="titlesubject">UX/UI 63</div>
              </div>
@@ -129,7 +129,7 @@
         </div>
       </div>
     </div>
-
+  <router-link to="gotospi">
     <div class="namebook q-ml-lg q-mt-lg" style="overflow: hidden">
       <div class="row justify-center">
         <div class="col">
@@ -140,7 +140,7 @@
             </div>
         </div>
         <div class="col-8">
-          <div class="row q-mt-sm">
+          <div class="row q-mt-md">
             <div class="col">
                 <div class="titlesubject">SPI</div>
              </div>
@@ -152,6 +152,7 @@
         </div>
       </div>
     </div>
+  </router-link>
 
     <div class="namebook q-ml-lg q-mt-lg" style="overflow: hidden">
       <div class="row justify-center">
@@ -163,7 +164,7 @@
             </div>
         </div>
         <div class="col-8">
-          <div class="row q-mt-sm">
+          <div class="row q-mt-md">
             <div class="col">
                 <div class="titlesubject">Software contructure</div>
              </div>

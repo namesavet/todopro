@@ -14,7 +14,8 @@ const routes = [
       {path: 'gotosubject', component: () => import('pages/Subject.vue')},
       {path: 'gotoaddsubject', component: () => import('pages/Addsubject.vue')},
       {path: 'gotoreadabook', component: () => import('pages/Read abook.vue')},
-    
+      {path: 'gotospi', component: () => import('pages/ReadDetail.vue')},
+      {path: 'backtoreadabook', component: () => import('pages/Read abook.vue')},
       
     
      ]
