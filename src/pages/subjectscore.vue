@@ -12,9 +12,11 @@
           />
         </router-link>
       </q-toolbar-title>
-      <div class="settingbtn">
-        <q-btn flat round dense text-color="white" icon="settings" class="" />
-      </div>
+     <router-link to="gotosettingscore">
+        <div class="settingbtn">
+          <q-btn flat round dense text-color="white" icon="settings" class="" />
+        </div>
+      </router-link>
     </q-toolbar>
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
