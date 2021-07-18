@@ -18,6 +18,7 @@ const routes = [
        {path: 'backtotestandscore', component: () => import('pages/Testandscore.vue')},
        {path: 'gotosettingscore', component: () => import('pages/settingscore.vue')},
        {path: 'backtosubjectscore', component: () => import('pages/subjectscore.vue')},
+       {path: 'gotocalendar', component: () => import('pages/calendar.vue')},
      ]
     
     },

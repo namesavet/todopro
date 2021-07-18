@@ -73,7 +73,7 @@
         </div>
  </router-link>
 
-
+<router-link to="gotocalendar">
         <div class="row justify-center">
           <div class="calendar" style="overflow: hidden">
             <div class="texttitle1 q-mt-sm">Calendar</div>
@@ -84,6 +84,10 @@
             />
           </div>
         </div>
+ </router-link>
+
+
+
       </div>
     </div>
 
