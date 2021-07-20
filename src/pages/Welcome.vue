@@ -3,9 +3,12 @@
     <div class="col">
       <div class="Logo q-ml-lg"></div>
       <div class="texttitle1 q-ml-lg q-mt-lg">Welcome !</div>
+      <div class="row">
+        
+      </div>
       <div class="texttitle2 q-ml-lg q-mt-sm">Sign in to continue</div>
 
-      <div class="row q-ml-lg q-mt-xl">
+      <div class="row justify-center items-center q-ml-xs q-mt-xl">
         <div class="icon-name" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-md">
             <q-img src="../image/people.png" style="max-width: 45%" />
@@ -20,7 +23,7 @@
         </div>
       </div>
 
-      <div class="row q-ml-lg q-mt-lg">
+      <div class="row justify-center items-center q-ml-xs q-mt-lg">
         <div class="icon-password" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-md">
             <q-img src="../image/key.png" style="max-width: 45%" />
