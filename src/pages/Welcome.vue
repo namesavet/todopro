@@ -96,12 +96,14 @@ export default {
 <style scoped>
 .Welcome {
   background: #22343c;
+  
 }
 .Logo {
   width: 50px;
   height: 50px;
   background: #40df9f;
   border-radius: 15%;
+  margin-top: 100px;
 }
 .texttitle1 {
   font-size: 40px;
