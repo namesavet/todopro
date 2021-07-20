@@ -72,6 +72,7 @@
       <div class="row justify-center items-center">
         <div class="button-Create_acc q-mt-md">
           <q-btn
+            @click="$router.push({name:'Createaccount1'})"
             push
             align="center"
             no-caps
@@ -93,6 +94,9 @@ export default {
       enterpassword: "",
     };
   },
+
+
+  
 };
 </script>
 
