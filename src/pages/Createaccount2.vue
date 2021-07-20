@@ -14,8 +14,9 @@
         <div class="enter-name col-9 q-ml-md q-gutter-xs">
           <q-input
             v-model="create_password"
-            label-color="#96A7AF"
+            label-color="grey"
             label="Create password"
+            color="white"
           />
         </div>
       </div>
@@ -29,8 +30,9 @@
         <div class="enter-name col-9 q-ml-md q-gutter-xs">
           <q-input
             v-model="repeat_password"
-            label-color="#96A7AF"
+            label-color="grey"
             label="Repeat your password"
+            color="white"
           />
         </div>
       </div>

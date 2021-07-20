@@ -46,7 +46,12 @@
         </div>
 
         <div class="enter-tel col-5 q-mt-lg q-ml-md">
-          <q-input v-model="tel" label-color="#96A7AF" label="20 666 13 13" />
+          <q-input 
+          v-model="tel" 
+          label-color="grey" 
+          label="20 666 13 13" 
+          color="white"
+          />
         </div>
       </div>
 

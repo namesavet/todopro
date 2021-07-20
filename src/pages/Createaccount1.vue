@@ -5,7 +5,7 @@
       <div class="texttitle1 q-ml-lg q-mt-lg">Hello !</div>
       <div class="texttitle2 q-ml-lg q-mt-sm">Lets introduce</div>
 
-      <div class="row  justify-center items-center q-ml-lg q-mt-xl">
+      <div class="row justify-center items-center q-ml-lg q-mt-xl">
         <div class="icon-name" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-md">
             <q-img src="../image/people.png" style="max-width: 45%" />
@@ -14,20 +14,26 @@
         <div class="enter-name col-9 q-ml-md q-gutter-xs">
           <q-input
             v-model="your_fullname"
-            label-color="#96A7AF"
+            label-color="grey"
             label="Your full name"
+            color="white"
           />
         </div>
       </div>
 
-      <div class="row  justify-center items-center q-ml-lg q-mt-lg">
+      <div class="row justify-center items-center q-ml-lg q-mt-lg">
         <div class="icon-name" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-md">
             <q-img src="../image/people.png" style="max-width: 45%" />
           </div>
         </div>
         <div class="enter-name col-9 q-ml-md q-gutter-xs">
-          <q-input v-model="username" label-color="#96A7AF" label="Username" />
+          <q-input
+           v-model="username" 
+           label-color="grey" 
+           label="Username"
+           color="white" 
+           />
         </div>
       </div>
 
