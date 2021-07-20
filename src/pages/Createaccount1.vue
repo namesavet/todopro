@@ -13,10 +13,14 @@
         </div>
         <div class="enter-name col-9 q-ml-md q-gutter-xs">
           <q-input
+            :input-style="{ color: 'white' }"
             v-model="your_fullname"
             label-color="grey"
             label="Your full name"
             color="white"
+            :rules="[
+              (val) => (val && val.length > 0) || 'Please enter your full name',
+            ]"
           />
         </div>
       </div>
@@ -29,17 +33,22 @@
         </div>
         <div class="enter-name col-9 q-ml-md q-gutter-xs">
           <q-input
-           v-model="username" 
-           label-color="grey" 
-           label="Username"
-           color="white" 
-           />
+            :input-style="{ color: 'white' }"
+            v-model="username"
+            label-color="grey"
+            label="Username"
+            color="white"
+            :rules="[
+              (val) => (val && val.length > 0) || 'Please enter username ',
+            ]"
+          />
         </div>
       </div>
 
       <div class="row justify-center items-center">
         <div class="button-Sign_in q-mt-lg">
           <q-btn
+           @click="$router.push({name:'Welcome'})"
             push
             align="center"
             no-caps
@@ -50,6 +59,7 @@
         </div>
         <div class="button-Sign_in q-mt-lg q-ml-md">
           <q-btn
+            @click="gotocreateaccount2()"
             push
             align="center"
             no-caps
@@ -72,6 +82,14 @@ export default {
       username: "",
     };
   },
+  methods:{
+    gotocreateaccount2(){
+      console.log(this.your_fullname);
+    this.$router.push({
+      path:'/Createaccount2'
+    })
+    }
+  }
 };
 </script>
 
@@ -103,4 +121,6 @@ export default {
   background: #625b39;
   border-radius: 15%;
 }
+
+
 </style>
