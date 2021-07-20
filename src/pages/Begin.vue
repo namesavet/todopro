@@ -1,5 +1,8 @@
 <template>
-  <q-page class="Begin q-pt-xl">
+  <q-page 
+  @click="$router.push({name:'Welcome'})"
+  class="Begin q-pt-xl">
+
     <div class="col">
       <div class="texttitle1 q-ml-md">Note School</div>
       <div class="texttitle2 q-ml-md q-mt-md">
