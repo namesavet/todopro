@@ -1,5 +1,5 @@
 <template>
-  <q-container>
+  <q-page>
     <div class="row justify-center">
       <div class="today">
         <div class="texttitle q-mt-sm q-ml-lg">TODAY DO</div>
@@ -90,7 +90,7 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
-  </q-container>
+  </q-page>
 </template>
 
 <script>

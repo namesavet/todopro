@@ -27,7 +27,7 @@
                 "
 
           v-model="date"
-         color="green-5"
+         color="orange"
           :events="events"
           :event-color="(date) => (date[9] % 2 === 0 ? 'teal' : 'orange')"
         />
