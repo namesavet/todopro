@@ -94,9 +94,29 @@
         <div class="text-white text-bold" style="font-size: 15px">Midterm exam</div>
       </div>
      </div> 
-     <div class="row q-ml-lg  q-gutter-xs">
-        <div class="col-4 q-ml-lg q-gutter-xs">
-          <q-input color="white" label-color="#96A7AF"   v-model="selectday" label="DD/MM/YY" />
+
+
+
+     <div class="row  q-gutter-xs">
+       
+         <div class="q-pa-md" style="max-width: 200px">
+
+    <q-input filled v-model="date_midterm" mask="date" :rules="['date']">
+      <template v-slot:append>
+        <q-icon name="event" class="cursor-pointer">
+          <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+            <q-date v-model="date_midterm">
+              <div class="row items-center justify-end">
+                <q-btn v-close-popup label="Close" color="primary" flat />
+              </div>
+            </q-date>
+          </q-popup-proxy>
+        </q-icon>
+      </template>
+
+      
+    </q-input>
+  
         </div> 
 
         <div class="col-4 q-ml-lg  q-gutter-xs">
@@ -110,10 +130,33 @@
           <div class="text-white text-bold" style="font-size: 15px">Final exam</div>
         </div>
       </div> 
-      <div class="row q-ml-lg  q-gutter-xs">
-        <div class="col-4 q-ml-lg q-gutter-xs">
-          <q-input color="white" label-color="#96A7AF"   v-model="selectday" label="DD/MM/YY" />
-        </div> 
+
+      <div class="row  q-gutter-xs">
+
+
+   <div class="q-pa-md" style="max-width: 200px">
+          
+           <q-input filled v-model="date_final" mask="date" :rules="['date']">
+      <template v-slot:append>
+        <q-icon name="event" class="cursor-pointer">
+          <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+            <q-date v-model="date_final">
+              <div class="row items-center justify-end">
+                <q-btn v-close-popup label="Close" color="primary" flat />
+              </div>
+            </q-date>
+          </q-popup-proxy>
+        </q-icon>
+      </template>
+
+      
+    </q-input>
+          
+          
+          
+          </div>
+     
+      
 
         <div class="col-4 q-ml-lg  q-gutter-xs">
           <q-input color="white" label-color="#96A7AF"   v-model="score" label="Score%" />
@@ -132,11 +175,7 @@
         </div>
       </div>
      
-       <div class="row">
-        <div class="col q-ml-md q-mt-sm q-gutter-xs">
-          <div class="text-white text-bold" style="font-size: 30px">Desired grade</div>
-        </div>
-      </div>
+    
       
       
       
@@ -145,6 +184,9 @@
 </template>
 
 <script>
+
+
+
 export default {
   data() {
     return {
@@ -162,6 +204,8 @@ export default {
       grades:[
         'A','B+','B','C+','C','D-','D','E'
       ],
+      date_midterm: ('2021/02/01'),
+      date_final: ('2021/02/01'),
     };
 
   },
