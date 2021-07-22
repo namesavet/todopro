@@ -26,7 +26,7 @@
     </div>
  
     <div class="row justify-center q-mt-lg">
-      <div class="sname" style="overflow: hidden">
+      <div class="name" style="overflow: hidden">
         <div class="col-2 ">
           <div class="row items-center justify-center q-mt-sm">
             <q-img src="../image/book.png" style="height:70%; max-width:70% " />
@@ -40,7 +40,7 @@
     </div>
 
     <div class="row justify-center">
-       <div class="inname" style="overflow: hidden">
+       <div class="name" style="overflow: hidden">
           <div class="col-2">
             <div class="row items-center justify-center q-mt-sm">
               <q-img src="../image/book.png" style="height: 70%; max-width: 70%" />
@@ -53,7 +53,7 @@
     </div>
 
     <div class="row justify-center">
-       <div class="teaname" style="overflow: hidden">
+       <div class="name" style="overflow: hidden">
           <div class="col-2 item-center">
             <div class="row items-center justify-center q-mt-sm">
               <q-img src="../image/people.png" style="height: 70%; max-width: 60%" />
@@ -217,19 +217,7 @@ export default {
 .addsub{
   background: #22343c;
 }
-.sname {
-  width: 38px;
-  height: 48px;
-  background:#625B39 ;
-  border-radius: 15%;
-}
-.inname {
-  width: 38px;
-  height: 48px;
-  background:#625B39 ;
-  border-radius: 15%;
-}
-.teaname {
+.name {
   width: 38px;
   height: 48px;
   background:#625B39 ;

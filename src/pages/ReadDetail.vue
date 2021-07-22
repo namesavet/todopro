@@ -49,13 +49,13 @@
         <div class="redcircle"></div>
       </div>
       <div class="col-4 q-ml-sm">
-        <div class="termexam">Midterm exam</div>
+        <div class="exam">Midterm exam</div>
       </div>
       <div class="col-4 q-ml-xs">
-        <div class="dateexam">08 May 2020</div>
+        <div class="exam">08 May 2020</div>
       </div>
       <div class="col">
-        <div class="percenexam">30%</div>
+        <div class="exam">30%</div>
       </div>
     </div>
 
@@ -64,13 +64,13 @@
         <div class="redcircle"></div>
       </div>
       <div class="col-4 q-ml-sm">
-        <div class="termexam">Final exam</div>
+        <div class="exam">Final exam</div>
       </div>
       <div class="col-4 q-ml-xs">
-        <div class="dateexam">18 May 2020</div>
+        <div class="exam">18 May 2020</div>
       </div>
       <div class="col">
-        <div class="percenexam">30%</div>
+        <div class="exam">30%</div>
       </div>
     </div>
 
@@ -136,17 +136,7 @@
   background: #30444E;
   border-radius:25px;
 }
-.termexam{
-  font-size: 15px;
-  color: #96A7AF;
-  font-weight: bold;
-}
-.dateexam{
-  font-size: 15px;
-  color: #96A7AF;
-  font-weight: bold;
-}
-.percenexam{
+.exam{
   font-size: 15px;
   color: #96A7AF;
   font-weight: bold;
