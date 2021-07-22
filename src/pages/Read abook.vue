@@ -66,7 +66,7 @@
         <div class="col">
             <div class="statusred q-ml-lg q-mt-lg" style="overflow: hidden">
               <div class="row items-center justify-center q-mt-sm">
-                <q-btn flat round dense  icon="star" class="q-mr-xs" style="color:white"/>
+                <q-btn flat round dense  icon="south" class="q-mr-xs" style="color:white"/>
               </div>
             </div>
         </div>
@@ -89,7 +89,7 @@
         <div class="col">
             <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
               <div class="row items-center justify-center q-mt-sm">
-                <q-btn flat round dense  icon="star" class="q-mr-xs" style="color:white"/>
+                <q-btn flat round dense  icon="north" class="q-mr-xs" style="color:white"/>
               </div>
             </div>
         </div>
@@ -135,7 +135,7 @@
         <div class="col">
             <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
               <div class="row items-center justify-center q-mt-sm">
-                <q-btn flat round dense  icon="star" class="q-mr-xs" style="color:white"/>
+                <q-btn flat round dense  icon="north" class="q-mr-xs" style="color:white"/>
               </div>
             </div>
         </div>
@@ -159,7 +159,7 @@
         <div class="col">
             <div class="statusred q-ml-lg q-mt-lg" style="overflow: hidden">
               <div class="row items-center justify-center q-mt-sm">
-                <q-btn flat round dense  icon="star" class="q-mr-xs" style="color:white"/>
+                <q-btn flat round dense  icon="south" class="q-mr-xs" style="color:white"/>
               </div>
             </div>
         </div>
