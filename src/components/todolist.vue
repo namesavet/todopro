@@ -57,7 +57,6 @@
                     src="../image/test.png"
 
                     style="height: 100%; max-width: 190px"
-                  >
                   />
                 </div>
               </div>
