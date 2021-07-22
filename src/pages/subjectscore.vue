@@ -66,7 +66,7 @@
     <div class="row justify-center">
       <div class="scoregrade"></div>
     </div>
-<div class="row justify-center">
+    <div class="row justify-center">
       <div class="score">
         <div
           class="q-my-md q-ml-lg text-white text-bold"
@@ -112,7 +112,7 @@
         </div>
       </div>
     </div>
-        <div class="row justify-center">
+    <div class="row justify-center">
       <div class="score">
         <div
           class="q-my-md q-ml-lg text-white text-bold"
@@ -135,11 +135,11 @@
         </div>
       </div>
     </div>
-    
+
     <br />
     <br />
     <br />
-    <br /> 
+    <br />
 
     <q-footer elevated>
       <q-toolbar
@@ -165,7 +165,7 @@
 
 <script>
 export default {
-  setup() {
+  data() {
     return {
       progress2: 0.62,
     };

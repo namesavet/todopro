@@ -149,15 +149,13 @@
 
 <script>
 export default {
-  setup() {
+  data() {
     return {
-      progress1: 0.4,
       progress2: 0.62,
     };
   },
 };
 </script>
-
 <style scoped>
 .subject {
   background: #22343c;
@@ -189,6 +187,3 @@ export default {
   border-radius: 25px;
 }
 </style >
-
-<script>
-</script>

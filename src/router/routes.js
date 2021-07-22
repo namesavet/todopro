@@ -15,13 +15,14 @@ const routes = [
       {path: 'gotoaddsubject', component: () => import('pages/Addsubject.vue')},
       {path: 'gotoreadabook', component: () => import('pages/Read abook.vue')},
       {path: 'gotospi', component: () => import('pages/ReadDetail.vue')},
-      {path: 'backtoreadabook', component: () => import('pages/Read abook.vue')},
-      {path: 'gototestandscore', component: () => import('pages/Testandscore.vue')},
-      {path: 'gotosubjectscore', component: () => import('pages/subjectscore.vue')},
-      {path: 'backtotestandscore', component: () => import('pages/Testandscore.vue')},
-      {path: 'gotosettingscore', component: () => import('pages/settingscore.vue')},
-      {path: 'backtosubjectscore', component: () => import('pages/subjectscore.vue')},
-      {path: 'gotocalendar', component: () => import('pages/calendar.vue')},
+       {path: 'gototestandscore', component: () => import('pages/Testandscore.vue')},
+       {path: 'gotosubjectscore', component: () => import('pages/subjectscore.vue')},
+       {path: 'backtotestandscore', component: () => import('pages/Testandscore.vue')},
+       {path: 'gotosettingscore', component: () => import('pages/settingscore.vue')},
+       {path: 'backtosubjectscore', component: () => import('pages/subjectscore.vue')},
+       {path: 'gotocalendar', component: () => import('pages/calendar.vue')},
+       {path: 'backtocalendar', component: () => import('pages/calendar.vue')},
+       {path: 'gotoaddcalendar', component: () => import('pages/addcalendar.vue')},
 
      ]
     

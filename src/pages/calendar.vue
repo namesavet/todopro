@@ -12,7 +12,7 @@
           />
         </router-link>
       </q-toolbar-title>
-      <router-link to="backtosubjectscore">
+      <router-link to="gotoaddcalendar">
         <div class="settingbtn">
           <q-btn flat round dense text-color="white" icon="add" class="" />
         </div>
@@ -27,7 +27,7 @@
                 "
 
           v-model="date"
-         color="green-5"
+         color="orange"
           :events="events"
           :event-color="(date) => (date[9] % 2 === 0 ? 'teal' : 'orange')"
         />
@@ -73,21 +73,21 @@ export default {
   name: "calendar",
   data() {
     return {
-      date:"2019/02/01",
+      date:"2021/07/26",
       events: [
-        "2019/02/01",
-        "2019/02/05",
-        "2019/02/06",
-        "2019/02/09",
-        "2019/02/23",
+        "2021/07/01",
+        "2021/07/05",
+        "2021/07/06",
+        "2021/07/09",
+        "2021/07/23",
       ],
       eventsFn(date) {
         if (
-          date === "2019/02/01" ||
-          date === "2019/02/05" ||
-          date === "2019/02/06" ||
-          date === "2019/02/09" ||
-          date === "2019/02/23"
+          date === "2021/07/01" ||
+          date === "2021/07/05" ||
+          date === "2021/07/06" ||
+          date === "2021/07/09" ||
+          date === "2021/07/23"
         ) {
           return true;
         }
