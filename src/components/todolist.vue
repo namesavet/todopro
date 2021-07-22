@@ -42,7 +42,6 @@
       </router-link>
       </div>
       
-
       <div class="col-6">
         <router-link to="gototestandscore">
             <div class="row justify-center q-mr-md q-ml-sm q-mt-md">
@@ -53,9 +52,8 @@
                 <div class="row">Score</div>
 
                 <div id="testimg">
-                  <q-img
+                  <q-img 
                     src="../image/test.png"
-
                     style="height: 100%; max-width: 190px"
                   />
                 </div>

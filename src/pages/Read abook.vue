@@ -79,7 +79,19 @@
                 <div class="percenred">15%</div>
             </div> 
           </div>
-          <div class="row"></div>
+
+          <div class="row justify-center q-mr-lg q-mt-lg">
+             <q-linear-progress
+            dark
+            stripe
+            rounded
+            size="16px"
+            :value="progress1"
+            color="red"
+            class=""
+            style="width: 280px"
+          />
+          </div>
         </div>
       </div>
     </div>
@@ -102,7 +114,19 @@
                 <div class="percenyellow">70%</div>
             </div> 
           </div>
-          <div class="row"></div>
+         
+          <div class="row justify-center q-mr-lg q-mt-lg">
+             <q-linear-progress
+            dark
+            stripe
+            rounded
+            size="16px"
+            :value="progress2"
+            color="yellow"
+            class=""
+            style="width: 280px"
+          />
+          </div>
         </div>
       </div>
     </div>
@@ -125,7 +149,19 @@
                 <div class="percengreen">98%</div>
             </div> 
           </div>
-          <div class="row"></div>
+          
+          <div class="row justify-center q-mr-lg q-mt-lg">
+             <q-linear-progress
+            dark
+            stripe
+            rounded
+            size="16px"
+            :value="progress3"
+            color="green"
+            class=""
+            style="width: 280px"
+          />
+          </div>
         </div>
       </div>
     </div>
@@ -148,7 +184,18 @@
                 <div class="percenyellow">66%</div>
             </div> 
           </div>
-          <div class="row"></div>
+           <div class="row justify-center q-mr-lg q-mt-lg">
+             <q-linear-progress
+            dark
+            stripe
+            rounded
+            size="16px"
+            :value="progress4"
+            color="yellow"
+            class=""
+            style="width: 280px"
+          />
+          </div>
         </div>
       </div>
     </div>
@@ -172,7 +219,18 @@
                 <div class="percenred">15%</div>
             </div> 
           </div>
-          <div class="row"></div>
+           <div class="row justify-center q-mr-lg q-mt-lg">
+             <q-linear-progress
+            dark
+            stripe
+            rounded
+            size="16px"
+            :value="progress1"
+            color="red"
+            class=""
+            style="width: 280px"
+          />
+          </div>
         </div>
       </div>
     </div>
@@ -182,6 +240,18 @@
     </q-page>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      progress1: 0.15,
+      progress2: 0.70,
+      progress3: 0.98,
+      progress4: 0.66,
+    };
+  },
+};
+</script>
 <style scope>
 
 .readabook{

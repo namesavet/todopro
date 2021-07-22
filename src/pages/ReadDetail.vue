@@ -39,7 +39,18 @@
                 <div class="percenyellow">66%</div>
             </div> 
           </div>
-          <div class="row"></div>
+          <div class="row justify-center q-mr-lg q-mt-lg">
+             <q-linear-progress
+            dark
+            stripe
+            rounded
+            size="16px"
+            :value="progress4"
+            color="yellow"
+            class=""
+            style="width: 280px"
+          />
+          </div>
         </div>
       </div>
     </div>
@@ -128,7 +139,15 @@
    
     </q-page>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      progress4: 0.66,
+    };
+  },
+};
+</script>
 <style scope>
 .namebook{
   width: 317px;
