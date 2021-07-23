@@ -2,67 +2,36 @@
   <q-page class="Welcome q-pt-xl">
     <div class="col">
       <div class="Logo q-ml-lg"></div>
-      <div class="texttitle1 q-ml-lg q-mt-lg">Sign up</div>
-      <div class="texttitle2 q-ml-lg q-mt-sm">to strat working</div>
+      <div class="texttitle1 q-ml-lg q-mt-lg">OTP</div>
+      <div class="texttitle2 q-ml-lg q-mt-sm">to start working</div>
 
       <div class="row justify-center items-center">
-        <div class="flag q-mt-lg">
-          <q-btn-dropdown
-            push
-            no-caps
-            icon="flag"
-            label="+31"
-            size="20px"
-            style="width: 138px; background: #286053; color: #3dd598"
+        <div class="col-10 q-mt-lg">
+          <q-input
+            square
+            :input-style="{ color: 'white' }"
+            label-color="grey"
+            label="OTP"
+            color="white"
+            style="font-size: 30px"
+            v-model="one_timePassword"
+            input-class="text-center"
+            mask="#      #      #      #"
           >
-            <q-list>
-              <q-item clickable v-close-popup>
-                <q-item-section avatar>
-                  <q-avatar icon="flag" color="primary" text-color="white" />
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label>ประเทศ</q-item-label>
-                  <q-item-label caption>เลข</q-item-label>
-                </q-item-section>
-                <q-item-section side>
-                  <q-icon name="info" color="amber" />
-                </q-item-section>
-              </q-item>
-
-              <q-item clickable v-close-popup>
-                <q-item-section avatar>
-                  <q-avatar icon="flag" color="primary" text-color="white" />
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label>ประเทศ</q-item-label>
-                  <q-item-label caption>เลข</q-item-label>
-                </q-item-section>
-                <q-item-section side>
-                  <q-icon name="info" color="amber" />
-                </q-item-section>
-              </q-item>
-            </q-list>
-          </q-btn-dropdown>
-        </div>
-
-        <div class="enter-tel col-5 q-mt-lg q-ml-md">
-          <q-input v-model="tel" label-color="#96A7AF" label="20 666 13 13" />
+          </q-input>
         </div>
       </div>
 
-      <div class="row justify-center items-center q-mt-xl">
-        <div class="button-back q-mt-lg">
-          <q-btn
-            push
-            align="center"
-            no-caps
-            icon-right="arrow_back"
-            size="20px"
-            style="width: 50px; background: #286053; color: #3dd598"
-          />
+      <div class="row justify-center items-center">
+        <div class="text_OTP q-mt-lg q-ml-lg q-mr-lg">
+          Please, enter 4-digit code We send on your number as SMS
         </div>
-        <div class="button-next q-mt-lg q-ml-md">
+      </div>
+
+      <div class="row justify-center items-center q-mt-md">
+        <div class="button-next">
           <q-btn
+            @click="$router.push({ name: 'Welcome' })"
             push
             align="center"
             no-caps
@@ -81,7 +50,7 @@
 export default {
   data() {
     return {
-      tel: "",
+      one_timePassword: "",
     };
   },
 };
@@ -92,10 +61,11 @@ export default {
   background: #22343c;
 }
 .Logo {
-  width: 50px;
+  width: 15%;
   height: 50px;
   background: #40df9f;
-  border-radius: 15%;
+  border-radius: 15px;
+  margin-top: 100px;
 }
 .texttitle1 {
   font-size: 40px;
@@ -105,6 +75,9 @@ export default {
 .texttitle2 {
   font-size: 25px;
   font-weight: bold;
+  color: #96a7af;
+}
+.text_OTP {
   color: #96a7af;
 }
 </style>
