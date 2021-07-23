@@ -156,8 +156,8 @@
             <div class="row items-center justify-center">10</div>
           </div>
         </div>
-        <br />
-        <div class="q-mr-lg"><q-separator color="grey" inset="item" /></div>
+       
+        <div class="q-mr-lg q-my-md"><q-separator color="grey" inset="item" /></div>
       </div>
     </div>
 

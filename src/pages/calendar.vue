@@ -19,15 +19,12 @@
       </router-link>
     </q-toolbar>
 
-    <div class="justify-center">
-      <div class="q-gutter-md text-white">
+    <div class="items-center">
+      <div class="q-gutter-md text-white text-center">
         <q-date
-        style="background-color: #2a3c44;  width: 100%;
-                height: 380px;
-                "
-
+          style="background-color: #2a3c44; width: 95%; height: 380px"
           v-model="date"
-         color="orange"
+          color="orange"
           :events="events"
           :event-color="(date) => (date[9] % 2 === 0 ? 'teal' : 'orange')"
         />
@@ -58,22 +55,15 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
-
-
   </q-page>
-  
-
-
 </template>
 
 <script>
-
-
 export default {
   name: "calendar",
   data() {
     return {
-      date:"2021/07/26",
+      date: "2021/07/26",
       events: [
         "2021/07/01",
         "2021/07/05",

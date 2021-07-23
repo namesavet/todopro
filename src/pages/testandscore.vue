@@ -141,111 +141,15 @@
       <div class="q-mr-lg q-my-lg">
         <q-separator color="grey" inset="item" />
       </div>
-        <div class="row justify-center">
-        <div class="profilesubject5" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
-          </div>
-        </div>
+       
 
-        <div class="col self-center q-ml-md">
-          <div class="text-white">SW Constructure</div>
-          <div class="text-blue-grey-4">ดร.อซิส</div>
-        </div>
-        <div class="q-mr-lg text-white self-center" style="overflow: hidden">
-          <div class="row items-center justify-center">5</div>
-        </div>
-      </div>
-
-      <div class="q-mr-lg q-my-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
-        <div class="row justify-center">
-        <div class="profilesubject5" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
-          </div>
-        </div>
-
-        <div class="col self-center q-ml-md">
-          <div class="text-white">SW Constructure</div>
-          <div class="text-blue-grey-4">ดร.อซิส</div>
-        </div>
-        <div class="q-mr-lg text-white self-center" style="overflow: hidden">
-          <div class="row items-center justify-center">5</div>
-        </div>
-      </div>
-
-      <div class="q-mr-lg q-my-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
-        <div class="row justify-center">
-        <div class="profilesubject5" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
-          </div>
-        </div>
-
-        <div class="col self-center q-ml-md">
-          <div class="text-white">SW Constructure</div>
-          <div class="text-blue-grey-4">ดร.อซิส</div>
-        </div>
-        <div class="q-mr-lg text-white self-center" style="overflow: hidden">
-          <div class="row items-center justify-center">5</div>
-        </div>
-      </div>
-
-      <div class="q-mr-lg q-my-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
-        <div class="row justify-center">
-        <div class="profilesubject5" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
-          </div>
-        </div>
-
-        <div class="col self-center q-ml-md">
-          <div class="text-white">SW Constructure</div>
-          <div class="text-blue-grey-4">ดร.อซิส</div>
-        </div>
-        <div class="q-mr-lg text-white self-center" style="overflow: hidden">
-          <div class="row items-center justify-center">5</div>
-        </div>
-      </div>
-
-      <div class="q-mr-lg q-my-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
     </div>
 <br>
 <br>
 <br>
 <br>
 
-    <!-- <q-tabs
-        
-        class=" shadow-2 "
-        style="background: #30444E;color:white;bottom:0 ;
-        position:absolute ;width:100% ;
-        border-radius: 15px 15px 0px 0px;"
-      >
-        <q-tab name="calendar" icon="calendar_today" />
-        <q-tab name="home" icon="home" />
-        <q-tab name="book" icon="menu_book" />
-      </q-tabs> -->
+    
     <q-footer elevated>
         <q-toolbar  class=" shadow-2 "
         style="background: #30444E;color:white;bottom:0 ;
