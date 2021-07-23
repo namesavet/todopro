@@ -21,6 +21,10 @@ const routes = [
        {path: 'backtocalendar', component: () => import('pages/calendar.vue')},
        {path: 'gotoaddcalendar', component: () => import('pages/addcalendar.vue')},
        {path: 'gotosubjectchapter', component: () => import('pages/subjectchapter.vue')},
+       {path: 'gotoevent', component: () => import('pages/event.vue')},
+       {path: 'backtoevent', component: () => import('pages/event.vue')},
+       {path: 'gotoeditevent', component: () => import('pages/editevent.vue')},
+      
      ]
     
     },

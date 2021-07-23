@@ -31,6 +31,50 @@
       </div>
     </div>
 
+    <div class="col q-ml-md q-mt-sm q-gutter-xs q-mt-lg">
+      <div>
+        <router-link to="gotoevent">
+          <div class="row justify-center">
+            <div class="typetest"></div>
+            <div class="col self-center text-bold q-ml-lg">
+              <div class="text-white text-bold" style="font-size: 16px">
+                Test 1
+              </div>
+            </div>
+          </div>
+
+          <div class="q-my-lg">
+            <q-separator color="grey" inset="" />
+          </div>
+        </router-link>
+
+        <div class="row justify-center">
+          <div class="typeother"></div>
+          <div class="col self-center text-bold q-ml-lg">
+            <div class="text-white text-bold" style="font-size: 16px">
+              Test 3
+            </div>
+          </div>
+        </div>
+
+        <div class="q-my-lg">
+          <q-separator color="grey" inset="" />
+        </div>
+
+        <div class="row justify-center">
+          <div class="typehomework"></div>
+          <div class="col self-center text-bold q-ml-lg">
+            <div class="text-white text-bold" style="font-size: 16px">
+              homework spi
+            </div>
+          </div>
+        </div>
+        <div class="q-my-lg">
+          <q-separator color="grey" inset="" />
+        </div>
+      </div>
+    </div>
+
     <br />
     <br />
     <br />
@@ -89,6 +133,24 @@ export default {
 </script>
 
 <style scoped>
+.typetest {
+  width: 24px;
+  height: 24px;
+  background: #ff575f;
+  border-radius: 15%;
+}
+.typehomework {
+  width: 24px;
+  height: 24px;
+  background: #3dd598;
+  border-radius: 15%;
+}
+.typeother {
+  width: 24px;
+  height: 24px;
+  background: #ffc542;
+  border-radius: 15%;
+}
 .subject {
   background: #22343c;
 }
