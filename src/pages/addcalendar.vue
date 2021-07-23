@@ -115,14 +115,13 @@
     </div>
 
     
-  <div class="row">
-    <div class="col-2 item-center">
-      <div class="text-white text-bold" style="font-size: 25px">
-        Description
+  
+  
+      <div class="text-white text-bold text-center" style="font-size: 25px">
+        Note
       </div>
-    </div>
 
-  </div>
+
      
  
     <div class="item-center q-pa-md" style="max-width: 500px">

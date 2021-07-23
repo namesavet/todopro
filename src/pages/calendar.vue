@@ -19,10 +19,10 @@
       </router-link>
     </q-toolbar>
 
-    <div class="q-pa-md row justify-center">
+    <div class="justify-center">
       <div class="q-gutter-md text-white">
         <q-date
-        style="background-color: #2a3c44;  width: 375px;
+        style="background-color: #2a3c44;  width: 100%;
                 height: 380px;
                 "
 
