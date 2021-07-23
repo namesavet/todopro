@@ -20,6 +20,7 @@ const routes = [
        {path: 'gotocalendar', component: () => import('pages/calendar.vue')},
        {path: 'backtocalendar', component: () => import('pages/calendar.vue')},
        {path: 'gotoaddcalendar', component: () => import('pages/addcalendar.vue')},
+       {path: 'gotosubjectchapter', component: () => import('pages/subjectchapter.vue')},
      ]
     
     },
