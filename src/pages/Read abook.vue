@@ -80,7 +80,7 @@
             </div> 
           </div>
 
-          <div class="row justify-center q-mr-lg q-mt-lg">
+          <div class="row q-mt-lg">
              <q-linear-progress
             dark
             stripe
@@ -89,7 +89,7 @@
             :value="progress1"
             color="red"
             class=""
-            style="width: 280px"
+            style="width: 90%"
           />
           </div>
         </div>
@@ -115,7 +115,7 @@
             </div> 
           </div>
          
-          <div class="row justify-center q-mr-lg q-mt-lg">
+          <div class="row q-mt-lg">
              <q-linear-progress
             dark
             stripe
@@ -124,7 +124,7 @@
             :value="progress2"
             color="yellow"
             class=""
-            style="width: 280px"
+            style="width: 90%"
           />
           </div>
         </div>
@@ -150,7 +150,7 @@
             </div> 
           </div>
           
-          <div class="row justify-center q-mr-lg q-mt-lg">
+          <div class="row q-mt-lg">
              <q-linear-progress
             dark
             stripe
@@ -159,7 +159,7 @@
             :value="progress3"
             color="green"
             class=""
-            style="width: 280px"
+            style="width: 90%"
           />
           </div>
         </div>
@@ -168,7 +168,7 @@
   <router-link to="gotospi">
     <div class="namebook q-ml-lg q-mt-lg" style="overflow: hidden">
       <div class="row justify-center">
-        <div class="col">
+        <div class="col ">
             <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
               <div class="row items-center justify-center q-mt-sm">
                 <q-btn flat round dense  icon="north" class="q-mr-xs" style="color:white"/>
@@ -184,7 +184,7 @@
                 <div class="percenyellow">66%</div>
             </div> 
           </div>
-           <div class="row justify-center q-mr-lg q-mt-lg">
+           <div class="row q-mt-lg">
              <q-linear-progress
             dark
             stripe
@@ -193,7 +193,7 @@
             :value="progress4"
             color="yellow"
             class=""
-            style="width: 280px"
+            style="width: 90%"
           />
           </div>
         </div>
@@ -219,7 +219,7 @@
                 <div class="percenred">15%</div>
             </div> 
           </div>
-           <div class="row justify-center q-mr-lg q-mt-lg">
+           <div class="row q-mt-lg">
              <q-linear-progress
             dark
             stripe
@@ -228,15 +228,34 @@
             :value="progress1"
             color="red"
             class=""
-            style="width: 280px"
+            style="width: 90%"
           />
           </div>
         </div>
       </div>
     </div>
-
-
-
+    
+<div class="row q-mt-xl">
+ <q-footer elevated >
+      <q-toolbar
+        class="shadow-2"
+        style="
+          background: #30444e;
+          color: white;
+          bottom: 0;
+          position: absolute;
+          width: 100%;
+          border-radius: 15px 15px 0px 0px;
+        "
+      >
+        <q-toolbar-title class="row justify-evenly">
+          <q-btn flat name="calendar" icon="calendar_today" />
+          <q-btn flat name="home" icon="home" />
+          <q-btn flat name="book" icon="menu_book" />
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
+</div>
     </q-page>
 </template>
 
@@ -275,8 +294,8 @@ export default {
   background: #FF575F;
   border-radius:25px ;
 }
-.readprogress {
-  width: 317px;
+.readprogress{
+  width: 90%;
   height: 157px;
   background: #30444E;
   border-radius:25px;
@@ -287,7 +306,7 @@ export default {
   font-weight: bold;
 }
 .namebook{
-  width: 317px;
+  width: 90%;
   height: 99px;
   background: #30444E;
   border-radius:25px;
