@@ -60,6 +60,7 @@
             </div>
           </div>
         </div>
+        
       <div class="col-8 q-ml-md  q-gutter-xs">
         <q-input v-model="teachername" label-color="#96A7AF" label="Teacher name" />
       </div> 

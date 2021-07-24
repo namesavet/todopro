@@ -4,6 +4,7 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
+
       {path: '', component: ()  => import('pages/Index.vue') },
       {path: 'gotoprofile', component: () => import('pages/Profile.vue')},
       {path: 'gotosemester', component: () => import('pages/semester.vue')},
@@ -26,10 +27,26 @@ const routes = [
       {path: 'backtocalendar', component: () => import('pages/calendar.vue')},
       {path: 'gotoaddcalendar', component: () => import('pages/addcalendar.vue')},
 
+
+      { path: 'Begin', name: 'Begin', component: () => import('pages/Begin.vue') },
+      { path: 'Welcome', name: 'Welcome', component: () => import('pages/Welcome.vue') },
+      { path: 'Createaccount1', name: 'Createaccount1', component: () => import('pages/Createaccount1.vue') },
+      { path: 'Createaccount2', name: 'Createaccount2', component: () => import('pages/Createaccount2.vue') },
+      { path: 'Createaccount3', name: 'Createaccount3', component: () => import('pages/Createaccount3.vue') },
+      { path: 'Createaccount4', name: 'Createaccount4', component: () => import('pages/Createaccount4.vue') },
+
      ]
     
     },
   
+
+    
+     
+    
+
+
+
+
 
 
 
