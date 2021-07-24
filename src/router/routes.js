@@ -5,6 +5,8 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       {path: '', component: ()  => import('pages/Index.vue') },
+      {path: 'gotoprofile', component: () => import('pages/Profile.vue')},
+      {path: 'gotosemester', component: () => import('pages/semester.vue')},
       {path: 'subject', component: ()  => import('pages/Subject.vue')},
       {path: 'addsubject', component: () => import('pages/Addsubject.vue')},
       {path: 'course', component: ()  => import('pages/Course.vue')},

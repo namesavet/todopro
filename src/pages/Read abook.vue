@@ -30,28 +30,28 @@
           </div>
 
           <div class="row">
-              <div class="col-16 q-ml-xs  q-mt-xs">
+              <div class="col-1 q-mt-xs ">
                   <div class="welldonetier"></div>
               </div>
-                <div class="col-16 q-ml-xs  q-gutter-xs">
+                <div class="col-10 q-ml-sm">
                   <div class="texttier">welldone read</div>
                 </div>
           </div>
 
-          <div class="row">
-              <div class="col-16 q-ml-xs  q-mt-xs">
-                  <div class="goodtier"></div>
+          <div class="row ">
+              <div class="col-1 q-mt-xs">
+                  <div class="goodtier "></div>             
               </div>
-              <div class="col-16 q-ml-xs  q-gutter-xs">
+              <div class="col-10 q-ml-sm">
                   <div class="texttier"> good read </div>
               </div>
           </div>
 
           <div class="row">
-              <div class="col-16 q-ml-xs  q-mt-xs">
+              <div class="col-1 q-mt-xs">
                   <div class="badtier"></div>
               </div>
-              <div class="col-16 q-ml-xs  q-gutter-xs">
+              <div class="col-10 q-ml-sm">
                   <div class="texttier">not good</div>
               </div>
           </div>

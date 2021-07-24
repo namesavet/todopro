@@ -52,7 +52,7 @@
               <div class="percenyellow">66%</div>
             </div>
           </div>
-          <div class="row justify-center q-mr-lg q-mt-lg">
+          <div class="row  q-mt-lg">
             <q-linear-progress
               dark
               stripe
@@ -61,7 +61,7 @@
               :value="progress4"
               color="yellow"
               class=""
-              style="width: 280px"
+              style="width: 90%"
             />
           </div>
         </div>
@@ -154,15 +154,14 @@
       <div class="col-6">
         <div class="titlechapter">Software Quality Factor</div>
       </div>
+
       <div class="col-2">
-  
         <q-option-group
           name="read"
           v-model="ch2"
           :options="options"
           color="green"
           type="checkbox"
-         
         />
       </div>
     </div>
@@ -237,7 +236,7 @@ export default {
       ch3:([]),
       options:[
         {
-          value:'null'
+          value:(null)
         },
       ],
     };
