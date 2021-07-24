@@ -2,15 +2,15 @@
   <q-page class="subject">
     <q-toolbar>
       <q-toolbar-title>
-        <router-link to="backtohome">
-          <q-btn
-            flat
-            color=""
-            icon="keyboard_arrow_left"
-            label="Back"
-            style="font-size: 16px; color: #96a7af"
-          />
-        </router-link>
+        <q-btn
+          flat
+          @click="$router.push({ name: 'Index' })"
+          push
+          color=""
+          icon="keyboard_arrow_left"
+          label="Back"
+          style="font-size: 16px; color: #96a7af"
+        />
       </q-toolbar-title>
     </q-toolbar>
 
@@ -24,12 +24,16 @@
     <div class="row justify-center">
       <div class="allscore"></div>
     </div>
- 
 
     <div class="q-ml-lg q-mt-lg">
-      <router-link to="gotosubjectscore">
-        <div class="row justify-center">
-          <div class="profilesubject1" style="overflow: hidden">
+        <div class="row justify-center" 
+            @click="$router.push({ name: 'subjectscore' })" push
+        >
+          <div
+            class="profilesubject1"
+           
+            style="overflow: hidden"
+          >
             <div class="row items-center justify-center q-mt-sm">
               <q-img
                 src="../image/profilesubject.png"
@@ -51,7 +55,6 @@
         <div class="q-mr-lg q-my-lg">
           <q-separator color="grey" inset="item" />
         </div>
-      </router-link>
 
       <div class="row justify-center">
         <div class="profilesubject2" style="overflow: hidden">
@@ -141,7 +144,7 @@
       <div class="q-mr-lg q-my-lg">
         <q-separator color="grey" inset="item" />
       </div>
-        <div class="row justify-center">
+      <div class="row justify-center">
         <div class="profilesubject5" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-sm">
             <q-img
@@ -163,7 +166,7 @@
       <div class="q-mr-lg q-my-lg">
         <q-separator color="grey" inset="item" />
       </div>
-        <div class="row justify-center">
+      <div class="row justify-center">
         <div class="profilesubject5" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-sm">
             <q-img
@@ -185,7 +188,7 @@
       <div class="q-mr-lg q-my-lg">
         <q-separator color="grey" inset="item" />
       </div>
-        <div class="row justify-center">
+      <div class="row justify-center">
         <div class="profilesubject5" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-sm">
             <q-img
@@ -207,7 +210,7 @@
       <div class="q-mr-lg q-my-lg">
         <q-separator color="grey" inset="item" />
       </div>
-        <div class="row justify-center">
+      <div class="row justify-center">
         <div class="profilesubject5" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-sm">
             <q-img
@@ -230,10 +233,10 @@
         <q-separator color="grey" inset="item" />
       </div>
     </div>
-<br>
-<br>
-<br>
-<br>
+    <br />
+    <br />
+    <br />
+    <br />
 
     <!-- <q-tabs
         
@@ -247,18 +250,24 @@
         <q-tab name="book" icon="menu_book" />
       </q-tabs> -->
     <q-footer elevated>
-        <q-toolbar  class=" shadow-2 "
-        style="background: #30444E;color:white;bottom:0 ;
-        position:absolute ;width:100% ;
-        border-radius: 15px 15px 0px 0px;"> 
-          <q-toolbar-title class="row justify-evenly">
-             <q-btn flat name="calendar" icon="calendar_today" />
-        <q-btn flat name="home" icon="home" />
-        <q-btn flat name="book" icon="menu_book" />
-          </q-toolbar-title>
-        </q-toolbar>
-      </q-footer>
-    
+      <q-toolbar
+        class="shadow-2"
+        style="
+          background: #30444e;
+          color: white;
+          bottom: 0;
+          position: absolute;
+          width: 100%;
+          border-radius: 15px 15px 0px 0px;
+        "
+      >
+        <q-toolbar-title class="row justify-evenly">
+          <q-btn flat name="calendar" icon="calendar_today" />
+          <q-btn flat name="home" icon="home" />
+          <q-btn flat name="book" icon="menu_book" />
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
   </q-page>
 </template>
 

@@ -68,12 +68,14 @@
             </div>
 
             <div class="col">
-                <router-link to="backtohome">
+               
                 <q-img
                     src="../image/phonebackground.png"
                     style="height: 100%; max-width: 100%;"
+                    @click="$router.push({ name: 'Index' })"
+                    push
                 />
-                </router-link>
+                
             </div>
         </div>
     </q-page>

@@ -2,14 +2,14 @@
   <q-page class="readdetail">
     <q-toolbar>
       <q-toolbar-title>
-        <router-link to="backtoreadabook">
           <q-btn
             flat
+              @click="$router.push({ name: 'Read abook' })"
+            push
             icon="keyboard_arrow_left"
             label="Back"
             style="font-size: 16px; color: #96a7af"
           />
-        </router-link>
       </q-toolbar-title>
     </q-toolbar>
 
@@ -27,7 +27,7 @@
       </div>
     </div>
 
-    <div class="namebook q-ml-lg q-mt-lg" style="overflow: hidden">
+    <div class="namebook" style="overflow: hidden">
       <div class="row justify-center">
         <div class="col">
           <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
@@ -235,11 +235,13 @@ export default {
 .readdetail{
   background: #22343c;
 }
-.namebook {
+.namebook{
   width: 90%;
   height: 99px;
-  background: #30444e;
-  border-radius: 25px;
+  background: #30444E;
+  border-radius:25px;
+  margin-left: 5%; 
+  margin-top: 5%;
 }
 .exam {
   font-size: 15px;
@@ -270,6 +272,17 @@ export default {
 .titlesubject{
   font-size: 15px;
   color: white;
+  font-weight: bold;
+}
+.statusyellow{
+  width: 59px;
+  height: 54px;
+  background: #FFC542;
+  border-radius:15px;
+}
+.percenyellow{
+  font-size: 15px;
+  color: #FFC542;
   font-weight: bold;
 }
 </style>

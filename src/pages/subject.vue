@@ -2,15 +2,15 @@
   <q-page class="subject">
     <q-toolbar>
       <q-toolbar-title>
-        <router-link to="backtohome">
           <q-btn
             flat
+             @click="$router.push({ name: 'Index' })"
+            push
             color=""
             icon="keyboard_arrow_left"
             label="Back"
             style="font-size: 16px; color: #96a7af"
           />
-        </router-link>
       </q-toolbar-title>
       <q-btn
         flat
@@ -161,11 +161,12 @@
       </div>
     </div>
 
-    <div class="q-px-sm q-py-lg">
-      <div class="column items-center" style="margin-top: 20px">
+    <div class="q-px-sm ">
+      <div class="col items-center" style="margin-top: 20px">
         <div class="row items-center justify-center">
-          <router-link to="gotoaddsubject">
             <q-btn
+             @click="$router.push({ name: 'addsubject' })"
+              push
               size="20px"
               round
               color=""
@@ -177,9 +178,13 @@
                 border: 10px solid #286053;
               "
             />
-          </router-link>
         </div>
       </div>
+    </div>
+
+    <div class="row items-center justify-center">         
+      <div class="fontaddsubject">Add Subject</div>       
+    </div>
 
 
       <div class="row q-mt-xl">

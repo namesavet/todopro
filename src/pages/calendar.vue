@@ -2,32 +2,36 @@
   <q-page class="subject">
     <q-toolbar>
       <q-toolbar-title>
-        <router-link to="backtohome">
+        <q-btn
+          flat
+          @click="$router.push({ name: 'Index' })"
+          push
+          color=""
+          icon="keyboard_arrow_left"
+          label="Back"
+          style="font-size: 16px; color: #96a7af"
+        />
+      </q-toolbar-title>
+        <div class="settingbtn">
           <q-btn
             flat
-            color=""
-            icon="keyboard_arrow_left"
-            label="Back"
-            style="font-size: 16px; color: #96a7af"
+            round
+            dense
+            @click="$router.push({ name: 'addcalendar' })"
+            push
+            text-color="white"
+            icon="add"
+            class=""
           />
-        </router-link>
-      </q-toolbar-title>
-      <router-link to="gotoaddcalendar">
-        <div class="settingbtn">
-          <q-btn flat round dense text-color="white" icon="add" class="" />
         </div>
-      </router-link>
     </q-toolbar>
 
     <div class="q-pa-md row justify-center">
       <div class="q-gutter-md text-white">
         <q-date
-        style="background-color: #2a3c44;  width: 375px;
-                height: 380px;
-                "
-
+          style="background-color: #2a3c44; width: 375px; height: 380px"
           v-model="date"
-         color="orange"
+          color="orange"
           :events="events"
           :event-color="(date) => (date[9] % 2 === 0 ? 'teal' : 'orange')"
         />
@@ -58,22 +62,15 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
-
-
   </q-page>
-  
-
-
 </template>
 
 <script>
-
-
 export default {
   name: "calendar",
   data() {
     return {
-      date:"2021/07/26",
+      date: "2021/07/26",
       events: [
         "2021/07/01",
         "2021/07/05",
