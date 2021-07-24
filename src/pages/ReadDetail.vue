@@ -1,5 +1,5 @@
 <template>
-  <q-page class="readabook">
+  <q-page class="readdetail">
     <q-toolbar>
       <q-toolbar-title>
         <router-link to="backtoreadabook">
@@ -52,7 +52,7 @@
               <div class="percenyellow">66%</div>
             </div>
           </div>
-          <div class="row  q-mt-lg">
+          <div class="row q-mt-lg">
             <q-linear-progress
               dark
               stripe
@@ -125,19 +125,16 @@
         <div class="titlechapter">Software Quality</div>
       </div>
       <div class="col-2">
-        <q-option-group
+        <q-checkbox
           name="read"
           v-model="ch1"
-          :options="options"
           color="green"
-          type="checkbox"
-      
         />
       </div>
     </div>
 
     <div class="q-mr-lg q-my-md">
-        <q-separator color="grey" inset="item" />
+      <q-separator color="grey" inset="item" />
     </div>
 
     <div class="row items-center q-mt-md">
@@ -156,18 +153,16 @@
       </div>
 
       <div class="col-2">
-        <q-option-group
+         <q-checkbox
           name="read"
           v-model="ch2"
-          :options="options"
           color="green"
-          type="checkbox"
         />
       </div>
     </div>
 
     <div class="q-mr-lg q-my-md">
-        <q-separator color="grey" inset="item" />
+      <q-separator color="grey" inset="item" />
     </div>
 
     <div class="row items-center q-mt-md">
@@ -185,19 +180,16 @@
         <div class="titlechapter">Software Quality improvement</div>
       </div>
       <div class="col-2">
-        <q-option-group
+        <q-checkbox
           name="read"
           v-model="ch3"
-          :options="options"
           color="green"
-          type="checkbox"
-          
         />
       </div>
     </div>
 
     <div class="q-mr-lg q-my-md">
-        <q-separator color="grey" inset="item" />
+      <q-separator color="grey" inset="item" />
     </div>
 
     <div class="row q-mt-xl">
@@ -221,7 +213,6 @@
         </q-toolbar>
       </q-footer>
     </div>
-    
   </q-page>
 </template>
 
@@ -231,20 +222,19 @@ export default {
     return {
       progress4: 0.66,
 
-      ch1:([]),
-      ch2:([]),
-      ch3:([]),
-      options:[
-        {
-          value:(null)
-        },
-      ],
+      ch1: false,
+      ch2: false,
+      ch3: false,
+     
     };
   },
 };
 </script>
 
 <style scope>
+.readdetail{
+  background: #22343c;
+}
 .namebook {
   width: 90%;
   height: 99px;
@@ -273,6 +263,11 @@ export default {
   font-weight: bold;
 }
 .titlechapter {
+  font-size: 15px;
+  color: white;
+  font-weight: bold;
+}
+.titlesubject{
   font-size: 15px;
   color: white;
   font-weight: bold;
