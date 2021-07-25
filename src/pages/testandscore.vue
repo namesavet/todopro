@@ -24,7 +24,6 @@
     <div class="row justify-center">
       <div class="allscore"></div>
     </div>
- 
 
     <div class="q-ml-lg q-mt-lg">
       <router-link to="gotosubjectscore">
@@ -47,11 +46,11 @@
             <div class="row items-center justify-center">1</div>
           </div>
         </div>
-
-        <div class="q-mr-lg q-my-lg">
-          <q-separator color="grey" inset="item" />
-        </div>
       </router-link>
+
+      <div class="q-mr-lg q-my-lg">
+        <q-separator color="grey" inset="item" />
+      </div>
 
       <div class="row justify-center">
         <div class="profilesubject2" style="overflow: hidden">
@@ -141,28 +140,31 @@
       <div class="q-mr-lg q-my-lg">
         <q-separator color="grey" inset="item" />
       </div>
-       
-
     </div>
-<br>
-<br>
-<br>
-<br>
+    <br />
+    <br />
+    <br />
+    <br />
 
-    
     <q-footer elevated>
-        <q-toolbar  class=" shadow-2 "
-        style="background: #30444E;color:white;bottom:0 ;
-        position:absolute ;width:100% ;
-        border-radius: 15px 15px 0px 0px;"> 
-          <q-toolbar-title class="row justify-evenly">
-             <q-btn flat name="calendar" icon="calendar_today" />
-        <q-btn flat name="home" icon="home" />
-        <q-btn flat name="book" icon="menu_book" />
-          </q-toolbar-title>
-        </q-toolbar>
-      </q-footer>
-    
+      <q-toolbar
+        class="shadow-2"
+        style="
+          background: #30444e;
+          color: white;
+          bottom: 0;
+          position: absolute;
+          width: 100%;
+          border-radius: 15px 15px 0px 0px;
+        "
+      >
+        <q-toolbar-title class="row justify-evenly">
+          <q-btn flat name="calendar" icon="calendar_today" />
+          <q-btn flat name="home" icon="home" />
+          <q-btn flat name="book" icon="menu_book" />
+        </q-toolbar-title>
+      </q-toolbar>
+    </q-footer>
   </q-page>
 </template>
 
@@ -178,8 +180,9 @@ export default {};
 .allscore {
   width: 317px;
   height: 241px;
-  background: #30444E ;
+  background: #30444e;
   border-radius: 25px;
+  box-shadow: 2px 2px 4px #19282f;
 }
 .profilesubject1 {
   width: 50px;

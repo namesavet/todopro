@@ -77,8 +77,15 @@
         >
           Grade
         </div>
-        <div class="gradechart">
-          
+        <div class="row gradechart">
+          <div class="col-2"></div>
+          <div class="col-6 text-center text-white text-bold">
+            <div class="row justify-center q-mt-xl q-mr-sm">90%</div>
+            <div class="row justify-center q-mt-sm q-mr-sm">80%</div>
+            <div class="row justify-center q-mt-md q-mr-sm">70%</div>
+            <div class="row justify-center q-mt-md q-mr-sm">60%</div>
+            <div class="row justify-center q-mt-sm q-mr-sm">50%</div>
+          </div>
           <!-- <q-img src="../image/gradechart.png" style="width: 90%" /> -->
         </div>
         <!-- <div id="trapezoid" class="row justify-center text-center">
@@ -254,13 +261,14 @@ export default {
   height: 268px;
   background: #30444e;
   border-radius: 25px;
+  box-shadow: 2px 2px 4px #19282f;
 }
 .gradechart {
   background-image: url("../image/gradechart.png");
   width: 100%;
   height: 75%;
   background-size: 100%;
-   border-radius: 25px;
+  border-radius: 25px;
 }
 /* #trapezoid {
   border-bottom: 200px solid;

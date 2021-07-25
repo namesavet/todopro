@@ -27,9 +27,38 @@
         <div class="text-blue-grey-4">ดร.กุลศิริ</div>
       </div>
     </div>
-
-    <div class="row justify-center">
-      <div class="scoregrade"></div>
+  <div class="row justify-center">
+      <div class="scoregrade">
+        <div
+          class="q-mt-md q-ml-lg text-white text-bold"
+          style="font-size: 20px"
+        >
+          Grade
+        </div>
+        <div class="row gradechart">
+          <div class="col-2"></div>
+          <div class="col-6 text-center text-white text-bold">
+            <div class="row justify-center q-mt-xl q-mr-sm">90%</div>
+            <div class="row justify-center q-mt-sm q-mr-sm">80%</div>
+            <div class="row justify-center q-mt-md q-mr-sm">70%</div>
+            <div class="row justify-center q-mt-md q-mr-sm">60%</div>
+            <div class="row justify-center q-mt-sm q-mr-sm">50%</div>
+          </div>
+          <!-- <q-img src="../image/gradechart.png" style="width: 90%" /> -->
+        </div>
+        <!-- <div id="trapezoid" class="row justify-center text-center">
+          <div id="trapezoid2" class="row justify-center text-center">
+            <div id="trapezoid3" class="row justify-center text-center">
+              <div id="trapezoid4" class="row justify-center text-center">
+                <div
+                  id="trapezoid5"
+                  class="row justify-center text-center"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
     </div>
 
     <div class="row justify-center items-center text-bold q-mt-sm">
@@ -235,8 +264,9 @@ export default {
 .scoregrade {
   width: 271px;
   height: 268px;
-  background: #2a3c44;
+  background: #30444e ;
   border-radius: 25px;
+  box-shadow: 2px 2px 4px #19282F;
 }
 
 .profilesubject1 {
@@ -262,6 +292,13 @@ export default {
 .chapter {
   font-size: 22px;
   color: white;
+}
+.gradechart {
+  background-image: url("../image/gradechart.png");
+  width: 100%;
+  height: 75%;
+  background-size: 100%;
+  border-radius: 25px;
 }
 </style >
 
