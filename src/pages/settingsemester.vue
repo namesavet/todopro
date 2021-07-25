@@ -33,19 +33,92 @@
       </div>
     </div>
 
-    <div class="row q-mt-xl">
-      <div class="col-10 self-center ">
-        <div class="semestertitle q-mt-sm text-center">1/2021</div> 
-      </div>
-      <div class="col ">
-          <q-btn
+  
+    <div class="row justify-center text-right" style="margin-top:15%;">
+      <div class="col-5 q-ml-md"> 
+        <div class="semestertitle q-mt-sm  ">1/2021</div> 
+        </div>
+      <div class="col-4 q-ml-md"> 
+        <q-btn
             flat
             round
             dense
             text-color="red"
             icon="delete_forever"
           />
-      </div>
+      </div>  
+    </div>
+    <div class="q-mx-lg q-mt-sm">
+      <q-separator color="grey" inset />
+    </div>
+    
+    <div class="row justify-center text-right" style="margin-top:15%;">
+      <div class="col-5 q-ml-md"> 
+        <div class="semestertitle q-mt-sm  ">2/2020</div> 
+        </div>
+      <div class="col-4 q-ml-md"> 
+        <q-btn
+            flat
+            round
+            dense
+            text-color="red"
+            icon="delete_forever"
+          />
+      </div>  
+    </div>
+    <div class="q-mx-lg q-mt-sm">
+      <q-separator color="grey" inset />
+    </div>
+
+    <div class="row justify-center text-right" style="margin-top:15%;">
+      <div class="col-5 q-ml-md"> 
+        <div class="semestertitle q-mt-sm  ">1/2020</div> 
+        </div>
+      <div class="col-4 q-ml-md"> 
+        <q-btn
+            flat
+            round
+            dense
+            text-color="red"
+            icon="delete_forever"
+          />
+      </div>  
+    </div>
+    <div class="q-mx-lg q-mt-sm">
+      <q-separator color="grey" inset />
+    </div>
+
+    <div class="row justify-center text-right" style="margin-top:15%;">
+      <div class="col-5 q-ml-md"> 
+        <div class="semestertitle q-mt-sm  ">2/2019</div> 
+        </div>
+      <div class="col-4 q-ml-md"> 
+        <q-btn
+            flat
+            round
+            dense
+            text-color="red"
+            icon="delete_forever"
+          />
+      </div>  
+    </div>
+    <div class="q-mx-lg q-mt-sm">
+      <q-separator color="grey" inset />
+    </div>
+
+    <div class="row justify-center text-right" style="margin-top:15%;">
+      <div class="col-5 q-ml-md"> 
+        <div class="semestertitle q-mt-sm  ">1/2019</div> 
+        </div>
+      <div class="col-4 q-ml-md"> 
+        <q-btn
+            flat
+            round
+            dense
+            text-color="red"
+            icon="delete_forever"
+          />
+      </div>  
     </div>
     <div class="q-mx-lg q-mt-sm">
       <q-separator color="grey" inset />

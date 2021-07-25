@@ -19,7 +19,7 @@
                      <div class="text-white text-bold" style="font-size: 30px">Pongsavet</div>
                 </div>
 
-                <div class="row">
+                <div class="row"  @click="$router.push({ name: 'profileDetail' })" push>
                     <div class="q-ml-md">
                         <q-avatar icon="perm_identity" style="color:#96A7AF"/>
                     </div>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
 
-                <div class="row ">
+                <div class="row " @click="$router.push({ name: 'grade summary' })" push>
                     <div class="q-ml-md">
                         <q-avatar icon="library_books" style="color:#96A7AF"/>
                     </div>

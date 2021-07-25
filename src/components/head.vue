@@ -36,6 +36,7 @@
 
       <div class="row justify-end">
         <q-btn
+          @click="$router.push({ name: 'grade summary' })" push
           style="font-size: 12px; height: 28px"
           rounded
           color="red"

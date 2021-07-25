@@ -5,8 +5,7 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
 
-      {path: '', component: ()  => import('pages/Index.vue') },
-      { path: 'Index', name: 'Index', component: () => import('pages/Index.vue') },
+      { path: '', name: 'Index', component: () => import('pages/Index.vue') },
       { path: 'Begin', name: 'Begin', component: () => import('pages/Begin.vue') },
       { path: 'Welcome', name: 'Welcome', component: () => import('pages/Welcome.vue') },
       { path: 'Createaccount1', name: 'Createaccount1', component: () => import('pages/Createaccount1.vue') },
@@ -14,6 +13,8 @@ const routes = [
       { path: 'Createaccount3', name: 'Createaccount3', component: () => import('pages/Createaccount3.vue') },
       { path: 'Createaccount4', name: 'Createaccount4', component: () => import('pages/Createaccount4.vue') }, 
       { path: 'profile', name: 'profile', component: () => import('pages/profile.vue') },
+      { path: 'profileDetail', name: 'profileDetail', component: () => import('pages/profileDetail.vue') },
+      { path: 'grade summary', name: 'grade summary', component: () => import('pages/grade summary.vue') },
       { path: 'subject', name: 'subject', component: () => import('pages/subject.vue') },
       { path: 'addsubject', name: 'addsubject', component: () => import('pages/addsubject.vue') },
       { path: 'Read abook', name: 'Read abook', component: () => import('pages/Read abook.vue') },
