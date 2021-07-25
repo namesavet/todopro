@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input v-model="Location" label-color="#96A7AF" label="Location" />
+           <q-select v-model="type" :options="types" label="type" color="#22343c"   />
       </div>
     </div>
 
@@ -139,7 +139,7 @@
 
     <div class="q-ml-lg text-white text-bold" style="font-size: 25px">Note</div>
 
-    <div class="item-center text-center q-pa-md">
+    <div class="item-center text-center q-ml-lg q-mr-lg">
       <q-input v-model="text" filled type="textarea" />
     </div>
 
@@ -183,6 +183,11 @@ export default {
       text: "",
       date: "2021/08/26",
       time: "10:56",
+      
+      type: (null),
+      types: [
+        'Homework', 'Test', 'Other'
+      ]
     };
   },
 };

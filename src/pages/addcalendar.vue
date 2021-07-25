@@ -58,7 +58,12 @@
         </div>
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input v-model="Location" label-color="#96A7AF" label="Location" />
+        <q-select
+          v-model="type"
+          :options="types"
+          label="type"
+          color="#22343c"
+        />
       </div>
     </div>
 
@@ -94,39 +99,64 @@
       </div>
     </div>
 
-    <div class="row justify-center">
-      <div class="col-2 item-center" style="overflow: hidden">
+    <div class="">
+      <div class="col-2 item-center q-ml-lg q-mr-lg" style="overflow: hidden">
         <div class="text-white text-bold" style="font-size: 25px">Date</div>
       </div>
 
-      <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input v-model="Subject" label-color="#96A7AF" label="Subject" />
+      <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
+        <q-input filled v-model="date" mask="date" :rules="['date']">
+          <template v-slot:append>
+            <q-icon name="event" class="cursor-pointer">
+              <q-popup-proxy
+                ref="qDateProxy"
+                transition-show="scale"
+                transition-hide="scale"
+              >
+                <q-date v-model="date">
+                  <div class="row items-center justify-end">
+                    <q-btn v-close-popup label="Close" color="primary" flat />
+                  </div>
+                </q-date>
+              </q-popup-proxy>
+            </q-icon>
+          </template>
+        </q-input>
       </div>
     </div>
 
-    <div class="row justify-center">
-      <div class="col-2 item-center">
+    <div class="">
+      <div class="col-2 item-center q-ml-lg">
         <div class="text-white text-bold" style="font-size: 25px">Time</div>
       </div>
 
-      <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input v-model="Subject" label-color="#96A7AF" label="Subject" />
+      <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
+        <q-input filled v-model="time" mask="time" :rules="['time']">
+          <template v-slot:append>
+            <q-icon name="access_time" class="cursor-pointer">
+              <q-popup-proxy transition-show="scale" transition-hide="scale">
+                <q-time v-model="time">
+                  <div class="row items-center justify-end">
+                    <q-btn v-close-popup label="Close" color="primary" flat />
+                  </div>
+                </q-time>
+              </q-popup-proxy>
+            </q-icon>
+          </template>
+        </q-input>
       </div>
     </div>
 
-    
-  
-  
-      <div class="text-white text-bold text-center" style="font-size: 25px">
-        Note
-      </div>
+    <div class="q-ml-lg text-white text-bold" style="font-size: 25px">Note</div>
 
-
-     
- 
-    <div class="item-center q-pa-md" style="max-width: 500px">
+    <div class="item-center text-center q-ml-lg q-mr-lg">
       <q-input v-model="text" filled type="textarea" />
     </div>
+
+    <br />
+    <br />
+    <br />
+    <br />
 
     <q-footer elevated>
       <q-toolbar
@@ -147,7 +177,6 @@
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
-    
   </q-page>
 </template>
 
@@ -159,6 +188,10 @@ export default {
       Location: "",
       Subject: "",
       text: "",
+      date: "2021/08/26",
+      time: "10:56",
+      type: null,
+      types: ["Homework", "Test", "Other"],
     };
   },
 };

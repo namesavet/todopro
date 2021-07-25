@@ -73,6 +73,7 @@
     </div>
     <div class="row ">
       <div class="col-8 q-ml-md  q-gutter-xs ">
+    
         <q-select v-model="credit" :options="credits" label="Your credit" color="#22343c"   />
       </div>
     </div>
