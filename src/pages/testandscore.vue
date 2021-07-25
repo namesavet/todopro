@@ -178,7 +178,7 @@ export default {};
 .allscore {
   width: 317px;
   height: 241px;
-  background: #2a3c44;
+  background: #30444E ;
   border-radius: 25px;
 }
 .profilesubject1 {

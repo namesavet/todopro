@@ -61,7 +61,6 @@
       <div class="bgtitle" style="overflow: hidden">
         <div class="col-2 item-center">
           <div class="row items-center justify-center q-mt-sm">
-            
             <!-- <q-img
               src="../image/people.png"
               style="height: 70%; max-width: 60%"
@@ -90,23 +89,51 @@
       </div>
     </div>
 
-    <div class="row justify-center">
-      <div class="col-2 item-center" style="overflow: hidden">
+    <div class="">
+      <div class="col-2 item-center q-ml-lg q-mr-lg" style="overflow: hidden">
         <div class="text-white text-bold" style="font-size: 25px">Date</div>
       </div>
 
-      <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input v-model="Subject" label-color="#96A7AF" label="Subject" />
+      <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
+        <q-input filled v-model="date" mask="date" :rules="['date']">
+          <template v-slot:append>
+            <q-icon name="event" class="cursor-pointer">
+              <q-popup-proxy
+                ref="qDateProxy"
+                transition-show="scale"
+                transition-hide="scale"
+              >
+                <q-date v-model="date">
+                  <div class="row items-center justify-end">
+                    <q-btn v-close-popup label="Close" color="primary" flat />
+                  </div>
+                </q-date>
+              </q-popup-proxy>
+            </q-icon>
+          </template>
+        </q-input>
       </div>
     </div>
 
-    <div class="row justify-center">
-      <div class="col-2 item-center">
+    <div class="">
+      <div class="col-2 item-center q-ml-lg">
         <div class="text-white text-bold" style="font-size: 25px">Time</div>
       </div>
 
-      <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input v-model="Subject" label-color="#96A7AF" label="Subject" />
+      <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
+        <q-input filled v-model="time" mask="time" :rules="['time']">
+          <template v-slot:append>
+            <q-icon name="access_time" class="cursor-pointer">
+              <q-popup-proxy transition-show="scale" transition-hide="scale">
+                <q-time v-model="time">
+                  <div class="row items-center justify-end">
+                    <q-btn v-close-popup label="Close" color="primary" flat />
+                  </div>
+                </q-time>
+              </q-popup-proxy>
+            </q-icon>
+          </template>
+        </q-input>
       </div>
     </div>
 
@@ -116,7 +143,13 @@
       <q-input v-model="text" filled type="textarea" />
     </div>
 
-   
+    
+
+
+    <br />
+    <br />
+    <br />
+    <br />
 
     <q-footer elevated>
       <q-toolbar
@@ -148,6 +181,8 @@ export default {
       Location: "",
       Subject: "",
       text: "",
+      date: "2021/08/26",
+      time: "10:56",
     };
   },
 };

@@ -70,7 +70,30 @@
     </div>
 
     <div class="row justify-center">
-      <div class="scoregrade"></div>
+      <div class="scoregrade">
+        <div
+          class="q-mt-md q-ml-lg text-white text-bold"
+          style="font-size: 20px"
+        >
+          Grade
+        </div>
+        <div class="gradechart">
+          
+          <!-- <q-img src="../image/gradechart.png" style="width: 90%" /> -->
+        </div>
+        <!-- <div id="trapezoid" class="row justify-center text-center">
+          <div id="trapezoid2" class="row justify-center text-center">
+            <div id="trapezoid3" class="row justify-center text-center">
+              <div id="trapezoid4" class="row justify-center text-center">
+                <div
+                  id="trapezoid5"
+                  class="row justify-center text-center"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
     </div>
     <div class="row justify-center">
       <div class="score">
@@ -192,7 +215,7 @@ export default {
   data() {
     return {
       progressall: 0.28,
-      progress1: 0.50,
+      progress1: 0.5,
       progress2: 0.66,
       progress3: 1,
     };
@@ -207,7 +230,7 @@ export default {
 .score {
   width: 100%;
   height: 100px;
-  background: #2a3c44;
+  background: #30444e;
   border-radius: 25px;
   margin-top: 10px;
   margin-left: 20px;
@@ -229,8 +252,71 @@ export default {
 .scoregrade {
   width: 271px;
   height: 268px;
-  background: #2a3c44;
+  background: #30444e;
   border-radius: 25px;
 }
+.gradechart {
+  background-image: url("../image/gradechart.png");
+  width: 100%;
+  height: 75%;
+  background-size: 100%;
+   border-radius: 25px;
+}
+/* #trapezoid {
+  border-bottom: 200px solid;
+  border-color: #ff565e;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  height: 0;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+  border-radius: 40%;
+}
+#trapezoid2 {
+  border-bottom: 160px solid;
+  border-color: #ff974a;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  height: 0;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 40px;
+}
+#trapezoid3 {
+  border-bottom: 120px solid;
+  border-color: #ffc542;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  height: 0;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 40px;
+}
+#trapezoid4 {
+  border-bottom: 80px solid;
+  border-color: #3bc28d;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  height: 0;
+  width: 80px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 40px;
+}
+#trapezoid5 {
+  border-bottom: 40px solid;
+  border-color: #0f54b9;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  height: 0;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 40px;
+} */
 </style >
 
