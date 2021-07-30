@@ -117,9 +117,149 @@
       </div>
     </div>
 
+
     <div class="row">
-      <div class="col q-ml-md q-mt-sm q-gutter-xs">
-        <div class="text-white text-bold" style="font-size: 30px">Grade</div>
+      <div
+        class=" text-white text-bold q-ml-md q-mt-sm q-gutter-xs"
+        style="font-size: 30px"
+      >
+        Grade
+      </div>
+      <div class="col-1" >
+        <q-btn-dropdown
+          flat 
+          v-model="selectgrade"
+          style="font-size: 24px; color: white; margin-top: 1%"
+       
+        />
+      </div>
+    </div>
+  
+  <div class="row"  v-if="selectgrade">
+    <div class="col" >
+        <strong>
+          <div class="row text-red q-ml-lg" >*Please enter a percentage</div>
+
+          <div class="row q-mt-lg q-ml-lg" >
+            <div class="gradeA" style="overflow: hidden">
+              <div class="col-2">
+                <div class="row items-center justify-center q-mt-sm">
+                  <div class="textgrade">A</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-8 q-ml-xs q-gutter-xs">
+              <q-input
+                v-model="a"
+                label-color="grey"
+                label="Enter percent grade"
+              />
+            </div>
+          </div>
+
+          <div class="row q-mt-xs q-ml-lg">
+            <div class="gradeB" style="overflow: hidden">
+              <div class="col-2">
+                <div class="row items-center justify-center q-mt-sm">
+                  <div class="textgrade">B+</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-8 q-ml-xs q-gutter-xs">
+              <q-input
+                v-model="bplus"
+                label-color="grey"
+                label="Enter percent grade"
+              />
+            </div>
+          </div>
+
+          <div class="row q-mt-xs q-ml-lg">
+            <div class="gradeB" style="overflow: hidden">
+              <div class="col-2">
+                <div class="row items-center justify-center q-mt-sm">
+                  <div class="textgrade">B</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-8 q-ml-xs q-gutter-xs">
+              <q-input
+                v-model="b"
+                label-color="grey"
+                label="Enter percent grade"
+              />
+            </div>
+          </div>
+
+          <div class="row q-mt-xs q-ml-lg">
+            <div class="gradeC" style="overflow: hidden">
+              <div class="col-2">
+                <div class="row items-center justify-center q-mt-sm">
+                  <div class="textgrade">C+</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-8 q-ml-xs q-gutter-xs">
+              <q-input
+                v-model="cplus"
+                label-color="grey"
+                label="Enter percent grade"
+              />
+            </div>
+          </div>
+
+          <div class="row q-mt-xs q-ml-lg">
+            <div class="gradeC" style="overflow: hidden">
+              <div class="col-2">
+                <div class="row items-center justify-center q-mt-sm">
+                  <div class="textgrade">C</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-8 q-ml-xs q-gutter-xs">
+              <q-input
+                v-model="c"
+                label-color="grey"
+                label="Enter percent grade"
+              />
+            </div>
+          </div>
+
+          <div class="row q-mt-xs q-ml-lg">
+            <div class="gradeD" style="overflow: hidden">
+              <div class="col-2">
+                <div class="row items-center justify-center q-mt-sm">
+                  <div class="textgrade">D+</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-8 q-ml-xs q-gutter-xs">
+              <q-input
+                v-model="dplus"
+                label-color="grey"
+                label="Enter percent grade"
+              />
+            </div>
+          </div>
+
+          <div class="row q-mt-xs q-ml-lg">
+            <div class="gradeD" style="overflow: hidden">
+              <div class="col-2">
+                <div class="row items-center justify-center q-mt-sm">
+                  <div class="textgrade">D</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-8 q-ml-xs q-gutter-xs">
+              <q-input
+                v-model="d"
+                label-color="grey"
+                label="Enter percent grade"
+              />
+            </div>
+          </div>
+        </strong>
       </div>
     </div>
 
@@ -253,6 +393,7 @@
 <script>
 export default {
   data() {
+    
     return {
       subjectname: "",
       initialsname: "",
@@ -266,15 +407,24 @@ export default {
         "(3)-(0)-(24)",
         "(3)-(0)-(25)",
       ],
+      selectgrade:false,
+      a: "",
+      bplus: "",
+      b: "",
+      cplus: "",
+      c: "",
+      dplus: "",
+      d: "",
       selectday: "",
       score: "",
-      grade: null,
-      grades: ["A", "B+", "B", "C+", "C", "D-", "D", "E"],
+      grade: "",
+      grades: ["A", "B+", "B", "C+", "C", "D+", "D", "E"],
       date_midterm: "2021/02/01",
       date_final: "2021/02/01",
     };
   },
 };
+
 </script>
 
 <style scoped >
@@ -292,6 +442,35 @@ export default {
   height: 66px;
   background: #ff565e;
   border-radius: 50%;
+}
+.textgrade {
+  font-size: 20px;
+  color: white;
+  font-weight: bold;
+}
+.gradeA {
+  width: 38px;
+  height: 42px;
+  background: #3bc28d;
+  border-radius: 15%;
+}
+.gradeB {
+  width: 38px;
+  height: 42px;
+  background: #0f54b9;
+  border-radius: 15%;
+}
+.gradeC {
+  width: 38px;
+  height: 42px;
+  background: #ffc542;
+  border-radius: 15%;
+}
+.gradeD {
+  width: 38px;
+  height: 42px;
+  background: #ff974a;
+  border-radius: 15%;
 }
 </style>
 
