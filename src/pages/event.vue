@@ -1,23 +1,24 @@
 <template>
   <q-page class="addsub">
     <q-toolbar>
-      <q-toolbar-title>
-        <router-link to="backtocalendar">
+      <q-toolbar-title>       
           <q-btn
             flat
+            @click="$router.push({ name: 'calendar' })"
+            push
             color=""
             icon="keyboard_arrow_left"
             label="Back"
             style="font-size: 16px; color: #96a7af"
           />
-        </router-link>
       </q-toolbar-title>
 
-      <router-link to="gotoeditevent">
+    
         <div class="settingbtn">
-          <q-btn flat round dense text-color="white" icon="settings" class="" />
+          <q-btn flat @click="$router.push({ name: 'editevent' })"
+            push round dense text-color="white" icon="settings" class="" />
         </div>
-      </router-link>
+
     </q-toolbar>
 
     <div class="row justify-center">

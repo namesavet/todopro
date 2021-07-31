@@ -56,10 +56,6 @@
           <q-separator color="grey" inset="item" />
         </div>
 
-      <div class="q-mr-lg q-my-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
-
       <div class="row justify-center">
         <div class="profilesubject2" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-sm">

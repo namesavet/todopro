@@ -4,7 +4,7 @@
       <q-toolbar-title>
           <q-btn
             flat
-             @click="$router.push({ name: 'Index' })"
+            @click="$router.push({ name: 'Index' })"
             push
             color=""
             icon="keyboard_arrow_left"
@@ -32,8 +32,8 @@
       </div>
 
       <div>
-        <router-link to="gotosubjectchapter">
-          <div class="row justify-center">
+          <div class="row justify-center" @click="$router.push({ name: 'subjectchapter' })"
+            push>
             <div class="profilesubject1" style="overflow: hidden">
               <div class="row items-center justify-center q-mt-md">
                 <q-img
@@ -59,10 +59,6 @@
           <div class="q-mr-lg q-my-lg">
             <q-separator color="grey" inset="item" />
           </div>
-        </div>
-
-        <div class="q-mr-lg q-mt-lg">
-          <q-separator color="grey" inset="item" />
         </div>
 
         <div class="row justify-center q-mt-lg">
@@ -165,7 +161,6 @@
         <div class="q-mr-lg q-mt-lg"><q-separator color="grey" inset="item" /></div>
         
       </div>
-    </div>
 
     <div class="q-px-sm ">
       <div class="col items-center" style="margin-top: 20px">

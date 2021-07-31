@@ -22,13 +22,13 @@ const routes = [
       { path: 'semester', name: 'semester', component: () => import('pages/semester.vue') },
       { path: 'settingsemester', name: 'settingsemester', component: () => import('pages/settingsemester.vue') },
       { path: 'testandscore', name: 'testandscore', component: () => import('pages/testandscore.vue') },
+      { path: 'subjectchapter', name: 'subjectchapter', component: () => import('pages/subjectchapter.vue') },
       { path: 'subjectscore', name: 'subjectscore', component: () => import('pages/subjectscore.vue') },
       { path: 'settingscore', name: 'settingscore', component: () => import('pages/settingscore.vue') },
       { path: 'calendar', name: 'calendar', component: () => import('pages/calendar.vue') },
       { path: 'addcalendar', name: 'addcalendar', component: () => import('pages/addcalendar.vue') },
-      {path: 'gotoevent', component: () => import('pages/event.vue')},
-      {path: 'backtoevent', component: () => import('pages/event.vue')},
-      {path: 'gotoeditevent', component: () => import('pages/editevent.vue')},
+      { path: 'event', name: 'event', component: () => import('pages/event.vue') },
+      { path: 'editevent', name: 'editevent', component: () => import('pages/editevent.vue') },
      ]
     
     },

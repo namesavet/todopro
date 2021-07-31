@@ -40,8 +40,9 @@
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs q-mt-lg">
       <div>
-        <router-link to="gotoevent">
-          <div class="row justify-center">
+       
+          <div class="row justify-center"  @click="$router.push({ name: 'event' })"
+          push>
             <div class="typetest"></div>
             <div class="col self-center text-bold q-ml-lg">
               <div class="text-white text-bold" style="font-size: 16px">
@@ -53,7 +54,7 @@
           <div class="q-my-lg">
             <q-separator color="grey" inset="" />
           </div>
-        </router-link>
+
 
         <div class="row justify-center">
           <div class="typeother"></div>
