@@ -125,21 +125,21 @@
       >
         Grade
       </div>
-      <div class="col-1" >
-        <q-btn-dropdown
-          flat 
+      <div class="col-1 q-mt-sm" >
+        <q-expansion-item
+          dense-toggle
+          switch-toggle-side
+          expand-separator
           v-model="selectgrade"
           style="font-size: 24px; color: white; margin-top: 1%"
-       
         />
       </div>
     </div>
-  
-  <div class="row"  v-if="selectgrade">
-    <div class="col" >
+
+     <div class="row"  >
+      <div div class="col" v-if="selectgrade">
         <strong>
           <div class="row text-red q-ml-lg" >*Please enter a percentage</div>
-
           <div class="row q-mt-lg q-ml-lg" >
             <div class="gradeA" style="overflow: hidden">
               <div class="col-2">
@@ -262,6 +262,9 @@
         </strong>
       </div>
     </div>
+    
+    
+ 
 
     <div class="row">
       <div class="col q-ml-md q-mt-sm q-gutter-xs">
