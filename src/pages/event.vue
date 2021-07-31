@@ -2,32 +2,26 @@
   <q-page class="addsub">
     <q-toolbar>
       <q-toolbar-title>
+        <router-link to="backtocalendar">
           <q-btn
             flat
-             @click="$router.push({ name: 'calendar' })"
-            push
             color=""
             icon="keyboard_arrow_left"
             label="Back"
             style="font-size: 16px; color: #96a7af"
           />
+        </router-link>
       </q-toolbar-title>
 
-      
-        <q-btn
-          flat
-          dense
-          @click="$router.push({ name: 'calendar' })"
-          text-color="white"
-          icon="done"
-          class="q-mr-xs"
-          style="background-color: #40df9f"
-        />
-      
+      <router-link to="gotoeditevent">
+        <div class="settingbtn">
+          <q-btn flat round dense text-color="white" icon="settings" class="" />
+        </div>
+      </router-link>
     </q-toolbar>
 
     <div class="row justify-center">
-      <div class="text-white text-bold" style="font-size: 30px">New event</div>
+      <div class="text-white text-bold" style="font-size: 30px">Event</div>
     </div>
 
     <div class="row justify-center q-mt-lg">
@@ -59,12 +53,7 @@
         </div>
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
-        <q-select
-          v-model="type"
-          :options="types"
-          label="type"
-          color="#22343c"
-        />
+           <q-select v-model="type" :options="types" label="type" color="#22343c"   />
       </div>
     </div>
 
@@ -72,15 +61,15 @@
       <div class="bgtitle" style="overflow: hidden">
         <div class="col-2 item-center">
           <div class="row items-center justify-center q-mt-sm">
-            <q-img
+            <!-- <q-img
               src="../image/people.png"
               style="height: 70%; max-width: 60%"
-            />
+            /> -->
           </div>
         </div>
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input v-model="Subject" label-color="#96A7AF" label="Subject" />
+        <q-input v-model="Subject" label-color="#96A7AF" label="Location" />
       </div>
     </div>
 
@@ -154,6 +143,9 @@
       <q-input v-model="text" filled type="textarea" />
     </div>
 
+    
+
+
     <br />
     <br />
     <br />
@@ -191,8 +183,11 @@ export default {
       text: "",
       date: "2021/08/26",
       time: "10:56",
-      type: null,
-      types: ["Homework", "Test", "Other"],
+      
+      type: (null),
+      types: [
+        'Homework', 'Test', 'Other'
+      ]
     };
   },
 };
@@ -209,12 +204,17 @@ export default {
   background: #625b39;
   border-radius: 15%;
 }
-
 .profile {
   width: 65px;
   height: 66px;
   background: #ff565e;
   border-radius: 50%;
+}
+.settingbtn {
+  width: 35px;
+  height: 34px;
+  background: #40df9f;
+  border-radius: 15%;
 }
 </style>
 

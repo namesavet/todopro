@@ -56,6 +56,10 @@
           <q-separator color="grey" inset="item" />
         </div>
 
+      <div class="q-mr-lg q-my-lg">
+        <q-separator color="grey" inset="item" />
+      </div>
+
       <div class="row justify-center">
         <div class="profilesubject2" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-sm">
@@ -238,17 +242,6 @@
     <br />
     <br />
 
-    <!-- <q-tabs
-        
-        class=" shadow-2 "
-        style="background: #30444E;color:white;bottom:0 ;
-        position:absolute ;width:100% ;
-        border-radius: 15px 15px 0px 0px;"
-      >
-        <q-tab name="calendar" icon="calendar_today" />
-        <q-tab name="home" icon="home" />
-        <q-tab name="book" icon="menu_book" />
-      </q-tabs> -->
     <q-footer elevated>
       <q-toolbar
         class="shadow-2"
@@ -283,8 +276,9 @@ export default {};
 .allscore {
   width: 317px;
   height: 241px;
-  background: #2a3c44;
+  background: #30444e;
   border-radius: 25px;
+  box-shadow: 2px 2px 4px #19282f;
 }
 .profilesubject1 {
   width: 50px;

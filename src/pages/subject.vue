@@ -32,26 +32,32 @@
       </div>
 
       <div>
-        <div class="row justify-center">
-          <div class="profilesubject1" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-md">
-              <q-img
-                src="../image/profilesubject.png"
-                style="height: 50%; width: 50%"
-              />
+        <router-link to="gotosubjectchapter">
+          <div class="row justify-center">
+            <div class="profilesubject1" style="overflow: hidden">
+              <div class="row items-center justify-center q-mt-md">
+                <q-img
+                  src="../image/profilesubject.png"
+                  style="height: 50%; width: 50%"
+                />
+              </div>
+            </div>
+
+            <div class="col self-center q-ml-md">
+              <div class="text-white">OOP 63</div>
+              <div class="text-blue-grey-4">ดร.ขวัญ</div>
+            </div>
+
+            <div
+              class="q-mr-lg numberchapter text-white self-center"
+              style="overflow: hidden"
+            >
+              <div class="row items-center justify-center">9</div>
             </div>
           </div>
 
-          <div class="col self-center q-ml-md">
-            <div class="text-white">OOP 63</div>
-            <div class="text-blue-grey-4">ดร.ขวัญ</div>
-          </div>
-
-          <div
-            class="q-mr-lg numberchapter text-white self-center"
-            style="overflow: hidden"
-          >
-            <div class="row items-center justify-center">9</div>
+          <div class="q-mr-lg q-my-lg">
+            <q-separator color="grey" inset="item" />
           </div>
         </div>
 

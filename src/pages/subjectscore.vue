@@ -37,23 +37,29 @@
 
     <div class="row justify-center">
       <div class="score">
-        <div
-          class="q-my-md q-ml-lg text-white text-bold"
-          style="font-size: 20px"
-        >
-          Score
+        <div class="row">
+          <div
+            class="col q-my-md q-ml-lg text-white text-bold"
+            style="font-size: 20px"
+          >
+            Score
+          </div>
+          <div
+            class="col q-my-md q-mr-lg text-bold text-right"
+            style="font-size: 20px; color: #ff565e"
+          >
+            28%
+          </div>
         </div>
 
         <div class="row justify-center">
           <q-linear-progress
             dark
-            stripe
             rounded
             size="16px"
-            :value="progress2"
-            color="red"
+            :value="progressall"
             class=""
-            style="width: 280px"
+            style="width: 90%; color: #ff565e"
           />
         </div>
       </div>
@@ -71,73 +77,121 @@
     </div>
 
     <div class="row justify-center">
-      <div class="scoregrade"></div>
+      <div class="scoregrade">
+        <div
+          class="q-mt-md q-ml-lg text-white text-bold"
+          style="font-size: 20px"
+        >
+          Grade
+        </div>
+        <div class="row gradechart">
+          <div class="col-2"></div>
+          <div class="col-6 text-center text-white text-bold">
+            <div class="row justify-center q-mt-xl q-mr-sm">90%</div>
+            <div class="row justify-center q-mt-sm q-mr-sm">80%</div>
+            <div class="row justify-center q-mt-md q-mr-sm">70%</div>
+            <div class="row justify-center q-mt-md q-mr-sm">60%</div>
+            <div class="row justify-center q-mt-sm q-mr-sm">50%</div>
+          </div>
+          <!-- <q-img src="../image/gradechart.png" style="width: 90%" /> -->
+        </div>
+        <!-- <div id="trapezoid" class="row justify-center text-center">
+          <div id="trapezoid2" class="row justify-center text-center">
+            <div id="trapezoid3" class="row justify-center text-center">
+              <div id="trapezoid4" class="row justify-center text-center">
+                <div
+                  id="trapezoid5"
+                  class="row justify-center text-center"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
     </div>
     <div class="row justify-center">
       <div class="score">
-        <div
-          class="q-my-md q-ml-lg text-white text-bold"
-          style="font-size: 16px"
-        >
-          Midterm exam
+        <div class="row">
+          <div
+            class="col q-my-md q-ml-lg text-white text-bold"
+            style="font-size: 16px"
+          >
+            Midterm exam
+          </div>
+          <div
+            class="col q-my-md q-mr-lg text-white text-bold text-right"
+            style="font-size: 16px"
+          >
+            15/30
+          </div>
         </div>
-
         <div class="row justify-center">
           <q-linear-progress
             dark
-            stripe
             rounded
             size="16px"
-            :value="progress2"
-            color="red"
+            :value="progress1"
+            color="white"
             class=""
-            style="width: 280px"
+            style="width: 90%"
           />
         </div>
       </div>
     </div>
     <div class="row justify-center">
       <div class="score">
-        <div
-          class="q-my-md q-ml-lg text-white text-bold"
-          style="font-size: 16px"
-        >
-          test1
+        <div class="row">
+          <div
+            class="col q-my-md q-ml-lg text-white text-bold"
+            style="font-size: 16px"
+          >
+            test1
+          </div>
+          <div
+            class="col q-my-md q-mr-lg text-white text-bold text-right"
+            style="font-size: 16px"
+          >
+            10/15
+          </div>
         </div>
-
         <div class="row justify-center">
           <q-linear-progress
             dark
-            stripe
             rounded
             size="16px"
             :value="progress2"
-            color="red"
+            color="white"
             class=""
-            style="width: 280px"
+            style="width: 90%"
           />
         </div>
       </div>
     </div>
     <div class="row justify-center">
       <div class="score">
-        <div
-          class="q-my-md q-ml-lg text-white text-bold"
-          style="font-size: 16px"
-        >
-          Homework1
+        <div class="row">
+          <div
+            class="col q-my-md q-ml-lg text-white text-bold"
+            style="font-size: 16px"
+          >
+            Homework1
+          </div>
+          <div
+            class="col q-my-md q-mr-lg text-white text-bold text-right"
+            style="font-size: 16px"
+          >
+            30/30
+          </div>
         </div>
-
         <div class="row justify-center">
           <q-linear-progress
             dark
-            stripe
             rounded
             size="16px"
-            :value="progress2"
-            color="red"
+            :value="progress3"
+            color="white"
             class=""
-            style="width: 280px"
+            style="width: 90%"
           />
         </div>
       </div>
@@ -174,7 +228,10 @@
 export default {
   data() {
     return {
-      progress2: 0.62,
+      progressall: 0.28,
+      progress1: 0.5,
+      progress2: 0.66,
+      progress3: 1,
     };
   },
 };
@@ -185,11 +242,13 @@ export default {
   background: #22343c;
 }
 .score {
-  width: 317px;
+  width: 100%;
   height: 100px;
-  background: #2a3c44;
+  background: #30444e;
   border-radius: 25px;
   margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 .settingbtn {
   width: 35px;
@@ -207,8 +266,72 @@ export default {
 .scoregrade {
   width: 271px;
   height: 268px;
-  background: #2a3c44;
+  background: #30444e;
+  border-radius: 25px;
+  box-shadow: 2px 2px 4px #19282f;
+}
+.gradechart {
+  background-image: url("../image/gradechart.png");
+  width: 100%;
+  height: 75%;
+  background-size: 100%;
   border-radius: 25px;
 }
+/* #trapezoid {
+  border-bottom: 200px solid;
+  border-color: #ff565e;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  height: 0;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 40px;
+  border-radius: 40%;
+}
+#trapezoid2 {
+  border-bottom: 160px solid;
+  border-color: #ff974a;
+  border-left: 80px solid transparent;
+  border-right: 80px solid transparent;
+  height: 0;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 40px;
+}
+#trapezoid3 {
+  border-bottom: 120px solid;
+  border-color: #ffc542;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  height: 0;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 40px;
+}
+#trapezoid4 {
+  border-bottom: 80px solid;
+  border-color: #3bc28d;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  height: 0;
+  width: 80px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 40px;
+}
+#trapezoid5 {
+  border-bottom: 40px solid;
+  border-color: #0f54b9;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  height: 0;
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 40px;
+} */
 </style >
 

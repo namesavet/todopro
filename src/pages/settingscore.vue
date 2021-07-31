@@ -36,75 +36,97 @@
       </div>
     </div>
 
-    <div class="row justify-center">
+  <div class="row justify-center">
       <div class="score">
-        <div
-          class="q-my-md q-ml-lg text-white text-bold"
-          style="font-size: 16px"
-        >
-          Midterm exam
+        <div class="row">
+          <div
+            class="col q-my-md q-ml-lg text-white text-bold"
+            style="font-size: 16px"
+          >
+            Midterm exam
+          </div>
+          <div
+            class="col q-my-md q-mr-lg text-white text-bold text-right"
+            style="font-size: 16px"
+          >
+            15/30
+          </div>
         </div>
-
         <div class="row justify-center">
           <q-linear-progress
             dark
-            stripe
             rounded
             size="16px"
-            :value="progress2"
-            color="red"
+            :value="progress1"
+            color="white"
             class=""
-            style="width: 280px"
+            style="width: 90%"
           />
         </div>
       </div>
     </div>
-    <div class="row justify-center">
+   <div class="row justify-center">
       <div class="score">
-        <div
-          class="q-my-md q-ml-lg text-white text-bold"
-          style="font-size: 16px"
-        >
-          test1
+        <div class="row">
+          <div
+            class="col q-my-md q-ml-lg text-white text-bold"
+            style="font-size: 16px"
+          >
+            test1
+          </div>
+          <div
+            class="col q-my-md q-mr-lg text-white text-bold text-right"
+            style="font-size: 16px"
+          >
+            10/15
+          </div>
         </div>
-
         <div class="row justify-center">
           <q-linear-progress
             dark
-            stripe
             rounded
             size="16px"
             :value="progress2"
-            color="red"
+            color="white"
             class=""
-            style="width: 280px"
+            style="width: 90%"
           />
         </div>
       </div>
     </div>
-    <div class="row justify-center">
-      <div class="score">
-        <div
-          class="q-my-md q-ml-lg text-white text-bold"
-          style="font-size: 16px"
-        >
-          Homework1
-        </div>
 
+
+  <div class="row justify-center">
+      <div class="score">
+        <div class="row">
+          <div
+            class="col q-my-md q-ml-lg text-white text-bold"
+            style="font-size: 16px"
+          >
+            Homework1
+          </div>
+          <div
+            class="col q-my-md q-mr-lg text-white text-bold text-right"
+            style="font-size: 16px"
+          >
+            30/30
+          </div>
+        </div>
         <div class="row justify-center">
           <q-linear-progress
             dark
-            stripe
             rounded
             size="16px"
-            :value="progress2"
-            color="red"
+            :value="progress3"
+            color="white"
             class=""
-            style="width: 280px"
+            style="width: 90%"
           />
         </div>
       </div>
     </div>
+
+
     <div class="q-px-sm q-py-lg">
       <div class="column items-center" style="margin-top: 20px">
         <div class="row items-center justify-center">
@@ -159,7 +181,10 @@
 export default {
   data() {
     return {
-      progress2: 0.62,
+     progressall: 0.28,
+      progress1: 0.50,
+      progress2: 0.66,
+      progress3: 1,
     };
   },
 };
@@ -169,11 +194,13 @@ export default {
   background: #22343c;
 }
 .score {
-  width: 317px;
+  width: 100%;
   height: 100px;
   background: #2a3c44;
   border-radius: 25px;
   margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 .settingbtn {
   width: 35px;

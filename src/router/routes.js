@@ -26,7 +26,9 @@ const routes = [
       { path: 'settingscore', name: 'settingscore', component: () => import('pages/settingscore.vue') },
       { path: 'calendar', name: 'calendar', component: () => import('pages/calendar.vue') },
       { path: 'addcalendar', name: 'addcalendar', component: () => import('pages/addcalendar.vue') },
-
+      {path: 'gotoevent', component: () => import('pages/event.vue')},
+      {path: 'backtoevent', component: () => import('pages/event.vue')},
+      {path: 'gotoeditevent', component: () => import('pages/editevent.vue')},
      ]
     
     },
