@@ -2,15 +2,15 @@
   <q-page class="subject">
     <q-toolbar>
       <q-toolbar-title>
-        <router-link to="backtohome">
           <q-btn
             flat
+            @click="$router.push({ name: 'Index' })"
+            push
             color=""
             icon="keyboard_arrow_left"
             label="Back"
             style="font-size: 16px; color: #96a7af"
           />
-        </router-link>
       </q-toolbar-title>
       <q-btn
         flat
@@ -32,8 +32,8 @@
       </div>
 
       <div>
-        <router-link to="gotosubjectchapter">
-          <div class="row justify-center">
+          <div class="row justify-center" @click="$router.push({ name: 'subjectchapter' })"
+            push>
             <div class="profilesubject1" style="overflow: hidden">
               <div class="row items-center justify-center q-mt-md">
                 <q-img
@@ -59,10 +59,9 @@
           <div class="q-mr-lg q-my-lg">
             <q-separator color="grey" inset="item" />
           </div>
+        </div>
 
-        </router-link>
-
-        <div class="row justify-center">
+        <div class="row justify-center q-mt-lg">
           <div class="profilesubject2" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-md">
               <q-img
@@ -83,10 +82,11 @@
           </div>
         </div>
 
-        <div class="q-mr-lg q-my-lg"><q-separator color="grey" inset="item" /></div>
-        
+        <div class="q-mr-lg q-mt-lg">
+          <q-separator color="grey" inset="item" />
+        </div>
 
-        <div class="row justify-center">
+        <div class="row justify-center q-mt-lg">
           <div class="profilesubject3" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-md">
               <q-img
@@ -106,11 +106,12 @@
             <div class="row items-center justify-center">4</div>
           </div>
         </div>
-       
-        <div class="q-mr-lg q-my-lg"><q-separator color="grey" inset="item" /></div>
-    
 
-        <div class="row justify-center">
+        <div class="q-mr-lg q-mt-lg">
+          <q-separator color="grey" inset="item" />
+        </div>
+
+        <div class="row justify-center q-mt-lg">
           <div class="profilesubject4" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-md">
               <q-img
@@ -131,11 +132,11 @@
           </div>
         </div>
 
-      
-        <div class="q-mr-lg q-my-lg"><q-separator color="grey" inset="item" /></div>
+        <div class="q-mr-lg q-mt-lg">
+          <q-separator color="grey" inset="item" />
+        </div>
 
-    
-        <div class="row justify-center">
+        <div class="row justify-center q-mt-lg">
           <div class="profilesubject5" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-md">
               <q-img
@@ -156,16 +157,17 @@
             <div class="row items-center justify-center">10</div>
           </div>
         </div>
-       
-        <div class="q-mr-lg q-my-md"><q-separator color="grey" inset="item" /></div>
+        
+        <div class="q-mr-lg q-mt-lg"><q-separator color="grey" inset="item" /></div>
+        
       </div>
-    </div>
 
-    <div class="q-px-sm q-py-lg">
-      <div class="column items-center" style="margin-top: 20px">
+    <div class="q-px-sm ">
+      <div class="col items-center" style="margin-top: 20px">
         <div class="row items-center justify-center">
-          <router-link to="gotoaddsubject">
             <q-btn
+             @click="$router.push({ name: 'addsubject' })"
+              push
               size="20px"
               round
               color=""
@@ -177,14 +179,38 @@
                 border: 10px solid #286053;
               "
             />
-          </router-link>
         </div>
       </div>
-
-      <div class="row items-center justify-center">
-        <div class="fontaddsubject">Add Subject</div>
-      </div>
     </div>
+
+    <div class="row items-center justify-center">         
+      <div class="fontaddsubject">Add Subject</div>       
+    </div>
+
+
+      <div class="row q-mt-xl">
+      <q-footer elevated>
+        <q-toolbar
+          class="shadow-2"
+          style="
+            background: #30444e;
+            color: white;
+            bottom: 0;
+            position: absolute;
+            width: 100%;
+            border-radius: 15px 15px 0px 0px;
+          "
+        >
+          <q-toolbar-title class="row justify-evenly">
+            <q-btn flat name="calendar" icon="calendar_today" />
+            <q-btn flat name="home" icon="home" />
+            <q-btn flat name="book" icon="menu_book" />
+          </q-toolbar-title>
+        </q-toolbar>
+      </q-footer>
+    </div>
+    
+
   </q-page>
 </template>
 

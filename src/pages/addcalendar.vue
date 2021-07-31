@@ -2,27 +2,28 @@
   <q-page class="addsub">
     <q-toolbar>
       <q-toolbar-title>
-        <router-link to="backtocalendar">
           <q-btn
             flat
+             @click="$router.push({ name: 'calendar' })"
+            push
             color=""
             icon="keyboard_arrow_left"
             label="Back"
             style="font-size: 16px; color: #96a7af"
           />
-        </router-link>
       </q-toolbar-title>
 
-      <router-link to="backtocalendar">
+      
         <q-btn
           flat
           dense
+          @click="$router.push({ name: 'calendar' })"
           text-color="white"
           icon="done"
           class="q-mr-xs"
           style="background-color: #40df9f"
         />
-      </router-link>
+      
     </q-toolbar>
 
     <div class="row justify-center">

@@ -2,21 +2,21 @@
   <q-page class="subject">
     <q-toolbar>
       <q-toolbar-title>
-        <router-link to="backtosubject">
           <q-btn
             flat
+            @click="$router.push({ name: 'subject' })"
+            push
             color=""
             icon="keyboard_arrow_left"
             label="Back"
             style="font-size: 16px; color: #96a7af"
           />
-        </router-link>
       </q-toolbar-title>
-      <router-link to="gotosettingscore">
+
         <div class="settingbtn">
-          <q-btn flat round dense text-color="white" icon="settings" class="" />
+          <q-btn flat @click="$router.push({ name: 'settingscore' })"
+            push round dense text-color="white" icon="settings" class="" />
         </div>
-      </router-link>
     </q-toolbar>
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
@@ -89,7 +89,6 @@
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
 
       <div>
-        <router-link to="gotosubjectchapter">
           <div class="row justify-center">
             <div class="profilesubject1 text-bold" style="overflow: hidden">
               <div class="chapter row items-center justify-center q-mt-sm">
@@ -107,7 +106,7 @@
           <div class="q-mr-lg q-my-lg">
             <q-separator color="grey" inset="item" />
           </div>
-        </router-link>
+
 
         <div class="row justify-center">
           <div class="profilesubject2 text-bold" style="overflow: hidden">
@@ -145,8 +144,9 @@
     <div class="q-px-sm q-py-lg">
       <div class="column items-center" style="margin-top: 20px">
         <div class="row items-center justify-center">
-          <router-link to="gotoaddsubject">
             <q-btn
+              @click="$router.push({ name: 'addsubject' })"
+              push
               size="20px"
               round
               color=""
@@ -158,12 +158,11 @@
                 border: 10px solid #286053;
               "
             />
-          </router-link>
         </div>
       </div>
 
       <div class="row items-center justify-center">
-        <div class="fontaddsubject">Add Subject</div>
+        <div class="fontaddsubject">Add Chapter</div>
       </div>
     </div>
 

@@ -2,21 +2,28 @@
   <q-page class="subject">
     <q-toolbar>
       <q-toolbar-title>
-        <router-link to="backtohome">
+        <q-btn
+          flat
+          @click="$router.push({ name: 'Index' })"
+          push
+          color=""
+          icon="keyboard_arrow_left"
+          label="Back"
+          style="font-size: 16px; color: #96a7af"
+        />
+      </q-toolbar-title>
+        <div class="settingbtn">
           <q-btn
             flat
-            color=""
-            icon="keyboard_arrow_left"
-            label="Back"
-            style="font-size: 16px; color: #96a7af"
+            round
+            dense
+            @click="$router.push({ name: 'addcalendar' })"
+            push
+            text-color="white"
+            icon="add"
+            class=""
           />
-        </router-link>
-      </q-toolbar-title>
-      <router-link to="gotoaddcalendar">
-        <div class="settingbtn">
-          <q-btn flat round dense text-color="white" icon="add" class="" />
         </div>
-      </router-link>
     </q-toolbar>
 
     <div class="items-center">
@@ -33,8 +40,9 @@
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs q-mt-lg">
       <div>
-        <router-link to="gotoevent">
-          <div class="row justify-center">
+       
+          <div class="row justify-center"  @click="$router.push({ name: 'event' })"
+          push>
             <div class="typetest"></div>
             <div class="col self-center text-bold q-ml-lg">
               <div class="text-white text-bold" style="font-size: 16px">
@@ -46,7 +54,7 @@
           <div class="q-my-lg">
             <q-separator color="grey" inset="" />
           </div>
-        </router-link>
+
 
         <div class="row justify-center">
           <div class="typeother"></div>

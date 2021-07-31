@@ -2,21 +2,28 @@
   <q-page class="subject">
     <q-toolbar>
       <q-toolbar-title>
-        <router-link to="backtotestandscore">
+        <q-btn
+          flat
+          @click="$router.push({ name: 'testandscore' })"
+          push
+          color=""
+          icon="keyboard_arrow_left"
+          label="Back"
+          style="font-size: 16px; color: #96a7af"
+        />
+      </q-toolbar-title>
+        <div class="settingbtn">
           <q-btn
             flat
-            color=""
-            icon="keyboard_arrow_left"
-            label="Back"
-            style="font-size: 16px; color: #96a7af"
+            round
+            dense
+            @click="$router.push({ name: 'settingscore' })"
+            push
+            text-color="white"
+            icon="settings"
+            class=""
           />
-        </router-link>
-      </q-toolbar-title>
-      <router-link to="gotosettingscore">
-        <div class="settingbtn">
-          <q-btn flat round dense text-color="white" icon="settings" class="" />
         </div>
-      </router-link>
     </q-toolbar>
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">

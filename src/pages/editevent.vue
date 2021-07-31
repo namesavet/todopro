@@ -2,22 +2,22 @@
   <q-page class="addsub">
     <q-toolbar>
       <q-toolbar-title>
-        <router-link to="backtoevent">
           <q-btn
             flat
+            @click="$router.push({ name: 'event' })"
+            push
             color=""
             icon="keyboard_arrow_left"
             label="Back"
             style="font-size: 16px; color: #96a7af"
           />
-        </router-link>
       </q-toolbar-title>
 
-      <router-link to="backtoevent">
+      
         <div class="settingbtn">
-          <q-btn flat round dense text-color="white" icon="done" class="" />
+          <q-btn flat @click="$router.push({ name: 'event' })"
+            push round dense text-color="white" icon="done" class="" />
         </div>
-      </router-link>
     </q-toolbar>
 
     <div class="row justify-center">

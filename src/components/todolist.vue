@@ -6,25 +6,31 @@
       </div>
     </div>
 
-   
-   
     <div class="row">
       <div class="col-6">
-        <router-link to="gotosubject">
-          <div class="row justify-center q-ml-md q-mr-sm q-mt-md">
-            <div class="subject text-center" style="overflow: hidden">
-              <div class="texttitle1 q-mt-sm">Subject</div>
+        <div class="row justify-center q-ml-md q-mr-sm q-mt-md">
+          <div
+            class="subject text-center"
+            @click="$router.push({ name: 'subject' })"
+            push
+            style="overflow: hidden"
+          >
+            <div class="texttitle1 q-mt-sm">Subject</div>
 
-              <q-img
-                src="../image/subject.png"
-                style="height: 100%; max-width: 160px"
-              />
-            </div>
+            <q-img
+              src="../image/subject.png"
+              style="height: 100%; max-width: 160px"
+            />
           </div>
-        </router-link>
+        </div>
 
-      <div class="row justify-center q-ml-md q-mr-sm q-mt-md">
-            <div class="read text-center" style="overflow: hidden">
+        <div class="row justify-center q-ml-md q-mr-sm q-mt-md">
+          <div
+            class="read text-center"
+            @click="$router.push({ name: 'Read abook' })"
+            push
+            style="overflow: hidden"
+          >
             <div class="texttitle2 q-ml-lg q-mt-sm">
               <div class="row">Read</div>
               <div class="row">a book</div>
@@ -39,28 +45,35 @@
       </div>
 
       <div class="col-6">
-        <router-link to="gototestandscore">
-            <div class="row justify-center q-mr-md q-ml-sm q-mt-md">
-            <div class="test text-center" style="overflow: hidden">
-              <div class="texttitle2 q-ml-lg q-mt-sm">
-                <div class="row">Test</div>
-                <div class="row">and</div>
-                <div class="row">Score</div>
+        <div class="row justify-center q-mr-md q-ml-sm q-mt-md">
+          <div
+            class="test text-center"
+            @click="$router.push({ name: 'testandscore' })"
+            push
+            style="overflow: hidden"
+          >
+            <div class="texttitle2 q-ml-lg q-mt-sm">
+              <div class="row">Test</div>
+              <div class="row">and</div>
+              <div class="row">Score</div>
 
-                <div id="testimg">
-                  <q-img
-                    src="../image/test.png"
-                    style="height: 100%; max-width: 190px"
-                  />
-                </div>
+              <div id="testimg">
+                <q-img
+                  src="../image/test.png"
+                  style="height: 100%; max-width: 190px"
+                />
               </div>
             </div>
           </div>
-        </router-link>
+        </div>
 
-        <router-link to="gotocalendar">
           <div class="row justify-center q-mr-md q-ml-sm q-mt-md">
-            <div class="calendar text-center" style="overflow: hidden">
+            <div
+              class="calendar text-center"
+              @click="$router.push({ name: 'calendar' })"
+              push
+              style="overflow: hidden"
+            >
               <div class="texttitle1 q-mt-sm">Calendar</div>
 
               <q-img
@@ -69,7 +82,6 @@
               />
             </div>
           </div>
-        </router-link>
       </div>
     </div>
 

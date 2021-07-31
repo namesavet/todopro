@@ -4,40 +4,45 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      {path: '', component: ()  => import('pages/Index.vue') },
-      {path: 'subject', component: ()  => import('pages/Subject.vue')},
-      {path: 'addsubject', component: () => import('pages/Addsubject.vue')},
-      {path: 'course', component: ()  => import('pages/Course.vue')},
-      {path: 'backtohome', component: () => import('pages/Index.vue')},
-      {path: 'backtosubject', component: () => import('pages/Subject.vue')},
-      {path: 'gotosubject', component: () => import('pages/Subject.vue')},
-      {path: 'gotoaddsubject', component: () => import('pages/Addsubject.vue')},
-       {path: 'gototestandscore', component: () => import('pages/Testandscore.vue')},
-       {path: 'gotosubjectscore', component: () => import('pages/subjectscore.vue')},
-       {path: 'backtotestandscore', component: () => import('pages/Testandscore.vue')},
-       {path: 'gotosettingscore', component: () => import('pages/settingscore.vue')},
-       {path: 'backtosubjectscore', component: () => import('pages/subjectscore.vue')},
-       {path: 'gotocalendar', component: () => import('pages/calendar.vue')},
-       {path: 'backtocalendar', component: () => import('pages/calendar.vue')},
-       {path: 'gotoaddcalendar', component: () => import('pages/addcalendar.vue')},
-       {path: 'gotosubjectchapter', component: () => import('pages/subjectchapter.vue')},
-       {path: 'gotoevent', component: () => import('pages/event.vue')},
-       {path: 'backtoevent', component: () => import('pages/event.vue')},
-       {path: 'gotoeditevent', component: () => import('pages/editevent.vue')},
-      
+
+      { path: '', name: 'Index', component: () => import('pages/Index.vue') },
+      { path: 'Begin', name: 'Begin', component: () => import('pages/Begin.vue') },
+      { path: 'Welcome', name: 'Welcome', component: () => import('pages/Welcome.vue') },
+      { path: 'Createaccount1', name: 'Createaccount1', component: () => import('pages/Createaccount1.vue') },
+      { path: 'Createaccount2', name: 'Createaccount2', component: () => import('pages/Createaccount2.vue') },
+      { path: 'Createaccount3', name: 'Createaccount3', component: () => import('pages/Createaccount3.vue') },
+      { path: 'Createaccount4', name: 'Createaccount4', component: () => import('pages/Createaccount4.vue') },
+      { path: 'Forgotpassword', name: 'Forgotpassword', component: () => import('pages/Forgotpassword.vue') },
+      { path: 'Resetpassword', name: 'Resetpassword', component: () => import('pages/Resetpassword.vue') },
+      { path: 'Newpassword', name: 'Newpassword', component: () => import('pages/Newpassword.vue') }, 
+      { path: 'profile', name: 'profile', component: () => import('pages/profile.vue') },
+      { path: 'profileDetail', name: 'profileDetail', component: () => import('pages/profileDetail.vue') },
+      { path: 'grade summary', name: 'grade summary', component: () => import('pages/grade summary.vue') },
+      { path: 'subject', name: 'subject', component: () => import('pages/subject.vue') },
+      { path: 'addsubject', name: 'addsubject', component: () => import('pages/addsubject.vue') },
+      { path: 'Read abook', name: 'Read abook', component: () => import('pages/Read abook.vue') },
+      { path: 'ReadDetail', name: 'ReadDetail', component: () => import('pages/ReadDetail.vue') },
+      { path: 'semester', name: 'semester', component: () => import('pages/semester.vue') },
+      { path: 'settingsemester', name: 'settingsemester', component: () => import('pages/settingsemester.vue') },
+      { path: 'testandscore', name: 'testandscore', component: () => import('pages/testandscore.vue') },
+      { path: 'subjectchapter', name: 'subjectchapter', component: () => import('pages/subjectchapter.vue') },
+      { path: 'subjectscore', name: 'subjectscore', component: () => import('pages/subjectscore.vue') },
+      { path: 'settingscore', name: 'settingscore', component: () => import('pages/settingscore.vue') },
+      { path: 'calendar', name: 'calendar', component: () => import('pages/calendar.vue') },
+      { path: 'addcalendar', name: 'addcalendar', component: () => import('pages/addcalendar.vue') },
+      { path: 'event', name: 'event', component: () => import('pages/event.vue') },
+      { path: 'editevent', name: 'editevent', component: () => import('pages/editevent.vue') },
      ]
     
     },
-  
 
-
-
+ 
   // Always leave this as last one,
   // but you can also remove it
   {
     path: '*',
     component: () => import('pages/Error404.vue')
   }
-]
+ ]
 
 export default routes
