@@ -55,7 +55,7 @@
                     </div>
                 </div>
 
-                <div class="row ">
+                <div class="row " @click="$router.push({ name: 'Begin' })" push>
                     <div class="q-ml-md">
                         <q-avatar icon="logout" style="color:#96A7AF"/>
                     </div>
