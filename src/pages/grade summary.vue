@@ -4,7 +4,7 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'profile' })"
+          @click="$router.push({ name: 'Index' })"
           push
           icon="keyboard_arrow_left"
           label="Back"
