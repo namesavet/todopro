@@ -125,15 +125,15 @@
       >
         Grade
       </div>
-      <div class="col-1 q-mt-sm" >
+      
         <q-expansion-item
           dense-toggle
           switch-toggle-side
           expand-separator
           v-model="selectgrade"
-          style="font-size: 24px; color: white; margin-top: 1%"
+          style="font-size: 24px; color: white; margin-top: 1% "
         />
-      </div>
+      
     </div>
 
      <div class="row"  >
