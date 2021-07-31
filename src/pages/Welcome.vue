@@ -6,7 +6,7 @@
 
       <div class="texttitle2 q-ml-lg q-mt-sm">Sign in to continue</div>
 
-      <div class="row justify-center items-center q-ml-xs q-mt-xl">
+      <div class="row justify-center items-center q-ml-xs q-mt-md">
         <div class="icon_Profile" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-md">
             <q-img src="../image/people.png" style="max-width: 45%" />
@@ -26,7 +26,7 @@
         </div>
       </div>
 
-      <div class="row justify-center items-center q-ml-xs q-mt-lg">
+      <div class="row justify-center items-center q-ml-xs q-mt-xs">
         <div class="icon_Key" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-md">
             <q-img src="../image/key.png" style="max-width: 45%" />
@@ -58,6 +58,7 @@
       <div class="row justify-center items-center">
         <div class="button-Sign_in q-mt-lg">
           <q-btn
+          @click="$router.push({ name: 'Index' })"
             push
             align="center"
             no-caps
@@ -83,7 +84,14 @@
       </div>
 
       <div class="row justify-center items-center">
-        <div class="text-forgot q-mt-md">Forgot password?</div>
+        <div class="text-forgot q-mt-md">
+          <q-btn
+            @click="$router.push({ name: 'Forgotpassword' })"
+            label="Forgot password?"
+            flat
+            no-caps
+          />
+        </div>
       </div>
 
       <div class="row justify-center items-center">
