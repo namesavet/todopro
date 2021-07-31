@@ -17,6 +17,9 @@ const routes = [
       { path: 'Createaccount2', name: 'Createaccount2', component: () => import('pages/Createaccount2.vue') },
       { path: 'Createaccount3', name: 'Createaccount3', component: () => import('pages/Createaccount3.vue') },
       { path: 'Createaccount4', name: 'Createaccount4', component: () => import('pages/Createaccount4.vue') },
+      { path: 'Forgotpassword', name: 'Forgotpassword', component: () => import('pages/Forgotpassword.vue') },
+      { path: 'Resetpassword', name: 'Resetpassword', component: () => import('pages/Resetpassword.vue') },
+      { path: 'Newpassword', name: 'Newpassword', component: () => import('pages/Newpassword.vue') },
       { path: 'gototestandscore', name: 'gototestandscore', component: () => import('pages/Testandscore.vue') },
 
 
