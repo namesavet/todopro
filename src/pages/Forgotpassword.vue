@@ -28,7 +28,7 @@
       </div>
 
       <div class="row justify-center items-center">
-        <div class="text_OTP q-mt-lg q-ml-lg q-mr-lg">
+        <div class=" text_OTP q-mt-lg q-ml-lg q-mr-lg">
           Please enter your telephone number to find your account.
         </div>
       </div>
@@ -86,7 +86,7 @@ export default {
   background: #22343c;
 }
 .Logo {
-  width: 15%;
+  width: 50px;
   height: 50px;
   background: #40df9f;
   border-radius: 15px;
