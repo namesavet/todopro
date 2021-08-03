@@ -14,7 +14,7 @@
       </q-toolbar-title>
 
         <div class="settingbtn">
-          <q-btn flat @click="$router.push({ name: 'settingscore' })"
+          <q-btn flat @click="$router.push({ name: 'editsubjectchapter' })"
             push round dense text-color="white" icon="settings" class="" />
         </div>
     </q-toolbar>

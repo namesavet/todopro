@@ -12,14 +12,7 @@
           style="font-size: 16px; color: #96a7af"
         />
       </q-toolbar-title>
-      <q-btn
-        flat
-        round
-        dense
-        icon="search"
-        class="q-mr-xs"
-        style="color: #96a7af"
-      />
+
     </q-toolbar>
 
     <div class="row">
@@ -77,13 +70,13 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusred q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-sm">
+             <div class="q-mt-sm row items-center justify-center text-center">
               <q-btn
                 flat
                 round
                 dense
                 icon="south"
-                class="q-mr-xs"
+                class=""
                 style="color: white"
               />
             </div>
@@ -102,7 +95,7 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              stripe
+              
               rounded
               size="16px"
               :value="progress1"
@@ -119,13 +112,13 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-sm">
+          <div class="q-mt-sm row items-center justify-center text-center">
               <q-btn
                 flat
                 round
                 dense
                 icon="north"
-                class="q-mr-xs"
+                class=""
                 style="color: white"
               />
             </div>
@@ -144,7 +137,7 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              stripe
+              
               rounded
               size="16px"
               :value="progress2"
@@ -161,13 +154,13 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusgreen q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-sm">
+          <div class="q-mt-sm row items-center justify-center text-center">
               <q-btn
                 flat
                 round
                 dense
                 icon="star"
-                class="q-mr-xs"
+                class=""
                 style="color: white"
               />
             </div>
@@ -186,7 +179,7 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              stripe
+              
               rounded
               size="16px"
               :value="progress3"
@@ -208,13 +201,13 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-sm">
+           <div class="q-mt-sm row items-center justify-center text-center">
               <q-btn
                 flat
                 round
                 dense
                 icon="north"
-                class="q-mr-xs"
+                class=""
                 style="color: white"
               />
             </div>
@@ -232,7 +225,7 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              stripe
+              
               rounded
               size="16px"
               :value="progress4"
@@ -249,13 +242,13 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusred q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-sm">
+            <div class="q-mt-sm row items-center justify-center text-center">
               <q-btn
                 flat
                 round
                 dense
                 icon="south"
-                class="q-mr-xs"
+                class=""
                 style="color: white"
               />
             </div>
@@ -273,7 +266,7 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              stripe
+              
               rounded
               size="16px"
               :value="progress1"
@@ -285,6 +278,11 @@
         </div>
       </div>
     </div>
+
+    <br>
+    <br>
+    <br>
+
 
     <div class="row q-mt-xl">
       <q-footer elevated>

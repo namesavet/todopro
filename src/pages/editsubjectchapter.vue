@@ -6,7 +6,7 @@
           flat
           color=""
           icon="keyboard_arrow_left"
-          @click="$router.push({ name: 'subject' })"
+          @click="$router.push({ name: 'subjectchapter' })"
           push
           label="Back"
           style="font-size: 16px; color: #96a7af"
@@ -16,7 +16,7 @@
       <q-btn
         flat
         dense
-        @click="$router.push({ name: 'subject' })"
+        @click="$router.push({ name: 'subjectchapter' })"
         push
         text-color="white"
         icon="done"
@@ -305,7 +305,7 @@
         <q-input
           color="white"
           label-color="#96A7AF"
-          v-model="score"
+          v-model="midterscoregrade"
           label="Score%"
         />
       </div>
@@ -344,7 +344,7 @@
         <q-input
           color="white"
           label-color="#96A7AF"
-          v-model="score"
+          v-model="finalscoregrade"
           label="Score%"
         />
       </div>
@@ -361,8 +361,8 @@
     <div class="row">
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-select
-          v-model="grade"
-          :options="grades"
+          v-model="desiredgrade"
+          :options="desiredgrades"
           label="Your grade"
           color="#22343c"
         />
@@ -400,11 +400,11 @@ export default {
   data() {
     
     return {
-      subjectname: "",
-      initialsname: "",
-      teachername: "",
+      subjectname: "SPI",
+      initialsname: "SPI",
+      teachername: "ดร.กุลศิริ",
 
-      credit: null,
+      credit: "(3)-(0)-(21)",
       credits: [
         "(3)-(0)-(21)",
         "(3)-(0)-(22)",
@@ -413,17 +413,18 @@ export default {
         "(3)-(0)-(25)",
       ],
       selectgrade:false,
-      a: "",
-      bplus: "",
-      b: "",
-      cplus: "",
-      c: "",
-      dplus: "",
-      d: "",
+      a: "80%",
+      bplus: "75%",
+      b: "70%",
+      cplus: "65%",
+      c: "60%",
+      dplus: "55%",
+      d: "50%",
       selectday: "",
-      score: "",
-      grade: "",
-      grades: ["A", "B+", "B", "C+", "C", "D+", "D", "E"],
+      midterscoregrade: "30%",
+      finalscoregrade: "30%",
+      desiredgrade: "A",
+      desiredgrades: ["A", "B+", "B", "C+", "C", "D+", "D", "E"],
       date_midterm: "2021/02/01",
       date_final: "2021/02/01",
     };

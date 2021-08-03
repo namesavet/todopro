@@ -32,6 +32,10 @@ const routes = [
       { path: 'addcalendar', name: 'addcalendar', component: () => import('pages/addcalendar.vue') },
       { path: 'event', name: 'event', component: () => import('pages/event.vue') },
       { path: 'editevent', name: 'editevent', component: () => import('pages/editevent.vue') },
+{ path: 'editsubjectchapter', name: 'editsubjectchapter', component: () => import('pages/editsubjectchapter.vue') },
+{ path: 'subjectchapter', name: 'subjectchapter', component: () => import('pages/subjectchapter.vue') },
+
+
      ]
     
     },
