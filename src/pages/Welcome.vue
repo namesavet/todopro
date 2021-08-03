@@ -58,7 +58,7 @@
       <div class="row justify-center items-center">
         <div class="button-Sign_in q-mt-lg">
           <q-btn
-          @click="$router.push({ name: 'Index' })"
+           @click="gotoindex()"
             push
             align="center"
             no-caps
@@ -126,6 +126,14 @@ export default {
       console.log(this.Password);
       this.$router.push({
         path: "/Createaccount1",
+      });
+    },
+
+      gotoindex() {
+      console.log(this.Username);
+      console.log(this.Password);
+      this.$router.push({
+        path: "/Index",
       });
     },
   },
