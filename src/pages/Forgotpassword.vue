@@ -13,7 +13,7 @@
             label-color="grey"
             label="telephone number"
             color="white"
-            v-model="Forgotpassword"
+            v-model="Phone"
             mask="### - ### - ####"
             :rules="[
               (val) =>
@@ -66,12 +66,12 @@
 export default {
   data() {
     return {
-      Forgotpassword: "",
+      Phone: "",
     };
   },
   methods: {
     gotoresetpassword() {
-      console.log(this.Forgotpassword);
+      console.log(this.Phone);
 
       this.$router.push({
         path: "/Resetpassword",
