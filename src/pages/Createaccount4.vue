@@ -14,7 +14,7 @@
             label="OTP"
             color="white"
             style="font-size: 30px"
-            v-model="one_timePassword"
+            v-model="OTP"
             input-class="text-center"
             mask="#      #      #      #"
           >
@@ -50,7 +50,7 @@
 export default {
   data() {
     return {
-      one_timePassword: "",
+      OTP: "",
     };
   },
 };
