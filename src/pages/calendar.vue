@@ -60,7 +60,7 @@
           <div class="typeother"></div>
           <div class="col self-center text-bold q-ml-lg">
             <div class="text-white text-bold" style="font-size: 16px">
-              Test 3
+              Other
             </div>
           </div>
         </div>

@@ -30,14 +30,14 @@
     <div class="namebook" style="overflow: hidden">
       <div class="row justify-center">
         <div class="col">
-          <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-sm">
+          <div class="statusyellow q-ml-lg q-mt-lg text-center" style="overflow: hidden">
+            <div class="q-mt-sm row items-center justify-center text-center">
               <q-btn
                 flat
                 round
                 dense
                 icon="star"
-                class="q-mr-xs"
+                class=""
                 style="color: white"
               />
             </div>
@@ -55,7 +55,7 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              stripe
+              
               rounded
               size="16px"
               :value="progress4"
@@ -111,7 +111,6 @@
           name="chrome_reader_mode"
           style="color: #42ff4a; font-size: 25px; width: 25%;  text-align: left;"
           class="q-mr-lg"
-          
         >
         </q-icon>
       </div>

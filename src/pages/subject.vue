@@ -44,15 +44,15 @@
             </div>
 
             <div class="col self-center q-ml-md">
-              <div class="text-white">OOP 63</div>
+              <div class="text-white">SPI</div>
               <div class="text-blue-grey-4">ดร.ขวัญ</div>
             </div>
 
             <div
-              class="q-mr-lg numberchapter text-white self-center"
+              class="q-mr-lg text-center numberchapter text-white self-center"
               style="overflow: hidden"
             >
-              <div class="row items-center justify-center">9</div>
+             <div class="q-mt-xs">3</div>
             </div>
           </div>
 
@@ -75,10 +75,10 @@
             <div class="text-blue-grey-4">ดร.ขวัญ</div>
           </div>
           <div
-            class="q-mr-lg numberchapter text-white self-center"
+            class="q-mr-lg text-center numberchapter text-white self-center"
             style="overflow: hidden"
           >
-            <div class="row items-center justify-center">8</div>
+             <div class="q-mt-xs">4</div>
           </div>
         </div>
 
@@ -100,10 +100,10 @@
             <div class="text-blue-grey-4">ดร.ขวัญ</div>
           </div>
           <div
-            class="q-mr-lg numberchapter text-white self-center"
+            class="q-mr-lg text-center tex-center numberchapter text-white self-center"
             style="overflow: hidden"
           >
-            <div class="row items-center justify-center">4</div>
+           <div class="q-mt-xs">7</div>
           </div>
         </div>
 
@@ -121,14 +121,14 @@
             </div>
           </div>
           <div class="col self-center q-ml-md">
-            <div class="text-white">SPI</div>
+            <div class="text-white">OOP 63</div>
             <div class="text-blue-grey-4">ดร.ขวัญ</div>
           </div>
           <div
-            class="q-mr-lg numberchapter text-white self-center"
+            class="q-mr-lg text-center numberchapter text-white self-center items-center" 
             style="overflow: hidden"
           >
-            <div class="row items-center justify-center">7</div>
+            <div class="q-mt-xs">7</div>
           </div>
         </div>
 
@@ -151,10 +151,10 @@
             <div class="text-blue-grey-4">ดร.ขวัญ</div>
           </div>
           <div
-            class="q-mr-lg numberchapter text-white self-center"
+            class="q-mr-lg text-center numberchapter text-white self-center"
             style="overflow: hidden"
           >
-            <div class="row items-center justify-center">10</div>
+             <div class="q-mt-xs">10</div>
           </div>
         </div>
         
