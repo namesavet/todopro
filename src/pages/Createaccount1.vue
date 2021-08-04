@@ -13,6 +13,7 @@
         </div>
         <div class="col-9 q-ml-md">
           <q-input
+           class="q-mt-sm"
             :input-style="{ color: 'white' }"
             v-model="Fullname"
             label-color="grey"
@@ -33,6 +34,7 @@
         </div>
         <div class="col-9 q-ml-md">
           <q-input
+           class="q-mt-sm"
             :input-style="{ color: 'white' }"
             v-model="Username"
             label-color="grey"
