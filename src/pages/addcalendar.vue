@@ -34,9 +34,10 @@
       <div class="bgtitle" style="overflow: hidden">
         <div class="col-2">
           <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/book.png"
-              style="height: 70%; max-width: 70%"
+           <q-icon
+              name="chrome_reader_mode"
+              size="30px"
+              style="color: #FFC542"
             />
           </div>
         </div>
@@ -57,9 +58,10 @@
       <div class="bgtitle" style="overflow: hidden">
         <div class="col-2">
           <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/book.png"
-              style="height: 70%; max-width: 70%"
+           <q-icon
+              name="chrome_reader_mode"
+              size="30px"
+              style="color: #FFC542"
             />
           </div>
         </div>
@@ -80,9 +82,10 @@
       <div class="bgtitle" style="overflow: hidden">
         <div class="col-2 item-center">
           <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/people.png"
-              style="height: 70%; max-width: 60%"
+           <q-icon
+              name="location_on"
+              size="30px"
+              style="color: #FFC542"
             />
           </div>
         </div>

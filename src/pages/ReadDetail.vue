@@ -4,7 +4,7 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'Read abook' })"
+          @click="$router.push({ name: 'Readbook' })"
           push
           icon="keyboard_arrow_left"
           label="Back"
@@ -66,14 +66,14 @@
       </div>
     </div>
 
-    <div class="row q-ml-xl q-mt-lg">
-      <div class="q-ml-xs q-mt-xs">
+    <div class="row q-ml-xl q-mt-lg ">
+      <div class="q-mt-xs">
         <div class="redcircle"></div>
       </div>
-      <div class="col-4 q-ml-sm">
+      <div class="col-4 q-mx-sm">
         <div class="exam">Midterm exam</div>
       </div>
-      <div class="col-4 q-ml-xs">
+      <div class="col-4 q-mx-xs">
         <div class="exam">08 May 2020</div>
       </div>
       <div class="col">
@@ -81,14 +81,14 @@
       </div>
     </div>
 
-    <div class="row q-ml-xl q-mt-sm">
-      <div class="q-ml-xs q-mt-xs">
+    <div class="row q-ml-xl q-mt-sm justify-around">
+      <div class="q-mt-xs">
         <div class="redcircle"></div>
       </div>
-      <div class="col-4 q-ml-sm">
+      <div class="col-4 q-mx-sm">
         <div class="exam">Final exam</div>
       </div>
-      <div class="col-4 q-ml-xs">
+      <div class="col-4 q-mx-xs">
         <div class="exam">18 May 2020</div>
       </div>
       <div class="col">
@@ -144,7 +144,7 @@
             </div>
           </div>
           <div class="col-2">
-            <q-checkbox name="read" v-model="ch1" color="green" />
+            <q-checkbox name="read" v-model="ch2" color="green" />
           </div>
         </div>
 
@@ -162,7 +162,7 @@
             </div>
           </div>
           <div class="col-2">
-            <q-checkbox name="read" v-model="ch1" color="green" />
+            <q-checkbox name="read" v-model="ch3" color="green" />
           </div>
         </div>
 
@@ -201,7 +201,6 @@ export default {
   data() {
     return {
       progress4: 0.66,
-
       ch1: false,
       ch2: false,
       ch3: false,

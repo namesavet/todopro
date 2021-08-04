@@ -27,7 +27,7 @@
         <div class="row justify-center q-ml-md q-mr-sm q-mt-md">
           <div
             class="read text-center"
-            @click="$router.push({ name: 'Read abook' })"
+            @click="$router.push({ name: 'Readbook' })"
             push
             style="overflow: hidden"
           >

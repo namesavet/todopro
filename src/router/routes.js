@@ -6,7 +6,7 @@ const routes = [
     children: [
 
       { path: 'Index', name: 'Index', component: () => import('pages/Index.vue') },
-      { path: 'Begin', name: 'Begin', component: () => import('pages/Begin.vue') },
+      { path: '', name: 'Begin', component: () => import('pages/Begin.vue') },
       { path: 'Welcome', name: 'Welcome', component: () => import('pages/Welcome.vue') },
       { path: 'Createaccount1', name: 'Createaccount1', component: () => import('pages/Createaccount1.vue') },
       { path: 'Createaccount2', name: 'Createaccount2', component: () => import('pages/Createaccount2.vue') },
@@ -20,7 +20,7 @@ const routes = [
       { path: 'grade summary', name: 'grade summary', component: () => import('pages/grade summary.vue') },
       { path: 'subject', name: 'subject', component: () => import('pages/subject.vue') },
       { path: 'addsubject', name: 'addsubject', component: () => import('pages/addsubject.vue') },
-      { path: 'Read abook', name: 'Read abook', component: () => import('pages/Read abook.vue') },
+      { path: 'Readbook', name: 'Readbook', component: () => import('pages/Readbook.vue') },
       { path: 'ReadDetail', name: 'ReadDetail', component: () => import('pages/ReadDetail.vue') },
       { path: 'semester', name: 'semester', component: () => import('pages/semester.vue') },
       { path: 'settingsemester', name: 'settingsemester', component: () => import('pages/settingsemester.vue') },

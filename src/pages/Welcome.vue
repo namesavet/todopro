@@ -8,8 +8,12 @@
 
       <div class="row justify-center items-center  q-mt-md">
         <div class="icon_Profile" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-md">
-            <q-img src="../image/people.png" style="max-width: 45%" />
+          <div class="row items-center justify-center q-mt-sm">
+             <q-icon
+              name="perm_identity"
+              size="30px"
+              style="color: #FFC542"
+            />
           </div>
         </div>
         <div class="col-9 q-ml-md q-gutter-xs">
@@ -29,8 +33,12 @@
 
       <div class="row justify-center items-center  ">
         <div class="icon_Key" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-md">
-            <q-img src="../image/key.png" style="max-width: 45%" />
+          <div class="row items-center justify-center q-mt-sm">
+            <q-icon
+              name="lock"
+              size="30px"
+              style="color: #FF575F"
+            />
            
           </div>
         </div>
