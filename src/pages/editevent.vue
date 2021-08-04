@@ -2,42 +2,58 @@
   <q-page class="addsub">
     <q-toolbar>
       <q-toolbar-title>
-          <q-btn
-            flat
-            @click="$router.push({ name: 'event' })"
-            push
-            color=""
-            icon="keyboard_arrow_left"
-            label="Back"
-            style="font-size: 16px; color: #96a7af"
-          />
+        <q-btn
+          flat
+          @click="$router.push({ name: 'event' })"
+          push
+          color=""
+          icon="keyboard_arrow_left"
+          label="Back"
+          style="font-size: 16px; color: #96a7af"
+        />
       </q-toolbar-title>
 
-      
-        <div class="settingbtn">
-          <q-btn flat @click="$router.push({ name: 'event' })"
-            push round dense text-color="white" icon="done" class="" />
-        </div>
+      <div class="settingbtn">
+        <q-btn
+          flat
+          @click="$router.push({ name: 'event' })"
+          push
+          round
+          dense
+          text-color="white"
+          icon="done"
+          class=""
+        />
+      </div>
     </q-toolbar>
 
     <div class="row justify-center">
-      <div class="text-white text-bold" style="font-size: 30px">Edit Event</div>
+      <div class="text-white text-bold" style="font-size: 30px">
+        Edit Activity
+      </div>
     </div>
 
     <div class="row justify-center q-mt-lg">
       <div class="bgtitle" style="overflow: hidden">
         <div class="col-2">
           <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/book.png"
-              style="height: 70%; max-width: 70%"
+            <q-icon
+              name="chrome_reader_mode"
+              size="30px"
+              style="color: #ffc542"
             />
           </div>
         </div>
       </div>
 
       <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input v-model="Title" label-color="#96A7AF" label="Title" />
+        <q-input
+          v-model="Title"
+          color="white"
+          :input-style="{ color: 'white' }"
+          label-color="grey"
+          label="Title"
+        />
       </div>
     </div>
 
@@ -45,15 +61,23 @@
       <div class="bgtitle" style="overflow: hidden">
         <div class="col-2">
           <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/book.png"
-              style="height: 70%; max-width: 70%"
+            <q-icon
+              name="chrome_reader_mode"
+              size="30px"
+              style="color: #ffc542"
             />
           </div>
         </div>
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
-           <q-select v-model="type" :options="types" label="type" color="#22343c"   />
+        <q-select
+          v-model="type"
+          :options="types"
+          label="type"
+          color="black"
+          :input-style="{ color: 'white' }"
+          label-color="grey"
+        />
       </div>
     </div>
 
@@ -61,19 +85,20 @@
       <div class="bgtitle" style="overflow: hidden">
         <div class="col-2 item-center">
           <div class="row items-center justify-center q-mt-sm">
-            <!-- <q-img
-              src="../image/people.png"
-              style="height: 70%; max-width: 60%"
-            /> -->
+            <q-icon name="location_on" size="30px" style="color: #ffc542" />
           </div>
         </div>
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input v-model="Location" label-color="#96A7AF" label="Location" />
+        <q-input
+          v-model="Location"
+          color="white"
+          :input-style="{ color: 'white' }"
+          label-color="grey"
+          label="Location"
+        />
       </div>
     </div>
-
-   
 
     <div class="q-mt-md">
       <div class="col-2 item-center q-ml-lg q-mr-lg" style="overflow: hidden">
@@ -81,9 +106,17 @@
       </div>
 
       <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
-        <q-input filled v-model="date" mask="date" :rules="['date']">
+        <q-input
+          filled
+          v-model="date"
+          color="white"
+          :input-style="{ color: 'white' }"
+          label-color="grey"
+          mask="date"
+          :rules="['date']"
+        >
           <template v-slot:append>
-            <q-icon name="event" class="cursor-pointer">
+            <q-icon name="event" class="cursor-pointer" color="white">
               <q-popup-proxy
                 ref="qDateProxy"
                 transition-show="scale"
@@ -107,9 +140,17 @@
       </div>
 
       <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
-        <q-input filled v-model="time" mask="time" :rules="['time']">
+        <q-input
+          filled
+          v-model="time"
+          color="white"
+          :input-style="{ color: 'white' }"
+          label-color="grey"
+          mask="time"
+          :rules="['time']"
+        >
           <template v-slot:append>
-            <q-icon name="access_time" class="cursor-pointer">
+            <q-icon name="access_time" class="cursor-pointer" color="white">
               <q-popup-proxy transition-show="scale" transition-hide="scale">
                 <q-time v-model="time">
                   <div class="row items-center justify-end">
@@ -126,11 +167,15 @@
     <div class="q-ml-lg text-white text-bold" style="font-size: 25px">Note</div>
 
     <div class="item-center text-center q-ml-lg q-mr-lg">
-      <q-input v-model="text" filled type="textarea" />
+      <q-input
+        v-model="text"
+        filled
+        type="textarea"
+        color="white"
+        :input-style="{ color: 'white' }"
+        label-color="grey"
+      />
     </div>
-
-    
-
 
     <br />
     <br />
@@ -166,13 +211,11 @@ export default {
       Title: "test1",
       Location: "6302",
       text: "",
-      date: "2021/08/26",
-      time: "10:56",
-      
+      date: "",
+      time: "",
+
       type: "Test",
-      types: [
-        'Homework', 'Test', 'Other'
-      ]
+      types: ["Homework", "Test", "Other"],
     };
   },
 };

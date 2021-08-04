@@ -70,13 +70,11 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusred q-ml-lg q-mt-lg" style="overflow: hidden">
-             <div class="q-mt-sm row items-center justify-center text-center">
-              <q-btn
-                flat
-                round
-                dense
-                icon="south"
+            <div class="row items-center justify-center q-mt-md">
+              <q-icon
+                name="south"
                 class=""
+                size="24px"
                 style="color: white"
               />
             </div>
@@ -112,13 +110,11 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
-          <div class="q-mt-sm row items-center justify-center text-center">
-              <q-btn
-                flat
-                round
-                dense
-                icon="north"
+            <div class="row items-center justify-center q-mt-md">
+              <q-icon
+                name="north"
                 class=""
+                size="24px"
                 style="color: white"
               />
             </div>
@@ -154,13 +150,11 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusgreen q-ml-lg q-mt-lg" style="overflow: hidden">
-          <div class="q-mt-sm row items-center justify-center text-center">
-              <q-btn
-                flat
-                round
-                dense
-                icon="star"
+            <div class="row items-center justify-center q-mt-md">
+              <q-icon
+                name="star"
                 class=""
+                size="24px"
                 style="color: white"
               />
             </div>
@@ -201,13 +195,11 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
-           <div class="q-mt-sm row items-center justify-center text-center">
-              <q-btn
-                flat
-                round
-                dense
-                icon="north"
+            <div class="row items-center justify-center q-mt-md">
+              <q-icon
+                name="north"
                 class=""
+                size="24px"
                 style="color: white"
               />
             </div>
@@ -242,13 +234,11 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusred q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="q-mt-sm row items-center justify-center text-center">
-              <q-btn
-                flat
-                round
-                dense
-                icon="south"
+            <div class="row items-center justify-center q-mt-md">
+              <q-icon
+                name="south"
                 class=""
+                size="24px"
                 style="color: white"
               />
             </div>

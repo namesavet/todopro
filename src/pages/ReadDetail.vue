@@ -4,7 +4,7 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'Read abook' })"
+          @click="$router.push({ name: 'Readbook' })"
           push
           icon="keyboard_arrow_left"
           label="Back"
@@ -30,14 +30,12 @@
     <div class="namebook" style="overflow: hidden">
       <div class="row justify-center">
         <div class="col">
-          <div class="statusyellow q-ml-lg q-mt-lg text-center" style="overflow: hidden">
-            <div class="q-mt-sm row items-center justify-center text-center">
-              <q-btn
-                flat
-                round
-                dense
-                icon="star"
+          <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
+            <div class="row items-center justify-center q-mt-md">
+              <q-icon
+                name="star"
                 class=""
+                size="24px"
                 style="color: white"
               />
             </div>
@@ -68,14 +66,14 @@
       </div>
     </div>
 
-    <div class="row q-ml-xl q-mt-lg">
-      <div class="q-ml-xs q-mt-xs">
+    <div class="row q-ml-xl q-mt-lg ">
+      <div class="q-mt-xs">
         <div class="redcircle"></div>
       </div>
-      <div class="col-4 q-ml-sm">
+      <div class="col-4 q-mx-sm">
         <div class="exam">Midterm exam</div>
       </div>
-      <div class="col-4 q-ml-xs">
+      <div class="col-4 q-mx-xs">
         <div class="exam">08 May 2020</div>
       </div>
       <div class="col">
@@ -83,14 +81,14 @@
       </div>
     </div>
 
-    <div class="row q-ml-xl q-mt-sm">
-      <div class="q-ml-xs q-mt-xs">
+    <div class="row q-ml-xl q-mt-sm justify-around">
+      <div class="q-mt-xs">
         <div class="redcircle"></div>
       </div>
-      <div class="col-4 q-ml-sm">
+      <div class="col-4 q-mx-sm">
         <div class="exam">Final exam</div>
       </div>
-      <div class="col-4 q-ml-xs">
+      <div class="col-4 q-mx-xs">
         <div class="exam">18 May 2020</div>
       </div>
       <div class="col">
@@ -105,14 +103,13 @@
       >
         Chapter
       </div>
-      
-      <div class="col-2 q-mt-md text-center">
+      <div class="col-2 q-mt-md ">
         <q-icon
           name="chrome_reader_mode"
-          style="color: #42ff4a; font-size: 25px; width: 25%;  text-align: left;"
-          class="q-mr-lg"
-        >
-        </q-icon>
+          class="q-ml-sm"
+          size="24px"
+          style="color: #42ff4a"
+        />
       </div>
     </div>
 
@@ -147,7 +144,7 @@
             </div>
           </div>
           <div class="col-2">
-            <q-checkbox name="read" v-model="ch1" color="green" />
+            <q-checkbox name="read" v-model="ch2" color="green" />
           </div>
         </div>
 
@@ -165,7 +162,7 @@
             </div>
           </div>
           <div class="col-2">
-            <q-checkbox name="read" v-model="ch1" color="green" />
+            <q-checkbox name="read" v-model="ch3" color="green" />
           </div>
         </div>
 
@@ -204,7 +201,6 @@ export default {
   data() {
     return {
       progress4: 0.66,
-
       ch1: false,
       ch2: false,
       ch3: false,

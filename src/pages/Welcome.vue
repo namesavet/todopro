@@ -6,14 +6,19 @@
 
       <div class="texttitle2 q-ml-lg q-mt-sm">Sign in to continue</div>
 
-      <div class="row justify-center items-center q-ml-xs q-mt-md">
+      <div class="row justify-center items-center  q-mt-md">
         <div class="icon_Profile" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-md">
-            <q-img src="../image/people.png" style="max-width: 45%" />
+          <div class="row items-center justify-center q-mt-sm">
+             <q-icon
+              name="perm_identity"
+              size="30px"
+              style="color: #FFC542"
+            />
           </div>
         </div>
         <div class="col-9 q-ml-md q-gutter-xs">
           <q-input
+            class="q-mt-md"
             :input-style="{ color: 'white' }"
             v-model="Username"
             label-color="grey"
@@ -26,14 +31,20 @@
         </div>
       </div>
 
-      <div class="row justify-center items-center q-ml-xs q-mt-xs">
+      <div class="row justify-center items-center  ">
         <div class="icon_Key" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-md">
-            <q-img src="../image/key.png" style="max-width: 45%" />
+          <div class="row items-center justify-center q-mt-sm">
+            <q-icon
+              name="lock"
+              size="30px"
+              style="color: #FF575F"
+            />
+           
           </div>
         </div>
         <div class="col-9 q-ml-md q-gutter-xs">
           <q-input
+            class="q-mt-md"
             :input-style="{ color: 'white' }"
             v-model="Password"
             label-color="grey"
@@ -58,7 +69,7 @@
       <div class="row justify-center items-center">
         <div class="button-Sign_in q-mt-lg">
           <q-btn
-          @click="$router.push({ name: 'Index' })"
+            @click="gotoindex()"
             push
             align="center"
             no-caps
@@ -128,6 +139,14 @@ export default {
         path: "/Createaccount1",
       });
     },
+
+    gotoindex() {
+      console.log(this.Username);
+      console.log(this.Password);
+      this.$router.push({
+        path: "/Index",
+      });
+    },
   },
 };
 </script>
@@ -137,7 +156,7 @@ export default {
   background: #22343c;
 }
 .Logo {
-  width: 15%;
+  width: 50px;
   height: 50px;
   background: #40df9f;
   border-radius: 15px;
@@ -158,13 +177,13 @@ export default {
   width: 38px;
   height: 48px;
   background: #625b39;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .icon_Key {
   width: 38px;
   height: 48px;
   background: #623a42;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 .text-forgot {
   color: #96a7af;
