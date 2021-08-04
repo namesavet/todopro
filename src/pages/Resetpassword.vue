@@ -14,7 +14,7 @@
             label="enter code"
             color="white"
             style="font-size: 28px"
-            v-model="security_code"
+            v-model="Security_code"
             input-class="text-center"
             mask="#  #  #  #  #  #"
             :rules="[
@@ -67,13 +67,13 @@
 export default {
   data() {
     return {
-      security_code: "",
+      Security_code: "",
     };
   },
 
   methods: {
     gotonewpassword() {
-      console.log(this.security_code);
+      console.log(this.Security_code);
 
       this.$router.push({
         path: "/Newpassword",
@@ -88,7 +88,7 @@ export default {
   background: #22343c;
 }
 .Logo {
-  width: 15%;
+  width: 50px;
   height: 50px;
   background: #40df9f;
   border-radius: 15px;

@@ -5,14 +5,15 @@
       <div class="texttitle1 q-ml-lg q-mt-lg">Hello !</div>
       <div class="texttitle2 q-ml-lg q-mt-sm">Ratchaya Narueradanan</div>
 
-      <div class="row justify-center items-center q-mt-xl">
+      <div class="row justify-center items-center q-mt-md">
         <div class="icon_Key" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-md">
             <q-img src="../image/key.png" style="max-width: 45%" />
           </div>
         </div>
-        <div class="col-9 q-ml-md">
+        <div class="col-9 q-ml-md q-gutter-xs">
           <q-input
+           class="q-mt-md"
             :input-style="{ color: 'white' }"
             v-model="Password"
             label-color="grey"
@@ -34,29 +35,30 @@
         </div>
       </div>
 
-      <div class="row justify-center items-center q-mt-sm">
+      <div class="row justify-center items-center ">
         <div class="icon_Key" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-md">
             <q-img src="../image/key.png" style="max-width: 45%" />
           </div>
         </div>
-        <div class="col-9 q-ml-md">
+        <div class="col-9 q-ml-md q-gutter-xs">
           <q-input
+          class="q-mt-md"
             :input-style="{ color: 'white' }"
-            v-model="Password"
+            v-model="Check_password"
             label-color="grey"
-            label="Repeat your password"
+            label="Confirm your password"
             color="white"
             :rules="[
               (val) => (val && val.length > 0) || 'Please enter password ',
             ]"
-            :type="isPwd ? 'Password' : 'text'"
+            :type="isPwd1 ? 'password' : 'text'"
           >
             <template v-slot:append>
               <q-icon
-                :name="isPwd ? 'visibility_off' : 'visibility'"
+                :name="isPwd1 ? 'visibility_off' : 'visibility'"
                 class="cursor-pointer"
-                @click="isPwd = !isPwd"
+                @click="isPwd1 = !isPwd1"
               />
             </template>
           </q-input>
@@ -99,14 +101,15 @@ export default {
   data() {
     return {
       Password: "",
-
+      Check_password: "",
       isPwd: true,
+      isPwd1: true,
     };
   },
   methods: {
     gotocreateaccount3() {
       console.log(this.Password);
-
+      console.log(this.Check_password);
       this.$router.push({
         path: "/Createaccount3",
       });
@@ -120,7 +123,7 @@ export default {
   background: #22343c;
 }
 .Logo {
-  width: 15%;
+  width: 50px;
   height: 50px;
   background: #40df9f;
   border-radius: 15px;
@@ -141,6 +144,6 @@ export default {
   width: 38px;
   height: 48px;
   background: #623a42;
-  border-radius: 15%;
+  border-radius: 10px;
 }
 </style>

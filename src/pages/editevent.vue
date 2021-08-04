@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
-        <q-select v-model="type" :options="types" label="type" color="#22343c"   />
+           <q-select v-model="type" :options="types" label="type" color="#22343c"   />
       </div>
     </div>
 
@@ -69,27 +69,13 @@
         </div>
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input v-model="Subject" label-color="#96A7AF" label="Location" />
+        <q-input v-model="Location" label-color="#96A7AF" label="Location" />
       </div>
     </div>
 
-    <div class="row justify-center">
-      <div class="bgtitle" style="overflow: hidden">
-        <div class="col-2 item-center">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/people.png"
-              style="height: 70%; max-width: 60%"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input v-model="Subject" label-color="#96A7AF" label="Subject" />
-      </div>
-    </div>
+   
 
-    <div class="">
+    <div class="q-mt-md">
       <div class="col-2 item-center q-ml-lg q-mr-lg" style="overflow: hidden">
         <div class="text-white text-bold" style="font-size: 25px">Date</div>
       </div>
@@ -142,9 +128,6 @@
     <div class="item-center text-center q-ml-lg q-mr-lg">
       <q-input v-model="text" filled type="textarea" />
     </div>
-  <div class="q-mt-lg row justify-center">
-      <q-btn style="background: #ff565e; color: white" label="Delete" />
-    </div>
 
     
 
@@ -153,7 +136,7 @@
     <br />
     <br />
     <br />
-  
+
     <q-footer elevated>
       <q-toolbar
         class="shadow-2"
@@ -180,13 +163,13 @@
 export default {
   data() {
     return {
-      Title: "",
-      Location: "",
-      Subject: "",
+      Title: "test1",
+      Location: "6302",
       text: "",
       date: "2021/08/26",
       time: "10:56",
-           type: (null),
+      
+      type: "Test",
       types: [
         'Homework', 'Test', 'Other'
       ]

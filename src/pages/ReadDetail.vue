@@ -2,14 +2,14 @@
   <q-page class="readdetail">
     <q-toolbar>
       <q-toolbar-title>
-          <q-btn
-            flat
-              @click="$router.push({ name: 'Read abook' })"
-            push
-            icon="keyboard_arrow_left"
-            label="Back"
-            style="font-size: 16px; color: #96a7af"
-          />
+        <q-btn
+          flat
+          @click="$router.push({ name: 'Read abook' })"
+          push
+          icon="keyboard_arrow_left"
+          label="Back"
+          style="font-size: 16px; color: #96a7af"
+        />
       </q-toolbar-title>
     </q-toolbar>
 
@@ -53,7 +53,7 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              stripe
+              
               rounded
               size="16px"
               :value="progress4"
@@ -97,8 +97,11 @@
     </div>
 
     <div class="row">
-      <div class="col q-ml-md q-mt-xs q-gutter-xs">
-        <div class="text-white text-bold" style="font-size: 30px">Chapter</div>
+      <div
+        class="col q-my-md q-ml-md text-white text-bold"
+        style="font-size: 25px"
+      >
+        Chapter
       </div>
       <div class="col-2 q-mt-md ">
         <q-icon
@@ -110,86 +113,63 @@
       </div>
     </div>
 
-    <div class="row items-center q-mt-md">
-      <div class="col">
-        <div
-          class="bnumberchapter q-ml-md"
-          style="overflow: hidden; background: #ffc542"
-        >
-          <div class="row text-center justify-center q-mt-sm">
-            <div class="numberchapter">1</div>
+    <div class="col q-ml-md q-mt-sm q-gutter-xs">
+      <div>
+        <div class="row justify-center">
+          <div class="profilesubject1 text-bold" style="overflow: hidden">
+            <div class="chapter row items-center justify-center q-mt-sm">1</div>
+          </div>
+
+          <div class="col self-center text-bold q-ml-lg">
+            <div class="text-white text-bold" style="font-size: 16px">
+              Software Quality
+            </div>
+          </div>
+          <div class="col-2">
+            <q-checkbox name="read" v-model="ch1" color="green" />
           </div>
         </div>
-      </div>
-      <div class="col-6 q-ml-md">
-        <div class="titlechapter">Software Quality</div>
-      </div>
-      <div class="col-2">
-        <q-checkbox
-          name="read"
-          v-model="ch1"
-          color="green"
-        />
-      </div>
-    </div>
 
-    <div class="q-mr-lg q-my-md">
-      <q-separator color="grey" inset="item" />
-    </div>
+        <div class="q-mr-lg q-my-lg">
+          <q-separator color="grey" inset="item" />
+        </div>
 
-    <div class="row items-center q-mt-md">
-      <div class="col">
-        <div
-          class="bnumberchapter q-ml-md"
-          style="overflow: hidden; background: #3dd598"
-        >
-          <div class="row text-center justify-center q-mt-sm">
-            <div class="numberchapter">2</div>
+        <div class="row justify-center">
+          <div class="profilesubject2 text-bold" style="overflow: hidden">
+            <div class="chapter row items-center justify-center q-mt-sm">2</div>
+          </div>
+          <div class="col self-center text-bold q-ml-lg">
+            <div class="text-white text-bold" style="font-size: 16px">
+              Software Quality Factor
+            </div>
+          </div>
+          <div class="col-2">
+            <q-checkbox name="read" v-model="ch1" color="green" />
           </div>
         </div>
-      </div>
-      <div class="col-6">
-        <div class="titlechapter">Software Quality Factor</div>
-      </div>
 
-      <div class="col-2">
-         <q-checkbox
-          name="read"
-          v-model="ch2"
-          color="green"
-        />
-      </div>
-    </div>
+        <div class="q-mr-lg q-my-lg">
+          <q-separator color="grey" inset="item" />
+        </div>
 
-    <div class="q-mr-lg q-my-md">
-      <q-separator color="grey" inset="item" />
-    </div>
-
-    <div class="row items-center q-mt-md">
-      <div class="col">
-        <div
-          class="bnumberchapter q-ml-md"
-          style="overflow: hidden; background: #ff565e"
-        >
-          <div class="row text-center justify-center q-mt-sm">
-            <div class="numberchapter">3</div>
+        <div class="row justify-center">
+          <div class="profilesubject3 text-bold" style="overflow: hidden">
+            <div class="chapter row items-center justify-center q-mt-sm">3</div>
+          </div>
+          <div class="col self-center text-bold q-ml-lg">
+            <div class="text-white text-bold" style="font-size: 16px">
+              Software Process Improvment
+            </div>
+          </div>
+          <div class="col-2">
+            <q-checkbox name="read" v-model="ch1" color="green" />
           </div>
         </div>
-      </div>
-      <div class="col-6 q-ml-md">
-        <div class="titlechapter">Software Quality improvement</div>
-      </div>
-      <div class="col-2">
-        <q-checkbox
-          name="read"
-          v-model="ch3"
-          color="green"
-        />
-      </div>
-    </div>
 
-    <div class="q-mr-lg q-my-md">
-      <q-separator color="grey" inset="item" />
+        <div class="q-mr-lg q-my-lg">
+          <q-separator color="grey" inset="item" />
+        </div>
+      </div>
     </div>
 
     <div class="row q-mt-xl">
@@ -225,22 +205,21 @@ export default {
       ch1: false,
       ch2: false,
       ch3: false,
-     
     };
   },
 };
 </script>
 
 <style scope>
-.readdetail{
+.readdetail {
   background: #22343c;
 }
-.namebook{
+.namebook {
   width: 90%;
   height: 99px;
-  background: #30444E;
-  border-radius:25px;
-  margin-left: 5%; 
+  background: #30444e;
+  border-radius: 25px;
+  margin-left: 5%;
   margin-top: 5%;
 }
 .exam {
@@ -269,20 +248,45 @@ export default {
   color: white;
   font-weight: bold;
 }
-.titlesubject{
+.titlesubject {
   font-size: 15px;
   color: white;
   font-weight: bold;
 }
-.statusyellow{
+.statusyellow {
   width: 59px;
   height: 54px;
-  background: #FFC542;
-  border-radius:15px;
+  background: #ffc542;
+  border-radius: 15px;
 }
-.percenyellow{
+.percenyellow {
   font-size: 15px;
-  color: #FFC542;
+  color: #ffc542;
   font-weight: bold;
+}
+
+.profilesubject1 {
+  width: 50px;
+  height: 50px;
+  background: #ffc542;
+  border-radius: 100%;
+}
+
+.profilesubject2 {
+  width: 50px;
+  height: 50px;
+  background: #3ed598;
+  border-radius: 100%;
+}
+
+.profilesubject3 {
+  width: 50px;
+  height: 50px;
+  background: #ff565e;
+  border-radius: 100%;
+}
+.chapter {
+  font-size: 22px;
+  color: white;
 }
 </style>
