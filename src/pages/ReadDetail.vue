@@ -31,13 +31,11 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-sm">
-              <q-btn
-                flat
-                round
-                dense
-                icon="star"
-                class="q-mr-xs"
+            <div class="row items-center justify-center q-mt-md">
+              <q-icon
+                name="star"
+                class=""
+                size="24px"
                 style="color: white"
               />
             </div>
@@ -102,10 +100,12 @@
       <div class="col q-ml-md q-mt-xs q-gutter-xs">
         <div class="text-white text-bold" style="font-size: 30px">Chapter</div>
       </div>
-      <div class="col-2 q-mt-md">
-        <q-btn
-          icon="chrome_reader_mode"
-          style="height: 17px; max-width: 22px; color: #42ff4a"
+      <div class="col-2 q-mt-md ">
+        <q-icon
+          name="chrome_reader_mode"
+          class="q-ml-sm"
+          size="24px"
+          style="color: #42ff4a"
         />
       </div>
     </div>

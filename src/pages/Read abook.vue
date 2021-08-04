@@ -77,13 +77,11 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusred q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-sm">
-              <q-btn
-                flat
-                round
-                dense
-                icon="south"
-                class="q-mr-xs"
+            <div class="row items-center justify-center q-mt-md">
+              <q-icon
+                name="south"
+                class=""
+                size="24px"
                 style="color: white"
               />
             </div>
@@ -119,13 +117,11 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-sm">
-              <q-btn
-                flat
-                round
-                dense
-                icon="north"
-                class="q-mr-xs"
+            <div class="row items-center justify-center q-mt-md">
+              <q-icon
+                name="north"
+                class=""
+                size="24px"
                 style="color: white"
               />
             </div>
@@ -161,13 +157,11 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusgreen q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-sm">
-              <q-btn
-                flat
-                round
-                dense
-                icon="star"
-                class="q-mr-xs"
+            <div class="row items-center justify-center q-mt-md">
+              <q-icon
+                name="star"
+                class=""
+                size="24px"
                 style="color: white"
               />
             </div>
@@ -208,13 +202,11 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-sm">
-              <q-btn
-                flat
-                round
-                dense
-                icon="north"
-                class="q-mr-xs"
+            <div class="row items-center justify-center q-mt-md">
+              <q-icon
+                name="north"
+                class=""
+                size="24px"
                 style="color: white"
               />
             </div>
@@ -249,13 +241,11 @@
       <div class="row justify-center">
         <div class="col">
           <div class="statusred q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-sm">
-              <q-btn
-                flat
-                round
-                dense
-                icon="south"
-                class="q-mr-xs"
+            <div class="row items-center justify-center q-mt-md">
+              <q-icon
+                name="south"
+                class=""
+                size="24px"
                 style="color: white"
               />
             </div>

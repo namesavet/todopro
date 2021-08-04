@@ -106,8 +106,8 @@
         <div class="text-white text-bold" style="font-size: 30px">Credit</div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-8 q-ml-md q-gutter-xs">
+    <div class="">
+      <div class="col-8 q-mx-md q-gutter-xs">
         <q-select
           v-model="credit"
           :options="credits"
@@ -281,7 +281,7 @@
     </div>
 
     <div class="row q-gutter-xs">
-      <div class="q-pa-md" style="max-width: 200px">
+      <div class="col-6 q-pa-md" style="max-width: 200px">
         <q-input filled v-model="date_midterm" mask="date" :rules="['date']">
           <template v-slot:append>
             <q-icon name="event" class="cursor-pointer">
@@ -358,8 +358,8 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-8 q-ml-md q-gutter-xs">
+    <div class="">
+      <div class="col-8 q-mx-md q-gutter-xs">
         <q-select
           v-model="grade"
           :options="grades"
