@@ -169,9 +169,9 @@
         </div>
         <div
           class="q-mr-lg text-center numberchapter text-white self-center"
-          style="overflow: hidden"
+          style="overflow: hidden ;font-size:14px"
         >
-          <div class="q-mt-xs">10</div>
+          <div class="q-mt-xs ">10</div>
         </div>
       </div>
 
