@@ -1,5 +1,5 @@
 <template>
-  <q-page class="Welcome q-pt-xl">
+  <q-page class="addbackground q-pt-xl">
     <div class="col">
       <div class="Logo q-ml-lg"></div>
       <div class="texttitle1 q-ml-lg q-mt-lg">Welcome !</div>
@@ -152,40 +152,5 @@ export default {
 </script>
 
 <style scoped>
-.Welcome {
-  background: #22343c;
-}
-.Logo {
-  width: 50px;
-  height: 50px;
-  background: #40df9f;
-  border-radius: 15px;
-  margin-top: 100px;
-}
-.texttitle1 {
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-}
-.texttitle2 {
-  font-size: 25px;
-  font-weight: bold;
-  color: #96a7af;
-}
 
-.icon_Profile {
-  width: 38px;
-  height: 48px;
-  background: #625b39;
-  border-radius: 10px;
-}
-.icon_Key {
-  width: 38px;
-  height: 48px;
-  background: #623a42;
-  border-radius: 10px;
-}
-.text-forgot {
-  color: #96a7af;
-}
 </style>

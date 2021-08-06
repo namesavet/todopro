@@ -1,5 +1,5 @@
 <template>
-  <q-page class="subject">
+  <q-page class="addbackground">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -280,89 +280,4 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.fontaddsubject {
-  color: #3ed598;
-}
-.subject {
-  background: #22343c;
-}
-.gradewanttext {
-  font-size: 15px;
-  color: #96a7af;
-}
-.testtext {
-  font-size: 15px;
-  color: #96a7af;
-  width: 400px;
-}
-.mark {
-  background: #ff565e;
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-}
-.score {
-  width: 100%;
-  height: 100px;
-  background: #2a3c44;
-  border-radius: 25px;
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-.settingbtn {
-  width: 35px;
-  height: 34px;
-  background: #40df9f;
-  border-radius: 15%;
-}
-.warringscore {
-  width: 317px;
-  height: 55px;
-  background: #ff5656;
-  border-radius: 25px;
-  margin-top: 10px;
-}
-.scoregrade {
-  width: 271px;
-  height: 268px;
-  background: #30444e;
-  border-radius: 25px;
-  box-shadow: 2px 2px 4px #19282f;
-}
-
-.profilesubject1 {
-  width: 50px;
-  height: 50px;
-  background: #ffc542;
-  border-radius: 100%;
-}
-
-.profilesubject2 {
-  width: 50px;
-  height: 50px;
-  background: #3ed598;
-  border-radius: 100%;
-}
-
-.profilesubject3 {
-  width: 50px;
-  height: 50px;
-  background: #ff565e;
-  border-radius: 100%;
-}
-.chapter {
-  font-size: 22px;
-  color: white;
-}
-.gradechart {
-  background-image: url("../image/gradechart.png");
-  width: 100%;
-  height: 75%;
-  background-size: 100%;
-  border-radius: 25px;
-}
-</style >
 

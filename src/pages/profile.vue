@@ -1,5 +1,5 @@
 <template>
-    <q-page class="profile">
+    <q-page class="addbackground">
         <div class="row">
             <div class="col">
                 <div class="row q-pa-lg q-mt-xl">
@@ -80,26 +80,3 @@
         </div>
     </q-page>
 </template>
-
-<style scoped>
-.profile{
-     background: #22343c;
-}
-.profileImg {
-  width: 90px;
-  height: 90px;
-  background: white;
-  border-radius: 20px;
-}
-.borderdash {
-  width: 110px;
-  height: 110px;
-  border: dashed gray 2px;
-  border-radius: 20px;
-}
-.titlechoice{
-  font-size: 16px;
-  color: #96A7AF;
-  font-weight: bold;
-}
-</style>
