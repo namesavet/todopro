@@ -77,7 +77,7 @@
     </div>
 
     <div class="row justify-center">
-      <div class="scoregrade">
+      <div class="scoregradeshadow">
         <div
           class="q-mt-md q-ml-lg text-white text-bold"
           style="font-size: 20px"
@@ -237,28 +237,5 @@ export default {
 };
 </script>
 
-<style scoped>
-.score {
-  width: 100%;
-  height: 100px;
-  background: #30444e;
-  border-radius: 25px;
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-.settingbtn {
-  width: 35px;
-  height: 34px;
-  background: #40df9f;
-  border-radius: 15%;
-}
-.scoregrade {
-  width: 271px;
-  height: 268px;
-  background: #30444e;
-  border-radius: 25px;
-  box-shadow: 2px 2px 4px #19282f;
-}
-</style >
+
 

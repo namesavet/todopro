@@ -365,6 +365,13 @@ a{
     background: #2a3c44;
     border-radius: 25px;
   }
+  .scoregradeshadow {
+    width: 271px;
+    height: 268px;
+    background: #30444e;
+    border-radius: 25px;
+    box-shadow: 2px 2px 4px #19282f;
+  }
   .gradechart {
     background-image: url("../image/gradechart.png");
     width: 100%;
