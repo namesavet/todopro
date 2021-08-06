@@ -53,7 +53,7 @@
 
           <div
             class="q-mr-lg text-center numberchapter text-white self-center"
-            style="overflow: hidden ; font-size:14px;"
+            style="overflow: hidden; font-size: 14px"
           >
             <div class="q-mt-xs">3</div>
           </div>
@@ -79,7 +79,7 @@
         </div>
         <div
           class="q-mr-lg text-center numberchapter text-white self-center"
-          style="overflow: hidden ; font-size:14px;"
+          style="overflow: hidden; font-size: 14px"
         >
           <div class="q-mt-xs">4</div>
         </div>
@@ -111,8 +111,7 @@
             text-white
             self-center
           "
-          style="overflow: hidden; font-size:14px;"
-         
+          style="overflow: hidden; font-size: 14px"
         >
           <div class="q-mt-xs">7</div>
         </div>
@@ -144,33 +143,11 @@
             self-center
             items-center
           "
-          style="overflow: hidden ; font-size:14px;"
+          style="overflow: hidden; font-size: 14px"
         >
           <div class="q-mt-xs">7</div>
         </div>
       </div>
-
-      <div class="q-mr-lg q-mt-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
-
-      <div class="row justify-center q-mt-lg">
-        <div class="profilesubject5" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-md">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
-          </div>
-        </div>
-
-        <div class="col self-center q-ml-md">
-          <div class="text-white">SW Constructure</div>
-          <div class="text-blue-grey-4">ดร.ขวัญ</div>
-        </div>
-        <div
-          class="q-mr-lg text-center numberchapter text-white self-center"
-        </div>
 
       <div class="q-mr-lg q-mt-lg">
         <q-separator color="grey" inset="item" />
