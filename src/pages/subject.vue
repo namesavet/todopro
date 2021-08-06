@@ -1,5 +1,5 @@
 <template>
-  <q-page class="subject">
+  <q-page class="addbackground">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -53,7 +53,7 @@
 
           <div
             class="q-mr-lg text-center numberchapter text-white self-center"
-            style="overflow: hidden"
+            style="overflow: hidden ; font-size:14px;"
           >
             <div class="q-mt-xs">3</div>
           </div>
@@ -79,7 +79,7 @@
         </div>
         <div
           class="q-mr-lg text-center numberchapter text-white self-center"
-          style="overflow: hidden"
+          style="overflow: hidden ; font-size:14px;"
         >
           <div class="q-mt-xs">4</div>
         </div>
@@ -111,7 +111,8 @@
             text-white
             self-center
           "
-          style="overflow: hidden"
+          style="overflow: hidden; font-size:14px;"
+         
         >
           <div class="q-mt-xs">7</div>
         </div>
@@ -143,7 +144,7 @@
             self-center
             items-center
           "
-          style="overflow: hidden"
+          style="overflow: hidden ; font-size:14px;"
         >
           <div class="q-mt-xs">7</div>
         </div>
@@ -169,11 +170,7 @@
         </div>
         <div
           class="q-mr-lg text-center numberchapter text-white self-center"
-          style="overflow: hidden ;font-size:14px"
-        >
-          <div class="q-mt-xs ">10</div>
         </div>
-      </div>
 
       <div class="q-mr-lg q-mt-lg">
         <q-separator color="grey" inset="item" />

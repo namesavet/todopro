@@ -1,5 +1,5 @@
 <template>
-  <q-page class="readabook">
+  <q-page class="addbackground">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -310,85 +310,3 @@ export default {
   },
 };
 </script>
-<style scope>
-.readabook {
-  background: #22343c;
-}
-.welldonetier {
-  width: 15px;
-  height: 10px;
-  background: #3dd598;
-  border-radius: 25px;
-}
-.goodtier {
-  width: 15px;
-  height: 10px;
-  background: #ffc542;
-  border-radius: 25px;
-}
-.badtier {
-  width: 15px;
-  height: 10px;
-  background: #ff575f;
-  border-radius: 25px;
-}
-.readprogress {
-  width: 90%;
-  height: 157px;
-  background: #30444e;
-  border-radius: 25px;
-  margin-left: 5%;
-  margin-top: 5%;
-}
-.texttier {
-  font-size: 15px;
-  color: #96a7af;
-  font-weight: bold;
-}
-.namebook {
-  width: 90%;
-  height: 99px;
-  background: #30444e;
-  border-radius: 25px;
-  margin-left: 5%;
-  margin-top: 4%;
-}
-.titlesubject {
-  font-size: 15px;
-  color: white;
-  font-weight: bold;
-}
-.statusred {
-  width: 59px;
-  height: 54px;
-  background: #ff565e;
-  border-radius: 15px;
-}
-.statusyellow {
-  width: 59px;
-  height: 54px;
-  background: #ffc542;
-  border-radius: 15px;
-}
-.statusgreen {
-  width: 59px;
-  height: 54px;
-  background: #42ff4a;
-  border-radius: 15px;
-}
-.percenred {
-  font-size: 15px;
-  color: #ff575f;
-  font-weight: bold;
-}
-.percenyellow {
-  font-size: 15px;
-  color: #ffc542;
-  font-weight: bold;
-}
-.percengreen {
-  font-size: 15px;
-  color: #42ff4a;
-  font-weight: bold;
-}
-</style>

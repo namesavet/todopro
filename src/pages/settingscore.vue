@@ -1,5 +1,5 @@
 <template>
-  <q-page class="subject">
+  <q-page class="addbackground">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -189,36 +189,4 @@ export default {
   },
 };
 </script>
-<style scoped>
-.subject {
-  background: #22343c;
-}
-.score {
-  width: 100%;
-  height: 100px;
-  background: #2a3c44;
-  border-radius: 25px;
-  margin-top: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-.settingbtn {
-  width: 35px;
-  height: 34px;
-  background: #40df9f;
-  border-radius: 15%;
-}
-.warringscore {
-  width: 317px;
-  height: 55px;
-  background: #ff5656;
-  border-radius: 25px;
-  margin-top: 10px;
-}
-.scoregrade {
-  width: 271px;
-  height: 268px;
-  background: #2a3c44;
-  border-radius: 25px;
-}
-</style >
+

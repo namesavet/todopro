@@ -1,5 +1,5 @@
 <template>
-  <q-page class="semester">
+  <q-page class="addbackground">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -93,22 +93,3 @@
   </q-page>
 </template>
 
-<style scoped>
-.semester {
-  background: #22343c;
-}
-.settingbtn {
-  width: 35px;
-  height: 34px;
-  background: #40df9f;
-  border-radius: 15%;
-}
-.fontaddsubject {
-  color: #3ed598;
-}
-.semestertitle {
-  font-size: 16px;
-  color: white;
-  font-weight: bold;
-}
-</style>

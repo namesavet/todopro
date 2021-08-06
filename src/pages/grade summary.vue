@@ -1,5 +1,5 @@
 <template>
-  <q-page class="gradesummary ">
+  <q-page class="addbackground">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -16,7 +16,7 @@
       <div class="text-white text-bold" style="font-size: 24px">Grade summary</div>
     </div>
 
-    <div class="row justify-center q-mb-lg">
+    <!-- <div class="row justify-center q-mb-lg">
       <div class="text-center">
         <div class="borderdash row justify-center items-center">
           <div class="profileImg">
@@ -27,7 +27,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
    <div class="gradegraph" style="overflow: hidden">
 
@@ -38,16 +38,3 @@
   </q-page>
 </template>
 
-<style scoped>
-.gradesummary {
-  background: #22343c;
-}
-.gradegraph{
-  width: 90%;
-  height: 276px;
-  background: #30444e;
-  border-radius: 25px;
-  margin-left: 5%;
-  margin-top: 4%;
-}
-</style>

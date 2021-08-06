@@ -1,5 +1,5 @@
 <template>
-  <q-page class="profileDetail">
+  <q-page class="addbackground">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -95,36 +95,3 @@
   </q-page>
 </template>
 
-<style scoped>
-.profileDetail {
-  background: #22343c;
-}
-.profileImg {
-  width: 90px;
-  height: 90px;
-  background: white;
-  border-radius: 20px;
-}
-.borderdash {
-  width: 110px;
-  height: 110px;
-  border: dashed gray 2px;
-  border-radius: 20px;
-}
-.titleprofile {
-  font-size: 20px;
-  color: white;
-  font-weight: bold;
-}
-.titleprofiledetail {
-  font-size: 15px;
-  color: white;
-  font-weight: bold;
-}
-.redbutton {
-  width: 40%;
-  height: 58px;
-  background: #ff565e;
-  border-radius: 13px;
-}
-</style>

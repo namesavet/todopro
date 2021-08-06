@@ -1,5 +1,5 @@
 <template>
-  <q-page class="subject">
+  <q-page class="addbackground">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -263,70 +263,3 @@
 <script>
 export default {};
 </script>
-
-<style scoped>
-.subject {
-  background: #22343c;
-}
-
-.allscore {
-  width: 317px;
-  height: 241px;
-  background: #30444e;
-  border-radius: 25px;
-  box-shadow: 2px 2px 4px #19282f;
-}
-.profilesubject1 {
-  width: 50px;
-  height: 50px;
-  background: #ffc542;
-  border-radius: 100%;
-}
-
-.profilesubject2 {
-  width: 50px;
-  height: 50px;
-  background: #3ed598;
-  border-radius: 100%;
-}
-
-.profilesubject3 {
-  width: 50px;
-  height: 50px;
-  background: #ff565e;
-  border-radius: 100%;
-}
-
-.profilesubject4 {
-  width: 50px;
-  height: 50px;
-  background: #ffc542;
-  border-radius: 100%;
-}
-
-.profilesubject5 {
-  width: 50px;
-  height: 50px;
-  background: #3ed598;
-  border-radius: 100%;
-}
-
-.background-icon {
-  width: 75px;
-  height: 75px;
-  background: #286053;
-  border-radius: 100%;
-}
-
-.buttom {
-  background: #3ed598;
-  position: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-}
-
-.fontaddsubject {
-  color: #3ed598;
-}
-</style >

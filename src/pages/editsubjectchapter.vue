@@ -1,5 +1,5 @@
 <template>
-  <q-page class="addsub">
+  <q-page class="addbackground">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -433,51 +433,5 @@ export default {
 
 </script>
 
-<style scoped >
-.addsub {
-  background: #22343c;
-}
-.name {
-  width: 38px;
-  height: 48px;
-  background: #625b39;
-  border-radius: 15%;
-}
-.profile {
-  width: 65px;
-  height: 66px;
-  background: #ff565e;
-  border-radius: 50%;
-}
-.textgrade {
-  font-size: 20px;
-  color: white;
-  font-weight: bold;
-}
-.gradeA {
-  width: 38px;
-  height: 42px;
-  background: #3bc28d;
-  border-radius: 10px;
-}
-.gradeB {
-  width: 38px;
-  height: 42px;
-  background: #0f54b9;
-  border-radius: 10px;
-}
-.gradeC {
-  width: 38px;
-  height: 42px;
-  background: #ffc542;
-  border-radius: 10px;
-}
-.gradeD {
-  width: 38px;
-  height: 42px;
-  background: #ff974a;
-  border-radius: 10px;
-}
-</style>
 
 
