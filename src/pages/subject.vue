@@ -1,5 +1,5 @@
 <template>
-  <q-page class="subject">
+  <q-page class="addbackground">
     <q-toolbar>
       <q-toolbar-title>
           <q-btn
@@ -219,9 +219,7 @@ export default {};
 </script>
 
 <style scoped>
-.subject {
-  background: #22343c;
-}
+
 
 .profilesubject1 {
   width: 50px;
@@ -280,7 +278,4 @@ export default {};
   border-radius: 100%;
 }
 
-.fontaddsubject {
-  color: #3ed598;
-}
 </style >

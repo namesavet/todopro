@@ -1,5 +1,5 @@
 <template>
-  <q-page class="readdetail">
+  <q-page class="addbackground">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -208,84 +208,3 @@ export default {
   },
 };
 </script>
-
-<style scope>
-.readdetail {
-  background: #22343c;
-}
-.namebook {
-  width: 90%;
-  height: 99px;
-  background: #30444e;
-  border-radius: 25px;
-  margin-left: 5%;
-  margin-top: 5%;
-}
-.exam {
-  font-size: 15px;
-  color: #96a7af;
-  font-weight: bold;
-}
-.redcircle {
-  width: 10px;
-  height: 10px;
-  background: #ff565e;
-  border-radius: 100%;
-}
-.bnumberchapter {
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-}
-.numberchapter {
-  font-size: 25px;
-  color: white;
-  font-weight: bold;
-}
-.titlechapter {
-  font-size: 15px;
-  color: white;
-  font-weight: bold;
-}
-.titlesubject {
-  font-size: 15px;
-  color: white;
-  font-weight: bold;
-}
-.statusyellow {
-  width: 59px;
-  height: 54px;
-  background: #ffc542;
-  border-radius: 15px;
-}
-.percenyellow {
-  font-size: 15px;
-  color: #ffc542;
-  font-weight: bold;
-}
-
-.profilesubject1 {
-  width: 50px;
-  height: 50px;
-  background: #ffc542;
-  border-radius: 100%;
-}
-
-.profilesubject2 {
-  width: 50px;
-  height: 50px;
-  background: #3ed598;
-  border-radius: 100%;
-}
-
-.profilesubject3 {
-  width: 50px;
-  height: 50px;
-  background: #ff565e;
-  border-radius: 100%;
-}
-.chapter {
-  font-size: 22px;
-  color: white;
-}
-</style>

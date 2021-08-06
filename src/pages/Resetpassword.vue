@@ -1,5 +1,5 @@
 <template>
-  <q-page class="Welcome q-pt-xl">
+  <q-page class="addbackground q-pt-xl">
     <div class="col">
       <div class="Logo q-ml-lg"></div>
       <div class="texttitle1 q-ml-lg q-mt-lg">Reset Password</div>

@@ -1,5 +1,5 @@
 <template>
-  <q-page class="Welcome q-pt-xl">
+  <q-page class="addbackground q-pt-xl">
     <div class="col">
       <div class="Logo q-ml-lg"></div>
       <div class="texttitle1 q-ml-lg q-mt-lg">New Password</div>
@@ -97,9 +97,6 @@ export default {
 </script>
 
 <style scoped>
-.Welcome {
-  background: #22343c;
-}
 .Logo {
   width: 50px;
   height: 50px;
