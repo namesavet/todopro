@@ -2,15 +2,15 @@
   <q-page class="subject">
     <q-toolbar>
       <q-toolbar-title>
-          <q-btn
-            flat
-            @click="$router.push({ name: 'Index' })"
-            push
-            color=""
-            icon="keyboard_arrow_left"
-            label="Back"
-            style="font-size: 16px; color: #96a7af"
-          />
+        <q-btn
+          flat
+          @click="$router.push({ name: 'Index' })"
+          push
+          color=""
+          icon="keyboard_arrow_left"
+          label="Back"
+          style="font-size: 16px; color: #96a7af"
+        />
       </q-toolbar-title>
       <q-btn
         flat
@@ -32,37 +32,12 @@
       </div>
 
       <div>
-          <div class="row justify-center" @click="$router.push({ name: 'subjectchapter' })"
-            push>
-            <div class="profilesubject1" style="overflow: hidden">
-              <div class="row items-center justify-center q-mt-md">
-                <q-img
-                  src="../image/profilesubject.png"
-                  style="height: 50%; width: 50%"
-                />
-              </div>
-            </div>
-
-            <div class="col self-center q-ml-md">
-              <div class="text-white">SPI</div>
-              <div class="text-blue-grey-4">ดร.ขวัญ</div>
-            </div>
-
-            <div
-              class="q-mr-lg text-center numberchapter text-white self-center"
-              style="overflow: hidden"
-            >
-             <div class="q-mt-xs">3</div>
-            </div>
-          </div>
-
-          <div class="q-mr-lg q-my-lg">
-            <q-separator color="grey" inset="item" />
-          </div>
-        </div>
-
-        <div class="row justify-center q-mt-lg">
-          <div class="profilesubject2" style="overflow: hidden">
+        <div
+          class="row justify-center"
+          @click="$router.push({ name: 'subjectchapter' })"
+          push
+        >
+          <div class="profilesubject1" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-md">
               <q-img
                 src="../image/profilesubject.png"
@@ -70,125 +45,167 @@
               />
             </div>
           </div>
+
           <div class="col self-center q-ml-md">
-            <div class="text-white">Data Sci 63</div>
+            <div class="text-white">SPI</div>
             <div class="text-blue-grey-4">ดร.ขวัญ</div>
           </div>
+
           <div
             class="q-mr-lg text-center numberchapter text-white self-center"
             style="overflow: hidden"
           >
-             <div class="q-mt-xs">4</div>
+            <div class="q-mt-xs">3</div>
           </div>
         </div>
 
-        <div class="q-mr-lg q-mt-lg">
+        <div class="q-mr-lg q-my-lg">
           <q-separator color="grey" inset="item" />
         </div>
-
-        <div class="row justify-center q-mt-lg">
-          <div class="profilesubject3" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-md">
-              <q-img
-                src="../image/profilesubject.png"
-                style="height: 50%; width: 50%"
-              />
-            </div>
-          </div>
-          <div class="col self-center q-ml-md">
-            <div class="text-white">UX/UI 63</div>
-            <div class="text-blue-grey-4">ดร.ขวัญ</div>
-          </div>
-          <div
-            class="q-mr-lg text-center tex-center numberchapter text-white self-center"
-            style="overflow: hidden"
-          >
-           <div class="q-mt-xs">7</div>
-          </div>
-        </div>
-
-        <div class="q-mr-lg q-mt-lg">
-          <q-separator color="grey" inset="item" />
-        </div>
-
-        <div class="row justify-center q-mt-lg">
-          <div class="profilesubject4" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-md">
-              <q-img
-                src="../image/profilesubject.png"
-                style="height: 50%; width: 50%"
-              />
-            </div>
-          </div>
-          <div class="col self-center q-ml-md">
-            <div class="text-white">OOP 63</div>
-            <div class="text-blue-grey-4">ดร.ขวัญ</div>
-          </div>
-          <div
-            class="q-mr-lg text-center numberchapter text-white self-center items-center" 
-            style="overflow: hidden"
-          >
-            <div class="q-mt-xs">7</div>
-          </div>
-        </div>
-
-        <div class="q-mr-lg q-mt-lg">
-          <q-separator color="grey" inset="item" />
-        </div>
-
-        <div class="row justify-center q-mt-lg">
-          <div class="profilesubject5" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-md">
-              <q-img
-                src="../image/profilesubject.png"
-                style="height: 50%; width: 50%"
-              />
-            </div>
-          </div>
-
-          <div class="col self-center q-ml-md">
-            <div class="text-white">SW Constructure</div>
-            <div class="text-blue-grey-4">ดร.ขวัญ</div>
-          </div>
-          <div
-            class="q-mr-lg text-center numberchapter text-white self-center"
-            style="overflow: hidden"
-          >
-             <div class="q-mt-xs">10</div>
-          </div>
-        </div>
-        
-        <div class="q-mr-lg q-mt-lg"><q-separator color="grey" inset="item" /></div>
-        
       </div>
 
-    <div class="q-px-sm ">
+      <div class="row justify-center q-mt-lg">
+        <div class="profilesubject2" style="overflow: hidden">
+          <div class="row items-center justify-center q-mt-md">
+            <q-img
+              src="../image/profilesubject.png"
+              style="height: 50%; width: 50%"
+            />
+          </div>
+        </div>
+        <div class="col self-center q-ml-md">
+          <div class="text-white">Data Sci 63</div>
+          <div class="text-blue-grey-4">ดร.ขวัญ</div>
+        </div>
+        <div
+          class="q-mr-lg text-center numberchapter text-white self-center"
+          style="overflow: hidden"
+        >
+          <div class="q-mt-xs">4</div>
+        </div>
+      </div>
+
+      <div class="q-mr-lg q-mt-lg">
+        <q-separator color="grey" inset="item" />
+      </div>
+
+      <div class="row justify-center q-mt-lg">
+        <div class="profilesubject3" style="overflow: hidden">
+          <div class="row items-center justify-center q-mt-md">
+            <q-img
+              src="../image/profilesubject.png"
+              style="height: 50%; width: 50%"
+            />
+          </div>
+        </div>
+        <div class="col self-center q-ml-md">
+          <div class="text-white">UX/UI 63</div>
+          <div class="text-blue-grey-4">ดร.ขวัญ</div>
+        </div>
+        <div
+          class="
+            q-mr-lg
+            text-center
+            tex-center
+            numberchapter
+            text-white
+            self-center
+          "
+          style="overflow: hidden"
+        >
+          <div class="q-mt-xs">7</div>
+        </div>
+      </div>
+
+      <div class="q-mr-lg q-mt-lg">
+        <q-separator color="grey" inset="item" />
+      </div>
+
+      <div class="row justify-center q-mt-lg">
+        <div class="profilesubject4" style="overflow: hidden">
+          <div class="row items-center justify-center q-mt-md">
+            <q-img
+              src="../image/profilesubject.png"
+              style="height: 50%; width: 50%"
+            />
+          </div>
+        </div>
+        <div class="col self-center q-ml-md">
+          <div class="text-white">OOP 63</div>
+          <div class="text-blue-grey-4">ดร.ขวัญ</div>
+        </div>
+        <div
+          class="
+            q-mr-lg
+            text-center
+            numberchapter
+            text-white
+            self-center
+            items-center
+          "
+          style="overflow: hidden"
+        >
+          <div class="q-mt-xs">7</div>
+        </div>
+      </div>
+
+      <div class="q-mr-lg q-mt-lg">
+        <q-separator color="grey" inset="item" />
+      </div>
+
+      <div class="row justify-center q-mt-lg">
+        <div class="profilesubject5" style="overflow: hidden">
+          <div class="row items-center justify-center q-mt-md">
+            <q-img
+              src="../image/profilesubject.png"
+              style="height: 50%; width: 50%"
+            />
+          </div>
+        </div>
+
+        <div class="col self-center q-ml-md">
+          <div class="text-white">SW Constructure</div>
+          <div class="text-blue-grey-4">ดร.ขวัญ</div>
+        </div>
+        <div
+          class="q-mr-lg text-center numberchapter text-white self-center"
+          style="overflow: hidden"
+        >
+          <div class="q-mt-xs">10</div>
+        </div>
+      </div>
+
+      <div class="q-mr-lg q-mt-lg">
+        <q-separator color="grey" inset="item" />
+      </div>
+    </div>
+
+    <div class="q-px-sm">
       <div class="col items-center" style="margin-top: 20px">
         <div class="row items-center justify-center">
-            <q-btn
-             @click="$router.push({ name: 'addsubject' })"
-              push
-              size="20px"
-              round
-              color=""
-              icon="add"
-              style="
-                background-color: #40df9f;
+          <q-btn
+            @click="$router.push({ name: 'addsubject' })"
+            push
+            size="20px"
+            round
+            color=""
+            icon="add"
+            style="
+              background-color: #40df9f;
 
-                border-radius: 50%;
-                border: 10px solid #286053;
-              "
-            />
+              border-radius: 50%;
+              border: 10px solid #286053;
+            "
+          />
         </div>
       </div>
     </div>
 
-    <div class="row items-center justify-center">         
-      <div class="fontaddsubject">Add Subject</div>       
+    <div class="row items-center justify-center">
+      <div class="fontaddsubject">Add Subject</div>
     </div>
 
-
-      <div class="row q-mt-xl">
+    <div class="row q-mt-xl">
       <q-footer elevated>
         <q-toolbar
           class="shadow-2"
@@ -209,8 +226,6 @@
         </q-toolbar>
       </q-footer>
     </div>
-    
-
   </q-page>
 </template>
 
@@ -219,68 +234,4 @@ export default {};
 </script>
 
 <style scoped>
-.subject {
-  background: #22343c;
-}
-
-.profilesubject1 {
-  width: 50px;
-  height: 50px;
-  background: #ffc542;
-  border-radius: 100%;
-}
-
-.profilesubject2 {
-  width: 50px;
-  height: 50px;
-  background: #3ed598;
-  border-radius: 100%;
-}
-
-.profilesubject3 {
-  width: 50px;
-  height: 50px;
-  background: #ff565e;
-  border-radius: 100%;
-}
-
-.profilesubject4 {
-  width: 50px;
-  height: 50px;
-  background: #ffc542;
-  border-radius: 100%;
-}
-
-.profilesubject5 {
-  width: 50px;
-  height: 50px;
-  background: #3ed598;
-  border-radius: 100%;
-}
-
-.numberchapter {
-  width: 25px;
-  height: 25px;
-  background: #3ed598;
-  border-radius: 100%;
-}
-
-.background-icon {
-  width: 75px;
-  height: 75px;
-  background: #286053;
-  border-radius: 100%;
-}
-
-.buttom {
-  background: #3ed598;
-  position: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-}
-
-.fontaddsubject {
-  color: #3ed598;
-}
 </style >

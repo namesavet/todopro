@@ -162,13 +162,7 @@ export default {
 .subject {
   background: #22343c;
 }
-.score {
-  width: 317px;
-  height: 100px;
-  background: #2a3c44;
-  border-radius: 25px;
-  margin-top: 10px;
-}
+
 .settingbtn {
   width: 35px;
   height: 34px;
