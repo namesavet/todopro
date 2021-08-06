@@ -211,7 +211,71 @@ a{
     color: white;
     font-weight: bold;
   }
-  .profilesubject1 {
+.Begin {
+    background: #ff464f;
+  }
+  
+.texttitle1 {
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+  }
+  
+.texttitle1-2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  
+.read-icon {
+    width: 160px;
+    height: 210px;
+    background: url("../image/read.png");
+    background-repeat: no-repeat;
+  }
+
+.Logo {
+    width: 50px;
+    height: 50px;
+    background: #40df9f;
+    border-radius: 15px;
+    margin-top: 100px;
+  }
+
+.texttitle2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #96a7af;
+  }
+  
+.icon_Profile {
+    width: 38px;
+    height: 48px;
+    background: #625b39;
+    border-radius: 10px;
+  }
+.icon_Key {
+    width: 38px;
+    height: 48px;
+    background: #623a42;
+    border-radius: 10px;
+  }
+.text-forgot {
+    color: #96a7af;
+  }
+
+.icon_Profile {
+    width: 38px;
+    height: 48px;
+    background: #625b39;
+    border-radius: 10px;
+  }
+  
+.text_OTP {
+    color: #96a7af;
+  }
+
+.profilesubject1 {
     width: 50px;
     height: 50px;
     background: #ffc542;
@@ -323,7 +387,15 @@ a{
     width: 10px;
     height: 10px;
   }
-  .background-icon {
+  
+.numberchapter {
+    width: 25px;
+    height: 25px;
+    background: #3ed598;
+    border-radius: 100%;
+  }
+  
+.background-icon {
     width: 75px;
     height: 75px;
     background: #286053;

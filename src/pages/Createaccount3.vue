@@ -79,24 +79,5 @@ export default {
 </script>
 
 <style scoped>
-.Welcome {
-  background: #22343c;
-}
-.Logo {
-  width: 50px;
-  height: 50px;
-  background: #40df9f;
-  border-radius: 15px;
-  margin-top: 100px;
-}
-.texttitle1 {
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-}
-.texttitle2 {
-  font-size: 25px;
-  font-weight: bold;
-  color: #96a7af;
-}
+
 </style>

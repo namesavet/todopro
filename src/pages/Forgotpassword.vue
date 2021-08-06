@@ -20,7 +20,7 @@
                 (val && val.length > 0) || 'Please enter telephone number ',
             ]"
           >
-           <template v-slot:before>
+            <template v-slot:before>
               <q-icon name="call" color="white" />
             </template>
           </q-input>
@@ -28,7 +28,7 @@
       </div>
 
       <div class="row justify-center items-center">
-        <div class=" text_OTP q-mt-lg q-ml-lg q-mr-lg">
+        <div class="text_OTP q-mt-lg q-ml-lg q-mr-lg">
           Please enter your telephone number to find your account.
         </div>
       </div>
@@ -82,27 +82,4 @@ export default {
 </script>
 
 <style scoped>
-.Welcome {
-  background: #22343c;
-}
-.Logo {
-  width: 50px;
-  height: 50px;
-  background: #40df9f;
-  border-radius: 15px;
-  margin-top: 100px;
-}
-.texttitle1 {
-  font-size: 40px;
-  font-weight: bold;
-  color: white;
-}
-.texttitle2 {
-  font-size: 25px;
-  font-weight: bold;
-  color: #96a7af;
-}
-.text_OTP {
-  color: #96a7af;
-}
 </style>
