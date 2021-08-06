@@ -142,11 +142,9 @@
           <q-separator color="grey" inset="item" />
         </div>
       </div>
-    </div>
 
-    <div id="app" class="container">
-      <form>
-        <div class="work-experiences q-ml-md">
+      <div id="app" class="container">
+        <form>
           <div class="form-row" v-for="(input, index) in chapter" :key="index">
             <div class="row justify-center">
               <div class="profilesubject1 text-bold" style="overflow: hidden">
@@ -161,20 +159,30 @@
                     color="white"
                     v-model="input.chapterName"
                     label-color="grey"
-                    label="Subject name"
+                     placeholder="Chapter name"
                   />
                 </div>
               </div>
-              <div class="q-mr-md q-mt-sm">
+              <div class="q-mr-sm q-mt-sm">
                 <q-btn
-                  flat
                   @click="removeField(index, chapter)"
-                  push
                   round
                   dense
-                  text-color="red"
+                  text-color="white"
+                  icon="done"
+                  class=""
+                  style="background-color: #40df9f"
+                />
+              </div>
+              <div class="q-mr-sm q-mt-sm">
+                <q-btn
+                  @click="removeField(index, chapter)"
+                  round
+                  dense
+                  text-color="white"
                   icon="clear"
                   class=""
+                  style="background-color: #ff5656"
                 />
               </div>
             </div>
@@ -182,14 +190,8 @@
               <q-separator color="grey" inset="item" />
             </div>
           </div>
-        </div>
-
-        <div class="form-group">
-          <button @click="submit" type="button" class="btn btn-primary">
-            Submit
-          </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
 
     <div class="q-px-sm q-py-lg">
@@ -255,7 +257,7 @@ export default {
   data: () => ({
     chapter: [
       {
-        chapterName: "Foxconn",
+        chapterName: "",
       },
     ],
   }),
