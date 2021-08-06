@@ -2,21 +2,29 @@
   <q-page class="subject">
     <q-toolbar>
       <q-toolbar-title>
-          <q-btn
-            flat
-            @click="$router.push({ name: 'subject' })"
-            push
-            color=""
-            icon="keyboard_arrow_left"
-            label="Back"
-            style="font-size: 16px; color: #96a7af"
-          />
+        <q-btn
+          flat
+          @click="$router.push({ name: 'subject' })"
+          push
+          color=""
+          icon="keyboard_arrow_left"
+          label="Back"
+          style="font-size: 16px; color: #96a7af"
+        />
       </q-toolbar-title>
 
-        <div class="settingbtn">
-          <q-btn flat @click="$router.push({ name: 'editsubjectchapter' })"
-            push round dense text-color="white" icon="settings" class="" />
-        </div>
+      <div class="settingbtn">
+        <q-btn
+          flat
+          @click="$router.push({ name: 'editsubjectchapter' })"
+          push
+          round
+          dense
+          text-color="white"
+          icon="settings"
+          class=""
+        />
+      </div>
     </q-toolbar>
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
@@ -27,7 +35,7 @@
         <div class="text-blue-grey-4">ดร.กุลศิริ</div>
       </div>
     </div>
-  <div class="row justify-center">
+    <div class="row justify-center">
       <div class="scoregrade">
         <div
           class="q-mt-md q-ml-lg text-white text-bold"
@@ -87,26 +95,22 @@
     </div>
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
-
       <div>
-          <div class="row justify-center">
-            <div class="profilesubject1 text-bold" style="overflow: hidden">
-              <div class="chapter row items-center justify-center q-mt-sm">
-                1
-              </div>
-            </div>
-
-            <div class="col self-center text-bold q-ml-lg">
-              <div class="text-white text-bold" style="font-size: 16px">
-                Software Quality
-              </div>
-            </div>
+        <div class="row justify-center">
+          <div class="profilesubject1 text-bold" style="overflow: hidden">
+            <div class="chapter row items-center justify-center q-mt-sm">1</div>
           </div>
 
-          <div class="q-mr-lg q-my-lg">
-            <q-separator color="grey" inset="item" />
+          <div class="col self-center text-bold q-ml-lg">
+            <div class="text-white text-bold" style="font-size: 16px">
+              Software Quality
+            </div>
           </div>
+        </div>
 
+        <div class="q-mr-lg q-my-lg">
+          <q-separator color="grey" inset="item" />
+        </div>
 
         <div class="row justify-center">
           <div class="profilesubject2 text-bold" style="overflow: hidden">
@@ -140,24 +144,73 @@
       </div>
     </div>
 
+    <div id="app" class="container">
+      <form>
+        <div class="work-experiences q-ml-md">
+          <div class="form-row" v-for="(input, index) in chapter" :key="index">
+            <div class="row justify-center">
+              <div class="profilesubject1 text-bold" style="overflow: hidden">
+                <div class="chapter row items-center justify-center q-mt-sm">
+                  4
+                </div>
+              </div>
+              <div class="col self-center text-bold q-ml-lg">
+                <div class="text-white text-bold" style="font-size: 16px">
+                  <q-input
+                    :input-style="{ color: 'white' }"
+                    color="white"
+                    v-model="input.chapterName"
+                    label-color="grey"
+                    label="Subject name"
+                  />
+                </div>
+              </div>
+              <div class="q-mr-md q-mt-sm">
+                <q-btn
+                  flat
+                  @click="removeField(index, chapter)"
+                  push
+                  round
+                  dense
+                  text-color="red"
+                  icon="clear"
+                  class=""
+                />
+              </div>
+            </div>
+            <div class="q-mr-lg q-my-lg">
+              <q-separator color="grey" inset="item" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button @click="submit" type="button" class="btn btn-primary">
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
 
     <div class="q-px-sm q-py-lg">
       <div class="column items-center" style="margin-top: 20px">
         <div class="row items-center justify-center">
-            <q-btn
-              @click="$router.push({ name: 'addsubject' })"
-              push
-              size="20px"
-              round
-              color=""
-              icon="add"
-              style="
-                background-color: #40df9f;
+          <q-btn
+            @click="addChapter"
+            type="button"
+            class="btn btn-secondary"
+            push
+            size="20px"
+            round
+            color=""
+            icon="add"
+            style="
+              background-color: #40df9f;
 
-                border-radius: 50%;
-                border: 10px solid #286053;
-              "
-            />
+              border-radius: 50%;
+              border: 10px solid #286053;
+            "
+          />
         </div>
       </div>
 
@@ -165,13 +218,6 @@
         <div class="fontaddsubject">Add Chapter</div>
       </div>
     </div>
-
-
-
-
-
-
-
 
     <br />
     <br />
@@ -204,19 +250,38 @@
 
 <script>
 export default {
-  data() {
-    return {
-      progressall: 0.28,
-      progress1: 0.5,
-      progress2: 0.66,
-      progress3: 1,
-    };
+  name: "app",
+
+  data: () => ({
+    chapter: [
+      {
+        chapterName: "Foxconn",
+      },
+    ],
+  }),
+
+  methods: {
+    addChapter() {
+      this.chapter.push({
+        chapterName: "",
+      });
+    },
+    removeField(index, chapter) {
+      //type.splice(index, 1);
+      chapter.splice(index, 1);
+    },
+
+    submit() {
+      const data = {
+        chapter: this.chapter,
+      };
+      alert(JSON.stringify(data, null, 2));
+    },
   },
 };
 </script>
 
 <style scoped>
-
 .fontaddsubject {
   color: #3ed598;
 }
@@ -263,9 +328,9 @@ export default {
 .scoregrade {
   width: 271px;
   height: 268px;
-  background: #30444e ;
+  background: #30444e;
   border-radius: 25px;
-  box-shadow: 2px 2px 4px #19282F;
+  box-shadow: 2px 2px 4px #19282f;
 }
 
 .profilesubject1 {
