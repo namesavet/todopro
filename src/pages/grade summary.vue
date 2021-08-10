@@ -16,25 +16,13 @@
       <div class="text-white text-bold" style="font-size: 24px">Grade summary</div>
     </div>
 
-    <!-- <div class="row justify-center q-mb-lg">
-      <div class="text-center">
-        <div class="borderdash row justify-center items-center">
-          <div class="profileImg">
-            <q-img
-              src="../image/profile.png"
-              style="height: 100%; max-width: 100%; border-radius: 20%"
-            />
-          </div>
-        </div>
-      </div>
-    </div> -->
 
    <div class="gradegraph" style="overflow: hidden">
 
    </div>
 
-    
-    
   </q-page>
+
+  
 </template>
 

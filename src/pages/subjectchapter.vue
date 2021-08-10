@@ -71,7 +71,7 @@
 
     <div class="row justify-center items-center text-bold q-mt-sm">
       <div class="testtext row justify-center items-center">
-        <div class="col-1 mark"></div>
+        
         <div class="col-4 q-ml-sm">Midterm exam</div>
         <div class="col-4">08 Mar 2020</div>
         <div class="col-1">30%</div>
@@ -80,14 +80,14 @@
 
     <div class="row justify-center items-center text-bold">
       <div class="testtext row justify-center items-center">
-        <div class="col-1 mark"></div>
+  
         <div class="col-4 q-ml-sm">Final exam</div>
         <div class="col-4">18 Mar 2020</div>
         <div class="col-1">30%</div>
       </div>
     </div>
     <div class="row justify-center text-bold">
-      <div class="gradewanttext q-gutter-x-md">The grade you want is A</div>
+      <div class="gradewanttext ">The grade you want is A</div>
     </div>
 
     <div class="q-my-md q-ml-md text-white text-bold" style="font-size: 25px">
