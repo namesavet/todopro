@@ -46,11 +46,14 @@
             Midterm exam
           </div>
           <div
-            class="col q-my-md q-mr-lg text-white text-bold text-right"
+            class="col q-my-md q-mr-sm text-white text-bold text-right"
             style="font-size: 16px"
           >
             15/30
           </div>
+          <div class="col-1  q-mt-sm q-mr-md">
+        <q-btn flat round dense text-color="red" icon="delete_forever" />
+      </div>
         </div>
         <div class="row justify-center">
           <q-linear-progress
@@ -75,11 +78,14 @@
             test1
           </div>
           <div
-            class="col q-my-md q-mr-lg text-white text-bold text-right"
+            class="col q-my-md q-mr-sm text-white text-bold text-right"
             style="font-size: 16px"
           >
             10/15
           </div>
+          <div class="col-1  q-mt-sm q-mr-md">
+        <q-btn flat round dense text-color="red" icon="delete_forever" />
+      </div>
         </div>
         <div class="row justify-center">
           <q-linear-progress
@@ -105,11 +111,14 @@
             Homework1
           </div>
           <div
-            class="col q-my-md q-mr-lg text-white text-bold text-right"
+            class="col q-my-md q-mr-sm text-white text-bold text-right"
             style="font-size: 16px"
           >
             30/30
           </div>
+          <div class="col-1  q-mt-sm q-mr-md">
+        <q-btn flat round dense text-color="red" icon="delete_forever" />
+      </div>
         </div>
         <div class="row justify-center">
           <q-linear-progress

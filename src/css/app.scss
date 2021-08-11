@@ -345,9 +345,24 @@ a{
     border-radius: 25px;
     margin-top: 10px;
   }
+  .graderow {
+    width: 90%;
+    height: 140px;
+    background: #2a3c44;
+    border-radius: 25px;
+    margin-top: 10px;
+    
+  }
   .allscore {
     width: 317px;
     height: 241px;
+    background: #30444e;
+    border-radius: 25px;
+    box-shadow: 2px 2px 4px #19282f;
+  }
+  .chartGradeSummary {
+    width: 100%;
+    height: 275px;
     background: #30444e;
     border-radius: 25px;
     box-shadow: 2px 2px 4px #19282f;
