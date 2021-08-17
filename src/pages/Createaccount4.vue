@@ -16,7 +16,7 @@
             style="font-size: 30px"
             v-model="OTP"
             input-class="text-center"
-            mask="#      #      #      #"
+            mask="#    #    #    #    #    #"
           >
           </q-input>
         </div>
@@ -24,12 +24,23 @@
 
       <div class="row justify-center items-center">
         <div class="text_OTP q-mt-lg q-ml-lg q-mr-lg">
-          Please, enter 4-digit code We send on your number as SMS
+          Please, enter 6-digit code We send on your number as SMS
         </div>
       </div>
 
-      <div class="row justify-center items-center q-mt-lg">
-        <div class="button-next">
+   <div class="row justify-center items-center ">
+        <div class="button_back q-mt-lg">
+          <q-btn
+            @click="$router.push({ name: 'Createaccount3' })"
+            push
+            align="center"
+            no-caps
+            icon-right="arrow_back"
+            size="20px"
+            style="width: 50px; background: #286053; color: #3dd598"
+          />
+        </div>
+        <div class="button-next q-mt-lg q-ml-md">
           <q-btn
             @click="$router.push({ name: 'Welcome' })"
             push

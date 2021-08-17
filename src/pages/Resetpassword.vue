@@ -16,7 +16,7 @@
             style="font-size: 28px"
             v-model="Security_code"
             input-class="text-center"
-            mask="#  #  #  #  #  #"
+            mask="#    #    #    #    #    #"
             :rules="[
               (val) =>
                 (val && val.length > 0) || 'Please enter telephone number ',
