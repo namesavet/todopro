@@ -68,28 +68,7 @@
       <q-separator color="grey" inset />
     </div>
 
-    <div class="q-px-sm">
-      <div class="col items-center" style="margin-top: 20px">
-        <div class="row items-center justify-center q-mt-xl">
-            <q-btn
-              size="20px"
-              round
-              color=""
-              icon="add"
-              style="
-                background-color: #40df9f;
-
-                border-radius: 50%;
-                border: 10px solid #286053;
-              "
-            />
-        </div>
-      </div>
-    </div>
-
-    <div class="row items-center justify-center">
-      <div class="fontaddsubject">Add Term</div>
-    </div>
+   
   </q-page>
 </template>
 
