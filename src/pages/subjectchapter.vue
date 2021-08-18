@@ -71,7 +71,6 @@
 
     <div class="row justify-center items-center text-bold q-mt-sm">
       <div class="testtext row justify-center items-center">
-        
         <div class="col-4 q-ml-sm">Midterm exam</div>
         <div class="col-4">08 Mar 2020</div>
         <div class="col-1">30%</div>
@@ -80,14 +79,13 @@
 
     <div class="row justify-center items-center text-bold">
       <div class="testtext row justify-center items-center">
-  
         <div class="col-4 q-ml-sm">Final exam</div>
         <div class="col-4">18 Mar 2020</div>
         <div class="col-1">30%</div>
       </div>
     </div>
     <div class="row justify-center text-bold">
-      <div class="gradewanttext ">The grade you want is A</div>
+      <div class="gradewanttext">The grade you want is A</div>
     </div>
 
     <div class="q-my-md q-ml-md text-white text-bold" style="font-size: 25px">
@@ -101,10 +99,13 @@
             <div class="chapter row items-center justify-center q-mt-sm">1</div>
           </div>
 
-          <div class="col self-center text-bold q-ml-lg">
+          <div class="col-7 self-center text-bold q-ml-lg">
             <div class="text-white text-bold" style="font-size: 16px">
               Software Quality
             </div>
+          </div>
+          <div class="col q-mt-sm q-mr-lg text-right">
+            <q-btn flat round dense text-color="red" icon="delete_forever" />
           </div>
         </div>
 
@@ -116,10 +117,13 @@
           <div class="profilesubject2 text-bold" style="overflow: hidden">
             <div class="chapter row items-center justify-center q-mt-sm">2</div>
           </div>
-          <div class="col self-center text-bold q-ml-lg">
+          <div class="col-7 self-center text-bold q-ml-lg">
             <div class="text-white text-bold" style="font-size: 16px">
               Software Quality Factor
             </div>
+          </div>
+          <div class="col q-mt-sm q-mr-lg text-right" >
+            <q-btn flat round dense text-color="red" icon="delete_forever" />
           </div>
         </div>
 
@@ -131,10 +135,13 @@
           <div class="profilesubject3 text-bold" style="overflow: hidden">
             <div class="chapter row items-center justify-center q-mt-sm">3</div>
           </div>
-          <div class="col self-center text-bold q-ml-lg">
+          <div class="col-7 self-center text-bold q-ml-lg">
             <div class="text-white text-bold" style="font-size: 16px">
               Software Process Improvment
             </div>
+          </div>
+         <div class="col q-mt-sm q-mr-lg text-right" >
+            <q-btn flat round dense text-color="red" icon="delete_forever" />
           </div>
         </div>
 
@@ -159,7 +166,7 @@
                     color="white"
                     v-model="input.chapterName"
                     label-color="grey"
-                     placeholder="Chapter name"
+                    placeholder="Chapter name"
                   />
                 </div>
               </div>
