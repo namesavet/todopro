@@ -9,16 +9,16 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "^1.0.0",
+    "@quasar/extras": "^1.10.11",
     "axios": "^0.21.1",
     "chart.js": "^2.9.4",
     "core-js": "^3.6.5",
-    "quasar": "^1.15.22",
+    "quasar": "^1.15.23",
     "vue-chart.js": "^0.2.0",
     "vue-chartjs": "^3.5.1"
   },
   "devDependencies": {
-    "@quasar/app": "^2.0.0"
+    "@quasar/app": "^2.2.10"
   },
   "browserslist": [
     "last 10 Chrome versions",

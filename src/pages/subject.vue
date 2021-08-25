@@ -37,12 +37,13 @@
           @click="$router.push({ name: 'subjectchapter' })"
           push
         >
-          <div class="profilesubject1" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-md">
-              <q-img
-                src="../image/profilesubject.png"
-                style="height: 50%; width: 50%"
-              />
+          <div class="profilesubject" style="overflow: hidden">
+            <div class="profileicon">
+              <q-icon
+                name="school"
+                style="color: #ffffff; font-size: 25px"
+              >
+              </q-icon>
             </div>
           </div>
 
@@ -53,7 +54,7 @@
 
           <div
             class="q-mr-lg text-center numberchapter text-white self-center"
-            style="overflow: hidden ; font-size:14px;"
+            style="overflow: hidden; font-size: 14px"
           >
             <div class="q-mt-xs">3</div>
           </div>
@@ -65,21 +66,22 @@
       </div>
 
       <div class="row justify-center q-mt-lg">
-        <div class="profilesubject2" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-md">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
+        <div class="profilesubject" style="overflow: hidden">
+            <div class="profileicon">
+              <q-icon
+                name="school"
+                style="color: #ffffff; font-size: 25px"
+              >
+              </q-icon>
+            </div>
           </div>
-        </div>
         <div class="col self-center q-ml-md">
           <div class="text-white">Data Sci 63</div>
           <div class="text-blue-grey-4">ดร.ขวัญ</div>
         </div>
         <div
           class="q-mr-lg text-center numberchapter text-white self-center"
-          style="overflow: hidden ; font-size:14px;"
+          style="overflow: hidden; font-size: 14px"
         >
           <div class="q-mt-xs">4</div>
         </div>
@@ -90,14 +92,15 @@
       </div>
 
       <div class="row justify-center q-mt-lg">
-        <div class="profilesubject3" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-md">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
+        <div class="profilesubject" style="overflow: hidden">
+            <div class="profileicon">
+              <q-icon
+                name="school"
+                style="color: #ffffff; font-size: 25px"
+              >
+              </q-icon>
+            </div>
           </div>
-        </div>
         <div class="col self-center q-ml-md">
           <div class="text-white">UX/UI 63</div>
           <div class="text-blue-grey-4">ดร.ขวัญ</div>
@@ -111,8 +114,7 @@
             text-white
             self-center
           "
-          style="overflow: hidden; font-size:14px;"
-         
+          style="overflow: hidden; font-size: 14px"
         >
           <div class="q-mt-xs">7</div>
         </div>
@@ -123,14 +125,15 @@
       </div>
 
       <div class="row justify-center q-mt-lg">
-        <div class="profilesubject4" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-md">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
+         <div class="profilesubject" style="overflow: hidden">
+            <div class="profileicon">
+              <q-icon
+                name="school"
+                style="color: #ffffff; font-size: 25px"
+              >
+              </q-icon>
+            </div>
           </div>
-        </div>
         <div class="col self-center q-ml-md">
           <div class="text-white">OOP 63</div>
           <div class="text-blue-grey-4">ดร.ขวัญ</div>
@@ -144,7 +147,7 @@
             self-center
             items-center
           "
-          style="overflow: hidden ; font-size:14px;"
+          style="overflow: hidden; font-size: 14px"
         >
           <div class="q-mt-xs">7</div>
         </div>
@@ -155,22 +158,22 @@
       </div>
 
       <div class="row justify-center q-mt-lg">
-        <div class="profilesubject5" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-md">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
+         <div class="profilesubject" style="overflow: hidden">
+            <div class="profileicon">
+              <q-icon
+                name="school"
+                style="color: #ffffff; font-size: 25px"
+              >
+              </q-icon>
+            </div>
           </div>
-        </div>
-
         <div class="col self-center q-ml-md">
           <div class="text-white">SW Constructure</div>
           <div class="text-blue-grey-4">ดร.ขวัญ</div>
         </div>
         <div
           class="q-mr-lg text-center numberchapter text-white self-center"
-          style="overflow: hidden; font-size:14px;"
+          style="overflow: hidden; font-size: 14px"
         >
           <div class="q-mt-xs">10</div>
         </div>

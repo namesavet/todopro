@@ -19,7 +19,7 @@
     </div>
 
     <div class="row justify-center">
-      <div class="chartGradeSummary q-mr-md q-ml-md" style="overflow: hidden">
+      <div class="chartGradeSummary  q-mr-md q-ml-md" style="overflow: hidden">
         <div class="q-pa-sm q-mt-sm" style="width: 95%; height: 95%">
           <canvas
             id="graph"
@@ -203,7 +203,7 @@ export default {
         labels: ["1/2019", "2/2019", "1/2020", "2/2020", "1/2021"],
         datasets: [
           {
-            label: "#Study Result Simulation",
+            label: "Study Result Simulation",
             data: [2.8, 3, 3.5, 3.5, 2.85],
             backgroundColor: [
               "rgba(255,197,66,1)",

@@ -29,16 +29,13 @@
         <div class="row justify-center" 
             @click="$router.push({ name: 'subjectscore' })" push
         >
-          <div
-            class="profilesubject1"
-           
-            style="overflow: hidden"
-          >
-            <div class="row items-center justify-center q-mt-sm">
-              <q-img
-                src="../image/profilesubject.png"
-                style="height: 50%; width: 50%"
-              />
+           <div class="profilesubject" style="overflow: hidden">
+            <div class="profileicon">
+              <q-icon
+                name="school"
+                style="color: #ffffff; font-size: 25px"
+              >
+              </q-icon>
             </div>
           </div>
 
@@ -57,14 +54,15 @@
         </div>
 
       <div class="row justify-center">
-        <div class="profilesubject2" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
+         <div class="profilesubject" style="overflow: hidden">
+            <div class="profileicon">
+              <q-icon
+                name="school"
+                style="color: #ffffff; font-size: 25px"
+              >
+              </q-icon>
+            </div>
           </div>
-        </div>
         <div class="col self-center q-ml-md">
           <div class="text-white">Data Sci 63</div>
           <div class="text-blue-grey-4">ดร.ขวัญ</div>
@@ -79,14 +77,15 @@
       </div>
 
       <div class="row justify-center">
-        <div class="profilesubject3" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
+         <div class="profilesubject" style="overflow: hidden">
+            <div class="profileicon">
+              <q-icon
+                name="school"
+                style="color: #ffffff; font-size: 25px"
+              >
+              </q-icon>
+            </div>
           </div>
-        </div>
         <div class="col self-center q-ml-md">
           <div class="text-white">UX/UI 63</div>
           <div class="text-blue-grey-4">ดร.จาม</div>
@@ -101,14 +100,15 @@
       </div>
 
       <div class="row justify-center">
-        <div class="profilesubject4" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
+        <div class="profilesubject" style="overflow: hidden">
+            <div class="profileicon">
+              <q-icon
+                name="school"
+                style="color: #ffffff; font-size: 25px"
+              >
+              </q-icon>
+            </div>
           </div>
-        </div>
         <div class="col self-center q-ml-md">
           <div class="text-white">OOP 63</div>
           <div class="text-blue-grey-4">ดร.กริต</div>
@@ -123,14 +123,15 @@
       </div>
 
       <div class="row justify-center">
-        <div class="profilesubject5" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
+        <div class="profilesubject" style="overflow: hidden">
+            <div class="profileicon">
+              <q-icon
+                name="school"
+                style="color: #ffffff; font-size: 25px"
+              >
+              </q-icon>
+            </div>
           </div>
-        </div>
 
         <div class="col self-center q-ml-md">
           <div class="text-white">SW Constructure</div>
@@ -140,98 +141,13 @@
           <div class="row items-center justify-center">5</div>
         </div>
       </div>
-
       <div class="q-mr-lg q-my-lg">
         <q-separator color="grey" inset="item" />
       </div>
-      <div class="row justify-center">
-        <div class="profilesubject5" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
-          </div>
-        </div>
+    
 
-        <div class="col self-center q-ml-md">
-          <div class="text-white">SW Constructure</div>
-          <div class="text-blue-grey-4">ดร.อซิส</div>
-        </div>
-        <div class="q-mr-lg text-white self-center" style="overflow: hidden">
-          <div class="row items-center justify-center">5</div>
-        </div>
-      </div>
-
-      <div class="q-mr-lg q-my-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
-      <div class="row justify-center">
-        <div class="profilesubject5" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
-          </div>
-        </div>
-
-        <div class="col self-center q-ml-md">
-          <div class="text-white">SW Constructure</div>
-          <div class="text-blue-grey-4">ดร.อซิส</div>
-        </div>
-        <div class="q-mr-lg text-white self-center" style="overflow: hidden">
-          <div class="row items-center justify-center">5</div>
-        </div>
-      </div>
-
-      <div class="q-mr-lg q-my-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
-      <div class="row justify-center">
-        <div class="profilesubject5" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
-          </div>
-        </div>
-
-        <div class="col self-center q-ml-md">
-          <div class="text-white">SW Constructure</div>
-          <div class="text-blue-grey-4">ดร.อซิส</div>
-        </div>
-        <div class="q-mr-lg text-white self-center" style="overflow: hidden">
-          <div class="row items-center justify-center">5</div>
-        </div>
-      </div>
-
-      <div class="q-mr-lg q-my-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
-      <div class="row justify-center">
-        <div class="profilesubject5" style="overflow: hidden">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/profilesubject.png"
-              style="height: 50%; width: 50%"
-            />
-          </div>
-        </div>
-
-        <div class="col self-center q-ml-md">
-          <div class="text-white">SW Constructure</div>
-          <div class="text-blue-grey-4">ดร.อซิส</div>
-        </div>
-        <div class="q-mr-lg text-white self-center" style="overflow: hidden">
-          <div class="row items-center justify-center">5</div>
-        </div>
-      </div>
-
-      <div class="q-mr-lg q-my-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
+     
+      
     </div>
     <br />
     <br />
