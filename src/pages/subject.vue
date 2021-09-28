@@ -12,14 +12,7 @@
           style="font-size: 16px; color: #96a7af"
         />
       </q-toolbar-title>
-      <q-btn
-        flat
-        round
-        dense
-        text-color="white"
-        icon="search"
-        class="q-mr-xs"
-      />
+    
     </q-toolbar>
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
@@ -52,12 +45,7 @@
             <div class="text-blue-grey-4">ดร.ขวัญ</div>
           </div>
 
-          <div
-            class="q-mr-lg text-center numberchapter text-white self-center"
-            style="overflow: hidden; font-size: 14px"
-          >
-            <div class="q-mt-xs">3</div>
-          </div>
+        
         </div>
 
         <div class="q-mr-lg q-my-lg">
@@ -79,12 +67,7 @@
           <div class="text-white">Data Sci 63</div>
           <div class="text-blue-grey-4">ดร.ขวัญ</div>
         </div>
-        <div
-          class="q-mr-lg text-center numberchapter text-white self-center"
-          style="overflow: hidden; font-size: 14px"
-        >
-          <div class="q-mt-xs">4</div>
-        </div>
+        
       </div>
 
       <div class="q-mr-lg q-mt-lg">
@@ -105,19 +88,7 @@
           <div class="text-white">UX/UI 63</div>
           <div class="text-blue-grey-4">ดร.ขวัญ</div>
         </div>
-        <div
-          class="
-            q-mr-lg
-            text-center
-            tex-center
-            numberchapter
-            text-white
-            self-center
-          "
-          style="overflow: hidden; font-size: 14px"
-        >
-          <div class="q-mt-xs">7</div>
-        </div>
+       
       </div>
 
       <div class="q-mr-lg q-mt-lg">
@@ -138,19 +109,7 @@
           <div class="text-white">OOP 63</div>
           <div class="text-blue-grey-4">ดร.ขวัญ</div>
         </div>
-        <div
-          class="
-            q-mr-lg
-            text-center
-            numberchapter
-            text-white
-            self-center
-            items-center
-          "
-          style="overflow: hidden; font-size: 14px"
-        >
-          <div class="q-mt-xs">7</div>
-        </div>
+      
       </div>
 
       <div class="q-mr-lg q-mt-lg">
@@ -170,13 +129,7 @@
         <div class="col self-center q-ml-md">
           <div class="text-white">SW Constructure</div>
           <div class="text-blue-grey-4">ดร.ขวัญ</div>
-        </div>
-        <div
-          class="q-mr-lg text-center numberchapter text-white self-center"
-          style="overflow: hidden; font-size: 14px"
-        >
-          <div class="q-mt-xs">10</div>
-        </div>
+        </div>       
       </div>
 
       <div class="q-mr-lg q-mt-lg">
