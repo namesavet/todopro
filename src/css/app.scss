@@ -344,7 +344,7 @@ a{
  margin-top: 13px;
   }
   .allscore {
-    width: 317px;
+    width: 355px;
     height: 241px;
     background: #30444e;
     border-radius: 25px;
@@ -422,5 +422,34 @@ a{
     height: 60px;
     border-radius: 100%;
   }
-  
-  
+  .loadbar
+    {
+         width:12px;
+         height:60%;
+         background-color:#2A3C44;
+        border-radius: 10px;
+         position:relative; 
+         margin-right: auto;
+        margin-top: 30px;
+        margin-left: auto
+    }
+    .bar
+    {
+        width:100%;
+        display:block;        
+        font-family:arial;
+        font-size:12px; 
+        background-color:#FE6C00;
+        color:#fff;       
+        position:absolute;
+        bottom:0;   
+        border-radius: 10px;     
+    }
+    .textnamesroce{
+      color:#96A7AF;
+      
+    }
+    .textsroce{
+      color:white;
+   
+    }

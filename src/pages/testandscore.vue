@@ -21,48 +21,89 @@
         </div>
       </div>
     </div>
-    <div class="row justify-center">
-      <div class="allscore"></div>
+
+    <div class="row justify-center ">
+      <div class="row allscore ">
+        
+
+        <div class="col">
+          <div class="loadbar">
+            <strong class="bar" style="height: 60%"></strong>
+          </div>
+          <div class="row textsroce  justify-center  q-mt-sm">60</div>
+          <div class="row textnamesroce  justify-center ">OOP</div>
+        </div>
+        
+         <div class="col ">
+          <div class="loadbar">
+            <strong class="bar" style="height: 40%"></strong>
+          </div>
+          <div class="row textsroce  justify-center  q-mt-sm">40</div>
+          <div class="row textnamesroce  justify-center ">DAT</div>
+        </div>
+        
+     <div class="col ">
+          <div class="loadbar">
+            <strong class="bar" style="height: 80%"></strong>
+          </div>
+          <div class="row textsroce  justify-center  q-mt-sm">80</div>
+          <div class="row textnamesroce  justify-center ">UX/</div>
+        </div>
+        
+     <div class="col ">
+          <div class="loadbar">
+            <strong class="bar" style="height: 28%"></strong>
+          </div>
+          <div class="row textsroce  justify-center   q-mt-sm">28</div>
+          <div class="row textnamesroce  justify-center ">SPI</div>
+        </div>
+        
+     <div class="col ">
+          <div class="loadbar">
+            <strong class="bar" style="height: 50%"></strong>
+          </div>
+          <div class="row textsroce  justify-center  q-mt-sm">50</div>
+          <div class="row textnamesroce  justify-center ">SOF</div>
+        </div>
+    
+       
+      </div>
     </div>
 
     <div class="q-ml-lg q-mt-lg">
-        <div class="row justify-center" 
-            @click="$router.push({ name: 'subjectscore' })" push
-        >
-           <div class="profilesubject" style="overflow: hidden">
-            <div class="profileicon">
-              <q-icon
-                name="school"
-                style="color: #ffffff; font-size: 25px"
-              >
-              </q-icon>
-            </div>
-          </div>
-
-          <div class="col self-center q-ml-md">
-            <div class="text-white">SPI</div>
-            <div class="text-blue-grey-4">ดร.กุลศิริ</div>
-          </div>
-
-          <div class="q-mr-lg text-white self-center" style="overflow: hidden">
-            <div class="row items-center justify-center">1</div>
+      <div
+        class="row justify-center"
+        @click="$router.push({ name: 'subjectscore' })"
+        push
+      >
+        <div class="profilesubject" style="overflow: hidden">
+          <div class="profileicon">
+            <q-icon name="school" style="color: #ffffff; font-size: 25px">
+            </q-icon>
           </div>
         </div>
 
-        <div class="q-mr-lg q-my-lg">
-          <q-separator color="grey" inset="item" />
+        <div class="col self-center q-ml-md">
+          <div class="text-white">SPI</div>
+          <div class="text-blue-grey-4">ดร.กุลศิริ</div>
         </div>
+
+        <div class="q-mr-lg text-white self-center" style="overflow: hidden">
+          <div class="row items-center justify-center">1</div>
+        </div>
+      </div>
+
+      <div class="q-mr-lg q-my-lg">
+        <q-separator color="grey" inset="item" />
+      </div>
 
       <div class="row justify-center">
-         <div class="profilesubject" style="overflow: hidden">
-            <div class="profileicon">
-              <q-icon
-                name="school"
-                style="color: #ffffff; font-size: 25px"
-              >
-              </q-icon>
-            </div>
+        <div class="profilesubject" style="overflow: hidden">
+          <div class="profileicon">
+            <q-icon name="school" style="color: #ffffff; font-size: 25px">
+            </q-icon>
           </div>
+        </div>
         <div class="col self-center q-ml-md">
           <div class="text-white">Data Sci 63</div>
           <div class="text-blue-grey-4">ดร.ขวัญ</div>
@@ -77,15 +118,12 @@
       </div>
 
       <div class="row justify-center">
-         <div class="profilesubject" style="overflow: hidden">
-            <div class="profileicon">
-              <q-icon
-                name="school"
-                style="color: #ffffff; font-size: 25px"
-              >
-              </q-icon>
-            </div>
+        <div class="profilesubject" style="overflow: hidden">
+          <div class="profileicon">
+            <q-icon name="school" style="color: #ffffff; font-size: 25px">
+            </q-icon>
           </div>
+        </div>
         <div class="col self-center q-ml-md">
           <div class="text-white">UX/UI 63</div>
           <div class="text-blue-grey-4">ดร.จาม</div>
@@ -101,14 +139,11 @@
 
       <div class="row justify-center">
         <div class="profilesubject" style="overflow: hidden">
-            <div class="profileicon">
-              <q-icon
-                name="school"
-                style="color: #ffffff; font-size: 25px"
-              >
-              </q-icon>
-            </div>
+          <div class="profileicon">
+            <q-icon name="school" style="color: #ffffff; font-size: 25px">
+            </q-icon>
           </div>
+        </div>
         <div class="col self-center q-ml-md">
           <div class="text-white">OOP 63</div>
           <div class="text-blue-grey-4">ดร.กริต</div>
@@ -124,14 +159,11 @@
 
       <div class="row justify-center">
         <div class="profilesubject" style="overflow: hidden">
-            <div class="profileicon">
-              <q-icon
-                name="school"
-                style="color: #ffffff; font-size: 25px"
-              >
-              </q-icon>
-            </div>
+          <div class="profileicon">
+            <q-icon name="school" style="color: #ffffff; font-size: 25px">
+            </q-icon>
           </div>
+        </div>
 
         <div class="col self-center q-ml-md">
           <div class="text-white">SW Constructure</div>
@@ -144,10 +176,6 @@
       <div class="q-mr-lg q-my-lg">
         <q-separator color="grey" inset="item" />
       </div>
-    
-
-     
-      
     </div>
     <br />
     <br />
@@ -177,5 +205,11 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      progressall: 0.28,
+    };
+  },
+};
 </script>

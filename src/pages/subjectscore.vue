@@ -134,6 +134,7 @@
             color="white"
             class=""
             style="width: 90%"
+        
           />
         </div>
       </div>
