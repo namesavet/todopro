@@ -39,7 +39,7 @@
       <div class="graderow" >
         <div class="row q-mt-sm">
           <div class="col q-ml-lg text-white text-bold" style="font-size: 19px">
-            Semester 
+            Semesters 
           </div>
            <div
             class="col-2 q-mr-lg q-mt-xs text-white text-bold text-right"
