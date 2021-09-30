@@ -2,7 +2,7 @@
   <div>
     <div class="row justify-center q-px-md">
       <div class="today">
-        <div class="texttitle q-mt-sm q-ml-lg">TODAY DO</div>
+        <div class="texttitle q-mt-sm q-ml-lg">TO DO TODAY</div>
       </div>
     </div>
 

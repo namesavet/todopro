@@ -28,157 +28,109 @@
     </q-toolbar>
 
     <div class="row justify-center">
-      <div class="text-white text-bold" style="font-size: 30px">Activity</div>
+      <div class="text-white text-bold" style="font-size: 30px">Test1</div>
     </div>
 
-    <div class="row justify-center q-mt-lg">
-      <div class="bgtitle" style="overflow: hidden">
-        <div class="col-2">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-icon
-              name="chrome_reader_mode"
-              size="30px"
-              style="color: #ffc542"
-            />
+
+    <div class=" item-center q-ml-lg q-mr-lg q-mt-lg" style="overflow: hidden">
+
+      <div class="row">
+      <div class="text-white text-bold" style="font-size: 20px">Type : </div>
+
+      <div class="row justify-center">
+        <div class="typetest q-ml-md"></div>
+        <div class="self-center text-bold q-ml-md">
+          <div class="text-white text-bold q-mt-xs" style="font-size: 16px">Test</div>
+        </div>
+      </div>
+
+      </div>
+     
+      <div class="q-my-sm q-mb-lg">
+        <q-separator color="grey" inset="" />
+      </div>
+    </div>
+  
+
+    <div class=" item-center q-ml-lg q-mr-lg" style="overflow: hidden">
+
+      <div class="row">
+      <div class="text-white text-bold" style="font-size: 20px">Location : </div>
+
+      <div class="row justify-center">
+        <div class="self-center text-bold q-ml-sm">
+          <div class="text-white text-bold q-mt-xs" style="font-size: 16px">6102</div>
+        </div>
+      </div>
+
+      </div>
+     
+       <div class="q-my-sm q-mb-lg">
+        <q-separator color="grey" inset="" />
+      </div>
+    </div>
+
+
+
+     <div class=" item-center q-ml-lg q-mr-lg" style="overflow: hidden">
+
+      <div class="row">
+      <div class="text-white text-bold" style="font-size: 20px">Date : </div>
+
+      <div class="row justify-center">
+        <div class="self-center text-bold q-ml-sm">
+          <div class="text-white text-bold q-mt-xs" style="font-size: 16px">26/05/2021</div>
+        </div>
+      </div>
+
+      </div>
+     
+       <div class="q-my-sm q-mb-lg">
+        <q-separator color="grey" inset="" />
+      </div>
+    </div>
+
+
+ <div class=" item-center q-ml-lg q-mr-lg" style="overflow: hidden">
+
+      <div class="row">
+      <div class="text-white text-bold" style="font-size: 20px">Time : </div>
+
+      <div class="row justify-center">
+        <div class="self-center text-bold q-ml-sm">
+          <div class="text-white text-bold q-mt-xs" style="font-size: 16px">16.30 น.</div>
+        </div>
+      </div>
+
+      </div>
+     
+       <div class="q-my-sm q-mb-lg">
+        <q-separator color="grey" inset="" />
+      </div>
+    </div>
+    
+    
+     <div class=" item-center q-ml-lg q-mr-lg" style="overflow: hidden">
+
+      <div class="row">
+      <div class="text-white text-bold" style="font-size: 20px">Note : </div>
+
+      <div class="row justify-center">
+        <div class="self-center text-bold q-ml-sm">
+          <div class="text-white text-bold q-mt-xs" style="font-size: 16px">
+            Microsoft Outlook สนับสนุนการกำหนดค่าและปลั๊กอินภายในเครื่องที่อาจส่งผลกระทบต่อวิธีการแสดงข้อความ ในบางกรณี ผู้รับที่ใช้การติดตั้ง Outlook แบบกำหนดเอง อาจเห็นเค้าโครงที่แปลก หรือองค์ประกอบของหน้าซ้ำเมื่อดูเพจที่ออกแบบจาก Dynamics 365 Marketing ซึ่งการแสดงตัวอย่างมาตรฐานหรือกล่องขาเข้าไม่สามารถจำลองผลกระทบเหล่านี้ได้ หากจำเป็น คุณสามารถใช้ การส่งการทดสอบ เพื่อดูว่าการออกแบบของคุณมีลักษณะอย่างไรในการกำหนดค่า Outlook เฉพาะ
           </div>
         </div>
       </div>
 
-      <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input
-          v-model="Title"
-          color="white"
-          :input-style="{ color: 'white' }"
-          label-color="grey"
-          label="Title"
-        />
+      </div>
+     
+       <div class="q-my-sm q-mb-lg">
+        <q-separator color="grey" inset="" />
       </div>
     </div>
 
-    <div class="row justify-center">
-      <div class="bgtitle" style="overflow: hidden">
-        <div class="col-2">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-icon
-              name="chrome_reader_mode"
-              size="30px"
-              style="color: #ffc542"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="col-8 q-ml-md q-gutter-xs">
-        <q-select
-          v-model="type"
-          :options="types"
-          label="type"
-          color="black"
-          :input-style="{ color: 'white' }"
-          label-color="grey"
-        />
-      </div>
-    </div>
-
-    <div class="row justify-center">
-      <div class="bgtitle" style="overflow: hidden">
-        <div class="col-2 item-center">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-icon name="location_on" size="30px" style="color: #ffc542" />
-          </div>
-        </div>
-      </div>
-      <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input
-          v-model="Location"
-          color="white"
-          :input-style="{ color: 'white' }"
-          label-color="grey"
-          label="Location"
-        />
-      </div>
-    </div>
-
-    <div class="q-mt-md">
-      <div class="col-2 item-center q-ml-lg q-mr-lg" style="overflow: hidden">
-        <div class="text-white text-bold" style="font-size: 25px">Date</div>
-      </div>
-
-      <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
-        <q-input
-          filled
-          v-model="date"
-          color="white"
-          :input-style="{ color: 'white' }"
-          label-color="grey"
-          mask="date"
-          :rules="['date']"
-        >
-          <template v-slot:append>
-            <q-icon name="event" class="cursor-pointer" color="white">
-              <q-popup-proxy
-                ref="qDateProxy"
-                transition-show="scale"
-                transition-hide="scale"
-              >
-                <q-date v-model="date">
-                  <div class="row items-center justify-end">
-                    <q-btn v-close-popup label="Close" color="primary" flat />
-                  </div>
-                </q-date>
-              </q-popup-proxy>
-            </q-icon>
-          </template>
-        </q-input>
-      </div>
-    </div>
-
-    <div class="">
-      <div class="col-2 item-center q-ml-lg">
-        <div class="text-white text-bold" style="font-size: 25px">Time</div>
-      </div>
-
-      <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
-        <q-input
-          filled
-          v-model="time"
-          color="white"
-          :input-style="{ color: 'white' }"
-          label-color="grey"
-          mask="time"
-          :rules="['time']"
-        >
-          <template v-slot:append>
-            <q-icon name="access_time" class="cursor-pointer" color="white">
-              <q-popup-proxy transition-show="scale" transition-hide="scale">
-                <q-time v-model="time">
-                  <div class="row items-center justify-end">
-                    <q-btn v-close-popup label="Close" color="primary" flat />
-                  </div>
-                </q-time>
-              </q-popup-proxy>
-            </q-icon>
-          </template>
-        </q-input>
-      </div>
-    </div>
-
-    <div class="q-ml-lg text-white text-bold" style="font-size: 25px">Note</div>
-
-    <div class="item-center text-center q-ml-lg q-mr-lg">
-      <q-input
-        v-model="text"
-        filled
-        type="textarea"
-        color="white"
-        :input-style="{ color: 'white' }"
-        label-color="grey"
-      />
-    </div>
-
-    <br />
-    <br />
-    <br />
-    <br />
+   
 
     <q-footer elevated>
       <q-toolbar

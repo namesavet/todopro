@@ -28,32 +28,6 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="q-ml-md">
-                        <q-avatar icon="notifications" style="color:#96A7AF"/>
-                    </div>
-                    <div class="q-mt-md">
-                        <div class="titlechoice">Notifications</div>
-                    </div>
-                </div>
-
-                <div class="row " @click="$router.push({ name: 'grade summary' })" push>
-                    <div class="q-ml-md">
-                        <q-avatar icon="library_books" style="color:#96A7AF"/>
-                    </div>
-                    <div class="q-mt-md">
-                        <div class="titlechoice">Grade summary</div>
-                    </div>
-                </div>
-
-                <div class="row ">
-                    <div class="q-ml-md">
-                        <q-avatar icon="settings" style="color:#96A7AF"/>
-                    </div>
-                    <div class="q-mt-md">
-                        <div class="titlechoice">Settings</div>
-                    </div>
-                </div>
 
                 <div class="row " @click="$router.push({ name: 'Welcome' })" push>
                     <div class="q-ml-md">
@@ -63,20 +37,17 @@
                         <div class="titlechoice">Log out</div>
                     </div>
                 </div>
-
-
             </div>
 
             <div class="col">
-               
                 <q-img
                     src="../image/phonebackground.png"
                     style="height: 100%; max-width: 100%;"
                     @click="$router.push({ name: 'Index' })"
                     push
                 />
-                
             </div>
+            
         </div>
     </q-page>
 </template>

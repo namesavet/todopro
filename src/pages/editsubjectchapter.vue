@@ -33,9 +33,13 @@
 
     <div class="row justify-center">
       <div class="profile" style="overflow: hidden">
-        <div class="row items-center justify-center q-mt-md">
-          <q-img src="../image/women.png" style="height: 50%; max-width: 50%" />
-        </div>
+        <div class="iconteacher">
+              <q-icon
+                name="school"
+                style="color: #ffffff; font-size: 35px"
+              >
+              </q-icon>
+            </div>
       </div>
     </div>
 
@@ -43,9 +47,10 @@
       <div class="name" style="overflow: hidden">
         <div class="col-2">
           <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/book.png"
-              style="height: 70%; max-width: 70%"
+             <q-icon
+              name="chrome_reader_mode"
+              size="30px"
+              style="color: #ffc542"
             />
           </div>
         </div>
@@ -53,6 +58,8 @@
 
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-input
+        color="white"
+        :input-style="{ color: 'white' }"
           v-model="subjectname"
           label-color="#96A7AF"
           label="Subject name"
@@ -64,15 +71,18 @@
       <div class="name" style="overflow: hidden">
         <div class="col-2">
           <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/book.png"
-              style="height: 70%; max-width: 70%"
+               <q-icon
+              name="chrome_reader_mode"
+              size="30px"
+              style="color: #ffc542"
             />
           </div>
         </div>
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-input
+        color="white"
+        :input-style="{ color: 'white' }"
           v-model="initialsname"
           label-color="#96A7AF"
           label="Initials name"
@@ -84,9 +94,10 @@
       <div class="name" style="overflow: hidden">
         <div class="col-2 item-center">
           <div class="row items-center justify-center q-mt-sm">
-            <q-img
-              src="../image/people.png"
-              style="height: 70%; max-width: 60%"
+            <q-icon
+              name="perm_identity"
+              size="30px"
+              style="color: #FFC542"
             />
           </div>
         </div>
@@ -94,6 +105,8 @@
 
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-input
+        color="white"
+        :input-style="{ color: 'white' }"
           v-model="teachername"
           label-color="#96A7AF"
           label="Teacher name"
@@ -106,13 +119,14 @@
         <div class="text-white text-bold" style="font-size: 30px">Credit</div>
       </div>
     </div>
-    <div class="row">
+    <div class="row text-white">
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-select
+        color="white"
           v-model="credit"
           :options="credits"
           label="Your credit"
-          color="#22343c"
+          
         />
       </div>
     </div>
@@ -127,6 +141,7 @@
       </div>
       
         <q-expansion-item
+        
           dense-toggle
           switch-toggle-side
           expand-separator
@@ -150,6 +165,8 @@
             </div>
             <div class="col-8 q-ml-xs q-gutter-xs">
               <q-input
+              color="white"
+              :input-style="{ color: 'white' }"
                 v-model="a"
                 label-color="grey"
                 label="Enter percent grade"
@@ -167,6 +184,8 @@
             </div>
             <div class="col-8 q-ml-xs q-gutter-xs">
               <q-input
+              color="white"
+              :input-style="{ color: 'white' }"
                 v-model="bplus"
                 label-color="grey"
                 label="Enter percent grade"
@@ -184,6 +203,8 @@
             </div>
             <div class="col-8 q-ml-xs q-gutter-xs">
               <q-input
+              color="white"
+              :input-style="{ color: 'white' }"
                 v-model="b"
                 label-color="grey"
                 label="Enter percent grade"
@@ -202,6 +223,8 @@
 
             <div class="col-8 q-ml-xs q-gutter-xs">
               <q-input
+              color="white"
+              :input-style="{ color: 'white' }"
                 v-model="cplus"
                 label-color="grey"
                 label="Enter percent grade"
@@ -219,6 +242,8 @@
             </div>
             <div class="col-8 q-ml-xs q-gutter-xs">
               <q-input
+              color="white"
+              :input-style="{ color: 'white' }"
                 v-model="c"
                 label-color="grey"
                 label="Enter percent grade"
@@ -236,6 +261,8 @@
             </div>
             <div class="col-8 q-ml-xs q-gutter-xs">
               <q-input
+              color="white"
+              :input-style="{ color: 'white' }"
                 v-model="dplus"
                 label-color="grey"
                 label="Enter percent grade"
@@ -253,6 +280,8 @@
             </div>
             <div class="col-8 q-ml-xs q-gutter-xs">
               <q-input
+              color="white"
+              :input-style="{ color: 'white' }"
                 v-model="d"
                 label-color="grey"
                 label="Enter percent grade"
@@ -282,7 +311,10 @@
 
     <div class="row q-gutter-xs">
       <div class="q-pa-md" style="max-width: 200px">
-        <q-input filled v-model="date_midterm" mask="date" :rules="['date']">
+        <q-input 
+        color="white"
+        :input-style="{ color: 'white' }"
+        filled v-model="date_midterm" mask="date" :rules="['date']">
           <template v-slot:append>
             <q-icon name="event" class="cursor-pointer">
               <q-popup-proxy
@@ -292,7 +324,7 @@
               >
                 <q-date v-model="date_midterm">
                   <div class="row items-center justify-end">
-                    <q-btn v-close-popup label="Close" color="primary" flat />
+                    <q-btn v-close-popup label="Close" color="primary"  flat />
                   </div>
                 </q-date>
               </q-popup-proxy>
@@ -303,6 +335,7 @@
 
       <div class="col-4 q-ml-lg q-gutter-xs">
         <q-input
+        :input-style="{ color: 'white' }"
           color="white"
           label-color="#96A7AF"
           v-model="midterscoregrade"
@@ -321,7 +354,10 @@
 
     <div class="row q-gutter-xs">
       <div class="q-pa-md" style="max-width: 200px">
-        <q-input filled v-model="date_final" mask="date" :rules="['date']">
+        <q-input 
+        :input-style="{ color: 'white' }"
+        color="white"
+        filled v-model="date_final" mask="date" :rules="['date']">
           <template v-slot:append>
             <q-icon name="event" class="cursor-pointer">
               <q-popup-proxy
@@ -342,6 +378,7 @@
 
       <div class="col-4 q-ml-lg q-gutter-xs">
         <q-input
+         :input-style="{ color: 'white' }"
           color="white"
           label-color="#96A7AF"
           v-model="finalscoregrade"
@@ -361,10 +398,11 @@
     <div class="row">
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-select
+         :input-style="{ color: 'white' }"
           v-model="desiredgrade"
           :options="desiredgrades"
           label="Your grade"
-          color="#22343c"
+          color="white"
         />
       </div>
     </div>

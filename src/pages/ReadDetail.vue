@@ -116,7 +116,7 @@
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
       <div>
         <div class="row justify-center">
-          <div class="profilesubject1 text-bold" style="overflow: hidden">
+          <div class="profilechap text-bold" style="overflow: hidden">
             <div class="chapter row items-center justify-center q-mt-sm">1</div>
           </div>
 
@@ -135,7 +135,7 @@
         </div>
 
         <div class="row justify-center">
-          <div class="profilesubject2 text-bold" style="overflow: hidden">
+          <div class="profilechap text-bold" style="overflow: hidden">
             <div class="chapter row items-center justify-center q-mt-sm">2</div>
           </div>
           <div class="col self-center text-bold q-ml-lg">
@@ -153,7 +153,7 @@
         </div>
 
         <div class="row justify-center">
-          <div class="profilesubject3 text-bold" style="overflow: hidden">
+          <div class="profilechap text-bold" style="overflow: hidden">
             <div class="chapter row items-center justify-center q-mt-sm">3</div>
           </div>
           <div class="col self-center text-bold q-ml-lg">

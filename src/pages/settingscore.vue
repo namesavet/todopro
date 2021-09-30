@@ -36,7 +36,7 @@
       </div>
     </div>
 
-  <div class="row justify-center">
+    <div class="row justify-center">
       <div class="score">
         <div class="row">
           <div
@@ -46,11 +46,14 @@
             Midterm exam
           </div>
           <div
-            class="col q-my-md q-mr-lg text-white text-bold text-right"
+            class="col q-my-md q-mr-sm text-white text-bold text-right"
             style="font-size: 16px"
           >
             15/30
           </div>
+          <div class="col-1  q-mt-sm q-mr-md">
+        <q-btn flat round dense text-color="red" icon="delete_forever" />
+      </div>
         </div>
         <div class="row justify-center">
           <q-linear-progress
@@ -65,7 +68,7 @@
         </div>
       </div>
     </div>
-   <div class="row justify-center">
+    <div class="row justify-center">
       <div class="score">
         <div class="row">
           <div
@@ -75,11 +78,14 @@
             test1
           </div>
           <div
-            class="col q-my-md q-mr-lg text-white text-bold text-right"
+            class="col q-my-md q-mr-sm text-white text-bold text-right"
             style="font-size: 16px"
           >
             10/15
           </div>
+          <div class="col-1  q-mt-sm q-mr-md">
+        <q-btn flat round dense text-color="red" icon="delete_forever" />
+      </div>
         </div>
         <div class="row justify-center">
           <q-linear-progress
@@ -95,8 +101,7 @@
       </div>
     </div>
 
-
-  <div class="row justify-center">
+    <div class="row justify-center">
       <div class="score">
         <div class="row">
           <div
@@ -106,11 +111,14 @@
             Homework1
           </div>
           <div
-            class="col q-my-md q-mr-lg text-white text-bold text-right"
+            class="col q-my-md q-mr-sm text-white text-bold text-right"
             style="font-size: 16px"
           >
             30/30
           </div>
+          <div class="col-1  q-mt-sm q-mr-md">
+        <q-btn flat round dense text-color="red" icon="delete_forever" />
+      </div>
         </div>
         <div class="row justify-center">
           <q-linear-progress
@@ -126,11 +134,90 @@
       </div>
     </div>
 
+    <div id="app" class="container">
+      <form>
+        <div class="work-experiences">
+          <div class="form-row" v-for="(input, index) in chapter" :key="index">
+            <div class="row justify-center">
+              <div class="score">
+                <div class="row">
+                  <div class="col">
+                    <div
+                      class="row text-white text-bold q-ml-lg  q-mb-md"
+                      style="font-size: 16px; height: 20%"
+                    >
+              
+                      <q-input
+                      :input-style="{ color: 'white' }"
+                        v-model="input.scoreName"
+                        placeholder="Name of score"
+                        color="white"
+                        label-color="grey"
+                    
+                      />
+                    </div>
+                    <div
+                      class="row text-white text-bold q-ml-lg "
+                      style="font-size: 16px; height: 100%"
+                    >
+                    <div class="col">
+                         <q-input
+                      :input-style="{ color: 'white' }"
+                        v-model="input.getPoin"
+                        placeholder="Get poin"
+                        color="white"
+                        label-color="grey"
+                      />
+                    </div>
+                    <div class="col q-ml-lg">
+                         <q-input
+                      :input-style="{ color: 'white' }"
+                        v-model="input.getPoin"
+                        placeholder="Chapter name"
+                        color="white"
+                        label-color="grey"
+                      />
+                    </div>
+                   
+                    </div>
+                  </div>
+                  <div class="col-2 items-center text-center">
+                    <div class="row q-mt-sm justify-center">
+                      <q-btn
+                        @click="removeField(index, chapter)"
+                        round
+                        dense
+                        text-color="white"
+                        icon="done"
+                        class=""
+                        style=" background-color: #40df9f"
+                      />
+                    </div>
+                    <div class="row q-mt-md justify-center">
+                      <q-btn
+                        @click="removeField(index, chapter)"
+                        round
+                        dense
+                        text-color="white"
+                        icon="clear"
+                        class=""
+                          style=" background-color: #FF5656"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
 
     <div class="q-px-sm q-py-lg">
       <div class="column items-center" style="margin-top: 20px">
         <div class="row items-center justify-center">
           <q-btn
+            @click="addChapter"
             size="20px"
             round
             color=""
@@ -149,6 +236,10 @@
         <div class="fontaddsubject" style="color: #40df9f">Add Score</div>
       </div>
     </div>
+
+      <div class="q-pa-md">
+    <q-btn color="purple" @click="showNotif" label="Show Notifications" />
+  </div>
 
     <br />
     <br />
@@ -178,15 +269,64 @@
 </template>
 
 <script>
+
 export default {
   data() {
+    const $q = useQuasar()
     return {
-     progressall: 0.28,
-      progress1: 0.50,
+      chapter: [
+        {
+          chapterName: "Foxconn",
+        },
+      ],
+      progressall: 0.28,
+      progress1: 0.5,
       progress2: 0.66,
       progress3: 1,
+ showNotif () {
+        $q.notify({
+          message: 'Jim just pinged you.',
+          color: 'primary',
+          avatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
+          actions: [
+            { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
+          ]
+        })
+
+        $q.notify({
+          message: 'Jim just pinged you.',
+          color: 'primary',
+          avatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
+          actions: [
+            { label: 'Reply', color: 'yellow', handler: () => { /* ... */ } },
+            { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
+          ]
+        })
+      }
+
+
+
+
     };
+  },
+
+  methods: {
+    addChapter() {
+      this.chapter.push({
+        chapterName: "",
+      });
+    },
+    removeField(index, chapter) {
+      //type.splice(index, 1);
+      chapter.splice(index, 1);
+    },
+
+    submit() {
+      const data = {
+        chapter: this.chapter,
+      };
+      alert(JSON.stringify(data, null, 2));
+    },
   },
 };
 </script>
-
