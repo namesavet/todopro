@@ -6,7 +6,7 @@
           flat
           color=""
           icon="keyboard_arrow_left"
-          @click="$router.push({ name: 'subject' })"
+          @click="$router.push({ name: 'selectaddsubject' })"
           push
           label="Back"
           style="font-size: 16px; color: #96a7af"

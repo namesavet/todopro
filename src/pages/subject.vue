@@ -141,7 +141,7 @@
       <div class="col items-center" style="margin-top: 20px">
         <div class="row items-center justify-center">
           <q-btn
-            @click="$router.push({ name: 'addsubject' })"
+            @click="$router.push({ name: 'selectaddsubject' })"
             push
             size="20px"
             round
@@ -149,7 +149,6 @@
             icon="add"
             style="
               background-color: #40df9f;
-
               border-radius: 50%;
               border: 10px solid #286053;
             "
