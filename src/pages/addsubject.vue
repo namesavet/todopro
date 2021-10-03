@@ -114,6 +114,35 @@
       </div>
     </div>
 
+    <div class="row justify-center">
+      <div class="name q-mt-sm" style="overflow: hidden">
+        <div class="col-2 item-center">
+          <div class="row items-center justify-center q-mt-sm">
+            <q-icon
+              name="cloud"
+              size="30px"
+              style="color: #FFC542"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-8 q-ml-md q-gutter-xs">
+        <q-input
+          :input-style="{ color: 'white' }"
+          color="white"
+          v-model="id_subject"
+          label-color="grey"
+          label="ID Subject"
+        />
+      </div>
+    </div>
+
+    <div class="row justify-center ">
+      <div class="gradewanttext">This ID can share the subject with oyher people.</div>
+    </div>
+
+
     <div class="row">
       <div class="col q-ml-md q-mt-sm q-gutter-xs">
         <div class="text-white text-bold" style="font-size: 30px">Credit</div>
@@ -443,6 +472,7 @@ export default {
       subject_name: "",
       Abbreviation_name: "",
       teacher_name: "",
+      id_subject:"",
 
       credit: "",
       credits: [
