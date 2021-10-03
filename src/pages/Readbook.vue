@@ -12,7 +12,6 @@
           style="font-size: 16px; color: #96a7af"
         />
       </q-toolbar-title>
-
     </q-toolbar>
 
     <div class="row">
@@ -22,10 +21,25 @@
         </div>
       </div>
     </div>
-
+    
+    <div class="items-center row justify-center">
     <div class="readprogress" style="overflow: hidden">
-      <div class="row q-mt-md q-px-md">
-        <div class="col"></div>
+      <div class="row justify-center q-mt-sm q-px-md">
+        <div class="col items-center" >
+          <div style="width: 90%; height: 90%">
+
+             <canvas
+            id="my-chart"
+            class=""
+            style="display: block;
+                   width: 90%;
+                    height: 90%;
+                      }"
+          >
+          </canvas>
+          </div>
+         
+        </div>
 
         <div class="col">
           <div class="row">
@@ -65,18 +79,13 @@
         </div>
       </div>
     </div>
-
+</div>
     <div class="namebook" style="overflow: hidden">
       <div class="row justify-center">
         <div class="col">
           <div class="statusred q-ml-lg q-mt-lg" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-md">
-              <q-icon
-                name="south"
-                class=""
-                size="24px"
-                style="color: white"
-              />
+              <q-icon name="south" class="" size="24px" style="color: white" />
             </div>
           </div>
         </div>
@@ -93,7 +102,6 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              
               rounded
               size="16px"
               :value="progress1"
@@ -111,12 +119,7 @@
         <div class="col">
           <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-md">
-              <q-icon
-                name="north"
-                class=""
-                size="24px"
-                style="color: white"
-              />
+              <q-icon name="north" class="" size="24px" style="color: white" />
             </div>
           </div>
         </div>
@@ -133,7 +136,6 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              
               rounded
               size="16px"
               :value="progress2"
@@ -151,12 +153,7 @@
         <div class="col">
           <div class="statusgreen q-ml-lg q-mt-lg" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-md">
-              <q-icon
-                name="star"
-                class=""
-                size="24px"
-                style="color: white"
-              />
+              <q-icon name="star" class="" size="24px" style="color: white" />
             </div>
           </div>
         </div>
@@ -173,7 +170,6 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              
               rounded
               size="16px"
               :value="progress3"
@@ -196,12 +192,7 @@
         <div class="col">
           <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-md">
-              <q-icon
-                name="north"
-                class=""
-                size="24px"
-                style="color: white"
-              />
+              <q-icon name="north" class="" size="24px" style="color: white" />
             </div>
           </div>
         </div>
@@ -217,7 +208,6 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              
               rounded
               size="16px"
               :value="progress4"
@@ -235,12 +225,7 @@
         <div class="col">
           <div class="statusred q-ml-lg q-mt-lg" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-md">
-              <q-icon
-                name="south"
-                class=""
-                size="24px"
-                style="color: white"
-              />
+              <q-icon name="south" class="" size="24px" style="color: white" />
             </div>
           </div>
         </div>
@@ -256,7 +241,6 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              
               rounded
               size="16px"
               :value="progress1"
@@ -269,10 +253,9 @@
       </div>
     </div>
 
-    <br>
-    <br>
-    <br>
-
+    <br />
+    <br />
+    <br />
 
     <div class="row q-mt-xl">
       <q-footer elevated>
@@ -299,6 +282,7 @@
 </template>
 
 <script>
+import Chart from "chart.js";
 export default {
   data() {
     return {
@@ -307,6 +291,25 @@ export default {
       progress3: 0.98,
       progress4: 0.66,
     };
+  },
+  components: {},
+  mounted: function () {
+    var ctx = document.getElementById("my-chart");
+    var myChart = new Chart(ctx, {
+      type: "pie",
+      data: {
+        datasets: [
+          {
+            label: "Page A",
+            data: [25, 50, 25],
+            backgroundColor: ["#FFC542", "#3DD598", "#FF575F"],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+      },
+    });
   },
 };
 </script>

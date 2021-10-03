@@ -6,7 +6,7 @@
           flat
           color=""
           icon="keyboard_arrow_left"
-          @click="$router.push({ name: 'subject' })"
+          @click="$router.push({ name: 'selectaddsubject' })"
           push
           label="Back"
           style="font-size: 16px; color: #96a7af"
@@ -32,10 +32,14 @@
     </div>
 
     <div class="row justify-center">
-      <div class="profile" style="overflow: hidden">
-        <div class="row items-center justify-center q-mt-md">
-          <q-img src="../image/women.png" style="height: 50%; max-width: 50%" />
-        </div>
+       <div class="profile" style="overflow: hidden">
+        <div class="iconteacher">
+              <q-icon
+                name="school"
+                style="color: #ffffff; font-size: 35px"
+              >
+              </q-icon>
+            </div>
       </div>
     </div>
 

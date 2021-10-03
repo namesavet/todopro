@@ -126,11 +126,10 @@ a{
     border-radius: 25px;
   }
   .readprogress {
-    width: 90%;
+    width: 338px;
     height: 157px;
     background: #30444e;
     border-radius: 25px;
-    margin-left: 5%;
     margin-top: 5%;
   }
   .texttier {
@@ -275,39 +274,37 @@ a{
     color: #96a7af;
   }
 
-.profilesubject1 {
-    width: 50px;
-    height: 50px;
-    background: #ffc542;
-    border-radius: 100%;
+.addsubject {
+    width: 140px;
+    height: 130px;
+    background:#3ED598 ;
+    border-radius: 20px;
   }
-  
-  .profilesubject2 {
-    width: 50px;
-    height: 50px;
-    background: #3ed598;
-    border-radius: 100%;
+.addsubjectid {
+    width: 140px;
+    height: 130px;
+    background:#FF565E ;
+    border-radius: 20px;
   }
-  
-  .profilesubject3 {
+
+.profilesubject {
     width: 50px;
     height: 50px;
     background: #ff565e;
     border-radius: 100%;
   }
-  .profilesubject4 {
+  .profilechap {
     width: 50px;
     height: 50px;
     background: #ffc542;
     border-radius: 100%;
-  }
-  
-  .profilesubject5 {
-    width: 50px;
-    height: 50px;
-    background: #3ed598;
-    border-radius: 100%;
-  }
+  } 
+.iconteacher{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ margin-top: 16px;
+}
   .chapter {
     font-size: 22px;
     color: white;
@@ -353,8 +350,14 @@ a{
     margin-top: 10px;
     
   }
+  .profileicon{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+ margin-top: 13px;
+  }
   .allscore {
-    width: 317px;
+    width: 355px;
     height: 241px;
     background: #30444e;
     border-radius: 25px;
@@ -367,6 +370,7 @@ a{
     border-radius: 25px;
     box-shadow: 2px 2px 4px #19282f;
   }
+
   .warringscore {
     width: 317px;
     height: 55px;
@@ -431,5 +435,34 @@ a{
     height: 60px;
     border-radius: 100%;
   }
-  
-  
+  .loadbar
+    {
+         width:12px;
+         height:60%;
+         background-color:#2A3C44;
+        border-radius: 10px;
+         position:relative; 
+         margin-right: auto;
+        margin-top: 30px;
+        margin-left: auto
+    }
+    .bar
+    {
+        width:100%;
+        display:block;        
+        font-family:arial;
+        font-size:12px; 
+        background-color:#FE6C00;
+        color:#fff;       
+        position:absolute;
+        bottom:0;   
+        border-radius: 10px;     
+    }
+    .textnamesroce{
+      color:#96A7AF;
+      
+    }
+    .textsroce{
+      color:white;
+   
+    }
