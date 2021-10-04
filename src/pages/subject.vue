@@ -12,7 +12,6 @@
           style="font-size: 16px; color: #96a7af"
         />
       </q-toolbar-title>
-    
     </q-toolbar>
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
@@ -24,7 +23,9 @@
         </div>
       </div>
 
-      <div>
+
+
+      <div :key="index" v-for="(subject,index) in subjects">
         <div
           class="row justify-center"
           @click="$router.push({ name: 'subjectchapter' })"
@@ -32,20 +33,15 @@
         >
           <div class="profilesubject" style="overflow: hidden">
             <div class="profileicon">
-              <q-icon
-                name="school"
-                style="color: #ffffff; font-size: 25px"
-              >
+              <q-icon name="school" style="color: #ffffff; font-size: 25px">
               </q-icon>
             </div>
           </div>
 
           <div class="col self-center q-ml-md">
-            <div class="text-white">SPI</div>
-            <div class="text-blue-grey-4">ดร.ขวัญ</div>
+            <div class="text-white">{{subject.Subject_name}}</div>
+            <div class="text-blue-grey-4">{{subject.Teacher_name}}</div>
           </div>
-
-        
         </div>
 
         <div class="q-mr-lg q-my-lg">
@@ -53,88 +49,6 @@
         </div>
       </div>
 
-      <div class="row justify-center q-mt-lg">
-        <div class="profilesubject" style="overflow: hidden">
-            <div class="profileicon">
-              <q-icon
-                name="school"
-                style="color: #ffffff; font-size: 25px"
-              >
-              </q-icon>
-            </div>
-          </div>
-        <div class="col self-center q-ml-md">
-          <div class="text-white">Data Sci 63</div>
-          <div class="text-blue-grey-4">ดร.ขวัญ</div>
-        </div>
-        
-      </div>
-
-      <div class="q-mr-lg q-mt-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
-
-      <div class="row justify-center q-mt-lg">
-        <div class="profilesubject" style="overflow: hidden">
-            <div class="profileicon">
-              <q-icon
-                name="school"
-                style="color: #ffffff; font-size: 25px"
-              >
-              </q-icon>
-            </div>
-          </div>
-        <div class="col self-center q-ml-md">
-          <div class="text-white">UX/UI 63</div>
-          <div class="text-blue-grey-4">ดร.ขวัญ</div>
-        </div>
-       
-      </div>
-
-      <div class="q-mr-lg q-mt-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
-
-      <div class="row justify-center q-mt-lg">
-         <div class="profilesubject" style="overflow: hidden">
-            <div class="profileicon">
-              <q-icon
-                name="school"
-                style="color: #ffffff; font-size: 25px"
-              >
-              </q-icon>
-            </div>
-          </div>
-        <div class="col self-center q-ml-md">
-          <div class="text-white">OOP 63</div>
-          <div class="text-blue-grey-4">ดร.ขวัญ</div>
-        </div>
-      
-      </div>
-
-      <div class="q-mr-lg q-mt-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
-
-      <div class="row justify-center q-mt-lg">
-         <div class="profilesubject" style="overflow: hidden">
-            <div class="profileicon">
-              <q-icon
-                name="school"
-                style="color: #ffffff; font-size: 25px"
-              >
-              </q-icon>
-            </div>
-          </div>
-        <div class="col self-center q-ml-md">
-          <div class="text-white">SW Constructure</div>
-          <div class="text-blue-grey-4">ดร.ขวัญ</div>
-        </div>       
-      </div>
-
-      <div class="q-mr-lg q-mt-lg">
-        <q-separator color="grey" inset="item" />
-      </div>
     </div>
 
     <div class="q-px-sm">
@@ -187,7 +101,26 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+export default {
+  data() {
+    return {
+      info: null,
+      subjects: [],
+    };
+  },
+  mounted() {
+    this.getSubjectData();
+  },
+  methods: {
+    async getSubjectData() {
+      const {data} = await axios.get(
+        "http://localhost:3000/subject/72100d56-21ae-42fd-8167-0b5c49c68b1d"
+      );
+      this.subjects = data.subject;
+    },
+  },
+};
 </script>
 
 <style scoped>
