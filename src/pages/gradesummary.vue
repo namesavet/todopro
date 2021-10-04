@@ -193,7 +193,6 @@ export default {
    text1: "",
     };
   },
-
   components: {},
   mounted: function () {
     var ctx = document.getElementById("graph").getContext("2d");
@@ -212,7 +211,6 @@ export default {
               "rgba(255,197,66,1)",
               "rgba(255,197,66,1)",
             ],
-
             borderWidth: 1,
           },
           {
@@ -221,12 +219,10 @@ export default {
             backgroundColor: [
               "rgba(62, 213, 152, 1)",
               "rgba(62, 213, 152, 1)",
-
               "rgba(62, 213, 152, 1)",
               "rgba(62, 213, 152, 1)",
               "rgba(62, 213, 152, 1)",
             ],
-
             borderWidth: 1,
           },
         ],
