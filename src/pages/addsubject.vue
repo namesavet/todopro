@@ -16,7 +16,7 @@
       <q-btn
         flat
         dense
-        @click="$router.push({ name: 'subject' })"
+       @click="$router.push({ name: 'subject' })"
         push
         text-color="white"
         icon="done"
@@ -466,6 +466,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
@@ -498,6 +499,40 @@ export default {
       Date_midterm_exam: "",
       Date_final_exam: "",
     };
+  },
+  mounted() {
+    this.postSubjectData();
+  },
+  methods: {
+    async postSubjectData() {
+      const {data} = await axios.post(
+        "http://localhost:3000/subject/create",
+       
+       {
+        Subject_name:this.subject_name,
+        Intal_name:this.Abbreviation_name,
+        Teacher_name:this.teacher_name,
+        IDsubject:this.id_subject,
+        Credit:this.credit,
+        GradeA:this.a,
+        GradeBplus:this.bplus,
+        GradeB:this.b,
+        GradeCplus:this.cplus,
+        GradeC:this.c,
+        GradeDplus:this.dplus,
+        GradeD:this.d,
+        Date_midterm_exam:this.Date_midterm_exam,
+        Date_final_exam:this.Date_final_exam,
+        Score_midterm:this.score_midterm,
+        Score_final:this.score_final,
+        Desired_grade:this.Desired_grades,
+        StudentID:" ",
+        SemesterID:" ",
+      }) 
+     console.log(data);
+     
+    },
+    
   },
 };
 </script>
