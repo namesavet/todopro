@@ -19,7 +19,7 @@
     </div>
 
     <div class="row justify-center">
-      <div class="chartGradeSummary  q-mr-md q-ml-md" style="overflow: hidden">
+      <div class="chartGradeSummary q-mr-md q-ml-md" style="overflow: hidden">
         <div class="q-pa-sm q-mt-sm" style="width: 95%; height: 95%">
           <canvas
             id="graph"
@@ -33,164 +33,86 @@
       </div>
     </div>
 
-    <br>
+    <br />
 
-    <div class="row justify-center">
-      <div class="graderow" >
-        <div class="row q-mt-sm">
-          <div class="col q-ml-lg text-white text-bold" style="font-size: 19px">
-            Semesters 1
+    <div :key="index" v-for="(semester, index) in semesters">
+      <div class="row justify-center">
+        <div class="graderow">
+          <div class="row q-mt-sm">
+            <div
+              class="col q-ml-lg text-white text-bold"
+              style="font-size: 19px"
+            >
+              Semesters {{ index + 1 }}
+            </div>
+            <div
+              class="col-2 q-mr-lg q-mt-xs text-white text-bold text-right"
+              style="font-size: 16px"
+            >
+              {{ semester.Semester_name }}
+            </div>
           </div>
-           <div
-            class="col-2 q-mr-lg q-mt-xs text-white text-bold text-right"
-            style="font-size: 16px"
-          >
-            1/2019
-          </div>
-          
-        </div>
- 
-         <div class="q-mr-sm q-ml-sm">
+
+          <div class="q-mr-sm q-ml-sm">
             <q-separator color="grey" inset="" />
           </div>
 
-
-        <div class="row q-mt-md">
-          <div class="col q-ml-lg text-white text-bold" style="font-size: 16px">
-            Study Result Simulation
+          <div class="row q-mt-md">
+            <div
+              class="col q-ml-lg text-white text-bold"
+              style="font-size: 16px"
+            >
+              Study Result Simulation
+            </div>
+            <div
+              class="col-2 q-mr-lg text-white text-bold text-right"
+              style="font-size: 16px"
+            >
+              2.8
+            </div>
           </div>
-          <div
-            class="col-2 q-mr-lg text-white text-bold text-right"
-            style="font-size: 16px"
-          >
-            2.8
-          </div>
-        </div>
-        <div class="row">
-          <div class="col q-ml-lg q-mt-md text-white text-bold" style="font-size: 16px">
-            Your grade
-          </div>
-          <div
-            class="col-2 q-mr-lg text-white text-bold  float-right"
-            style="font-size: 16px; text-align: end;"
-          >
-                         <q-input
-                        
-                      :input-style="{ color: 'white' }"
-                        v-model="text"
-                
-                        color="white"
-                        label-color="grey"
-                        placeholder="0.0"
-                        style="text-align: end;"
-                        input-class="text-right text-bold"
-                   
-                      />
-          </div>
-        </div>
-      </div>
-    </div>
- 
-    <div class="row justify-center">
-      <div class="graderow" >
-        <div class="row q-mt-sm">
-          <div class="col q-ml-lg text-white text-bold" style="font-size: 19px">
-            Semester 
-          </div>
-           <div
-            class="col-2 q-mr-lg q-mt-xs text-white text-bold text-right"
-            style="font-size: 16px"
-          >
-            2/2019
-          </div>
-          
-        </div>
- 
-         <div class="q-mr-sm q-ml-sm">
-            <q-separator color="grey" inset="" />
-          </div>
-
-
-        <div class="row q-mt-md">
-          <div class="col q-ml-lg text-white text-bold" style="font-size: 16px">
-            Study Result Simulation
-          </div>
-          <div
-            class="col-2 q-mr-lg text-white text-bold text-right"
-            style="font-size: 16px"
-          >
-            3.0
-          </div>
-        </div>
-        <div class="row">
-          <div class="col q-ml-lg q-mt-md text-white text-bold" style="font-size: 16px">
-            Your grade
-          </div>
-          <div
-            class="col-2 q-mr-lg text-white text-bold text-right"
-            style="font-size: 16px; "
-          >
-                         <q-input
-                         
-                      :input-style="{ color: 'white' }"
-                        v-model="text1"
-                        placeholder="0.0"
-                        color="white"
-                        label-color="grey"
-                        style="text-right"
-                        input-class="text-right text-bold"
-                        
-                      />
+          <div class="row">
+            <div
+              class="col q-ml-lg q-mt-md text-white text-bold"
+              style="font-size: 16px"
+            >
+              Your grade
+            </div>
+            <div
+              class="col-2 q-mr-lg text-white text-bold float-right"
+              style="font-size: 16px; text-align: end"
+            >
+              <q-input
+                :input-style="{ color: 'white' }"
+                v-model="text"
+                color="white"
+                label-color="grey"
+                placeholder="0.0"
+                style="text-align: end"
+                input-class="text-right text-bold"
+              />
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-
-    
-
-
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <br />
+    <br />
+    <br />
   </q-page>
 </template>
 
 <script>
+import axios from "axios";
 import Chart from "chart.js";
 export default {
   data() {
     return {
-     
+      // grades: [],
+      semesters: [],
       text: "",
-   text1: "",
+      text1: "",
     };
   },
   components: {},
@@ -235,6 +157,23 @@ export default {
         },
       },
     });
+
+    this.getSemesterData();
+    // this.getGradeData();
+  },
+  methods: {
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/6130613034"
+      );
+      this.semesters = data.semester;
+    },
+    // async getGradeData() {
+    //   const { data } = await axios.get(
+    //     "http://localhost:3000/grade_summary/6130613034"
+    //   );
+    //   this.grades = data.grade;
+    // },
   },
 };
 </script>

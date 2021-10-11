@@ -13,7 +13,7 @@
       </q-toolbar-title>
     </q-toolbar>
 
-<div >
+<div  >
     <div class="row">
       <div class="col q-ml-md q-mt-xs q-gutter-xs">
         <div class="text-white text-bold" style="font-size: 30px">{{subjects[0].Subject_name}}</div>
