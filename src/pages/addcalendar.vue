@@ -45,7 +45,7 @@
 
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-input
-          v-model="Title"
+          v-model="Note_title"
           label="Title"
           color="white"
           :input-style="{ color: 'white' }"
@@ -68,7 +68,7 @@
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-select
-          v-model="type"
+          v-model="Note_type"
           :options="types"
           label="type"
           color="black"
@@ -92,7 +92,7 @@
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-input
-          v-model="Location"
+          v-model="Note_location"
           label="Location"
           color="white"
           :input-style="{ color: 'white' }"
@@ -112,7 +112,7 @@
         :input-style="{ color: 'white' }"
         label-color="grey"
         filled 
-        v-model="date" 
+        v-model="Note_date" 
         mask="date" 
         :rules="['date']">
           <template v-slot:append>
@@ -122,7 +122,7 @@
                 transition-show="scale"
                 transition-hide="scale"
               >
-                <q-date v-model="date">
+                <q-date v-model="Note_date">
                   <div class="row items-center justify-end">
                     <q-btn v-close-popup label="Close" color="primary" flat />
                   </div>
@@ -145,12 +145,12 @@
         :input-style="{ color: 'white' }"
         label-color="grey"
         filled 
-        v-model="time" 
+        v-model="Note_time" 
         mask="time" :rules="['time']">
           <template v-slot:append>
             <q-icon name="access_time" class="cursor-pointer" color="white">
               <q-popup-proxy transition-show="scale" transition-hide="scale">
-                <q-time v-model="time">
+                <q-time v-model="Note_time">
                   <div class="row items-center justify-end">
                     <q-btn 
                     v-close-popup 
@@ -172,7 +172,7 @@
 
     <div class="item-center text-center q-ml-lg q-mr-lg">
       <q-input
-        v-model="text"
+        v-model="Note_detail"
         filled
         type="textarea"
         color="white"
@@ -212,14 +212,15 @@
 export default {
   data() {
     return {
-      Title: "",
-      Location: "",
-
-      text: "",
-      date: "2021/08/26",
-      time: "10:56",
-      type: null,
+      Note_title: "",
+      Note_type: null,
       types: ["Homework", "Test", "Other"],
+      Note_location: "",
+      Note_date: "",
+      Note_time: "",
+      Note_detail: "",
+      
+     
     };
   },
 };
