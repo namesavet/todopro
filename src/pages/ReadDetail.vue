@@ -13,16 +13,17 @@
       </q-toolbar-title>
     </q-toolbar>
 
+<div  >
     <div class="row">
       <div class="col q-ml-md q-mt-xs q-gutter-xs">
-        <div class="text-white text-bold" style="font-size: 30px">SPI</div>
+        <div class="text-white text-bold" style="font-size: 30px">{{subjects[0].Subject_name}}</div>
       </div>
     </div>
 
     <div class="row">
       <div class="col q-ml-md">
         <div class="text-bold" style="font-size: 22px; color: #96a7af">
-          ดร.กุลศิริ
+          {{subjects[0].Teacher_name}}
         </div>
       </div>
     </div>
@@ -32,19 +33,14 @@
         <div class="col">
           <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-md">
-              <q-icon
-                name="star"
-                class=""
-                size="24px"
-                style="color: white"
-              />
+              <q-icon name="star" class="" size="24px" style="color: white" />
             </div>
           </div>
         </div>
         <div class="col-8">
           <div class="row q-mt-md">
             <div class="col">
-              <div class="titlesubject">SPI</div>
+              <div class="titlesubject">{{subjects[0].Subject_name}}</div>
             </div>
             <div class="col-3">
               <div class="percenyellow">66%</div>
@@ -53,7 +49,6 @@
           <div class="row q-mt-lg">
             <q-linear-progress
               dark
-              
               rounded
               size="16px"
               :value="progress4"
@@ -66,7 +61,7 @@
       </div>
     </div>
 
-    <div class="row q-ml-xl q-mt-lg ">
+    <div class="row q-ml-xl q-mt-lg">
       <div class="q-mt-xs">
         <div class="redcircle"></div>
       </div>
@@ -74,10 +69,10 @@
         <div class="exam">Midterm exam</div>
       </div>
       <div class="col-4 q-mx-xs">
-        <div class="exam">08 May 2020</div>
+        <div class="exam">{{ formatDate(subjects[0].Date_midterm_exam) }}</div>
       </div>
       <div class="col">
-        <div class="exam">30%</div>
+        <div class="exam">{{subjects[0].Score_midterm}}%</div>
       </div>
     </div>
 
@@ -89,13 +84,13 @@
         <div class="exam">Final exam</div>
       </div>
       <div class="col-4 q-mx-xs">
-        <div class="exam">18 May 2020</div>
+        <div class="exam">{{ formatDate(subjects[0].Date_final_exam) }}</div>
       </div>
       <div class="col">
-        <div class="exam">30%</div>
+        <div class="exam">{{subjects[0].Score_final}}%</div>
       </div>
     </div>
-
+</div>
     <div class="row">
       <div
         class="col q-my-md q-ml-md text-white text-bold"
@@ -103,7 +98,7 @@
       >
         Chapter
       </div>
-      <div class="col-2 q-mt-md ">
+      <div class="col-2 q-mt-md">
         <q-icon
           name="chrome_reader_mode"
           class="q-ml-sm"
@@ -114,15 +109,15 @@
     </div>
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
-      <div>
+      <div :key="index" v-for="(chapter, index) in chapters">
         <div class="row justify-center">
           <div class="profilechap text-bold" style="overflow: hidden">
-            <div class="chapter row items-center justify-center q-mt-sm">1</div>
+            <div class="chapter row items-center justify-center q-mt-sm">{{index+1}}</div>
           </div>
 
           <div class="col self-center text-bold q-ml-lg">
             <div class="text-white text-bold" style="font-size: 16px">
-              Software Quality
+              {{ chapter.Chapter_name }}
             </div>
           </div>
           <div class="col-2">
@@ -134,41 +129,6 @@
           <q-separator color="grey" inset="item" />
         </div>
 
-        <div class="row justify-center">
-          <div class="profilechap text-bold" style="overflow: hidden">
-            <div class="chapter row items-center justify-center q-mt-sm">2</div>
-          </div>
-          <div class="col self-center text-bold q-ml-lg">
-            <div class="text-white text-bold" style="font-size: 16px">
-              Software Quality Factor
-            </div>
-          </div>
-          <div class="col-2">
-            <q-checkbox name="read" v-model="ch2" color="green" />
-          </div>
-        </div>
-
-        <div class="q-mr-lg q-my-lg">
-          <q-separator color="grey" inset="item" />
-        </div>
-
-        <div class="row justify-center">
-          <div class="profilechap text-bold" style="overflow: hidden">
-            <div class="chapter row items-center justify-center q-mt-sm">3</div>
-          </div>
-          <div class="col self-center text-bold q-ml-lg">
-            <div class="text-white text-bold" style="font-size: 16px">
-              Software Process Improvment
-            </div>
-          </div>
-          <div class="col-2">
-            <q-checkbox name="read" v-model="ch3" color="green" />
-          </div>
-        </div>
-
-        <div class="q-mr-lg q-my-lg">
-          <q-separator color="grey" inset="item" />
-        </div>
       </div>
     </div>
 
@@ -197,6 +157,8 @@
 </template>
 
 <script>
+import axios from "axios";
+import {date} from "quasar";
 export default {
   data() {
     return {
@@ -204,7 +166,33 @@ export default {
       ch1: false,
       ch2: false,
       ch3: false,
+      chapters: [],
+      subjects: [],
+      countchapter:0,
     };
+  },
+  mounted() {
+    this.getSubjectData();
+    this.getChapter();
+  },
+  methods: {
+    formatDate(day){
+      return date.formatDate(day,"DD MMM YYYY")
+
+    },
+    async getSubjectData() {
+      const resp = await axios.get(
+        "http://localhost:3000/subject/findsubject/e30dad8d-c7f2-4e09-a654-3d4b07838e0c"
+      );
+      this.subjects = resp.data.subject;
+      const url =
+        "http://localhost:3000/chapter/e30dad8d-c7f2-4e09-a654-3d4b07838e0c";
+      const chaptersp = await axios.get(url);
+      this.chapters = chaptersp.data.chapter;
+      
+      this.countchapter = this.chapters.length
+    },
+    async getChapter() {},
   },
 };
 </script>
