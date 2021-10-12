@@ -2,36 +2,71 @@
   <q-page class="addbackground q-pt-xl">
     <div class="col">
       <div class="Logo q-ml-lg"></div>
-      <div class="texttitle1 q-ml-lg q-mt-lg">OTP</div>
-      <div class="texttitle2 q-ml-lg q-mt-sm">to start working</div>
+      <div class="texttitle1 q-ml-lg q-mt-lg">Hello !</div>
+      <div class="texttitle2 q-ml-lg q-mt-sm">Lets introduce</div>
 
       <div class="row justify-center items-center q-mt-md">
-        <div class="col-10">
+        <div class="icon_Profile" style="overflow: hidden">
+          <div class="row items-center justify-center q-mt-sm">
+            <q-icon name="school" size="30px" style="color: #ffc542" />
+          </div>
+        </div>
+        <div class="col-9 q-ml-md q-gutter-xs">
           <q-input
-            square
+            class="q-mt-md"
             :input-style="{ color: 'white' }"
+            v-model="Faculty"
             label-color="grey"
-            label="OTP"
+            label="Faculty"
             color="white"
-            style="font-size: 30px"
-            v-model="OTP"
-            input-class="text-center"
-            mask="#      #      #      #"
-          >
-          </q-input>
+            :rules="[
+              (val) => (val && val.length > 0) || 'Please enter faculty',
+            ]"
+          />
         </div>
       </div>
 
       <div class="row justify-center items-center">
-        <div class="text_OTP q-mt-lg q-ml-lg q-mr-lg">
-          Please, enter 4-digit code We send on your number as SMS
+        <div class="icon_Profile" style="overflow: hidden">
+          <div class="row items-center justify-center q-mt-sm">
+            <q-icon name="school" size="30px" style="color: #ffc542" />
+          </div>
+        </div>
+        <div class="col-9 q-ml-md q-gutter-xs">
+          <q-input
+            class="q-mt-md"
+            :input-style="{ color: 'white' }"
+            v-model="University"
+            label-color="grey"
+            label="University"
+            color="white"
+            :rules="[
+              (val) => (val && val.length > 0) || 'Please enter university ',
+            ]"
+          />
         </div>
       </div>
 
-      <div class="row justify-center items-center q-mt-lg">
-        <div class="button-next">
+        
+
+       
+      
+
+      <div class="row justify-center items-center">
+        <div class="button_back q-mt-lg">
           <q-btn
-            @click="$router.push({ name: 'Welcome' })"
+            @click="$router.push({ name: 'Createaccount3' })"
+            push
+            align="center"
+            no-caps
+            icon-right="arrow_back"
+            size="20px"
+            style="width: 50px; background: #286053; color: #3dd598"
+          />
+        </div>
+        <div class="button-next q-mt-lg q-ml-md">
+          <q-btn
+            @click="gotocreateaccount5()"
             push
             align="center"
             no-caps
@@ -50,8 +85,18 @@
 export default {
   data() {
     return {
-      OTP: "",
+      Faculty: "",
+      University: "",
     };
+  },
+  methods: {
+    gotocreateaccount5() {
+      console.log(this.Faculty);
+      console.log(this.University);
+      this.$router.push({
+        path: "/Createaccount5",
+      });
+    },
   },
 };
 </script>

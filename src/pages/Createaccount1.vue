@@ -21,10 +21,10 @@
             :input-style="{ color: 'white' }"
             v-model="Fullname"
             label-color="grey"
-            label="Your full name"
+            label="Full name"
             color="white"
             :rules="[
-              (val) => (val && val.length > 0) || 'Please enter your full name',
+              (val) => (val && val.length > 0) || 'Please enter full name',
             ]"
           />
         </div>
