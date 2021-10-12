@@ -17,7 +17,6 @@
         flat
         dense
        @click="onSubmit()"
-        push
         text-color="white"
         icon="done"
         class="q-mr-xs"
@@ -25,7 +24,7 @@
       />
     </q-toolbar>
     
-  <q-form @submit.prevent="onSubmit" class="q-gutter-md">
+  
     <div class="row">
       <div class="col q-ml-md q-mt-sm q-gutter-xs">
         <div class="text-white text-bold" style="font-size: 30px">Subject</div>
@@ -44,6 +43,7 @@
       </div>
     </div>
 
+<q-form class="q-gutter-md">
     <div class="row justify-center q-mt-lg">
       <div class="name q-mt-sm" style="overflow: hidden">
         <div class="col-2">
@@ -530,7 +530,6 @@ export default {
         StudentID:"",
         SemesterID:"",
       })
-      
       .then((response) =>{
         console.log(response);
       });
