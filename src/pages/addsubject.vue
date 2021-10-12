@@ -16,7 +16,7 @@
       <q-btn
         flat
         dense
-       @click="$router.push({ name: 'subject' })"
+       @click="$router.push({ name: 'subject' ,methods:'post' , action:'postSubjectData()' })"
         push
         text-color="white"
         icon="done"
@@ -528,8 +528,10 @@ export default {
         Desired_grade:this.Desired_grades,
         StudentID:" ",
         SemesterID:" ",
-      }) 
-     console.log(data);
+      });
+      this.data = data.data;
+
+     console.log(data); 
      
     },
     
