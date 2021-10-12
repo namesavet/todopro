@@ -16,7 +16,7 @@
       <q-btn
         flat
         dense
-       @click="$router.push({ name: 'subject' ,methods:'post' , action:'postSubjectData()' })"
+       @click="onSubmit()"
         push
         text-color="white"
         icon="done"
@@ -24,7 +24,8 @@
         style="background-color: #40df9f"
       />
     </q-toolbar>
-
+    
+  <q-form @submit.prevent="onSubmit" class="q-gutter-md">
     <div class="row">
       <div class="col q-ml-md q-mt-sm q-gutter-xs">
         <div class="text-white text-bold" style="font-size: 30px">Subject</div>
@@ -438,9 +439,12 @@
         />
       </div>
     </div>
+  </q-form>
+
     <br />
     <br />
     <br />
+
     <div class="row q-mt-xl">
       <q-footer elevated>
         <q-toolbar
@@ -500,14 +504,11 @@ export default {
       Date_final_exam: "",
     };
   },
-  mounted() {
-    this.postSubjectData();
-  },
+  
   methods: {
-    async postSubjectData() {
-      const {data} = await axios.post(
+    onSubmit() {
+       axios.post(
         "http://localhost:3000/subject/create",
-       
        {
         Subject_name:this.subject_name,
         Intal_name:this.Abbreviation_name,
@@ -526,15 +527,15 @@ export default {
         Score_midterm:this.score_midterm,
         Score_final:this.score_final,
         Desired_grade:this.Desired_grades,
-        StudentID:" ",
-        SemesterID:" ",
+        StudentID:"",
+        SemesterID:"",
+      })
+      
+      .then((response) =>{
+        console.log(response);
       });
-      this.data = data.data;
-
-     console.log(data); 
-     
+      this.$router.push({ path: '/Subject' });
     },
-    
   },
 };
 </script>
