@@ -494,11 +494,10 @@ export default {
       Date_final_exam: "",
     };
   },
-
   methods: {
     onSubmit() {
       axios
-        .post("http://localhost:3000/subject/create", {
+        .post("http://localhost:3000/subject/create ", {
           Subject_name: this.subject_name,
           Intal_name: this.Abbreviation_name,
           Teacher_name: this.teacher_name,
@@ -515,9 +514,9 @@ export default {
           Date_final_exam: this.Date_final_exam,
           Score_midterm: this.score_midterm,
           Score_final: this.score_final,
-          Desired_grade: this.Desired_grades,
-          // StudentID: "",
-          // SemesterID: "",
+          Desired_grade: this.grade,
+          StudentID: "6130613034",
+          SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
         })
         .then((response) => {
           console.log(response);
