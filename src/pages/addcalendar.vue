@@ -214,12 +214,12 @@ export default {
     return {
       Title: "",
       Location: "",
-
       text: "",
       date: "2021/08/26",
       time: "10:56",
       type: null,
       types: ["Homework", "Test", "Other"],
+
     };
   },
 };

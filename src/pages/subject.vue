@@ -30,7 +30,9 @@
           class="row justify-center"
           @click="$router.push({ name: 'subjectchapter' })"
           push
+          
         >
+        
           <div class="profilesubject" style="overflow: hidden">
             <div class="profileicon">
               <q-icon name="school" style="color: #ffffff; font-size: 25px">
