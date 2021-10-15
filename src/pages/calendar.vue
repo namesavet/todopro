@@ -12,20 +12,18 @@
           style="font-size: 16px; color: #96a7af"
         />
       </q-toolbar-title>
-        <div class="settingbtn">
-          <q-btn
-            flat
-            round
-            dense
-            @click="$router.push({ name: 'addcalendar' })"
-            push
-            text-color="white"
-            icon="add"
-            class=""
-          />
-        </div>
+      <div class="settingbtn">
+        <q-btn
+          flat
+          round
+          dense
+          @click="$router.push({ name: 'addcalendar' })"
+          push
+          text-color="white"
+          icon="add"
+        />
+      </div>
     </q-toolbar>
-
     <div class="items-center">
       <div class="q-gutter-md text-white text-center">
         <q-date
@@ -37,46 +35,29 @@
         />
       </div>
     </div>
-
     <div class="col q-ml-md q-mt-sm q-gutter-xs q-mt-lg">
-      <div>
-       
-          <div class="row justify-center"  @click="$router.push({ name: 'event' })"
-          push>
-            <div class="typetest"></div>
-            <div class="col self-center text-bold q-ml-lg">
-              <div class="text-white text-bold" style="font-size: 16px">
-                Test 1
-              </div>
-            </div>
-          </div>
+      <div :key="index" v-for="(calendar, index) in calendars">
+        <div
+          class="row justify-center"
+          @click="
+            $router.push({
+              name: 'event',
+              query: {
+                id: calendar.NoteID,
+              },
+            })
+          "
+          push
+        >
+          <div class="typetest"></div>
 
-          <div class="q-my-lg">
-            <q-separator color="grey" inset="" />
-          </div>
-
-
-        <div class="row justify-center">
-          <div class="typeother"></div>
           <div class="col self-center text-bold q-ml-lg">
             <div class="text-white text-bold" style="font-size: 16px">
-              Other
+              {{ calendar.Note_title }}
             </div>
           </div>
         </div>
 
-        <div class="q-my-lg">
-          <q-separator color="grey" inset="" />
-        </div>
-
-        <div class="row justify-center">
-          <div class="typehomework"></div>
-          <div class="col self-center text-bold q-ml-lg">
-            <div class="text-white text-bold" style="font-size: 16px">
-              homework spi
-            </div>
-          </div>
-        </div>
         <div class="q-my-lg">
           <q-separator color="grey" inset="" />
         </div>
@@ -87,7 +68,6 @@
     <br />
     <br />
     <br />
-
     <q-footer elevated>
       <q-toolbar
         class="shadow-2"
@@ -111,10 +91,12 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "calendar",
   data() {
     return {
+      calendars: [],
       date: "2021/07/26",
       events: [
         "2021/07/01",
@@ -136,6 +118,17 @@ export default {
         return false;
       },
     };
+  },
+  mounted() {
+    this.getCalendarData();
+  },
+  methods: {
+    async getCalendarData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/calendar/72100d56-21ae-42fd-8167-0b5c49c68b1d"
+      );
+      this.calendars = data.calendar;
+    },
   },
 };
 </script>

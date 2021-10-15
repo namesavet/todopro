@@ -2,25 +2,21 @@
   <q-page class="addbackground q-pt-xl">
     <div class="col">
       <div class="Logo q-ml-lg"></div>
-      <div class="texttitle1 q-ml-lg q-mt-lg">Reset Password</div>
-      <div class="texttitle2 q-ml-lg q-mt-sm">enter security code</div>
+      <div class="texttitle1 q-ml-lg q-mt-lg">OTP</div>
+      <div class="texttitle2 q-ml-lg q-mt-sm">to start working</div>
 
-      <div class="row justify-center items-center">
-        <div class="col-10 q-mt-lg">
+      <div class="row justify-center items-center q-mt-md">
+        <div class="col-10">
           <q-input
             square
             :input-style="{ color: 'white' }"
             label-color="grey"
-            label="enter code"
+            label="OTP"
             color="white"
-            style="font-size: 28px"
-            v-model="Security_code"
+            style="font-size: 30px"
+            v-model="OTP"
             input-class="text-center"
             mask="#    #    #    #    #    #"
-            :rules="[
-              (val) =>
-                (val && val.length > 0) || 'Please enter telephone number ',
-            ]"
           >
           </q-input>
         </div>
@@ -28,15 +24,14 @@
 
       <div class="row justify-center items-center">
         <div class="text_OTP q-mt-lg q-ml-lg q-mr-lg">
-          Please check your phone for SMS messages with your code. Your code is
-          6 characters long.
+          Please, enter 6-digit code We send on your number as SMS
         </div>
       </div>
 
-      <div class="row justify-center items-center q-mt-md">
+   <div class="row justify-center items-center ">
         <div class="button_back q-mt-lg">
           <q-btn
-            @click="$router.push({ name: 'Forgotpassword' })"
+            @click="$router.push({ name: 'Createaccount4' })"
             push
             align="center"
             no-caps
@@ -47,7 +42,7 @@
         </div>
         <div class="button-next q-mt-lg q-ml-md">
           <q-btn
-            @click="gotonewpassword()"
+            @click="$router.push({ name: 'Welcome' })"
             push
             align="center"
             no-caps
@@ -55,7 +50,6 @@
             icon-right="arrow_forward"
             size="20px"
             style="width: 250px; background: #40df9f; color: white"
-            type="submit"
           />
         </div>
       </div>
@@ -67,18 +61,8 @@
 export default {
   data() {
     return {
-      Security_code: "",
+      OTP: "",
     };
-  },
-
-  methods: {
-    gotonewpassword() {
-      console.log(this.Security_code);
-
-      this.$router.push({
-        path: "/Newpassword",
-      });
-    },
   },
 };
 </script>

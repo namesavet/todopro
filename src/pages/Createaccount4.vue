@@ -2,36 +2,48 @@
   <q-page class="addbackground q-pt-xl">
     <div class="col">
       <div class="Logo q-ml-lg"></div>
-      <div class="texttitle1 q-ml-lg q-mt-lg">OTP</div>
+      <div class="texttitle1 q-ml-lg q-mt-lg">Sign up</div>
       <div class="texttitle2 q-ml-lg q-mt-sm">to start working</div>
 
       <div class="row justify-center items-center q-mt-md">
-        <div class="col-10">
+        <div class="col-10 ">
           <q-input
+          
             square
             :input-style="{ color: 'white' }"
             label-color="grey"
-            label="OTP"
+            label="Telephone number"
             color="white"
-            style="font-size: 30px"
-            v-model="OTP"
-            input-class="text-center"
-            mask="#      #      #      #"
+            v-model="Phone"
+            mask="### - ### - ####"
+            style="font-size: 15px"
+            :rules="[
+              (val) =>
+                (val && val.length > 0) || 'Please enter telephone number',
+            ]"
           >
+            <template v-slot:before>
+              <q-icon name="call" color="white" />
+            </template>
           </q-input>
         </div>
       </div>
 
-      <div class="row justify-center items-center">
-        <div class="text_OTP q-mt-lg q-ml-lg q-mr-lg">
-          Please, enter 4-digit code We send on your number as SMS
-        </div>
-      </div>
-
-      <div class="row justify-center items-center q-mt-lg">
-        <div class="button-next">
+      <div class="row justify-center items-center ">
+        <div class="button_back q-mt-lg">
           <q-btn
-            @click="$router.push({ name: 'Welcome' })"
+            @click="$router.push({ name: 'Createaccount3' })"
+            push
+            align="center"
+            no-caps
+            icon-right="arrow_back"
+            size="20px"
+            style="width: 50px; background: #286053; color: #3dd598"
+          />
+        </div>
+        <div class="button-next q-mt-lg q-ml-md">
+          <q-btn
+            @click="gotocreateaccount5()"
             push
             align="center"
             no-caps
@@ -50,11 +62,22 @@
 export default {
   data() {
     return {
-      OTP: "",
+      Phone: "",
     };
+  },
+
+  methods: {
+    gotocreateaccount5() {
+      console.log(this.Phone);
+
+      this.$router.push({
+        path: "/Createaccount5",
+      });
+    },
   },
 };
 </script>
 
 <style scoped>
+
 </style>

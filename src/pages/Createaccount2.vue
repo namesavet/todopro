@@ -3,75 +3,50 @@
     <div class="col">
       <div class="Logo q-ml-lg"></div>
       <div class="texttitle1 q-ml-lg q-mt-lg">Hello !</div>
-      <div class="texttitle2 q-ml-lg q-mt-sm">Ratchaya Narueradanan</div>
+      <div class="texttitle2 q-ml-lg q-mt-sm">Lets introduce</div>
 
-      <div class="row justify-center items-center q-mt-md">
-        <div class="icon_Key" style="overflow: hidden">
+     <div class="row justify-center items-center q-mt-md">
+        <div class="icon_Profile" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-sm">
-             <q-icon
-              name="lock"
-              size="30px"
-              style="color: #FF575F"
-            />
+            <q-icon name="perm_identity" size="30px" style="color: #ffc542" />
           </div>
         </div>
         <div class="col-9 q-ml-md q-gutter-xs">
           <q-input
-           class="q-mt-md"
+            class="q-mt-md"
             :input-style="{ color: 'white' }"
-            v-model="Password"
+            v-model="Fullname"
             label-color="grey"
-            label="Create password"
+            label="Full name"
             color="white"
             :rules="[
-              (val) => (val && val.length > 0) || 'Please enter password ',
+              (val) => (val && val.length > 0) || 'Please enter Fullname ',
             ]"
-            :type="isPwd ? 'Password' : 'text'"
-          >
-            <template v-slot:append>
-              <q-icon
-                :name="isPwd ? 'visibility_off' : 'visibility'"
-                class="cursor-pointer"
-                @click="isPwd = !isPwd"
-              />
-            </template>
-          </q-input>
+          />
         </div>
       </div>
-
       <div class="row justify-center items-center ">
-        <div class="icon_Key" style="overflow: hidden">
+        <div class="icon_Profile" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-sm">
-            <q-icon
-              name="lock"
-              size="30px"
-              style="color: #FF575F"
-            />
+            <q-icon name="perm_identity" size="30px" style="color: #ffc542" />
           </div>
         </div>
         <div class="col-9 q-ml-md q-gutter-xs">
           <q-input
-          class="q-mt-md"
+            class="q-mt-md"
             :input-style="{ color: 'white' }"
-            v-model="Check_password"
+            v-model="Name"
             label-color="grey"
-            label="Confirm your password"
+            label="Nickname"
             color="white"
             :rules="[
-              (val) => (val && val.length > 0) || 'Please enter password ',
+              (val) => (val && val.length > 0) || 'Please enter Nickname ',
             ]"
-            :type="isPwd1 ? 'password' : 'text'"
-          >
-            <template v-slot:append>
-              <q-icon
-                :name="isPwd1 ? 'visibility_off' : 'visibility'"
-                class="cursor-pointer"
-                @click="isPwd1 = !isPwd1"
-              />
-            </template>
-          </q-input>
+          />
         </div>
       </div>
+
+     
 
       <div>
         <div class="row justify-center items-center">
@@ -108,10 +83,9 @@
 export default {
   data() {
     return {
-      Password: "",
-      Check_password: "",
-      isPwd: true,
-      isPwd1: true,
+      Fullname: "",
+      Name: "",
+      
     };
   },
   methods: {
