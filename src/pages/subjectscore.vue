@@ -175,10 +175,6 @@ import axios from "axios";
 export default {
   data() {
     return {
-      progressall: 0.28,
-      progress1: 0.5,
-      progress2: 0.66,
-      progress3: 1,
       scores: [],
       subjects: [],
       progresss: [],
@@ -191,11 +187,11 @@ export default {
   methods: {
     async getSubjectData() {
       const resp = await axios.get(
-        "http://localhost:3000/subject/findsubject/e30dad8d-c7f2-4e09-a654-3d4b07838e0c"
+        "http://localhost:3000/subject/findsubject/847f4921-3408-4abe-a2a4-96fc01f49aaa"
       );
       this.subjects = resp.data.subject;
       const url =
-        "http://localhost:3000/score/e30dad8d-c7f2-4e09-a654-3d4b07838e0c";
+        "http://localhost:3000/score/847f4921-3408-4abe-a2a4-96fc01f49aaa";
       const scoresp = await axios.get(url);
       this.scores = scoresp.data.score;
     },

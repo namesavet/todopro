@@ -183,11 +183,11 @@ export default {
     },
     async getSubjectData() {
       const resp = await axios.get(
-        "http://localhost:3000/subject/findsubject/e30dad8d-c7f2-4e09-a654-3d4b07838e0c"
+        "http://localhost:3000/subject/findsubject/847f4921-3408-4abe-a2a4-96fc01f49aaa"
       );
       this.subjects = resp.data.subject;
       const url =
-        "http://localhost:3000/chapter/e30dad8d-c7f2-4e09-a654-3d4b07838e0c";
+        "http://localhost:3000/chapter/847f4921-3408-4abe-a2a4-96fc01f49aaa";
       const chaptersp = await axios.get(url);
       this.chapters = chaptersp.data.chapter;
       
