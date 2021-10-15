@@ -17,7 +17,11 @@
           flat
           round
           dense
-          @click="$router.push({ name: 'settingscore' })"
+          @click="$router.push({ name: 'settingscore',
+           query: {
+                id: subjects[0].SubjectID,
+              },
+           })"
           push
           text-color="white"
           icon="settings"
@@ -187,11 +191,11 @@ export default {
   methods: {
     async getSubjectData() {
       const resp = await axios.get(
-        "http://localhost:3000/subject/findsubject/847f4921-3408-4abe-a2a4-96fc01f49aaa"
+        "http://localhost:3000/subject/findsubject/"+ this.$route.query.id
       );
       this.subjects = resp.data.subject;
       const url =
-        "http://localhost:3000/score/847f4921-3408-4abe-a2a4-96fc01f49aaa";
+        "http://localhost:3000/score/"+ this.$route.query.id;
       const scoresp = await axios.get(url);
       this.scores = scoresp.data.score;
     },
