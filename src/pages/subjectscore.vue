@@ -12,26 +12,28 @@
           style="font-size: 16px; color: #96a7af"
         />
       </q-toolbar-title>
-        <div class="settingbtn">
-          <q-btn
-            flat
-            round
-            dense
-            @click="$router.push({ name: 'settingscore' })"
-            push
-            text-color="white"
-            icon="settings"
-            class=""
-          />
-        </div>
+      <div class="settingbtn">
+        <q-btn
+          flat
+          round
+          dense
+          @click="$router.push({ name: 'settingscore' })"
+          push
+          text-color="white"
+          icon="settings"
+          class=""
+        />
+      </div>
     </q-toolbar>
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
       <div class="q-pa-md">
         <div class="row">
-          <div class="text-white text-bold" style="font-size: 30px">SPI</div>
+          <div class="text-white text-bold" style="font-size: 30px">
+            {{ subjects[0].Subject_name }}
+          </div>
         </div>
-        <div class="text-blue-grey-4">ดร.กุลศิริ</div>
+        <div class="text-blue-grey-4">{{ subjects[0].Teacher_name }}</div>
       </div>
     </div>
 
@@ -48,7 +50,7 @@
             class="col q-my-md q-mr-lg text-bold text-right"
             style="font-size: 20px; color: #ff565e"
           >
-            28%
+            {{ total }}%
           </div>
         </div>
 
@@ -57,7 +59,7 @@
             dark
             rounded
             size="16px"
-            :value="progressall"
+            :value="total / 100"
             class=""
             style="width: 90%; color: #ff565e"
           />
@@ -69,9 +71,11 @@
       <div class="warringscore q-my-md text-white">
         <div class="q-my-sm">
           <div class="row justify-center">
-            You must score 22 points to pass a E
+            You must score {{ subjects[0].GradeD - total }} points to pass a E
           </div>
-          <div class="row justify-center">grade and 62 points to A grade</div>
+          <div class="row justify-center">
+            grade and {{ subjects[0].GradeA - total }} points to A grade
+          </div>
         </div>
       </div>
     </div>
@@ -87,113 +91,54 @@
         <div class="row gradechart">
           <div class="col-2"></div>
           <div class="col-6 text-center text-white text-bold">
-            <div class="row justify-center q-mt-xl q-mr-sm">90%</div>
-            <div class="row justify-center q-mt-sm q-mr-sm">80%</div>
-            <div class="row justify-center q-mt-md q-mr-sm">70%</div>
-            <div class="row justify-center q-mt-md q-mr-sm">60%</div>
-            <div class="row justify-center q-mt-sm q-mr-sm">50%</div>
-          </div>
-          <!-- <q-img src="../image/gradechart.png" style="width: 90%" /> -->
-        </div>
-        <!-- <div id="trapezoid" class="row justify-center text-center">
-          <div id="trapezoid2" class="row justify-center text-center">
-            <div id="trapezoid3" class="row justify-center text-center">
-              <div id="trapezoid4" class="row justify-center text-center">
-                <div
-                  id="trapezoid5"
-                  class="row justify-center text-center"
-                ></div>
-              </div>
+            <div class="row justify-center q-mt-xl q-mr-sm">
+              {{ subjects[0].GradeA }}%
+            </div>
+            <div class="row justify-center q-mt-sm q-mr-sm">
+              {{ subjects[0].GradeB }}%
+            </div>
+            <div class="row justify-center q-mt-md q-mr-sm">
+              {{ subjects[0].GradeC }}%
+            </div>
+            <div class="row justify-center q-mt-md q-mr-sm">
+              {{ subjects[0].GradeD }}%
+            </div>
+            <div class="row justify-center q-mt-sm q-mr-sm">
+              less than {{ subjects[0].GradeD }}%
             </div>
           </div>
-        </div> -->
-      </div>
-    </div>
-    <div class="row justify-center">
-      <div class="score">
-        <div class="row">
-          <div
-            class="col q-my-md q-ml-lg text-white text-bold"
-            style="font-size: 16px"
-          >
-            Midterm exam
-          </div>
-          <div
-            class="col q-my-md q-mr-lg text-white text-bold text-right"
-            style="font-size: 16px"
-          >
-            15/30
-          </div>
-        </div>
-        <div class="row justify-center">
-          <q-linear-progress
-            dark
-            rounded
-            size="16px"
-            :value="progress1"
-            color="white"
-            class=""
-            style="width: 90%"
-        
-          />
         </div>
       </div>
     </div>
-    <div class="row justify-center">
-      <div class="score">
-        <div class="row">
-          <div
-            class="col q-my-md q-ml-lg text-white text-bold"
-            style="font-size: 16px"
-          >
-            test1
+
+    <div :key="index" v-for="(score, index) in scores">
+      <div class="row justify-center">
+        <div class="score">
+          <div class="row">
+            <div
+              class="col q-my-md q-ml-lg text-white text-bold"
+              style="font-size: 16px"
+            >
+              {{ score.Score_title }}
+            </div>
+            <div
+              class="col q-my-md q-mr-lg text-white text-bold text-right"
+              style="font-size: 16px"
+            >
+              {{ score.Get_point }}/{{ score.Full_point }}
+            </div>
           </div>
-          <div
-            class="col q-my-md q-mr-lg text-white text-bold text-right"
-            style="font-size: 16px"
-          >
-            10/15
+          <div class="row justify-center">
+            <q-linear-progress
+              dark
+              rounded
+              size="16px"
+              :value="score.Get_point / score.Full_point"
+              color="white"
+              class=""
+              style="width: 90%"
+            />
           </div>
-        </div>
-        <div class="row justify-center">
-          <q-linear-progress
-            dark
-            rounded
-            size="16px"
-            :value="progress2"
-            color="white"
-            class=""
-            style="width: 90%"
-          />
-        </div>
-      </div>
-    </div>
-    <div class="row justify-center">
-      <div class="score">
-        <div class="row">
-          <div
-            class="col q-my-md q-ml-lg text-white text-bold"
-            style="font-size: 16px"
-          >
-            Homework1
-          </div>
-          <div
-            class="col q-my-md q-mr-lg text-white text-bold text-right"
-            style="font-size: 16px"
-          >
-            30/30
-          </div>
-        </div>
-        <div class="row justify-center">
-          <q-linear-progress
-            dark
-            rounded
-            size="16px"
-            :value="progress3"
-            color="white"
-            class=""
-            style="width: 90%"
-          />
         </div>
       </div>
     </div>
@@ -226,6 +171,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
@@ -233,7 +179,34 @@ export default {
       progress1: 0.5,
       progress2: 0.66,
       progress3: 1,
+      scores: [],
+      subjects: [],
+      progresss: [],
     };
+  },
+  mounted() {
+    this.getSubjectData();
+    this.getScore();
+  },
+  methods: {
+    async getSubjectData() {
+      const resp = await axios.get(
+        "http://localhost:3000/subject/findsubject/e30dad8d-c7f2-4e09-a654-3d4b07838e0c"
+      );
+      this.subjects = resp.data.subject;
+      const url =
+        "http://localhost:3000/score/e30dad8d-c7f2-4e09-a654-3d4b07838e0c";
+      const scoresp = await axios.get(url);
+      this.scores = scoresp.data.score;
+    },
+    async getScore() {},
+  },
+  computed: {
+    total: function () {
+      return this.scores.reduce(function (total, score) {
+        return total + score.Get_point;
+      }, 0);
+    },
   },
 };
 </script>

@@ -60,6 +60,9 @@
             <div class="row justify-center q-mt-md q-mr-sm">
               {{ subjects[0].GradeD }}%
             </div>
+            <div class="row justify-center q-mt-sm q-mr-sm">
+              less than {{ subjects[0].GradeD }}%
+            </div>
           </div>
         </div>
       </div>
@@ -119,7 +122,7 @@
             <div class="row justify-center">
               <div class="profilechap text-bold" style="overflow: hidden">
                 <div class="chapter row items-center justify-center q-mt-sm">
-                  4
+                  {{ countchapter + 1 }}
                 </div>
               </div>
               <div class="col self-center text-bold q-ml-lg">
@@ -234,6 +237,7 @@ export default {
     ],
     chapters: [],
     subjects: [],
+    countchapter: 0,
   }),
   mounted() {
     this.getSubjectData();
@@ -271,6 +275,7 @@ export default {
         "http://localhost:3000/chapter/e30dad8d-c7f2-4e09-a654-3d4b07838e0c";
       const chaptersp = await axios.get(url);
       this.chapters = chaptersp.data.chapter;
+      this.countchapter = this.chapters.length;
     },
     async getChapter() {},
   },

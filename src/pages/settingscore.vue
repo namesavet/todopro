@@ -139,11 +139,12 @@
         <div class="work-experiences">
           <div class="form-row" v-for="(input, index) in chapter" :key="index">
             <div class="row justify-center">
-              <div class="score">
+              <div class="scoreadd">
                 <div class="row">
                   <div class="col">
+
                     <div
-                      class="row text-white text-bold q-ml-lg  q-mb-md"
+                      class="text-white text-bold q-ml-lg  "
                       style="font-size: 16px; height: 20%"
                     >
               
@@ -153,18 +154,19 @@
                         placeholder="Name of score"
                         color="white"
                         label-color="grey"
-                    
+                        
                       />
                     </div>
+                    
                     <div
-                      class="row text-white text-bold q-ml-lg "
+                      class="row text-white text-bold q-ml-lg q-mt-xl"
                       style="font-size: 16px; height: 100%"
                     >
                     <div class="col">
                          <q-input
                       :input-style="{ color: 'white' }"
-                        v-model="input.getPoin"
-                        placeholder="Get poin"
+                        v-model="input.GetPoin"
+                        placeholder="Get point"
                         color="white"
                         label-color="grey"
                       />
@@ -172,8 +174,8 @@
                     <div class="col q-ml-lg">
                          <q-input
                       :input-style="{ color: 'white' }"
-                        v-model="input.getPoin"
-                        placeholder="Chapter name"
+                        v-model="input.FullPoin"
+                        placeholder="Full point"
                         color="white"
                         label-color="grey"
                       />
@@ -182,7 +184,7 @@
                     </div>
                   </div>
                   <div class="col-2 items-center text-center">
-                    <div class="row q-mt-sm justify-center">
+                    <div class="row q-mt-xl justify-center">
                       <q-btn
                         @click="removeField(index, chapter)"
                         round
@@ -237,9 +239,7 @@
       </div>
     </div>
 
-      <div class="q-pa-md">
-    <q-btn color="purple" @click="showNotif" label="Show Notifications" />
-  </div>
+
 
     <br />
     <br />
@@ -272,7 +272,7 @@
 
 export default {
   data() {
-    const $q = useQuasar()
+    
     return {
       chapter: [
         {
@@ -283,29 +283,6 @@ export default {
       progress1: 0.5,
       progress2: 0.66,
       progress3: 1,
- showNotif () {
-        $q.notify({
-          message: 'Jim just pinged you.',
-          color: 'primary',
-          avatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
-          actions: [
-            { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
-          ]
-        })
-
-        $q.notify({
-          message: 'Jim just pinged you.',
-          color: 'primary',
-          avatar: 'https://cdn.quasar.dev/img/boy-avatar.png',
-          actions: [
-            { label: 'Reply', color: 'yellow', handler: () => { /* ... */ } },
-            { label: 'Dismiss', color: 'white', handler: () => { /* ... */ } }
-          ]
-        })
-      }
-
-
-
 
     };
   },

@@ -169,6 +169,7 @@ export default {
       chapters: [],
       subjects: [],
       countchapter:0,
+      
     };
   },
   mounted() {
