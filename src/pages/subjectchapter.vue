@@ -16,7 +16,9 @@
       <div class="settingbtn">
         <q-btn
           flat
-          @click="$router.push({ name: 'editsubjectchapter' })"
+          @click="$router.push({ name: 'editsubjectchapter',query: {
+                id: subject.SubjectID,
+              }, })"
           push
           round
           dense
@@ -31,10 +33,10 @@
       <div class="q-pa-md">
         <div class="row">
           <div class="text-white text-bold" style="font-size: 30px">
-            {{ subjects[0].Subject_name }}
+            {{ subject.Subject_name }}
           </div>
         </div>
-        <div class="text-blue-grey-4">{{ subjects[0].Teacher_name }}</div>
+        <div class="text-blue-grey-4">{{ subject.Teacher_name }}</div>
       </div>
     </div>
     <div class="row justify-center">
@@ -49,19 +51,19 @@
           <div class="col-2"></div>
           <div class="col-6 text-center text-white text-bold">
             <div class="row justify-center q-mt-xl q-mr-sm">
-              {{ subjects[0].GradeA }}%
+              {{ subject.GradeA }}%
             </div>
             <div class="row justify-center q-mt-sm q-mr-sm">
-              {{ subjects[0].GradeB }}%
+              {{ subject.GradeB }}%
             </div>
             <div class="row justify-center q-mt-md q-mr-sm">
-              {{ subjects[0].GradeC }}%
+              {{ subject.GradeC }}%
             </div>
             <div class="row justify-center q-mt-md q-mr-sm">
-              {{ subjects[0].GradeD }}%
+              {{ subject.GradeD }}%
             </div>
             <div class="row justify-center q-mt-sm q-mr-sm">
-              less than {{ subjects[0].GradeD }}%
+              less than {{ subject.GradeD }}%
             </div>
           </div>
         </div>
@@ -71,21 +73,21 @@
     <div class="row justify-center items-center text-bold q-mt-sm">
       <div class="testtext row justify-center items-center">
         <div class="col-4 q-ml-sm">Midterm exam</div>
-        <div class="col-4">{{ formatDate(subjects[0].Date_midterm_exam) }}</div>
-        <div class="col-1">{{ subjects[0].Score_midterm }}%</div>
+        <div class="col-4">{{ formatDate(subject.Date_midterm_exam) }}</div>
+        <div class="col-1">{{ subject.Score_midterm }}%</div>
       </div>
     </div>
 
     <div class="row justify-center items-center text-bold">
       <div class="testtext row justify-center items-center">
         <div class="col-4 q-ml-sm">Final exam</div>
-        <div class="col-4">{{ formatDate(subjects[0].Date_final_exam) }}</div>
-        <div class="col-1">{{ subjects[0].Score_final }}%</div>
+        <div class="col-4">{{ formatDate(subject.Date_final_exam) }}</div>
+        <div class="col-1">{{ subject.Score_final }}%</div>
       </div>
     </div>
     <div class="row justify-center text-bold">
       <div class="gradewanttext">
-        The grade you want is {{ subjects[0].Desired_grade }}
+        The grade you want is {{ subject.Desired_grade }}
       </div>
     </div>
 
@@ -234,21 +236,21 @@
 import axios from "axios";
 import { date } from "quasar";
 export default {
-  name: "app",
-
-  data: () => ({
+  name:"subject",
+  data() {
+    return{
     chapter: [
       {
         chapterName:"",
       },
     ],
     chapters: [],
-    subjects: [],
+    subject:{},
     countchapter: 0,
-  }),
+  };
+},
   mounted() {
     this.getSubjectData();
-    this.getChapter();
   },
 
   methods: {
@@ -291,17 +293,19 @@ export default {
     },
 
     async getSubjectData() {
-      const resp = await axios.get(
+      const {data} = await axios.get(
         "http://localhost:3000/subject/findsubject/" + this.$route.query.id
       );
-      this.subjects = resp.data.subject;
+      this.subject = data.subject;
+
+
       const url =
         "http://localhost:3000/chapter/847f4921-3408-4abe-a2a4-96fc01f49aaa";
       const chaptersp = await axios.get(url);
       this.chapters = chaptersp.data.chapter;
       this.countchapter = this.chapters.length;
     },
-    async getChapter() {},
+  
   },
 };
 </script>

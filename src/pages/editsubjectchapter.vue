@@ -6,7 +6,9 @@
           flat
           color=""
           icon="keyboard_arrow_left"
-          @click="$router.push({ name: 'subjectchapter', })"
+          @click="$router.push({ name: 'subjectchapter', query: {
+                id: subjects.SubjectID,
+              }, })"
           push
           label="Back"
           style="font-size: 16px; color: #96a7af"
@@ -434,15 +436,18 @@
 </template>
 
 <script>
+import axios from "axios";
+import { date } from "quasar";
 export default {
+  name:"subject",
   data() {
     
     return {
-      subjectname: "SPI",
-      initialsname: "SPI",
-      teachername: "ดร.กุลศิริ",
+      subjectname: "",
+      initialsname: "",
+      teachername: "",
 
-      credit: "(3)-(0)-(21)",
+      credit: "",
       credits: [
         "(3)-(0)-(21)",
         "(3)-(0)-(22)",
@@ -451,24 +456,39 @@ export default {
         "(3)-(0)-(25)",
       ],
       selectgrade:false,
-      a: "80%",
-      bplus: "75%",
-      b: "70%",
-      cplus: "65%",
-      c: "60%",
-      dplus: "55%",
-      d: "50%",
+      a: "",
+      bplus: "",
+      b: "",
+      cplus: "",
+      c: "",
+      dplus: "",
+      d: "",
       selectday: "",
-      midterscoregrade: "30%",
-      finalscoregrade: "30%",
-      desiredgrade: "A",
+      midterscoregrade: "",
+      finalscoregrade: "",
+      desiredgrade: "",
       desiredgrades: ["A", "B+", "B", "C+", "C", "D+", "D", "E"],
-      date_midterm: "2021/02/01",
-      date_final: "2021/02/01",
+      date_midterm: "",
+      date_final: "",
+      subjects: {},
     };
   },
-};
+   mounted() {
+    this.getSubjectData();
+  },
 
+  methods: {
+    formatDate(day) {
+      return date.formatDate(day, "DD MMM YYYY");
+    },
+    async getSubjectData() {
+      const resp = await axios.get(
+        "http://localhost:3000/subject/findsubject/" + this.$route.query.id
+      );
+      this.subjects = resp.subject;
+    },
+  },
+};
 </script>
 
 

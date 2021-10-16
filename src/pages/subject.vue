@@ -109,6 +109,7 @@
 <script>
 import axios from "axios";
 export default {
+  name:"subject",
   data() {
     return {
       info: null,
