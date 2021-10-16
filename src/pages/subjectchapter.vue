@@ -16,9 +16,14 @@
       <div class="settingbtn">
         <q-btn
           flat
-          @click="$router.push({ name: 'editsubjectchapter',query: {
+          @click="
+            $router.push({
+              name: 'editsubjectchapter',
+              query: {
                 id: subject.SubjectID,
-              }, })"
+              },
+            })
+          "
           push
           round
           dense
@@ -236,19 +241,19 @@
 import axios from "axios";
 import { date } from "quasar";
 export default {
-  name:"subject",
+  name: "subject",
   data() {
-    return{
-    chapter: [
-      {
-        chapterName:"",
-      },
-    ],
-    chapters: [],
-    subject:{},
-    countchapter: 0,
-  };
-},
+    return {
+      chapter: [
+        {
+          chapterName: "",
+        },
+      ],
+      chapters: [],
+      subject: {},
+      countchapter: 0,
+    };
+  },
   mounted() {
     this.getSubjectData();
   },
@@ -283,7 +288,7 @@ export default {
     },
     Deletechapter() {
       axios
-        .delete(`http://localhost:3000/chapter/${this.chapter.ChapterID}`)
+        .delete(`http://localhost:3000/chapter/`)
         .then((response) => {
           console.log(response);
         });
@@ -293,11 +298,10 @@ export default {
     },
 
     async getSubjectData() {
-      const {data} = await axios.get(
+      const { data } = await axios.get(
         "http://localhost:3000/subject/findsubject/" + this.$route.query.id
       );
       this.subject = data.subject;
-
 
       const url =
         "http://localhost:3000/chapter/847f4921-3408-4abe-a2a4-96fc01f49aaa";
@@ -305,7 +309,6 @@ export default {
       this.chapters = chaptersp.data.chapter;
       this.countchapter = this.chapters.length;
     },
-  
   },
 };
 </script>

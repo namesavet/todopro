@@ -130,7 +130,8 @@
             :input-style="{ color: 'white' }"
             color="white"
             v-model="subject.IDsubject"
-            label-color="grey"
+           label-color="#96A7AF"
+            label="ID Subject"
           />
         </div>
       </div>
@@ -427,6 +428,21 @@
         />
       </div>
     </div>
+
+    <div class="q-px-sm">
+      <div class="col items-center" style="margin-top: 20px">
+        <div class="row items-center justify-center">
+          <q-btn
+            no-caps
+            class="btn-fixed-width"
+            rounded
+            @click="DeleteSubject()"
+            style="background: #ff5656; color: white"
+            label="Delete"
+          />
+        </div>
+      </div>
+    </div>
 <br>
 <br>
 <br>
@@ -481,6 +497,12 @@ export default {
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
     },
+    async getSubjectData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/subject/findsubject/" + this.$route.query.id
+      );
+      this.subject = data.subject;
+    },
      async submitUpdateData() {
       const { data } = await axios.put("http://localhost:3000/subject/update/" + this.$route.query.id,
         {
@@ -511,11 +533,18 @@ export default {
         },
       });
     },
-    async getSubjectData() {
-      const resp = await axios.get(
-        "http://localhost:3000/subject/findsubject/" + this.$route.query.id
-      );
-      this.subject = resp.subject;
+    DeleteSubject() {
+      axios
+        .delete(`http://localhost:3000/subject/`)
+        .then((response) => {
+          console.log(response);
+        });
+        this.$router.push({
+        path: "/Subject",
+        query: {
+          id: this.subject.SubjectID,
+        },
+      });
     },
   },
 };
