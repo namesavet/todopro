@@ -30,9 +30,11 @@
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
       <div class="q-pa-md">
         <div class="row">
-          <div class="text-white text-bold" style="font-size: 30px">SPI</div>
+          <div class="text-white text-bold" style="font-size: 30px">
+            {{ subjects[0].Subject_name }}
+          </div>
         </div>
-        <div class="text-blue-grey-4">ดร.กุลศิริ</div>
+        <div class="text-blue-grey-4">{{ subjects[0].Teacher_name }}</div>
       </div>
     </div>
     <div class="row justify-center">
@@ -46,46 +48,45 @@
         <div class="row gradechart">
           <div class="col-2"></div>
           <div class="col-6 text-center text-white text-bold">
-            <div class="row justify-center q-mt-xl q-mr-sm">90%</div>
-            <div class="row justify-center q-mt-sm q-mr-sm">80%</div>
-            <div class="row justify-center q-mt-md q-mr-sm">70%</div>
-            <div class="row justify-center q-mt-md q-mr-sm">60%</div>
-            <div class="row justify-center q-mt-sm q-mr-sm">50%</div>
-          </div>
-          <!-- <q-img src="../image/gradechart.png" style="width: 90%" /> -->
-        </div>
-        <!-- <div id="trapezoid" class="row justify-center text-center">
-          <div id="trapezoid2" class="row justify-center text-center">
-            <div id="trapezoid3" class="row justify-center text-center">
-              <div id="trapezoid4" class="row justify-center text-center">
-                <div
-                  id="trapezoid5"
-                  class="row justify-center text-center"
-                ></div>
-              </div>
+            <div class="row justify-center q-mt-xl q-mr-sm">
+              {{ subjects[0].GradeA }}%
+            </div>
+            <div class="row justify-center q-mt-sm q-mr-sm">
+              {{ subjects[0].GradeB }}%
+            </div>
+            <div class="row justify-center q-mt-md q-mr-sm">
+              {{ subjects[0].GradeC }}%
+            </div>
+            <div class="row justify-center q-mt-md q-mr-sm">
+              {{ subjects[0].GradeD }}%
+            </div>
+            <div class="row justify-center q-mt-sm q-mr-sm">
+              less than {{ subjects[0].GradeD }}%
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
 
     <div class="row justify-center items-center text-bold q-mt-sm">
       <div class="testtext row justify-center items-center">
         <div class="col-4 q-ml-sm">Midterm exam</div>
-        <div class="col-4">08 Mar 2020</div>
-        <div class="col-1">30%</div>
+        <div class="col-4">{{ formatDate(subjects[0].Date_midterm_exam) }}</div>
+        <div class="col-1">{{ subjects[0].Score_midterm }}%</div>
       </div>
     </div>
 
     <div class="row justify-center items-center text-bold">
       <div class="testtext row justify-center items-center">
         <div class="col-4 q-ml-sm">Final exam</div>
-        <div class="col-4">18 Mar 2020</div>
-        <div class="col-1">30%</div>
+        <div class="col-4">{{ formatDate(subjects[0].Date_final_exam) }}</div>
+        <div class="col-1">{{ subjects[0].Score_final }}%</div>
       </div>
     </div>
     <div class="row justify-center text-bold">
-      <div class="gradewanttext">The grade you want is A</div>
+      <div class="gradewanttext">
+        The grade you want is {{ subjects[0].Desired_grade }}
+      </div>
     </div>
 
     <div class="q-my-md q-ml-md text-white text-bold" style="font-size: 25px">
@@ -93,54 +94,19 @@
     </div>
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
-      <div>
+      <div :key="index" v-for="(chapter, index) in chapters">
         <div class="row justify-center">
           <div class="profilechap text-bold" style="overflow: hidden">
-            <div class="chapter row items-center justify-center q-mt-sm">1</div>
+            <div class="chapter row items-center justify-center q-mt-sm">
+              {{ index + 1 }}
+            </div>
           </div>
-
           <div class="col-7 self-center text-bold q-ml-lg">
             <div class="text-white text-bold" style="font-size: 16px">
-              Software Quality
+              {{ chapter.Chapter_name }}
             </div>
           </div>
           <div class="col q-mt-sm q-mr-lg text-right">
-            <q-btn flat round dense text-color="red" icon="delete_forever" />
-          </div>
-        </div>
-
-        <div class="q-mr-lg q-my-lg">
-          <q-separator color="grey" inset="item" />
-        </div>
-
-        <div class="row justify-center">
-          <div class="profilechap text-bold" style="overflow: hidden">
-            <div class="chapter row items-center justify-center q-mt-sm">2</div>
-          </div>
-          <div class="col-7 self-center text-bold q-ml-lg">
-            <div class="text-white text-bold" style="font-size: 16px">
-              Software Quality Factor
-            </div>
-          </div>
-          <div class="col q-mt-sm q-mr-lg text-right" >
-            <q-btn flat round dense text-color="red" icon="delete_forever" />
-          </div>
-        </div>
-
-        <div class="q-mr-lg q-my-lg">
-          <q-separator color="grey" inset="item" />
-        </div>
-
-        <div class="row justify-center">
-          <div class="profilechap text-bold" style="overflow: hidden">
-            <div class="chapter row items-center justify-center q-mt-sm">3</div>
-          </div>
-          <div class="col-7 self-center text-bold q-ml-lg">
-            <div class="text-white text-bold" style="font-size: 16px">
-              Software Process Improvment
-            </div>
-          </div>
-         <div class="col q-mt-sm q-mr-lg text-right" >
             <q-btn flat round dense text-color="red" icon="delete_forever" />
           </div>
         </div>
@@ -156,7 +122,7 @@
             <div class="row justify-center">
               <div class="profilechap text-bold" style="overflow: hidden">
                 <div class="chapter row items-center justify-center q-mt-sm">
-                  4
+                  {{ countchapter + 1 }}
                 </div>
               </div>
               <div class="col self-center text-bold q-ml-lg">
@@ -258,6 +224,8 @@
 
 
 <script>
+import axios from "axios";
+import { date } from "quasar";
 export default {
   name: "app",
 
@@ -267,7 +235,14 @@ export default {
         chapterName: "",
       },
     ],
+    chapters: [],
+    subjects: [],
+    countchapter: 0,
   }),
+  mounted() {
+    this.getSubjectData();
+    this.getChapter();
+  },
 
   methods: {
     addChapter() {
@@ -286,6 +261,23 @@ export default {
       };
       alert(JSON.stringify(data, null, 2));
     },
+
+    formatDate(day) {
+      return date.formatDate(day, "DD MMM YYYY");
+    },
+
+    async getSubjectData() {
+      const resp = await axios.get(
+        "http://localhost:3000/subject/findsubject/847f4921-3408-4abe-a2a4-96fc01f49aaa"
+      );
+      this.subjects = resp.data.subject;
+      const url =
+        "http://localhost:3000/chapter/847f4921-3408-4abe-a2a4-96fc01f49aaa";
+      const chaptersp = await axios.get(url);
+      this.chapters = chaptersp.data.chapter;
+      this.countchapter = this.chapters.length;
+    },
+    async getChapter() {},
   },
 };
 </script>

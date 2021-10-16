@@ -33,65 +33,18 @@
       </div>
     </div>
 
-    <div class="row justify-center text-right" style="margin-top: 15%">
-      <div class="col-5 q-ml-md">
-        <div class="semestertitle q-mt-sm">1/2021</div>
+    <div :key="index" v-for="(semester, index) in semesters">
+      <div class="row justify-center text-right" style="margin-top: 15%">
+        <div class="col-5 q-ml-md">
+          <div class="semestertitle q-mt-sm">{{ semester.Semester_name }}</div>
+        </div>
+        <div class="col-4 q-ml-md">
+          <q-btn flat round dense text-color="red" icon="delete_forever" />
+        </div>
       </div>
-      <div class="col-4 q-ml-md">
-        <q-btn flat round dense text-color="red" icon="delete_forever" />
+      <div class="q-mx-lg q-mt-sm">
+        <q-separator color="grey" inset />
       </div>
-    </div>
-    <div class="q-mx-lg q-mt-sm">
-      <q-separator color="grey" inset />
-    </div>
-
-    <div class="row justify-center text-right" style="margin-top: 15%">
-      <div class="col-5 q-ml-md">
-        <div class="semestertitle q-mt-sm">2/2020</div>
-      </div>
-      <div class="col-4 q-ml-md">
-        <q-btn flat round dense text-color="red" icon="delete_forever" />
-      </div>
-    </div>
-    <div class="q-mx-lg q-mt-sm">
-      <q-separator color="grey" inset />
-    </div>
-
-    <div class="row justify-center text-right" style="margin-top: 15%">
-      <div class="col-5 q-ml-md">
-        <div class="semestertitle q-mt-sm">1/2020</div>
-      </div>
-      <div class="col-4 q-ml-md">
-        <q-btn flat round dense text-color="red" icon="delete_forever" />
-      </div>
-    </div>
-    <div class="q-mx-lg q-mt-sm">
-      <q-separator color="grey" inset />
-    </div>
-
-    <div class="row justify-center text-right" style="margin-top: 15%">
-      <div class="col-5 q-ml-md">
-        <div class="semestertitle q-mt-sm">2/2019</div>
-      </div>
-      <div class="col-4 q-ml-md">
-        <q-btn flat round dense text-color="red" icon="delete_forever" />
-      </div>
-    </div>
-    <div class="q-mx-lg q-mt-sm">
-      <q-separator color="grey" inset />
-    </div>
-
-    <div class="row justify-center text-right" style="margin-top: 15%">
-      <div class="col-5 q-ml-md">
-        <div class="semestertitle q-mt-sm">1/2019</div>
-      </div>
-      <div class="col-4 q-ml-md">
-        <q-btn flat round dense text-color="red" icon="delete_forever" />
-      </div>
-    </div>
-
-    <div class="q-mx-lg q-mt-sm">
-      <q-separator color="grey" inset />
     </div>
 
     <div id="app" class="container">
@@ -100,14 +53,13 @@
           <div class="row justify-center" style="margin-top: 11%">
             <div class="col-7 q-ml-md">
               <div class="semestertitle q-mt-sm">
-                  <q-input
-                    :input-style="{ color: 'white' }"
-                    color="white"
-                    v-model="input.chapterName"
-                    label-color="grey"
-                     placeholder="Chapter name"
-                  />
-
+                <q-input
+                  :input-style="{ color: 'white' }"
+                  color="white"
+                  v-model="input.chapterName"
+                  label-color="grey"
+                  placeholder="Chapter name"
+                />
               </div>
             </div>
             <div class="q-mr-sm q-mt-sm">
@@ -144,7 +96,7 @@
       <div class="col items-center" style="margin-top: 20px">
         <div class="row items-center justify-center q-mt-xl">
           <q-btn
-           @click="addChapter"
+            @click="addChapter"
             size="20px"
             round
             color=""
@@ -163,9 +115,14 @@
     <div class="row items-center justify-center">
       <div class="fontaddsubject">Add Semester</div>
     </div>
+
+    <br>
+    <br>
+    <br>
   </q-page>
 </template>
 <script>
+import axios from "axios";
 export default {
   name: "app",
 
@@ -175,8 +132,11 @@ export default {
         chapterName: "",
       },
     ],
+    semesters: [],
   }),
-
+  mounted() {
+    this.getSemester();
+  },
   methods: {
     addChapter() {
       this.chapter.push({
@@ -193,6 +153,13 @@ export default {
         chapter: this.chapter,
       };
       alert(JSON.stringify(data, null, 2));
+    },
+
+    async getSemester() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/6130613034"
+      );
+      this.semesters = data.semester;
     },
   },
 };

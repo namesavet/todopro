@@ -2,34 +2,33 @@
   <q-page class="addbackground q-pt-xl">
     <div class="col">
       <div class="Logo q-ml-lg"></div>
-      <div class="texttitle1 q-ml-lg q-mt-lg">Sign up</div>
+      <div class="texttitle1 q-ml-lg q-mt-lg">OTP</div>
       <div class="texttitle2 q-ml-lg q-mt-sm">to start working</div>
 
       <div class="row justify-center items-center q-mt-md">
-        <div class="col-10 ">
+        <div class="col-10">
           <q-input
-          
             square
             :input-style="{ color: 'white' }"
             label-color="grey"
-            label="Telephone number"
+            label="OTP"
             color="white"
-            v-model="Phone"
-            mask="### - ### - ####"
-            style="font-size: 15px"
-            :rules="[
-              (val) =>
-                (val && val.length > 0) || 'Please enter telephone number',
-            ]"
+            style="font-size: 30px"
+            v-model="OTP"
+            input-class="text-center"
+            mask="#    #    #    #    #    #"
           >
-            <template v-slot:before>
-              <q-icon name="call" color="white" />
-            </template>
           </q-input>
         </div>
       </div>
 
-      <div class="row justify-center items-center ">
+      <div class="row justify-center items-center">
+        <div class="text_OTP q-mt-lg q-ml-lg q-mr-lg">
+          Please, enter 6-digit code We send on your number as SMS
+        </div>
+      </div>
+
+   <div class="row justify-center items-center ">
         <div class="button_back q-mt-lg">
           <q-btn
             @click="$router.push({ name: 'Createaccount4' })"
@@ -43,7 +42,7 @@
         </div>
         <div class="button-next q-mt-lg q-ml-md">
           <q-btn
-            @click="gotocreateaccount6()"
+            @click="$router.push({ name: 'Welcome' })"
             push
             align="center"
             no-caps
@@ -62,22 +61,11 @@
 export default {
   data() {
     return {
-      Phone: "",
+      OTP: "",
     };
-  },
-
-  methods: {
-    gotocreateaccount6() {
-      console.log(this.Phone);
-
-      this.$router.push({
-        path: "/Createaccount6",
-      });
-    },
   },
 };
 </script>
 
 <style scoped>
-
 </style>

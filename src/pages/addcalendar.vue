@@ -228,8 +228,8 @@ export default {
           Note_date: this.Note_date,
           Note_time: this.Note_time,
           Note_detail: this.Note_detail,
-          // StudentID: this.$route.params.StudentID,
-          // SemesterID: this.$route.params.SemesterID,
+          StudentID: "6130613034",
+          SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
         })
         .then((response) => {
           console.log(response);

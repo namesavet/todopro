@@ -33,42 +33,37 @@
       </div>
     </div>
 
-    <div class="row items-center justify-center q-mt-xl">
-      <div class="semestertitle">1/2021</div>
+<div :key="index" v-for="(semester,index) in semesters">
+  <div class="row items-center justify-center q-mt-xl">
+      <div class="semestertitle">{{semester.Semester_name}}</div>
     </div>
     <div class="q-mx-lg q-mt-sm">
       <q-separator color="grey" inset />
     </div>
-
-    <div class="row items-center justify-center q-mt-xl">
-      <div class="semestertitle">2/2020</div>
-    </div>
-    <div class="q-mx-lg q-mt-sm">
-      <q-separator color="grey" inset />
-    </div>
-
-    <div class="row items-center justify-center q-mt-xl">
-      <div class="semestertitle">1/2020</div>
-    </div>
-    <div class="q-mx-lg q-mt-sm">
-      <q-separator color="grey" inset />
-    </div>
-
-    <div class="row items-center justify-center q-mt-xl">
-      <div class="semestertitle">2/2019</div>
-    </div>
-    <div class="q-mx-lg q-mt-sm">
-      <q-separator color="grey" inset />
-    </div>
-
-    <div class="row items-center justify-center q-mt-xl">
-      <div class="semestertitle">1/2019</div>
-    </div>
-    <div class="q-mx-lg q-mt-sm">
-      <q-separator color="grey" inset />
-    </div>
+</div>
+  
 
    
   </q-page>
 </template>
-
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      semesters: [],
+    };
+  },
+  mounted() {
+    this.getSemester();
+  },
+  methods: {
+    async getSemester() {
+      const {data} = await axios.get(
+        "http://localhost:3000/semester/6130613034"
+      );
+      this.semesters = data.semester;
+    },
+  },
+};
+</script>
