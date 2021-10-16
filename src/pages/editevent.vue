@@ -4,7 +4,14 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'event' })"
+          @click="
+            $router.push({
+              name: 'event',
+              query: {
+                id: calendar.NoteID,
+              },
+            })
+          "
           push
           color=""
           icon="keyboard_arrow_left"
@@ -16,7 +23,7 @@
       <div class="settingbtn">
         <q-btn
           flat
-          @click="$router.push({ name: 'event' })"
+          @click="onSubmit()"
           push
           round
           dense
@@ -48,7 +55,7 @@
 
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-input
-          v-model="Title"
+          v-model="calendar.Note_title"
           color="white"
           :input-style="{ color: 'white' }"
           label-color="grey"
@@ -71,7 +78,7 @@
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-select
-          v-model="type"
+          v-model="calendar.Note_type"
           :options="types"
           label="type"
           color="black"
@@ -91,7 +98,7 @@
       </div>
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-input
-          v-model="Location"
+          v-model="calendar.Note_location"
           color="white"
           :input-style="{ color: 'white' }"
           label-color="grey"
@@ -108,7 +115,7 @@
       <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
         <q-input
           filled
-          v-model="date"
+          v-model="calendar.Note_date"
           color="white"
           :input-style="{ color: 'white' }"
           label-color="grey"
@@ -122,7 +129,7 @@
                 transition-show="scale"
                 transition-hide="scale"
               >
-                <q-date v-model="date">
+                <q-date v-model="calendar.Note_date">
                   <div class="row items-center justify-end">
                     <q-btn v-close-popup label="Close" color="primary" flat />
                   </div>
@@ -142,7 +149,7 @@
       <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
         <q-input
           filled
-          v-model="time"
+          v-model="calendar.Note_time"
           color="white"
           :input-style="{ color: 'white' }"
           label-color="grey"
@@ -152,7 +159,7 @@
           <template v-slot:append>
             <q-icon name="access_time" class="cursor-pointer" color="white">
               <q-popup-proxy transition-show="scale" transition-hide="scale">
-                <q-time v-model="time">
+                <q-time v-model="calendar.Note_time">
                   <div class="row items-center justify-end">
                     <q-btn v-close-popup label="Close" color="primary" flat />
                   </div>
@@ -168,7 +175,7 @@
 
     <div class="item-center text-center q-ml-lg q-mr-lg">
       <q-input
-        v-model="text"
+        v-model="calendar.Note_detail"
         filled
         type="textarea"
         color="white"
@@ -205,18 +212,50 @@
 </template>
 
 <script>
+import axios from "axios";
+import { date } from "quasar";
 export default {
+  name: "calendar",
   data() {
     return {
-      Title: "test1",
-      Location: "6302",
-      text: "",
-      date: "",
-      time: "",
-
-      type: "Test",
+      calendar: {},
       types: ["Homework", "Test", "Other"],
     };
+  },
+  mounted() {
+    this.getCalendarData();
+  },
+  methods: {
+    formatDate(day) {
+      return date.formatDate(day, "DD MMM YYYY");
+    },
+    async getCalendarData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/calendar/findnote/" + this.$route.query.id
+      );
+      this.calendar = data.calendar;
+    },
+
+    async onSubmit() {
+      const { data } = await axios.put(
+        "http://localhost:3000/calendar/update/" + this.$route.query.id,
+        {
+          Note_title: this.calendar.Note_title,
+          Note_type: this.calendar.Note_type,
+          Note_location: this.calendar.Note_location,
+          Note_date: this.calendar.Note_date,
+          Note_time: this.calendar.Note_time,
+          Note_detail: this.calendar.Note_detail,
+        }
+      );
+      this.calendar = data.calendar;
+      this.$router.push({
+        path: "/Event",
+        query: {
+          id: this.calendar.NoteID,
+        },
+      });
+    },
   },
 };
 </script>

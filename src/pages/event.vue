@@ -16,7 +16,14 @@
       <div class="settingbtn">
         <q-btn
           flat
-          @click="$router.push({ name: 'editevent' })"
+          @click="
+            $router.push({
+              name: 'editevent',
+              query: {
+                id: calendar.NoteID,
+              },
+            })
+          "
           push
           round
           dense
@@ -125,6 +132,20 @@
       </div>
     </div>
 
+    <div class="q-px-sm">
+      <div class="col items-center" style="margin-top: 20px">
+        <div class="row items-center justify-center">
+          <q-btn
+            no-caps
+            class="btn-fixed-width"
+            rounded
+            style="background: #ff5656; color: white"
+            label="Delete"
+          />
+        </div>
+      </div>
+    </div>
+
     <q-footer elevated>
       <q-toolbar
         class="shadow-2"
@@ -149,7 +170,7 @@
 
 <script>
 import axios from "axios";
-import {date} from "quasar";
+import { date } from "quasar";
 export default {
   name: "calendar",
   data() {
