@@ -7,7 +7,7 @@
           color=""
           icon="keyboard_arrow_left"
           @click="$router.push({ name: 'subjectchapter', query: {
-                id: subjects.SubjectID,
+                id: subject.SubjectID,
               }, })"
           push
           label="Back"
@@ -18,7 +18,7 @@
       <q-btn
         flat
         dense
-        @click="$router.push({ name: 'subjectchapter' })"
+        @click="submitUpdateData()"
         push
         text-color="white"
         icon="done"
@@ -62,7 +62,7 @@
         <q-input
         color="white"
         :input-style="{ color: 'white' }"
-          v-model="subjectname"
+          v-model="subject.Subject_name"
           label-color="#96A7AF"
           label="Subject name"
         />
@@ -85,7 +85,7 @@
         <q-input
         color="white"
         :input-style="{ color: 'white' }"
-          v-model="initialsname"
+          v-model="subject.Intal_name"
           label-color="#96A7AF"
           label="Initials name"
         />
@@ -109,12 +109,31 @@
         <q-input
         color="white"
         :input-style="{ color: 'white' }"
-          v-model="teachername"
+          v-model="subject.Teacher_name"
           label-color="#96A7AF"
           label="Teacher name"
         />
       </div>
     </div>
+
+     <div class="row justify-center">
+        <div class="name q-mt-sm" style="overflow: hidden">
+          <div class="col-2 item-center">
+            <div class="row items-center justify-center q-mt-sm">
+              <q-icon name="cloud" size="30px" style="color: #ffc542" />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-8 q-ml-md q-gutter-xs">
+          <q-input
+            :input-style="{ color: 'white' }"
+            color="white"
+            v-model="subject.IDsubject"
+            label-color="grey"
+          />
+        </div>
+      </div>
 
     <div class="row">
       <div class="col q-ml-md q-mt-sm q-gutter-xs">
@@ -125,7 +144,7 @@
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-select
         color="white"
-          v-model="credit"
+          v-model="subject.Credit"
           :options="credits"
           label="Your credit"
           
@@ -169,7 +188,7 @@
               <q-input
               color="white"
               :input-style="{ color: 'white' }"
-                v-model="a"
+                v-model="subject.GradeA"
                 label-color="grey"
                 label="Enter percent grade"
               />
@@ -188,7 +207,7 @@
               <q-input
               color="white"
               :input-style="{ color: 'white' }"
-                v-model="bplus"
+                v-model="subject.GradeBplus"
                 label-color="grey"
                 label="Enter percent grade"
               />
@@ -207,7 +226,7 @@
               <q-input
               color="white"
               :input-style="{ color: 'white' }"
-                v-model="b"
+                v-model="subject.GradeB"
                 label-color="grey"
                 label="Enter percent grade"
               />
@@ -227,7 +246,7 @@
               <q-input
               color="white"
               :input-style="{ color: 'white' }"
-                v-model="cplus"
+                v-model="subject.GradeCplus"
                 label-color="grey"
                 label="Enter percent grade"
               />
@@ -246,7 +265,7 @@
               <q-input
               color="white"
               :input-style="{ color: 'white' }"
-                v-model="c"
+                v-model="subject.GradeC"
                 label-color="grey"
                 label="Enter percent grade"
               />
@@ -265,7 +284,7 @@
               <q-input
               color="white"
               :input-style="{ color: 'white' }"
-                v-model="dplus"
+                v-model="subject.GradeDplus"
                 label-color="grey"
                 label="Enter percent grade"
               />
@@ -284,7 +303,7 @@
               <q-input
               color="white"
               :input-style="{ color: 'white' }"
-                v-model="d"
+                v-model="subject.GradeD"
                 label-color="grey"
                 label="Enter percent grade"
               />
@@ -316,7 +335,7 @@
         <q-input 
         color="white"
         :input-style="{ color: 'white' }"
-        filled v-model="date_midterm" mask="date" :rules="['date']">
+        filled v-model="subject.Date_midterm_exam" mask="date" :rules="['date']">
           <template v-slot:append>
             <q-icon name="event" class="cursor-pointer">
               <q-popup-proxy
@@ -324,7 +343,7 @@
                 transition-show="scale"
                 transition-hide="scale"
               >
-                <q-date v-model="date_midterm">
+                <q-date v-model="subject.Date_midterm_exam">
                   <div class="row items-center justify-end">
                     <q-btn v-close-popup label="Close" color="primary"  flat />
                   </div>
@@ -340,7 +359,7 @@
         :input-style="{ color: 'white' }"
           color="white"
           label-color="#96A7AF"
-          v-model="midterscoregrade"
+          v-model="subject.Score_midterm"
           label="Score%"
         />
       </div>
@@ -359,7 +378,7 @@
         <q-input 
         :input-style="{ color: 'white' }"
         color="white"
-        filled v-model="date_final" mask="date" :rules="['date']">
+        filled v-model="subject.Date_final_exam" mask="date" :rules="['date']">
           <template v-slot:append>
             <q-icon name="event" class="cursor-pointer">
               <q-popup-proxy
@@ -367,7 +386,7 @@
                 transition-show="scale"
                 transition-hide="scale"
               >
-                <q-date v-model="date_final">
+                <q-date v-model="subject.Date_final_exam">
                   <div class="row items-center justify-end">
                     <q-btn v-close-popup label="Close" color="primary" flat />
                   </div>
@@ -383,7 +402,7 @@
          :input-style="{ color: 'white' }"
           color="white"
           label-color="#96A7AF"
-          v-model="finalscoregrade"
+          v-model="subject.Score_final"
           label="Score%"
         />
       </div>
@@ -401,7 +420,7 @@
       <div class="col-8 q-ml-md q-gutter-xs">
         <q-select
          :input-style="{ color: 'white' }"
-          v-model="desiredgrade"
+          v-model="subject.Desired_grade"
           :options="desiredgrades"
           label="Your grade"
           color="white"
@@ -441,13 +460,7 @@ import { date } from "quasar";
 export default {
   name:"subject",
   data() {
-    
     return {
-      subjectname: "",
-      initialsname: "",
-      teachername: "",
-
-      credit: "",
       credits: [
         "(3)-(0)-(21)",
         "(3)-(0)-(22)",
@@ -456,21 +469,8 @@ export default {
         "(3)-(0)-(25)",
       ],
       selectgrade:false,
-      a: "",
-      bplus: "",
-      b: "",
-      cplus: "",
-      c: "",
-      dplus: "",
-      d: "",
-      selectday: "",
-      midterscoregrade: "",
-      finalscoregrade: "",
-      desiredgrade: "",
       desiredgrades: ["A", "B+", "B", "C+", "C", "D+", "D", "E"],
-      date_midterm: "",
-      date_final: "",
-      subjects: {},
+      subject:{},
     };
   },
    mounted() {
@@ -481,11 +481,41 @@ export default {
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
     },
+     async submitUpdateData() {
+      const { data } = await axios.put("http://localhost:3000/subject/update/" + this.$route.query.id,
+        {
+          Subject_name: this.subject.Subject_name,
+          Intal_name: this.subject.Intal_name,
+          Teacher_name: this.subject.Teacher_name,
+          IDsubject: this.subject.IDsubject,
+          Credit: this.subject.Credit,
+          GradeA: this.subject.GradeA,
+          GradeBplus: this.subject.GradeBplus,
+          GradeB: this.subject.GradeB,
+          GradeCplus: this.subject.GradeCplus,
+          GradeC: this.subject.GradeC,
+          GradeDplus: this.subject.GradeDplus,
+          GradeD: this.subject.GradeD,
+          Date_midterm_exam: this.subject.Date_midterm_exam,
+          Date_final_exam: this.subject.Date_final_exam,
+          Score_midterm: this.subject.Score_midterm,
+          Score_final: this.subject.Score_final,
+          Desired_grade: this.subject.Desired_grade,
+        }
+      );
+      this.subject = data.subject;
+      this.$router.push({
+        path: "/SubjectChapter",
+        query: {
+          id: this.subject.SubjectID,
+        },
+      });
+    },
     async getSubjectData() {
       const resp = await axios.get(
         "http://localhost:3000/subject/findsubject/" + this.$route.query.id
       );
-      this.subjects = resp.subject;
+      this.subject = resp.subject;
     },
   },
 };
