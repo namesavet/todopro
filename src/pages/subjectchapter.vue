@@ -107,7 +107,14 @@
             </div>
           </div>
           <div class="col q-mt-sm q-mr-lg text-right">
-            <q-btn flat round dense text-color="red" icon="delete_forever" />
+            <q-btn
+              flat
+              round
+              dense
+              @click="Deletechapter()"
+              text-color="red"
+              icon="delete_forever"
+            />
           </div>
         </div>
 
@@ -138,7 +145,7 @@
               </div>
               <div class="q-mr-sm q-mt-sm">
                 <q-btn
-                  @click="removeField(index, chapter)"
+                  @click="submitchapter()"
                   round
                   dense
                   text-color="white"
@@ -232,7 +239,7 @@ export default {
   data: () => ({
     chapter: [
       {
-        chapterName: "",
+        chapterName:"",
       },
     ],
     chapters: [],
@@ -255,20 +262,37 @@ export default {
       chapter.splice(index, 1);
     },
 
-    submit() {
-      const data = {
-        chapter: this.chapter,
-      };
-      alert(JSON.stringify(data, null, 2));
+    submitchapter() {
+      axios
+        .post("http://localhost:3000/chapter/create ", {
+          Chapter_name: this.chapterName,
+          Status: false,
+          SubjectID: "847f4921-3408-4abe-a2a4-96fc01f49aaa",
+          StudentID: "6130613034",
+          SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
+        })
+        .then((response) => {
+          console.log(response);
+        });
+      // const data = {
+      //   chapter: this.chapter,
+      // };
+      // alert(JSON.stringify(data, null, 2));
     },
-
+    Deletechapter() {
+      axios
+        .delete(`http://localhost:3000/chapter/${this.chapter.ChapterID}`)
+        .then((response) => {
+          console.log(response);
+        });
+    },
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
     },
 
     async getSubjectData() {
       const resp = await axios.get(
-        "http://localhost:3000/subject/findsubject/847f4921-3408-4abe-a2a4-96fc01f49aaa"
+        "http://localhost:3000/subject/findsubject/" + this.$route.query.id
       );
       this.subjects = resp.data.subject;
       const url =
