@@ -141,6 +141,7 @@
             rounded
             style="background: #ff5656; color: white"
             label="Delete"
+            @click="DeleteEvent()"
           />
         </div>
       </div>
@@ -191,6 +192,15 @@ export default {
         "http://localhost:3000/calendar/findnote/" + this.$route.query.id
       );
       this.calendar = data.calendar;
+    },
+
+    DeleteEvent() {
+      axios
+        .delete("http://localhost:3000/calendar/delete/" + this.$route.query.id)
+        .then((response) => {
+          console.log(response);
+        });
+      this.$router.push({ path: "/Calendar" });
     },
   },
 };
