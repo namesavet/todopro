@@ -288,10 +288,13 @@ export default {
     },
     Deletechapter() {
       axios
-        .delete(`http://localhost:3000/chapter/`)
+        .delete("http://localhost:3000/chapter/delete/"+ this.$route.query.id)
         .then((response) => {
           console.log(response);
         });
+        this.$router.push({
+        path: "/SubjectChapter",
+      });
     },
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
