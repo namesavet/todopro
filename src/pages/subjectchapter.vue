@@ -102,7 +102,14 @@
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
       <div :key="index" v-for="(chapter, index) in chapters">
-        <div class="row justify-center">
+        <div class="row justify-center"
+         @click="$router.push({ 
+            name: 'subjectchapter',
+            query: {
+                chid:chapter.ChapterID,
+              },
+               })"
+        >
           <div class="profilechap text-bold" style="overflow: hidden">
             <div class="chapter row items-center justify-center q-mt-sm">
               {{ index + 1 }}
@@ -262,7 +269,7 @@ export default {
 
   methods: {
     addChapter() {
-      this.countchapter += 1;
+      // this.countchapter + 1 ;
       this.chapter.push({
         chapterName: "",
       });
@@ -284,11 +291,8 @@ export default {
         .then((response) => {
           console.log(response);
         });
-      this.$router.push({
-        path: "/SubjectChapter",
-        query: {
-          chid: this.chapters.ChapterID,
-        },
+       this.$router.push({
+        path: "/Subject",
       });
     },
     Deletechapter() {
@@ -299,9 +303,10 @@ export default {
         .then((response) => {
           console.log(response);
         });
-      //   this.$router.push({
-      //   path: "/SubjectChapter",
-      // });
+        this.$router.push({
+        path: "/SubjectChapter",
+      });
+      
     },
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
