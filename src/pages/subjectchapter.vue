@@ -152,7 +152,7 @@
               </div>
               <div class="q-mr-sm q-mt-sm">
                 <q-btn
-                  @click="submitchapter()"
+                  @click="submitchapter(index)"
                   round
                   dense
                   text-color="white"
@@ -242,6 +242,7 @@ import axios from "axios";
 import { date } from "quasar";
 export default {
   name: "subject",
+  name: "chapter",
   data() {
     return {
       chapter: [
@@ -256,10 +257,12 @@ export default {
   },
   mounted() {
     this.getSubjectData();
+    this.getChapterData();
   },
 
   methods: {
     addChapter() {
+      this.countchapter += 1;
       this.chapter.push({
         chapterName: "",
       });
@@ -269,32 +272,36 @@ export default {
       chapter.splice(index, 1);
     },
 
-    submitchapter() {
+    submitchapter(index) {
       axios
         .post("http://localhost:3000/chapter/create ", {
-          Chapter_name: this.chapterName,
+          Chapter_name: this.chapter[index].chapterName,
           Status: false,
-          SubjectID: "847f4921-3408-4abe-a2a4-96fc01f49aaa",
+          SubjectID: this.$route.query.id,
           StudentID: "6130613034",
           SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
         })
         .then((response) => {
           console.log(response);
         });
-      // const data = {
-      //   chapter: this.chapter,
-      // };
-      // alert(JSON.stringify(data, null, 2));
+      this.$router.push({
+        path: "/SubjectChapter",
+        query: {
+          chid: this.chapters.ChapterID,
+        },
+      });
     },
     Deletechapter() {
       axios
-        .delete("http://localhost:3000/chapter/delete/"+ this.$route.query.id)
+        .delete(
+          "http://localhost:3000/chapter/delete/" + this.$route.query.chid
+        )
         .then((response) => {
           console.log(response);
         });
-        this.$router.push({
-        path: "/SubjectChapter",
-      });
+      //   this.$router.push({
+      //   path: "/SubjectChapter",
+      // });
     },
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
@@ -305,11 +312,13 @@ export default {
         "http://localhost:3000/subject/findsubject/" + this.$route.query.id
       );
       this.subject = data.subject;
+    },
 
-      const url =
-        "http://localhost:3000/chapter/847f4921-3408-4abe-a2a4-96fc01f49aaa";
-      const chaptersp = await axios.get(url);
-      this.chapters = chaptersp.data.chapter;
+    async getChapterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/chapter/findchapter/" + this.$route.query.id
+      );
+      this.chapters = data.chapter;
       this.countchapter = this.chapters.length;
     },
   },
