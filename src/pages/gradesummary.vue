@@ -88,6 +88,7 @@
                 color="white"
                 label-color="grey"
                 placeholder="0.0"
+                mask="#.#"
                 style="text-align: end"
                 input-class="text-right text-bold"
               />
