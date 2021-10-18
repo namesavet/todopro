@@ -28,7 +28,12 @@
       <div :key="index" v-for="(subject,index) in subjects">
         <div
           class="row justify-center"
-          @click="$router.push({ name: 'subjectchapter' })"
+          @click="$router.push({ 
+            name: 'subjectchapter',
+            query: {
+                id: subject.SubjectID,
+              },
+               })"
           push
           
         >
@@ -104,6 +109,7 @@
 <script>
 import axios from "axios";
 export default {
+  name:"subject",
   data() {
     return {
       info: null,

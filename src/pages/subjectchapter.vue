@@ -16,7 +16,14 @@
       <div class="settingbtn">
         <q-btn
           flat
-          @click="$router.push({ name: 'editsubjectchapter' })"
+          @click="
+            $router.push({
+              name: 'editsubjectchapter',
+              query: {
+                id: subject.SubjectID,
+              },
+            })
+          "
           push
           round
           dense
@@ -31,10 +38,10 @@
       <div class="q-pa-md">
         <div class="row">
           <div class="text-white text-bold" style="font-size: 30px">
-            {{ subjects[0].Subject_name }}
+            {{ subject.Subject_name }}
           </div>
         </div>
-        <div class="text-blue-grey-4">{{ subjects[0].Teacher_name }}</div>
+        <div class="text-blue-grey-4">{{ subject.Teacher_name }}</div>
       </div>
     </div>
     <div class="row justify-center">
@@ -49,19 +56,19 @@
           <div class="col-2"></div>
           <div class="col-6 text-center text-white text-bold">
             <div class="row justify-center q-mt-xl q-mr-sm">
-              {{ subjects[0].GradeA }}%
+              {{ subject.GradeA }}%
             </div>
             <div class="row justify-center q-mt-sm q-mr-sm">
-              {{ subjects[0].GradeB }}%
+              {{ subject.GradeB }}%
             </div>
             <div class="row justify-center q-mt-md q-mr-sm">
-              {{ subjects[0].GradeC }}%
+              {{ subject.GradeC }}%
             </div>
             <div class="row justify-center q-mt-md q-mr-sm">
-              {{ subjects[0].GradeD }}%
+              {{ subject.GradeD }}%
             </div>
             <div class="row justify-center q-mt-sm q-mr-sm">
-              less than {{ subjects[0].GradeD }}%
+              less than {{ subject.GradeD }}%
             </div>
           </div>
         </div>
@@ -71,21 +78,21 @@
     <div class="row justify-center items-center text-bold q-mt-sm">
       <div class="testtext row justify-center items-center">
         <div class="col-4 q-ml-sm">Midterm exam</div>
-        <div class="col-4">{{ formatDate(subjects[0].Date_midterm_exam) }}</div>
-        <div class="col-1">{{ subjects[0].Score_midterm }}%</div>
+        <div class="col-4">{{ formatDate(subject.Date_midterm_exam) }}</div>
+        <div class="col-1">{{ subject.Score_midterm }}%</div>
       </div>
     </div>
 
     <div class="row justify-center items-center text-bold">
       <div class="testtext row justify-center items-center">
         <div class="col-4 q-ml-sm">Final exam</div>
-        <div class="col-4">{{ formatDate(subjects[0].Date_final_exam) }}</div>
-        <div class="col-1">{{ subjects[0].Score_final }}%</div>
+        <div class="col-4">{{ formatDate(subject.Date_final_exam) }}</div>
+        <div class="col-1">{{ subject.Score_final }}%</div>
       </div>
     </div>
     <div class="row justify-center text-bold">
       <div class="gradewanttext">
-        The grade you want is {{ subjects[0].Desired_grade }}
+        The grade you want is {{ subject.Desired_grade }}
       </div>
     </div>
 
@@ -107,7 +114,14 @@
             </div>
           </div>
           <div class="col q-mt-sm q-mr-lg text-right">
-            <q-btn flat round dense text-color="red" icon="delete_forever" />
+            <q-btn
+              flat
+              round
+              dense
+              @click="Deletechapter()"
+              text-color="red"
+              icon="delete_forever"
+            />
           </div>
         </div>
 
@@ -138,7 +152,7 @@
               </div>
               <div class="q-mr-sm q-mt-sm">
                 <q-btn
-                  @click="removeField(index, chapter)"
+                  @click="submitchapter(index)"
                   round
                   dense
                   text-color="white"
@@ -227,25 +241,28 @@
 import axios from "axios";
 import { date } from "quasar";
 export default {
-  name: "app",
-
-  data: () => ({
-    chapter: [
-      {
-        chapterName: "",
-      },
-    ],
-    chapters: [],
-    subjects: [],
-    countchapter: 0,
-  }),
+  name: "subject",
+  name: "chapter",
+  data() {
+    return {
+      chapter: [
+        {
+          chapterName: "",
+        },
+      ],
+      chapters: [],
+      subject: {},
+      countchapter: 0,
+    };
+  },
   mounted() {
     this.getSubjectData();
-    this.getChapter();
+    this.getChapterData();
   },
 
   methods: {
     addChapter() {
+      this.countchapter += 1;
       this.chapter.push({
         chapterName: "",
       });
@@ -255,29 +272,55 @@ export default {
       chapter.splice(index, 1);
     },
 
-    submit() {
-      const data = {
-        chapter: this.chapter,
-      };
-      alert(JSON.stringify(data, null, 2));
+    submitchapter(index) {
+      axios
+        .post("http://localhost:3000/chapter/create ", {
+          Chapter_name: this.chapter[index].chapterName,
+          Status: false,
+          SubjectID: this.$route.query.id,
+          StudentID: "6130613034",
+          SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
+        })
+        .then((response) => {
+          console.log(response);
+        });
+      this.$router.push({
+        path: "/SubjectChapter",
+        query: {
+          chid: this.chapters.ChapterID,
+        },
+      });
     },
-
+    Deletechapter() {
+      axios
+        .delete(
+          "http://localhost:3000/chapter/delete/" + this.$route.query.chid
+        )
+        .then((response) => {
+          console.log(response);
+        });
+      //   this.$router.push({
+      //   path: "/SubjectChapter",
+      // });
+    },
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
     },
 
     async getSubjectData() {
-      const resp = await axios.get(
-        "http://localhost:3000/subject/findsubject/847f4921-3408-4abe-a2a4-96fc01f49aaa"
+      const { data } = await axios.get(
+        "http://localhost:3000/subject/findsubject/" + this.$route.query.id
       );
-      this.subjects = resp.data.subject;
-      const url =
-        "http://localhost:3000/chapter/847f4921-3408-4abe-a2a4-96fc01f49aaa";
-      const chaptersp = await axios.get(url);
-      this.chapters = chaptersp.data.chapter;
+      this.subject = data.subject;
+    },
+
+    async getChapterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/chapter/findchapter/" + this.$route.query.id
+      );
+      this.chapters = data.chapter;
       this.countchapter = this.chapters.length;
     },
-    async getChapter() {},
   },
 };
 </script>
