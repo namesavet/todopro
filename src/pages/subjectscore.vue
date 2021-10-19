@@ -1,5 +1,5 @@
 <template>
-  <q-page class="addbackground" v-if="subjects.length != 0">
+  <q-page class="addbackground" v-if="subject.length != 0">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -19,7 +19,7 @@
           dense
           @click="$router.push({ name: 'settingscore',
            query: {
-                id: subjects[0].SubjectID,
+                id: subject.SubjectID,
               },
            })"
           push
@@ -34,10 +34,10 @@
       <div class="q-pa-md">
         <div class="row">
           <div class="text-white text-bold" style="font-size: 30px">
-            {{ subjects[0].Subject_name }}
+            {{ subject.Subject_name }}
           </div>
         </div>
-        <div class="text-blue-grey-4">{{ subjects[0].Teacher_name }}</div>
+        <div class="text-blue-grey-4">{{ subject.Teacher_name }}</div>
       </div>
     </div>
 
@@ -75,10 +75,10 @@
       <div class="warringscore q-my-md text-white">
         <div class="q-my-sm">
           <div class="row justify-center">
-            You must score {{ subjects[0].GradeD - total }} points to pass a E
+            You must score {{ subject.GradeD - total }} points to pass a E
           </div>
           <div class="row justify-center">
-            grade and {{ subjects[0].GradeA - total }} points to A grade
+            grade and {{ subject.GradeA - total }} points to A grade
           </div>
         </div>
       </div>
@@ -96,19 +96,19 @@
           <div class="col-2"></div>
           <div class="col-6 text-center text-white text-bold">
             <div class="row justify-center q-mt-xl q-mr-sm">
-              {{ subjects[0].GradeA }}%
+              {{ subject.GradeA }}%
             </div>
             <div class="row justify-center q-mt-sm q-mr-sm">
-              {{ subjects[0].GradeB }}%
+              {{ subject.GradeB }}%
             </div>
             <div class="row justify-center q-mt-md q-mr-sm">
-              {{ subjects[0].GradeC }}%
+              {{ subject.GradeC }}%
             </div>
             <div class="row justify-center q-mt-md q-mr-sm">
-              {{ subjects[0].GradeD }}%
+              {{ subject.GradeD }}%
             </div>
             <div class="row justify-center q-mt-sm q-mr-sm">
-              less than {{ subjects[0].GradeD }}%
+              less than {{ subject.GradeD }}%
             </div>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default {
   data() {
     return {
       scores: [],
-      subjects: [],
+      subject:{},
       progresss: [],
     };
   },
@@ -193,7 +193,7 @@ export default {
       const resp = await axios.get(
         "http://localhost:3000/subject/findsubject/"+ this.$route.query.id
       );
-      this.subjects = resp.data.subject;
+      this.subject = resp.data.subject;
       const url =
         "http://localhost:3000/score/"+ this.$route.query.id;
       const scoresp = await axios.get(url);

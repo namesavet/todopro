@@ -1,5 +1,5 @@
 <template>
-  <q-page class="addbackground" v-if="subjects.length != 0">
+  <q-page class="addbackground" v-if="subject.length != 0">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -16,14 +16,14 @@
 <div  >
     <div class="row">
       <div class="col q-ml-md q-mt-xs q-gutter-xs">
-        <div class="text-white text-bold" style="font-size: 30px">{{subjects[0].Subject_name}}</div>
+        <div class="text-white text-bold" style="font-size: 30px">{{subject.Subject_name}}</div>
       </div>
     </div>
 
     <div class="row">
       <div class="col q-ml-md">
         <div class="text-bold" style="font-size: 22px; color: #96a7af">
-          {{subjects[0].Teacher_name}}
+          {{subject.Teacher_name}}
         </div>
       </div>
     </div>
@@ -40,7 +40,7 @@
         <div class="col-8">
           <div class="row q-mt-md">
             <div class="col">
-              <div class="titlesubject">{{subjects[0].Subject_name}}</div>
+              <div class="titlesubject">{{subject.Subject_name}}</div>
             </div>
             <div class="col-3">
               <div class="percenyellow">66%</div>
@@ -69,10 +69,10 @@
         <div class="exam">Midterm exam</div>
       </div>
       <div class="col-4 q-mx-xs">
-        <div class="exam">{{ formatDate(subjects[0].Date_midterm_exam) }}</div>
+        <div class="exam">{{ formatDate(subject.Date_midterm_exam) }}</div>
       </div>
       <div class="col">
-        <div class="exam">{{subjects[0].Score_midterm}}%</div>
+        <div class="exam">{{subject.Score_midterm}}%</div>
       </div>
     </div>
 
@@ -84,10 +84,10 @@
         <div class="exam">Final exam</div>
       </div>
       <div class="col-4 q-mx-xs">
-        <div class="exam">{{ formatDate(subjects[0].Date_final_exam) }}</div>
+        <div class="exam">{{ formatDate(subject.Date_final_exam) }}</div>
       </div>
       <div class="col">
-        <div class="exam">{{subjects[0].Score_final}}%</div>
+        <div class="exam">{{subject.Score_final}}%</div>
       </div>
     </div>
 </div>
@@ -121,7 +121,7 @@
             </div>
           </div>
           <div class="col-2">
-            <q-checkbox name="read" v-model="ch1" color="green" />
+            <q-checkbox name="read" v-model="chapter.Status" color="green" />
           </div>
         </div>
 
@@ -163,11 +163,8 @@ export default {
   data() {
     return {
       progress4: 0.66,
-      ch1: false,
-      ch2: false,
-      ch3: false,
       chapters: [],
-      subjects: [],
+      subject: {},
       countchapter:0,
       
     };
@@ -185,9 +182,9 @@ export default {
       const resp = await axios.get(
         "http://localhost:3000/subject/findsubject/"+ this.$route.query.id
       );
-      this.subjects = resp.data.subject;
+      this.subject = resp.data.subject;
       const url =
-        "http://localhost:3000/chapter/"+ this.$route.query.id;
+        "http://localhost:3000/chapter/findchapter/"+ this.$route.query.id;
       const chaptersp = await axios.get(url);
       this.chapters = chaptersp.data.chapter;
       
