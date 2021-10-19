@@ -24,6 +24,7 @@
         />
       </div>
     </q-toolbar>
+
     <div class="items-center">
       <div class="q-gutter-md text-white text-center">
         <q-date
@@ -35,6 +36,7 @@
         />
       </div>
     </div>
+
     <div class="col q-ml-md q-mt-sm q-gutter-xs q-mt-lg">
       <div :key="index" v-for="(calendar, index) in calendars">
         <div
@@ -92,42 +94,57 @@
 
 <script>
 import axios from "axios";
+import { date } from "quasar";
 export default {
   name: "calendar",
   data() {
     return {
       calendars: [],
-      date: "2021/07/26",
-      events: [
-        "2021/07/01",
-        "2021/07/05",
-        "2021/07/06",
-        "2021/07/09",
-        "2021/07/23",
-      ],
-      eventsFn(date) {
-        if (
-          date === "2021/07/01" ||
-          date === "2021/07/05" ||
-          date === "2021/07/06" ||
-          date === "2021/07/09" ||
-          date === "2021/07/23"
-        ) {
-          return true;
-        }
-        return false;
-      },
+      date: " ",
+      events: [],
+      ListAllEvent: [],
+
+      // eventsFn(date) {
+      //   if (
+      //     date === "2021/07/01" ||
+      //     date === "2021/07/05" ||
+      //     date === "2021/07/06" ||
+      //     date === "2021/07/09" ||
+      //     date === "2021/07/23"
+      //   ) {
+      //     return true;
+      //   }
+      //   return false;
+      // },
     };
   },
   mounted() {
     this.getCalendarData();
   },
   methods: {
+    formatDate(dateString) {
+      return date.formatDate(dateString, "YYYY/MM/DD");
+    },
     async getCalendarData() {
       const { data } = await axios.get(
         "http://localhost:3000/calendar/72100d56-21ae-42fd-8167-0b5c49c68b1d"
       );
-      this.calendars = data.calendar;
+      this.ListAllEvent = data.calendar;
+      this.date = this.formatDate(new Date());
+      this.events = data.calendar.map((data) => {
+        return this.formatDate(data.Note_date);
+      });
+    },
+  },
+  watch: {
+    date(value) {
+    
+      this.calendars = this.ListAllEvent.filter((data) => {
+     
+return new Date(value).getTime()==new Date(data.Note_date).getTime()
+        
+      });
+      
     },
   },
 };

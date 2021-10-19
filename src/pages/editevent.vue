@@ -119,8 +119,8 @@
           color="white"
           :input-style="{ color: 'white' }"
           label-color="grey"
-          mask="date"
-          :rules="['date']"
+          
+           
         >
           <template v-slot:append>
             <q-icon name="event" class="cursor-pointer" color="white">
@@ -234,6 +234,8 @@ export default {
         "http://localhost:3000/calendar/findnote/" + this.$route.query.id
       );
       this.calendar = data.calendar;
+      this.calendar.Note_date = this.formatDate(this.calendar.Note_date)
+      console.log(this.calendar);
     },
 
     async onSubmit() {
