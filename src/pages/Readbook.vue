@@ -21,233 +21,108 @@
         </div>
       </div>
     </div>
-    
-    <div class="items-center row justify-center">
-    <div class="readprogress" style="overflow: hidden">
-      <div class="row justify-center q-mt-sm q-px-md">
-        <div class="col items-center" >
-          <div style="width: 90%; height: 90%">
 
-             <canvas
-            id="my-chart"
-            class=""
-            style="display: block;
+    <div class="items-center row justify-center">
+      <div class="readprogress" style="overflow: hidden">
+        <div class="row justify-center q-mt-sm q-px-md">
+          <div class="col items-center">
+            <div style="width: 90%; height: 90%">
+              <canvas
+                id="my-chart"
+                class=""
+                style="display: block;
                    width: 90%;
                     height: 90%;
                       }"
-          >
-          </canvas>
+              >
+              </canvas>
+            </div>
           </div>
-         
-        </div>
 
-        <div class="col">
-          <div class="row">
-            <div class="col q-ml q-mt-sm q-gutter-xs">
-              <div class="text-white text-bold" style="font-size: 18px">
-                Read progress
+          <div class="col">
+            <div class="row">
+              <div class="col q-ml q-mt-sm q-gutter-xs">
+                <div class="text-white text-bold" style="font-size: 18px">
+                  Read progress
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-1 q-mt-xs">
+                <div class="welldonetier"></div>
+              </div>
+              <div class="col-10 q-ml-sm">
+                <div class="texttier">welldone read</div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-1 q-mt-xs">
+                <div class="goodtier"></div>
+              </div>
+              <div class="col-10 q-ml-sm">
+                <div class="texttier">good read</div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-1 q-mt-xs">
+                <div class="badtier"></div>
+              </div>
+              <div class="col-10 q-ml-sm">
+                <div class="texttier">not good</div>
               </div>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-1 q-mt-xs">
-              <div class="welldonetier"></div>
-            </div>
-            <div class="col-10 q-ml-sm">
-              <div class="texttier">welldone read</div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-1 q-mt-xs">
-              <div class="goodtier"></div>
-            </div>
-            <div class="col-10 q-ml-sm">
-              <div class="texttier">good read</div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-1 q-mt-xs">
-              <div class="badtier"></div>
-            </div>
-            <div class="col-10 q-ml-sm">
-              <div class="texttier">not good</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-</div>
-    <div class="namebook" style="overflow: hidden">
-      <div class="row justify-center">
-        <div class="col">
-          <div class="statusred q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-md">
-              <q-icon name="south" class="" size="24px" style="color: white" />
-            </div>
-          </div>
-        </div>
-        <div class="col-8">
-          <div class="row q-mt-md">
-            <div class="col">
-              <div class="titlesubject">OOP 63</div>
-            </div>
-            <div class="col-3">
-              <div class="percenred">15%</div>
-            </div>
-          </div>
-
-          <div class="row q-mt-lg">
-            <q-linear-progress
-              dark
-              rounded
-              size="16px"
-              :value="progress1"
-              color="red"
-              class=""
-              style="width: 90%"
-            />
-          </div>
         </div>
       </div>
     </div>
 
-    <div class="namebook" style="overflow: hidden">
-      <div class="row justify-center">
-        <div class="col">
-          <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-md">
-              <q-icon name="north" class="" size="24px" style="color: white" />
+    <div :key="index" v-for="(subject, index) in subjects">
+      <div
+        class="namebook q-ml-lg q-mt-lg"
+        @click="$router.push({ name: 'ReadDetail',
+             query: {
+                id: subject.SubjectID,
+              },
+         })"
+        push
+        style="overflow: hidden"
+      >
+        <div class="row justify-center">
+          <div class="col">
+            <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden; margin-top: 30px;">
+              <div class="row items-center justify-center q-mt-md">
+                <q-icon
+                  name="north"
+                  class=""
+                  size="24px"
+                  style="color: white"
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-8">
-          <div class="row q-mt-md">
-            <div class="col">
-              <div class="titlesubject">Data Sci 63</div>
+          <div class="col-8">
+            <div class="row q-mt-md">
+              <div class="col">
+                <div class="titlesubject">{{ subject.Subject_name }}</div>
+              </div>
+              <div class="col-3">
+                <div class="percenyellow">66%</div>
+              </div>
             </div>
-            <div class="col-3">
-              <div class="percenyellow">70%</div>
+            <div class="row q-mt-lg">
+              <q-linear-progress
+                dark
+                rounded
+                size="16px"
+                :value="progress4"
+                color="yellow"
+                class=""
+                style="width: 90%"
+              />
             </div>
-          </div>
-
-          <div class="row q-mt-lg">
-            <q-linear-progress
-              dark
-              rounded
-              size="16px"
-              :value="progress2"
-              color="yellow"
-              class=""
-              style="width: 90%"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="namebook" style="overflow: hidden">
-      <div class="row justify-center">
-        <div class="col">
-          <div class="statusgreen q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-md">
-              <q-icon name="star" class="" size="24px" style="color: white" />
-            </div>
-          </div>
-        </div>
-        <div class="col-8">
-          <div class="row q-mt-md">
-            <div class="col">
-              <div class="titlesubject">UX/UI 63</div>
-            </div>
-            <div class="col-3">
-              <div class="percengreen">98%</div>
-            </div>
-          </div>
-
-          <div class="row q-mt-lg">
-            <q-linear-progress
-              dark
-              rounded
-              size="16px"
-              :value="progress3"
-              color="green"
-              class=""
-              style="width: 90%"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="namebook q-ml-lg q-mt-lg"
-      @click="$router.push({ name: 'ReadDetail' })"
-      push
-      style="overflow: hidden"
-    >
-      <div class="row justify-center">
-        <div class="col">
-          <div class="statusyellow q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-md">
-              <q-icon name="north" class="" size="24px" style="color: white" />
-            </div>
-          </div>
-        </div>
-        <div class="col-8">
-          <div class="row q-mt-md">
-            <div class="col">
-              <div class="titlesubject">SPI</div>
-            </div>
-            <div class="col-3">
-              <div class="percenyellow">66%</div>
-            </div>
-          </div>
-          <div class="row q-mt-lg">
-            <q-linear-progress
-              dark
-              rounded
-              size="16px"
-              :value="progress4"
-              color="yellow"
-              class=""
-              style="width: 90%"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="namebook" style="overflow: hidden">
-      <div class="row justify-center">
-        <div class="col">
-          <div class="statusred q-ml-lg q-mt-lg" style="overflow: hidden">
-            <div class="row items-center justify-center q-mt-md">
-              <q-icon name="south" class="" size="24px" style="color: white" />
-            </div>
-          </div>
-        </div>
-        <div class="col-8">
-          <div class="row q-mt-md">
-            <div class="col">
-              <div class="titlesubject">Software contructure</div>
-            </div>
-            <div class="col-3">
-              <div class="percenred">15%</div>
-            </div>
-          </div>
-          <div class="row q-mt-lg">
-            <q-linear-progress
-              dark
-              rounded
-              size="16px"
-              :value="progress1"
-              color="red"
-              class=""
-              style="width: 90%"
-            />
           </div>
         </div>
       </div>
@@ -283,6 +158,7 @@
 
 <script>
 import Chart from "chart.js";
+import axios from "axios";
 export default {
   data() {
     return {
@@ -290,6 +166,7 @@ export default {
       progress2: 0.7,
       progress3: 0.98,
       progress4: 0.66,
+      subjects: [],
     };
   },
   components: {},
@@ -310,6 +187,15 @@ export default {
         responsive: true,
       },
     });
+    this.getSubjectData();
+  },
+  methods: {
+    async getSubjectData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/subject/72100d56-21ae-42fd-8167-0b5c49c68b1d"
+      );
+      this.subjects = data.subject;
+    },
   },
 };
 </script>
