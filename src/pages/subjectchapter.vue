@@ -1,5 +1,5 @@
 <template>
-  <q-page class="addbackground">
+  <q-page class="addbackground" v-if="subjects.length != 0">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn

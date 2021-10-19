@@ -1,5 +1,5 @@
 <template>
-  <q-page class="addbackground">
+  <q-page class="addbackground" v-if="subjects.length != 0">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -183,11 +183,11 @@ export default {
     },
     async getSubjectData() {
       const resp = await axios.get(
-        "http://localhost:3000/subject/findsubject/847f4921-3408-4abe-a2a4-96fc01f49aaa"
+        "http://localhost:3000/subject/findsubject/"+ this.$route.query.id
       );
       this.subjects = resp.data.subject;
       const url =
-        "http://localhost:3000/chapter/847f4921-3408-4abe-a2a4-96fc01f49aaa";
+        "http://localhost:3000/chapter/"+ this.$route.query.id;
       const chaptersp = await axios.get(url);
       this.chapters = chaptersp.data.chapter;
       
