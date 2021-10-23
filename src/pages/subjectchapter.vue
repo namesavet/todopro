@@ -1,5 +1,5 @@
 <template>
-  <q-page class="addbackground">
+  <q-page class="addbackground" v-if="subject.length != 0">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -102,7 +102,9 @@
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
       <div :key="index" v-for="(chapter, index) in chapters">
-        <div class="row justify-center">
+        <div
+          class="row justify-center"
+        >
           <div class="profilechap text-bold" style="overflow: hidden">
             <div class="chapter row items-center justify-center q-mt-sm">
               {{ index + 1 }}
@@ -118,11 +120,12 @@
               flat
               round
               dense
-              @click="Deletechapter()"
+              @click="Deletechapter(index,chapter.ChapterID)"
               text-color="red"
               icon="delete_forever"
             />
           </div>
+          
         </div>
 
         <div class="q-mr-lg q-my-lg">
@@ -262,7 +265,7 @@ export default {
 
   methods: {
     addChapter() {
-      this.countchapter += 1;
+      // this.countchapter + 1 ;
       this.chapter.push({
         chapterName: "",
       });
@@ -282,26 +285,19 @@ export default {
           SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
         })
         .then((response) => {
-          console.log(response);
+          this.chapters.push(response.data.data);
+          this.chapter[index].chapterName = " ";
         });
-      this.$router.push({
-        path: "/SubjectChapter",
-        query: {
-          chid: this.chapters.ChapterID,
-        },
-      });
     },
-    Deletechapter() {
+    Deletechapter(index,ChapterID) {
       axios
         .delete(
-          "http://localhost:3000/chapter/delete/" + this.$route.query.chid
+          `http://localhost:3000/chapter/delete/${ChapterID}`
         )
         .then((response) => {
           console.log(response);
+          this.chapters = this.chapters.filter((data, i) => i != index);
         });
-      //   this.$router.push({
-      //   path: "/SubjectChapter",
-      // });
     },
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
@@ -309,14 +305,14 @@ export default {
 
     async getSubjectData() {
       const { data } = await axios.get(
-        "http://localhost:3000/subject/findsubject/" + this.$route.query.id
+        `http://localhost:3000/subject/findsubject/${this.$route.query.id}`
       );
       this.subject = data.subject;
     },
 
     async getChapterData() {
       const { data } = await axios.get(
-        "http://localhost:3000/chapter/findchapter/" + this.$route.query.id
+        `http://localhost:3000/chapter/findchapter/${this.$route.query.id}`
       );
       this.chapters = data.chapter;
       this.countchapter = this.chapters.length;

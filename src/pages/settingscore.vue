@@ -1,5 +1,5 @@
 <template>
-  <q-page class="addbackground">
+  <q-page class="addbackground" v-if="subjects.length != 0">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
@@ -40,6 +40,7 @@
         <div class="row">
           <div class="text-white text-bold" style="font-size: 30px">
             {{ subjects[0].Subject_name }}
+
           </div>
         </div>
         <div class="text-blue-grey-4">{{ subjects[0].Teacher_name }}</div>
