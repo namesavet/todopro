@@ -499,12 +499,12 @@ export default {
     },
     async getSubjectData() {
       const { data } = await axios.get(
-        "http://localhost:3000/subject/findsubject/" + this.$route.query.id
+        `http://localhost:3000/subject/findsubject/${this.$route.query.id}` 
       );
       this.subject = data.subject;
     },
      async submitUpdateData() {
-      const { data } = await axios.put("http://localhost:3000/subject/update/" + this.$route.query.id,
+      const { data } = await axios.put(`http://localhost:3000/subject/update/${this.$route.query.id}`,
         {
           Subject_name: this.subject.Subject_name,
           Intal_name: this.subject.Intal_name,
@@ -535,7 +535,7 @@ export default {
     },
     DeleteSubject() {
       axios
-        .delete("http://localhost:3000/subject/delete/"+ this.$route.query.id)
+        .delete(`http://localhost:3000/subject/delete/${this.$route.query.id}`)
         .then((response) => {
           console.log(response);
         });
