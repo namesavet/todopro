@@ -96,7 +96,7 @@
         class="col q-my-md q-ml-md text-white text-bold"
         style="font-size: 25px"
       >
-        Chapter
+        Chapter 
       </div>
       <div class="col-2 q-mt-md">
         <q-icon
@@ -120,7 +120,7 @@
               {{ chapter.Chapter_name }}
             </div>
           </div>
-          <div class="col-2">
+          <div class="col-2" >
             <q-checkbox name="read" v-model="chapter.Status" color="green" />
           </div>
         </div>
@@ -128,6 +128,11 @@
         <div class="q-mr-lg q-my-lg">
           <q-separator color="grey" inset="item" />
         </div>
+
+ <!-- <div v-if="countstatus = chapter.Status ">
+   {{countstatus}}
+ </div> -->
+
 
       </div>
     </div>
@@ -166,6 +171,7 @@ export default {
       chapters: [],
       subject: {},
       countchapter:0,
+      countstatus:0,
       
     };
   },
@@ -191,6 +197,10 @@ export default {
       this.countchapter = this.chapters.length
     },
     async getChapter() {},
+    async updateStatus(){
+
+
+    },
   },
 };
 </script>
