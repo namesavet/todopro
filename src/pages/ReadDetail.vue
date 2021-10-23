@@ -33,10 +33,13 @@
       <div class="namebook" style="overflow: hidden">
         <div class="row justify-center">
           <div class="col">
-            <div class="statuspic q-ml-lg q-mt-lg" :style="bgstatuscolor(66)">
+            <div
+              class="statuspic q-ml-lg q-mt-lg"
+              :style="bgstatuscolor(readtrue)"
+            >
               <div class="row items-center justify-center q-mt-md">
                 <q-icon
-                  :name="iconstatus(66)"
+                  :name="iconstatus(readtrue)"
                   class=""
                   size="24px"
                   style="color: white"
@@ -50,7 +53,9 @@
                 <div class="titlesubject">{{ subject.Subject_name }}</div>
               </div>
               <div class="col-3">
-                <div class="percentext" :style="textstatuscolor(66)">66%</div>
+                <div class="percentext" :style="textstatuscolor(readtrue)">
+                  {{ (readtrue / countchapter) * 100 }}%
+                </div>
               </div>
             </div>
             <div class="row q-mt-lg">
@@ -58,8 +63,8 @@
                 dark
                 rounded
                 size="16px"
-                :value="progress4"
-                :color="statuscolor(66)"
+                :value="readtrue / countchapter"
+                :color="statuscolor(readtrue)"
                 class=""
                 style="width: 90%"
               />
@@ -118,7 +123,7 @@
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
       <div :key="index" v-for="(chapter, index) in chapters">
         <div class="row justify-center">
-          <div class="profilechap text-bold" style="overflow: hidden">
+          <div class="profilechap text-bold" :style="bgstatuscolor(readtrue)">
             <div class="chapter row items-center justify-center q-mt-sm">
               {{ index + 1 }}
             </div>
@@ -137,8 +142,6 @@
         <div class="q-mr-lg q-my-lg">
           <q-separator color="grey" inset="item" />
         </div>
-
-       
       </div>
     </div>
 
@@ -195,8 +198,13 @@ export default {
         "http://localhost:3000/chapter/findchapter/" + this.$route.query.id;
       const chaptersp = await axios.get(url);
       this.chapters = chaptersp.data.chapter;
-
       this.countchapter = this.chapters.length;
+      // for (let i = 0; i < this.chapters.length; i++) {
+      //   if (chapter.Status == true) {
+      //     this.redetrue = this.redetrue + 1;
+      //   }
+      // }
+      // console.log(this.redetrue);
     },
     async getChapter() {},
 
@@ -246,6 +254,16 @@ export default {
       }
 
       return iconstatus;
+    },
+  },
+  computed: {
+    readtrue: function () {
+      return this.chapters.reduce(function (readtrue, chapter) {
+        if (chapter.Status == true) {
+          readtrue = readtrue + 1;
+        }
+        return readtrue;
+      }, 0);
     },
   },
 };

@@ -201,6 +201,7 @@ export default {
     },
     async getScore() {},
   },
+  
   computed: {
     total: function () {
       return this.scores.reduce(function (total, score) {
