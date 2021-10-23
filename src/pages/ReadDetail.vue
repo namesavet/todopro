@@ -135,7 +135,7 @@
             </div>
           </div>
           <div class="col-2">
-            <q-checkbox name="read" v-model="chapter.Status" color="green" />
+            <q-checkbox name="read" v-model="chapter.Status" color="green" @click="updateStatusChapter(index)" />
           </div>
         </div>
 
@@ -183,7 +183,6 @@ export default {
   },
   mounted() {
     this.getSubjectData();
-    this.getChapter();
   },
   methods: {
     formatDate(day) {
@@ -191,11 +190,10 @@ export default {
     },
     async getSubjectData() {
       const resp = await axios.get(
-        "http://localhost:3000/subject/findsubject/" + this.$route.query.id
+        `http://localhost:3000/subject/findsubject/${this.$route.query.id}`
       );
       this.subject = resp.data.subject;
-      const url =
-        "http://localhost:3000/chapter/findchapter/" + this.$route.query.id;
+      const url = `http://localhost:3000/chapter/findchapter/${this.$route.query.id}`;
       const chaptersp = await axios.get(url);
       this.chapters = chaptersp.data.chapter;
       this.countchapter = this.chapters.length;
@@ -206,8 +204,20 @@ export default {
       // }
       // console.log(this.redetrue);
     },
-    async getChapter() {},
-
+    updateStatusChapter(index) {
+      axios.put(`http://localhost:3000/chapter/update/${this.$route.query.id}`, {
+          Status: this.updatestatus(),
+        })
+     this.chapters = this.chapters.filter((data, i) => i != index);
+     
+    },
+    updatestatus: function (Status) {
+      if (Status == false) {
+        chapter.Status == true;
+      } else {
+        chapter.Status == false;
+      }
+    },
     statuscolor: function (allstatus, statuscolor) {
       if (allstatus < 33.33) {
         statuscolor = "red";

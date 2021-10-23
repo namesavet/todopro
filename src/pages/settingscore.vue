@@ -1,12 +1,12 @@
 <template>
-  <q-page class="addbackground" v-if="subjects.length != 0">
+  <q-page class="addbackground" v-if="subject.length != 0">
     <q-toolbar>
       <q-toolbar-title>
         <q-btn
           flat
           @click="$router.push({ name: 'subjectscore',
             query: {
-                id: subjects[0].SubjectID,
+                id: subject.SubjectID,
               },
            })"
           push
@@ -24,7 +24,7 @@
           dense
           @click="$router.push({ name: 'subjectscore' ,
             query: {
-                id: subjects[0].SubjectID,
+                id: subject.SubjectID,
               },
            })"
           push
@@ -39,11 +39,11 @@
       <div class="q-pa-md">
         <div class="row">
           <div class="text-white text-bold" style="font-size: 30px">
-            {{ subjects[0].Subject_name }}
+            {{ subject.Subject_name }}
 
           </div>
         </div>
-        <div class="text-blue-grey-4">{{ subjects[0].Teacher_name }}</div>
+        <div class="text-blue-grey-4">{{ subject.Teacher_name }}</div>
       </div>
     </div>
 
@@ -222,7 +222,7 @@ export default {
       ],
     
       scores: [],
-      subjects: [],
+      subject: {},
     };
   },
   mounted() {
