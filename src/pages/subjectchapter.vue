@@ -286,7 +286,7 @@ export default {
         })
         .then((response) => {
           this.chapters.push(response.data.data);
-          this.chapter[index].chapterName = " ";
+          this.chapter[index].chapterName = "";
         });
     },
     Deletechapter(index,ChapterID) {

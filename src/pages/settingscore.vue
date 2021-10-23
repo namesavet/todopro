@@ -4,11 +4,14 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'subjectscore',
-            query: {
+          @click="
+            $router.push({
+              name: 'subjectscore',
+              query: {
                 id: subject.SubjectID,
               },
-           })"
+            })
+          "
           push
           color=""
           icon="keyboard_arrow_left"
@@ -22,11 +25,14 @@
           flat
           round
           dense
-          @click="$router.push({ name: 'subjectscore' ,
-            query: {
+          @click="
+            $router.push({
+              name: 'subjectscore',
+              query: {
                 id: subject.SubjectID,
               },
-           })"
+            })
+          "
           push
           text-color="white"
           icon="done"
@@ -40,7 +46,6 @@
         <div class="row">
           <div class="text-white text-bold" style="font-size: 30px">
             {{ subject.Subject_name }}
-
           </div>
         </div>
         <div class="text-blue-grey-4">{{ subject.Teacher_name }}</div>
@@ -61,10 +66,17 @@
               class="col q-my-md q-mr-sm text-white text-bold text-right"
               style="font-size: 16px"
             >
-                 {{ score.Get_point }}/{{ score.Full_point }}
+              {{ score.Get_point }}/{{ score.Full_point }}
             </div>
             <div class="col-1 q-mt-sm q-mr-md">
-              <q-btn flat round dense text-color="red" icon="delete_forever" />
+              <q-btn
+                flat
+                round
+                dense
+                text-color="red"
+                icon="delete_forever"
+                @click="Deletechapter(index, score.ScoreID)"
+              />
             </div>
           </div>
           <div class="row justify-center">
@@ -85,7 +97,7 @@
     <div id="app" class="container">
       <form>
         <div class="work-experiences">
-          <div class="form-row" v-for="(input, index) in chapter" :key="index">
+          <div class="form-row" v-for="(input, index) in score" :key="index">
             <div class="row justify-center">
               <div class="scoreadd">
                 <div class="row">
@@ -130,7 +142,7 @@
                   <div class="col-2 items-center text-center">
                     <div class="row q-mt-xl justify-center">
                       <q-btn
-                        @click="removeField(index, chapter)"
+                        @click="submitScore(index)"
                         round
                         dense
                         text-color="white"
@@ -141,7 +153,7 @@
                     </div>
                     <div class="row q-mt-md justify-center">
                       <q-btn
-                        @click="removeField(index, chapter)"
+                        @click="removeField(index, score)"
                         round
                         dense
                         text-color="white"
@@ -163,7 +175,7 @@
       <div class="column items-center" style="margin-top: 20px">
         <div class="row items-center justify-center">
           <q-btn
-            @click="addChapter"
+            @click="addScore"
             size="20px"
             round
             color=""
@@ -213,51 +225,66 @@
 <script>
 import axios from "axios";
 export default {
+  name: "score",
   data() {
     return {
-      chapter: [
+      score: [
         {
-          chapterName: "Foxconn",
+          scoreName: "",
         },
       ],
-    
       scores: [],
       subject: {},
     };
   },
   mounted() {
     this.getSubjectData();
-    this.getScore();
   },
   methods: {
-    addChapter() {
-      this.chapter.push({
-        chapterName: "",
+    addScore() {
+      this.score.push({
+        scoreName: "",
       });
     },
-    removeField(index, chapter) {
+    removeField(index, score) {
       //type.splice(index, 1);
-      chapter.splice(index, 1);
+      score.splice(index, 1);
     },
 
-    submit() {
-      const data = {
-        chapter: this.chapter,
-      };
-      alert(JSON.stringify(data, null, 2));
+    submitScore(index) {
+      axios
+        .post("http://localhost:3000/score/create ", {
+          Score_title: this.score[index].scoreName,
+          Get_point: this.score[index].GetPoin,
+          Full_point: this.score[index].FullPoin,
+          SubjectID: this.$route.query.id,
+          StudentID: "6130613034",
+          SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
+        })
+        .then((response) => {
+          this.scores.push(response.data.data);
+          this.score[index].scoreName = "";
+          this.score[index].GetPoin= "";
+          this.score[index].FullPoin = "";
+        });
     },
-
-    async getSubjectData() {
-      const resp = await axios.get(
-        "http://localhost:3000/subject/findsubject/"+ this.$route.query.id
+    Deletechapter(index, ScoreID) {
+      axios
+        .delete(`http://localhost:3000/score/delete/${ScoreID}`)
+        .then((response) => {
+          console.log(response);
+          this.scores = this.scores.filter((data, i) => i != index);
+        });
+    },
+   async getSubjectData() {
+      const { data } = await axios.get(
+        `http://localhost:3000/subject/findsubject/${this.$route.query.id}`
       );
-      this.subjects = resp.data.subject;
-      const url =
-        "http://localhost:3000/score/"+ this.$route.query.id;
+      this.subject = data.subject;
+      const url = "http://localhost:3000/score/" + this.$route.query.id;
       const scoresp = await axios.get(url);
       this.scores = scoresp.data.score;
     },
-    async getScore() {},
   },
 };
 </script>
