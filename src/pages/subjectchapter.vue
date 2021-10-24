@@ -139,7 +139,7 @@
             <div class="row justify-center">
               <div class="profilechap text-bold" style="overflow: hidden">
                 <div class="chapter row items-center justify-center q-mt-sm">
-                  {{ countchapter + 1 }}
+                  New
                 </div>
               </div>
               <div class="col self-center text-bold q-ml-lg">
