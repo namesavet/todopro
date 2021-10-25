@@ -39,7 +39,14 @@
           <div class="semestertitle q-mt-sm">{{ semester.Semester_name }}</div>
         </div>
         <div class="col-4 q-ml-md">
-          <q-btn flat round dense text-color="red" icon="delete_forever" />
+          <q-btn
+            flat
+            round
+            dense
+            text-color="red"
+            icon="delete_forever"
+            @click="Deletesemester(index, semester.SemesterID)"
+          />
         </div>
       </div>
       <div class="q-mx-lg q-mt-sm">
@@ -49,14 +56,14 @@
 
     <div id="app" class="container">
       <form>
-        <div class="form-row" v-for="(input, index) in chapter" :key="index">
+        <div class="form-row" v-for="(input, index) in semester" :key="index">
           <div class="row justify-center" style="margin-top: 11%">
             <div class="col-7 q-ml-md">
               <div class="semestertitle q-mt-sm">
                 <q-input
                   :input-style="{ color: 'white' }"
                   color="white"
-                  v-model="input.chapterName"
+                  v-model="input.semester_name"
                   label-color="grey"
                   placeholder="Chapter name"
                 />
@@ -64,7 +71,7 @@
             </div>
             <div class="q-mr-sm q-mt-sm">
               <q-btn
-                @click="removeField(index, chapter)"
+                @click="submitsemester(index)"
                 round
                 dense
                 text-color="white"
@@ -75,7 +82,7 @@
             </div>
             <div class="q-mr-sm q-mt-sm">
               <q-btn
-                @click="removeField(index, chapter)"
+                @click="removeField(index, semester)"
                 round
                 dense
                 text-color="white"
@@ -96,7 +103,7 @@
       <div class="col items-center" style="margin-top: 20px">
         <div class="row items-center justify-center q-mt-xl">
           <q-btn
-            @click="addChapter"
+            @click="addSemester"
             size="20px"
             round
             color=""
@@ -116,9 +123,9 @@
       <div class="fontaddsubject">Add Semester</div>
     </div>
 
-    <br>
-    <br>
-    <br>
+    <br />
+    <br />
+    <br />
   </q-page>
 </template>
 <script>
@@ -127,9 +134,9 @@ export default {
   name: "app",
 
   data: () => ({
-    chapter: [
+    semester: [
       {
-        chapterName: "",
+        semester_name: "",
       },
     ],
     semesters: [],
@@ -138,21 +145,34 @@ export default {
     this.getSemester();
   },
   methods: {
-    addChapter() {
+    addSemester() {
       this.chapter.push({
         chapterName: "",
       });
     },
-    removeField(index, chapter) {
+    removeField(index, semester) {
       //type.splice(index, 1);
-      chapter.splice(index, 1);
+      semester.splice(index, 1);
     },
 
-    submit() {
-      const data = {
-        chapter: this.chapter,
-      };
-      alert(JSON.stringify(data, null, 2));
+    submitsemester(index) {
+      axios
+        .post("http://localhost:3000/semester/create ", {
+          Semester_name: this.semester[index].semester_name,
+          StudentID: "6130613034",
+        })
+        .then((response) => {
+          this.semesters.push(response.data.data);
+          this.semester[index].semester_name = "";
+        });
+    },
+    Deletesemester(index, SemesterID) {
+      axios
+        .delete(`http://localhost:3000/semester/delete/${SemesterID}`)
+        .then((response) => {
+          console.log(response);
+          this.semesters = this.semesters.filter((data, i) => i != index);
+        });
     },
 
     async getSemester() {

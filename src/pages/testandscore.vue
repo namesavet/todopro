@@ -26,10 +26,14 @@
       <div class="row allscore">
         <div :key="index" v-for="(subject, index) in subjects" class="col">
           <div class="loadbar">
-            <strong class="bar" style="height: 50%"></strong>
+            <strong class="bar" :style="barscore(subject)"></strong>
           </div>
-          <div class="row textsroce justify-center q-mt-sm">50</div>
-          <div class="row textnamesroce justify-center">{{ subject.Intal_name }}</div>
+          <div class="row textsroce justify-center q-mt-sm">
+            {{ countscore(subject) }}
+          </div>
+          <div class="row textnamesroce justify-center">
+            {{ subject.Intal_name }}
+          </div>
         </div>
       </div>
     </div>
@@ -38,12 +42,13 @@
       <div :key="index" v-for="(subject, index) in subjects">
         <div
           class="row justify-center"
-          @click="$router.push({ name: 'subjectscore',
-           query: {
+          @click="
+            $router.push({
+              name: 'subjectscore',
+              query: {
                 id: subject.SubjectID,
               },
-           })
-          
+            })
           "
           push
         >
@@ -102,6 +107,7 @@ export default {
   data() {
     return {
       subjects: [],
+      scores: [],
     };
   },
   mounted() {
@@ -114,11 +120,35 @@ export default {
       );
       this.subjects = data.subject;
       const url =
-        "http://localhost:3000/score/847f4921-3408-4abe-a2a4-96fc01f49aaa";
+        "http://localhost:3000/score/fineSemester/72100d56-21ae-42fd-8167-0b5c49c68b1d";
       const scoresp = await axios.get(url);
       this.scores = scoresp.data.score;
     },
     async getScore() {},
+    countscore(subject) {
+      if (this.scores.length != 0) {
+        const { SubjectID } = subject;
+        const filterSubject = this.scores.filter((score) => {
+          return SubjectID == score.SubjectID;
+        });
+        const calculateScore = filterSubject.reduce((acc, cur) => {
+          return acc + cur.Get_point;
+        }, 0);
+        return calculateScore;
+      }
+    },
+    barscore(subject) {
+      if (this.scores.length != 0) {
+        const { SubjectID } = subject;
+        const filterSubject = this.scores.filter((score) => {
+          return SubjectID == score.SubjectID;
+        });
+        const calculateScore = filterSubject.reduce((acc, cur) => {
+          return acc + cur.Get_point;
+        }, 0);
+        return "height: " + calculateScore + "%";
+      }
+    },
   },
 };
 </script>

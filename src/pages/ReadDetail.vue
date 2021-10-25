@@ -35,11 +35,11 @@
           <div class="col">
             <div
               class="statuspic q-ml-lg q-mt-lg"
-              :style="bgstatuscolor(readtrue)"
+              :style="bgstatuscolor((readtrue / countchapter) * 100)"
             >
               <div class="row items-center justify-center q-mt-md">
                 <q-icon
-                  :name="iconstatus(readtrue)"
+                  :name="iconstatus((readtrue / countchapter) * 100)"
                   class=""
                   size="24px"
                   style="color: white"
@@ -53,8 +53,11 @@
                 <div class="titlesubject">{{ subject.Subject_name }}</div>
               </div>
               <div class="col-3">
-                <div class="percentext" :style="textstatuscolor(readtrue)">
-                  {{ (readtrue / countchapter) * 100 }}%
+                <div
+                  class="percentext"
+                  :style="textstatuscolor((readtrue / countchapter) * 100)"
+                >
+                  {{ ((readtrue / countchapter) * 100).toFixed(0) }}%
                 </div>
               </div>
             </div>
@@ -64,7 +67,7 @@
                 rounded
                 size="16px"
                 :value="readtrue / countchapter"
-                :color="statuscolor(readtrue)"
+                :color="statuscolor((readtrue / countchapter) * 100)"
                 class=""
                 style="width: 90%"
               />
@@ -123,7 +126,10 @@
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
       <div :key="index" v-for="(chapter, index) in chapters">
         <div class="row justify-center">
-          <div class="profilechap text-bold" :style="bgstatuscolor(readtrue)">
+          <div
+            class="profilechap text-bold"
+            :style="bgstatuscolor((readtrue / countchapter) * 100)"
+          >
             <div class="chapter row items-center justify-center q-mt-sm">
               {{ index + 1 }}
             </div>
@@ -135,7 +141,12 @@
             </div>
           </div>
           <div class="col-2">
-            <q-checkbox name="read" v-model="chapter.Status" color="green" @click="updateStatusChapter(index)" />
+            <q-checkbox
+              name="read"
+              v-model="chapter.Status"
+              color="green"
+              @click="updateStatusChapter(index)"
+            />
           </div>
         </div>
 
@@ -197,19 +208,15 @@ export default {
       const chaptersp = await axios.get(url);
       this.chapters = chaptersp.data.chapter;
       this.countchapter = this.chapters.length;
-      // for (let i = 0; i < this.chapters.length; i++) {
-      //   if (chapter.Status == true) {
-      //     this.redetrue = this.redetrue + 1;
-      //   }
-      // }
-      // console.log(this.redetrue);
     },
     updateStatusChapter(index) {
-      axios.put(`http://localhost:3000/chapter/update/${this.$route.query.id}`, {
+      axios.put(
+        `http://localhost:3000/chapter/update/${this.$route.query.id}`,
+        {
           Status: this.updatestatus(),
-        })
-     this.chapters = this.chapters.filter((data, i) => i != index);
-     
+        }
+      );
+      this.chapters = this.chapters.filter((data, i) => i != index);
     },
     updatestatus: function (Status) {
       if (Status == false) {
@@ -218,49 +225,49 @@ export default {
         chapter.Status == false;
       }
     },
-    statuscolor: function (allstatus, statuscolor) {
-      if (allstatus < 33.33) {
-        statuscolor = "red";
+    statuscolor(allstatus, statuscolor) {
+      if (66.66 < allstatus) {
+        statuscolor = "green";
       } else if (33.33 < allstatus && allstatus <= 66.66) {
         statuscolor = "yellow";
       } else {
-        statuscolor = "green";
+        statuscolor = "redgreen";
       }
 
       return statuscolor;
     },
 
     textstatuscolor: function (allstatus, textstatuscolor) {
-      if (allstatus < 33.33) {
-        textstatuscolor = "color:#ff575f";
+      if (66.66 < allstatus) {
+        textstatuscolor = "color:#42ff4a";
       } else if (33.33 < allstatus && allstatus <= 66.66) {
         textstatuscolor = "color:#ffc542";
       } else {
-        textstatuscolor = "color:#42ff4a";
+        textstatuscolor = "color:#ff575f";
       }
 
       return textstatuscolor;
     },
 
     bgstatuscolor: function (allstatus, bgstatuscolor) {
-      if (allstatus < 33.33) {
-        bgstatuscolor = "background:#ff575f";
+      if (66.66 < allstatus) {
+        bgstatuscolor = "background:#42ff4a";
       } else if (33.33 < allstatus && allstatus <= 66.66) {
         bgstatuscolor = "background:#ffc542";
       } else {
-        bgstatuscolor = "background:#42ff4a";
+        bgstatuscolor = "background:#ff575f";
       }
 
       return bgstatuscolor;
     },
 
     iconstatus: function (allstatus, iconstatus) {
-      if (allstatus < 33.33) {
-        iconstatus = "south";
+      if (66.66 < allstatus) {
+        iconstatus = "star";
       } else if (33.33 < allstatus && allstatus <= 66.66) {
         iconstatus = "north";
       } else {
-        iconstatus = "star";
+        iconstatus = "south";
       }
 
       return iconstatus;
