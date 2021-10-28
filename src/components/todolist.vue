@@ -136,7 +136,7 @@ export default {
       const { data } = await axios.get(
         "http://localhost:3000/calendar/72100d56-21ae-42fd-8167-0b5c49c68b1d"
       );
-      this.calendars = data.calendar;
+
       this.ListAllEvent = data.calendar;
       this.date = this.formatDate(new Date());
       this.events = data.calendar.map((data) => {
