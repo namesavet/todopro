@@ -3,6 +3,11 @@
     <div class="row justify-center q-px-md">
       <div class="today">
         <div class="texttitle q-mt-sm q-ml-lg">TO DO TODAY</div>
+        <div :key="index" v-for="(calendar, index) in calendars">
+          <div class="TextNoteTitle q-mt-sm q-ml-lg">
+            - {{ calendar.Note_title }}
+          </div>
+        </div>
       </div>
     </div>
 
@@ -67,21 +72,21 @@
           </div>
         </div>
 
-          <div class="row justify-center q-mr-md q-ml-sm q-mt-md">
-            <div
-              class="calendar text-center"
-              @click="$router.push({ name: 'calendar' })"
-              push
-              style="overflow: hidden"
-            >
-              <div class="texttitle1 q-mt-sm">Calendar</div>
+        <div class="row justify-center q-mr-md q-ml-sm q-mt-md">
+          <div
+            class="calendar text-center"
+            @click="$router.push({ name: 'calendar' })"
+            push
+            style="overflow: hidden"
+          >
+            <div class="texttitle1 q-mt-sm">Calendar</div>
 
-              <q-img
-                src="../image/calendar.png"
-                style="height: 100%; max-width: 170px"
-              />
-            </div>
+            <q-img
+              src="../image/calendar.png"
+              style="height: 100%; max-width: 170px"
+            />
           </div>
+        </div>
       </div>
     </div>
 
@@ -108,8 +113,44 @@
 </template>
 
 <script>
+import axios from "axios";
+import { date } from "quasar";
 export default {
   name: "Todolist",
+  data() {
+    return {
+      calendars: [],
+      date: " ",
+      events: [],
+      ListAllEvent: [],
+    };
+  },
+  mounted() {
+    this.getCalendarData();
+  },
+  methods: {
+    formatDate(dateString) {
+      return date.formatDate(dateString, "YYYY/MM/DD");
+    },
+    async getCalendarData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/calendar/72100d56-21ae-42fd-8167-0b5c49c68b1d"
+      );
+      this.calendars = data.calendar;
+      this.ListAllEvent = data.calendar;
+      this.date = this.formatDate(new Date());
+      this.events = data.calendar.map((data) => {
+        return this.formatDate(data.Note_date);
+      });
+    },
+  },
+  watch: {
+    date(value) {
+      this.calendars = this.ListAllEvent.filter((data) => {
+        return new Date(value).getTime() == new Date(data.Note_date).getTime();
+      });
+    },
+  },
 };
 </script>
 
@@ -161,6 +202,11 @@ export default {
 }
 .texttitle {
   font-size: 25px;
+  font-weight: bold;
+  color: white;
+}
+.TextNoteTitle {
+  font-size: 15px;
   font-weight: bold;
   color: white;
 }
