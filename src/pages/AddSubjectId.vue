@@ -22,11 +22,14 @@
       </div>
     </div>
 
-    <q-input v-model="search" filled type="text" hint="Search">
+    <div class="justify-center q-px-lg"  >
+      <q-input v-model="search"  rounded outlined type="text" bg-color="white"  >
       <template v-slot:append>
         <q-icon name="search" />
       </template>
     </q-input>
+    </div>
+    
 
     <div :key="index" v-for="(subject, index) in filteredSubject">
       <div class="row justify-center">
@@ -38,13 +41,13 @@
             </div>
           </div>
           <div v-if="subject" class="col self-center q-ml-md">
-            <div class="text-white">{{ subject.Subject_name }}</div>
+            <div class="text-white">{{ subject.Subject_name }} </div>
             <div class="text-white">{{ subject.IDsubject }}</div>
-            <div class="text-blue-grey-4">{{ subject.Teacher_name }}</div>
+            <div class="text-blue-grey-4">{{ subject.Teacher_name }}</div> 
           </div>
           <div class="items-center q-mr-md">
             <q-btn
-              @click="clickSubject(subject.SubjectID)"
+              @click="clickSubject(subject.SubjectID),submitSubjectID() "
               round
               dense
               text-color="white"
@@ -118,6 +121,38 @@ export default {
       } else {
         return false;
       }
+    },
+
+    submitSubjectID() {
+      axios
+        .post(`http://localhost:3000/subject/createWithId/`, {
+          Subject_name: this.subject.Subject_name,
+          Intal_name: this.subject.Intal_name,
+          Teacher_name: this.subject.Teacher_name,
+          IDsubject: this.subject.IDsubject,
+          Credit: this.subject.Credit,
+          GradeA: this.subject.GradeA,
+          GradeBplus: this.subject.GradeBplus,
+          GradeB: this.subject.GradeB,
+          GradeCplus: this.subject.GradeCplus,
+          GradeC: this.subject.GradeC,
+          GradeDplus: this.subject.GradeDplus,
+          GradeD: this.subject.GradeD,
+          Date_midterm_exam: this.subject.Date_midterm_exam,
+          Date_final_exam: this.subject.Date_final_exam,
+          Score_midterm: this.subject.Score_midterm,
+          Score_final: this.subject.Score_final,
+          Desired_grade: this.subject.Desired_grade,
+          Chapter_name: this.chapter.Chapter_name,
+          Status: false,
+          SubjectID: this.$route.query.id,
+          StudentID: "6130613034",
+          SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
+        })
+        .then((response) => {
+          console.log(response);
+         
+        });
     },
   },
   watch: {
