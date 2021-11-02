@@ -32,7 +32,7 @@
     
 
     <div :key="index" v-for="(subject, index) in filteredSubject">
-      <div class="row justify-center">
+      <div class="row justify-center" >
         <div class="score row justify-center items-center">
           <div class="profilesubject q-ml-md" style="overflow: hidden">
             <div class="profileicon">
@@ -47,7 +47,7 @@
           </div>
           <div class="items-center q-mr-md">
             <q-btn
-              @click="clickSubject(subject.SubjectID),submitSubjectID() "
+              @click="clickSubject(subject.SubjectID) "
               round
               dense
               text-color="white"
@@ -114,6 +114,7 @@ export default {
     },
     clickSubject(SubjectId) {
       this.listAddSubject.push(SubjectId);
+      this.submitSubjectID(SubjectId);
     },
     checkAddSubject(SubjectId) {
       if (this.listAddSubject.includes(SubjectId)) {
@@ -123,36 +124,9 @@ export default {
       }
     },
 
-    submitSubjectID() {
-      axios
-        .post(`http://localhost:3000/subject/createWithId/`, {
-          Subject_name: this.subject.Subject_name,
-          Intal_name: this.subject.Intal_name,
-          Teacher_name: this.subject.Teacher_name,
-          IDsubject: this.subject.IDsubject,
-          Credit: this.subject.Credit,
-          GradeA: this.subject.GradeA,
-          GradeBplus: this.subject.GradeBplus,
-          GradeB: this.subject.GradeB,
-          GradeCplus: this.subject.GradeCplus,
-          GradeC: this.subject.GradeC,
-          GradeDplus: this.subject.GradeDplus,
-          GradeD: this.subject.GradeD,
-          Date_midterm_exam: this.subject.Date_midterm_exam,
-          Date_final_exam: this.subject.Date_final_exam,
-          Score_midterm: this.subject.Score_midterm,
-          Score_final: this.subject.Score_final,
-          Desired_grade: this.subject.Desired_grade,
-          Chapter_name: this.chapter.Chapter_name,
-          Status: false,
-          SubjectID: this.$route.query.id,
-          StudentID: "6130613034",
-          SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
-        })
-        .then((response) => {
-          console.log(response);
-         
-        });
+    async submitSubjectID(SubjectID) {
+      await axios
+        .post(`http://localhost:3000/subject/createWithId/${SubjectID}`)
     },
   },
   watch: {
