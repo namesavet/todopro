@@ -4,7 +4,10 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'profile' })"
+          @click="$router.push({ name: 'profile' ,
+           query: {
+              id: student.StudentID,
+            },})"
           push
           icon="keyboard_arrow_left"
           label="Back"
@@ -35,7 +38,7 @@
         <div class="titleprofile">Student ID</div>
       </div>
       <div class="col-6  text-left q-mt-sm q-ml-md">
-        <div class="titleprofiledetail">6130613034</div>
+        <div class="titleprofiledetail">{{ student.StudentID }}</div>
       </div>
     </div>
 
@@ -44,7 +47,7 @@
         <div class="titleprofile">Name</div>
       </div>
       <div class="col-6 text-left q-mt-sm q-ml-md">
-        <div class="titleprofiledetail">Pongsavet phukaet</div>
+        <div class="titleprofiledetail">{{ student.Fullname }}</div>
       </div>
     </div>
 
@@ -53,7 +56,7 @@
         <div class="titleprofile">Major</div>
       </div>
       <div class="col-6 text-left q-mt-sm q-ml-md">
-        <div class="titleprofiledetail">Software Engineering</div>
+        <div class="titleprofiledetail">{{ student.Major }}</div>
       </div>
     </div>
 
@@ -62,7 +65,7 @@
         <div class="titleprofile">Faculty</div>
       </div>
       <div class="col-6 text-left q-mt-sm q-ml-md">
-        <div class="titleprofiledetail">College of computing</div>
+        <div class="titleprofiledetail">{{ student.Faculty }}</div>
       </div>
     </div>
 
@@ -72,7 +75,7 @@
       </div>
       <div class="col-6 text-left q-mt-sm q-ml-md">
         <div class="titleprofiledetail">
-          Prince of songkla university phuket campus
+          {{ student.University}}
         </div>
       </div>
     </div>
@@ -82,7 +85,10 @@
       <div class="row justify-center">
         <div
           class="redbutton"
-          @click="$router.push({ name: 'profile' })"
+          @click="$router.push({ name: 'profile',
+           query: {
+              id: student.StudentID,
+            }, })"
           push
           style="overflow: hidden"
         >
@@ -94,4 +100,25 @@
     </div>
   </q-page>
 </template>
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      student: {},
+    };
+  },
+  mounted() {
+    this.getStudentData();
+  },
+  methods: {
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/" + this.$route.query.id
+      );
+      this.student = data.student;
+    },
+  },
+};
+</script>
 
