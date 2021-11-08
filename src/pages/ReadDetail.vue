@@ -145,7 +145,7 @@
               name="read"
               v-model="chapter.Status"
               color="green"
-              @click="updateStatusChapter(index)"
+              v-on:click.native="updateStatusChapter(chapter)"
             />
           </div>
         </div>
@@ -209,22 +209,17 @@ export default {
       this.chapters = chaptersp.data.chapter;
       this.countchapter = this.chapters.length;
     },
-    updateStatusChapter(index) {
-      axios.put(
-        `http://localhost:3000/chapter/update/${this.$route.query.id}`,
+
+    async updateStatusChapter(chapter) {
+      const {ChapterID,Status} = chapter
+       await axios.put(
+        `http://localhost:3000/chapter/updateStatus/${ChapterID}`,
         {
-          Status: this.updatestatus(),
+          Status:Status,
         }
       );
-      this.chapters = this.chapters.filter((data, i) => i != index);
     },
-    updatestatus: function (Status) {
-      if (Status == false) {
-        chapter.Status == true;
-      } else {
-        chapter.Status == false;
-      }
-    },
+
     statuscolor(allstatus, statuscolor) {
       if (66.66 < allstatus) {
         statuscolor = "green";

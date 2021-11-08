@@ -22,14 +22,17 @@
       </div>
     </div>
 
-    <q-input v-model="search" filled type="text" hint="Search">
+    <div class="justify-center q-px-lg"  >
+      <q-input v-model="search"  rounded outlined type="text" bg-color="white"  >
       <template v-slot:append>
         <q-icon name="search" />
       </template>
     </q-input>
+    </div>
+    
 
     <div :key="index" v-for="(subject, index) in filteredSubject">
-      <div class="row justify-center">
+      <div class="row justify-center" >
         <div class="score row justify-center items-center">
           <div class="profilesubject q-ml-md" style="overflow: hidden">
             <div class="profileicon">
@@ -38,13 +41,13 @@
             </div>
           </div>
           <div v-if="subject" class="col self-center q-ml-md">
-            <div class="text-white">{{ subject.Subject_name }}</div>
+            <div class="text-white">{{ subject.Subject_name }} </div>
             <div class="text-white">{{ subject.IDsubject }}</div>
-            <div class="text-blue-grey-4">{{ subject.Teacher_name }}</div>
+            <div class="text-blue-grey-4">{{ subject.Teacher_name }}</div> 
           </div>
           <div class="items-center q-mr-md">
             <q-btn
-              @click="clickSubject(subject.SubjectID)"
+              @click="clickSubject(subject.SubjectID) "
               round
               dense
               text-color="white"
@@ -111,6 +114,7 @@ export default {
     },
     clickSubject(SubjectId) {
       this.listAddSubject.push(SubjectId);
+      this.submitSubjectID(SubjectId);
     },
     checkAddSubject(SubjectId) {
       if (this.listAddSubject.includes(SubjectId)) {
@@ -118,6 +122,11 @@ export default {
       } else {
         return false;
       }
+    },
+
+    async submitSubjectID(SubjectID) {
+      await axios
+        .post(`http://localhost:3000/subject/createWithId/${SubjectID}`)
     },
   },
   watch: {
