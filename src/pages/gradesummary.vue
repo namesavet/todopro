@@ -68,7 +68,7 @@
               class="col-2 q-mr-lg text-white text-bold text-right"
               style="font-size: 16px"
             >
-              2.8
+              {{ mydesiredGrade(semester.SemesterID) }}
             </div>
           </div>
           <div class="row">
@@ -84,11 +84,11 @@
             >
               <q-input
                 :input-style="{ color: 'white' }"
-                v-model="text"
+                v-model="inputgrade[index]"
                 color="white"
                 label-color="grey"
-                placeholder="0.0"
-                mask="#.#"
+                placeholder="0.00"
+                mask="#.##"
                 style="text-align: end"
                 input-class="text-right text-bold"
               />
@@ -110,57 +110,31 @@ import Chart from "chart.js";
 export default {
   data() {
     return {
-      // grades: [],
+      subjects: [],
       semesters: [],
-      text: "",
-      text1: "",
+      inputgrade: [],
+      grade0: 0,
+      gradeinchart: [],
+      semestersName: "",
+      yourgradechart:[],
     };
   },
   components: {},
-  mounted: function () {
-    var ctx = document.getElementById("graph").getContext("2d");
-    var myChart = new Chart(ctx, {
-      type: "bar",
-      data: {
-        labels: ["1/2019", "2/2019", "1/2020", "2/2020", "1/2021"],
-        datasets: [
-          {
-            label: "Study Result Simulation",
-            data: [2.8, 3, 3.5, 3.5, 2.85],
-            backgroundColor: [
-              "rgba(255,197,66,1)",
-              "rgba(255,197,66,1)",
-              "rgba(255,197,66,1)",
-              "rgba(255,197,66,1)",
-              "rgba(255,197,66,1)",
-            ],
-            borderWidth: 1,
-          },
-          {
-            label: "your grade",
-            data: [2.9, 3, 3, 4, 3.8],
-            backgroundColor: [
-              "rgba(62, 213, 152, 1)",
-              "rgba(62, 213, 152, 1)",
-              "rgba(62, 213, 152, 1)",
-              "rgba(62, 213, 152, 1)",
-              "rgba(62, 213, 152, 1)",
-            ],
-            borderWidth: 1,
-          },
-        ],
-      },
-      options: {
-        scales: {
-          y: {
-            beginAtZero: true,
-          },
-        },
-      },
-    });
-
-    this.getSemesterData();
-    // this.getGradeData();
+  watch:{
+    inputgrade(value){
+      console.log(value);
+      this.yourgradechart = value.map(grade=>Number(grade))
+      console.log(this.yourgradechart); 
+      this.getchart();
+    
+    }
+    
+  },
+  mounted: async function () {
+    await this.getSemesterData();
+    await this.getSubjectData();
+    this.getchart();
+   
   },
   methods: {
     async getSemesterData() {
@@ -169,12 +143,152 @@ export default {
       );
       this.semesters = data.semester;
     },
-    // async getGradeData() {
-    //   const { data } = await axios.get(
-    //     "http://localhost:3000/grade_summary/6130613034"
-    //   );
-    //   this.grades = data.grade;
-    // },
+    async getSubjectData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/subject/studentsubject/6130613034"
+      );
+      this.subjects = data.subject;
+    },
+
+    countCredit(semester) {
+      if (this.subjects.length != 0) {
+        const SemesterID = semester;
+
+        const filterSemester = this.subjects.filter((subject) => {
+          return SemesterID == subject.SemesterID;
+        });
+        const countallCredit = filterSemester.reduce((acc, cur) => {
+          if (cur.Credit == "1") {
+            acc = acc + 1;
+          } else if (cur.Credit == "2") {
+            acc = acc + 2;
+          } else if (cur.Credit == "3") {
+            acc = acc + 3;
+          } else if (cur.Credit == "0") {
+            acc = acc + 0;
+          }
+          return acc;
+        }, 0);
+        return countallCredit;
+      }
+    },
+    countgrade(semester) {
+      if (this.subjects.length != 0) {
+        const SemesterID = semester;
+
+        const filterSemester = this.subjects.filter((subject) => {
+          return SemesterID == subject.SemesterID;
+        });
+
+        const calculategrade = filterSemester.reduce((acc, cur) => {
+          const desiredsGrade = [
+            { grade: "A", value: 4 },
+            { grade: "B+", value: 3.5 },
+            { grade: "B", value: 3 },
+            { grade: "C+", value: 2.5 },
+            { grade: "C", value: 2 },
+            { grade: "D+", value: 1.5 },
+            { grade: "D", value: 1 },
+          ];
+          const desiredGrade = desiredsGrade.find(
+            (g) => g.grade == cur.Desired_grade
+          ).value;
+
+          if (cur.Credit == "1") {
+            acc = acc + 1 * desiredGrade;
+          } else if (cur.Credit == "2") {
+            acc = acc + 2 * desiredGrade;
+          } else if (cur.Credit == "3") {
+            acc = acc + 3 * desiredGrade;
+          } else if (cur.Credit == "0") {
+            acc = acc + 0 * desiredGrade;
+          }
+          return acc;
+        }, 0);
+        return calculategrade;
+      }
+    },
+    mydesiredGrade(SemesterID) {
+      const grade = this.countgrade(SemesterID) / this.countCredit(SemesterID);
+      if (Number.isNaN(grade) == true) {
+        return this.grade0;
+      } else {
+        this.gradeinchart = parseFloat(grade.toFixed(2));
+        return this.gradeinchart;
+      }
+    },
+
+    getchart() {
+      const semesterName = this.semesters.map((semester) => {
+        const Name = semester.Semester_name;
+        return Name;
+      });
+
+      const getgrade = this.semesters.map((semester) => {
+        const grade = this.mydesiredGrade(semester.SemesterID);
+
+        return grade;
+      });
+    
+      var ctx = document.getElementById("graph").getContext("2d");
+      var myChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: semesterName,
+          datasets: [
+            {
+              label: "Study Result Simulation",
+              data: getgrade,
+              backgroundColor: [
+                "rgba(255,197,66,1)",
+                "rgba(255,197,66,1)",
+                "rgba(255,197,66,1)",
+                "rgba(255,197,66,1)",
+                "rgba(255,197,66,1)",
+                "rgba(255,197,66,1)",
+                "rgba(255,197,66,1)",
+                "rgba(255,197,66,1)",
+                "rgba(255,197,66,1)",
+                "rgba(255,197,66,1)",
+                "rgba(255,197,66,1)",
+                "rgba(255,197,66,1)",
+                "rgba(255,197,66,1)",
+              ],
+              borderWidth: 1,
+            },
+            {
+              label: "your grade",
+              data: this.yourgradechart,
+              backgroundColor: [
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+                "rgba(62, 213, 152, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+    },
   },
 };
 </script>
