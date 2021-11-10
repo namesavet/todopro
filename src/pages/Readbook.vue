@@ -137,13 +137,7 @@
                     )
                   "
                 >
-                  {{
-                    (
-                      (countreadtrue(subject.SubjectID) /
-                        countread(subject.SubjectID)) *
-                      100
-                    ).toFixed(0)
-                  }}%
+                  {{ processnotnan(subject.SubjectID) }}%
                 </div>
               </div>
             </div>
@@ -153,8 +147,7 @@
                 rounded
                 size="16px"
                 :value="
-                  countreadtrue(subject.SubjectID) /
-                  countread(subject.SubjectID)
+                 processbarnotnan(subject.SubjectID)
                 "
                 :color="
                   statuscolor(
@@ -208,6 +201,7 @@ export default {
     return {
       subjects: [],
       chapters: [],
+      process0: 0,
     };
   },
   components: {},
@@ -300,6 +294,29 @@ export default {
       }
 
       return iconstatus;
+    },
+    processnotnan(SubjectID) {
+      const process = (
+        (this.countreadtrue(SubjectID) / this.countread(SubjectID)) *
+        100
+      );
+      console.log(Number.isNaN(process));
+      if (Number.isNaN(process) == true) {
+        return this.process0;
+      } else {
+        return process.toFixed(0);
+      }
+    },
+     processbarnotnan(SubjectID) {
+      const process = 
+        (this.countreadtrue(SubjectID) / this.countread(SubjectID) 
+      );
+      console.log(Number.isNaN(process));
+      if (Number.isNaN(process) == true) {
+        return this.process0;
+      } else {
+        return process;
+      }
     },
     getchart() {
       const calculateColor = this.subjects.map((subject) => {
