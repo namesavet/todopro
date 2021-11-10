@@ -103,19 +103,6 @@ export default {
       date: " ",
       events: [],
       ListAllEvent: [],
-
-      // eventsFn(date) {
-      //   if (
-      //     date === "2021/07/01" ||
-      //     date === "2021/07/05" ||
-      //     date === "2021/07/06" ||
-      //     date === "2021/07/09" ||
-      //     date === "2021/07/23"
-      //   ) {
-      //     return true;
-      //   }
-      //   return false;
-      // },
     };
   },
   mounted() {
@@ -138,13 +125,9 @@ export default {
   },
   watch: {
     date(value) {
-    
       this.calendars = this.ListAllEvent.filter((data) => {
-     
-return new Date(value).getTime()==new Date(data.Note_date).getTime()
-        
+        return new Date(value).getTime() == new Date(data.Note_date).getTime();
       });
-      
     },
   },
 };
