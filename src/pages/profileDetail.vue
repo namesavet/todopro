@@ -5,9 +5,10 @@
         <q-btn
           flat
           @click="$router.push({ name: 'profile' ,
-           query: {
-              id: student.StudentID,
-            },})"
+              query: {
+              uid: student.uid,
+            },
+            })"
           push
           icon="keyboard_arrow_left"
           label="Back"
@@ -81,13 +82,13 @@
     </div>
   </div>
 </div>
-    <div class="col items-center" style="margin-top: 50%">
+    <!-- <div class="col items-center" style="margin-top: 50%">
       <div class="row justify-center">
         <div
           class="redbutton"
           @click="$router.push({ name: 'profile',
-           query: {
-              id: student.StudentID,
+              query: {
+              id: student.uid,
             }, })"
           push
           style="overflow: hidden"
@@ -97,7 +98,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </q-page>
 </template>
 <script>
@@ -112,10 +113,10 @@ export default {
     this.getStudentData();
   },
   methods: {
-    async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/" + this.$route.query.id
+     async getStudentData() {
+      const { data } = await axios.get("http://localhost:3000/student/findStudentID/"+ this.$route.query.uid
       );
+      console.log(data);
       this.student = data.student;
     },
   },

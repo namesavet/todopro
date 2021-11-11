@@ -21,10 +21,18 @@
           </div>
         </div>
 
-        <div class="row" @click="$router.push({ name: 'profileDetail',
-          query: {
-              id: student.StudentID,
-            }, })" push>
+        <div
+          class="row"
+          @click="
+            $router.push({
+              name: 'profileDetail',
+              query: {
+                uid: student.uid,
+              },
+            })
+          "
+          push
+        >
           <div class="q-ml-md">
             <q-avatar icon="perm_identity" style="color: #96a7af" />
           </div>
@@ -46,7 +54,7 @@
             <q-avatar icon="logout" style="color: #96a7af" />
           </div>
           <div class="q-mt-md">
-            <div class="titlechoice">Log out</div>
+            <div class="titlechoice" @click="Logout">Log out</div>
           </div>
         </div>
       </div>
@@ -55,7 +63,13 @@
         <q-img
           src="../image/phonebackground.png"
           style="height: 100%; max-width: 100%"
-          @click="$router.push({ name: 'Index' })"
+          @click="
+            $router.push({
+              name: 'Index',
+
+              query: { uid: student.uid },
+            })
+          "
           push
         />
       </div>
@@ -64,6 +78,8 @@
 </template>
 <script>
 import axios from "axios";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 export default {
   data() {
     return {
@@ -76,9 +92,17 @@ export default {
   methods: {
     async getStudentData() {
       const { data } = await axios.get(
-        "http://localhost:3000/student/" + this.$route.query.id
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
       );
+      console.log(data);
       this.student = data.student;
+    },
+    Logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => console.log("Signed Out"))
+        .catch((err) => alert(err.message));
     },
   },
 };
