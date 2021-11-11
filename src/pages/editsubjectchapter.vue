@@ -329,8 +329,6 @@
           :input-style="{ color: 'white' }"
           filled
           v-model="subject.Date_midterm_exam"
-          mask="date"
-          :rules="['date']"
         >
           <template v-slot:append>
             <q-icon name="event" class="cursor-pointer">
@@ -376,8 +374,6 @@
           color="white"
           filled
           v-model="subject.Date_final_exam"
-          mask="date"
-          :rules="['date']"
         >
           <template v-slot:append>
             <q-icon name="event" class="cursor-pointer">
@@ -476,13 +472,7 @@ export default {
   name: "subject",
   data() {
     return {
-      credits: [
-        "3",
-        "2",
-        "1",
-        "0",
-        
-      ],
+      credits: ["3", "2", "1", "0"],
       selectgrade: false,
       desiredgrades: ["A", "B+", "B", "C+", "C", "D+", "D", "E"],
       subject: {},
@@ -501,6 +491,12 @@ export default {
         `http://localhost:3000/subject/findsubject/${this.$route.query.id}`
       );
       this.subject = data.subject;
+      this.subject.Date_midterm_exam = this.formatDate(
+        this.subject.Date_midterm_exam
+      );
+      this.subject.Date_final_exam = this.formatDate(
+        this.subject.Date_final_exam
+      );
     },
     async submitUpdateData() {
       const { data } = await axios.put(

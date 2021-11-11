@@ -3,7 +3,14 @@
     <div class="text-center">
       <div
         class="borderdash row justify-center items-center"
-        @click="$router.push({ name: 'profile' })"
+        @click="
+          $router.push({
+            name: 'profile',
+            query: {
+              id: students[0].StudentID,
+            },
+          })
+        "
         push
       >
         <div class="profileImg">
@@ -22,21 +29,23 @@
           rounded
           color="green"
           @click="$router.push({ name: 'semester' })"
-          push 
+          push
           label="1/2021"
           style="height: 33px"
         />
       </div>
-
-      <div class="row">
-        <div class="text-white text-bold" style="font-size: 20px">
-          Pongsavet
+      <div :key="index" v-for="(student, index) in students">
+        <div class="row">
+          <div class="text-white text-bold" style="font-size: 20px">
+            {{ student.Name }}
+          </div>
         </div>
       </div>
 
       <div class="row justify-end">
         <q-btn
-          @click="$router.push({ name: 'grade summary' })" push
+          @click="$router.push({ name: 'grade summary' })"
+          push
           style="font-size: 12px; height: 28px"
           rounded
           color="red"
@@ -47,7 +56,26 @@
   </div>
 </template>
 
-<script></script>
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      students: [],
+    };
+  },
+  mounted() {
+    this.getStudentData();
+  },
+  methods: {
+    async getStudentData() {
+      const { data } = await axios.get("http://localhost:3000/student/"
+      );
+      this.students = data.student;
+    },
+  },
+};
+</script>
 
 <style scoped>
 .profileImg {
