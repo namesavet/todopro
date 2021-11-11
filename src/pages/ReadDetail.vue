@@ -57,7 +57,7 @@
                   class="percentext"
                   :style="textstatuscolor((readtrue / countchapter) * 100)"
                 >
-                  {{ ((readtrue / countchapter) * 100).toFixed(0) }}%
+                  {{ processnotnan() }}%
                 </div>
               </div>
             </div>
@@ -66,7 +66,7 @@
                 dark
                 rounded
                 size="16px"
-                :value="readtrue / countchapter"
+                :value="processbarnotnan()"
                 :color="statuscolor((readtrue / countchapter) * 100)"
                 class=""
                 style="width: 90%"
@@ -186,7 +186,7 @@ import { date } from "quasar";
 export default {
   data() {
     return {
-      progress4: 0.66,
+      process0: 0,
       chapters: [],
       subject: {},
       countchapter: 0,
@@ -211,11 +211,11 @@ export default {
     },
 
     async updateStatusChapter(chapter) {
-      const {ChapterID,Status} = chapter
-       await axios.put(
+      const { ChapterID, Status } = chapter;
+      await axios.put(
         `http://localhost:3000/chapter/updateStatus/${ChapterID}`,
         {
-          Status:Status,
+          Status: Status,
         }
       );
     },
@@ -226,10 +226,28 @@ export default {
       } else if (33.33 < allstatus && allstatus <= 66.66) {
         statuscolor = "yellow";
       } else {
-        statuscolor = "redgreen";
+        statuscolor = "red";
       }
 
       return statuscolor;
+    },
+    processnotnan() {
+      const process = (this.readtrue / this.countchapter) * 100;
+      console.log(Number.isNaN(process));
+      if (Number.isNaN(process) == true) {
+        return this.process0;
+      } else {
+        return process.toFixed(0);
+      }
+    },
+    processbarnotnan() {
+      const process = this.readtrue / this.countchapter;
+      console.log(Number.isNaN(process));
+      if (Number.isNaN(process) == true) {
+        return this.process0;
+      } else {
+        return process;
+      }
     },
 
     textstatuscolor: function (allstatus, textstatuscolor) {
