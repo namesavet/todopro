@@ -11,17 +11,13 @@
             square
             :input-style="{ color: 'white' }"
             label-color="grey"
-            label="telephone number"
+            label="Email"
             color="white"
-            v-model="Phone"
-            mask="### - ### - ####"
-            :rules="[
-              (val) =>
-                (val && val.length > 0) || 'Please enter telephone number ',
-            ]"
+            v-model="email"
+            :rules="[(val) => (val && val.length > 0) || 'Please enter email ']"
           >
             <template v-slot:before>
-              <q-icon name="call" color="white" />
+              <q-icon name="email" color="white" />
             </template>
           </q-input>
         </div>
@@ -29,7 +25,7 @@
 
       <div class="row justify-center items-center">
         <div class="text_OTP q-mt-lg q-ml-lg q-mr-lg">
-          Please enter your telephone number to find your account.
+          Please enter your email to find your account.
         </div>
       </div>
 
@@ -47,7 +43,7 @@
         </div>
         <div class="button-next q-mt-lg q-ml-md">
           <q-btn
-            @click="gotoresetpassword()"
+            @click="resetPassword()"
             push
             align="center"
             no-caps
@@ -63,18 +59,29 @@
 </template>
 
 <script>
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import "firebase/compat/auth";
 export default {
   data() {
     return {
-      Phone: "",
+      email: "",
+      uid: "",
     };
   },
-  methods: {
-    gotoresetpassword() {
-      console.log(this.Phone);
 
+  methods: {
+    resetPassword() {
+      const auth = getAuth();
+      sendPasswordResetEmail(auth, this.email)
+        .then(() => {
+          alert("Password Reset Email Sent!");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+        });
       this.$router.push({
-        path: "/Resetpassword",
+        path: "/Welcome",
       });
     },
   },
