@@ -106,13 +106,13 @@ export default {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
-        .then(userCredential => {
+        .then((userCredential) => {
           const user = userCredential.user;
           this.uid = user.uid;
           console.log(this.uid),
             this.$router.push({
               path: "/Createaccount2",
-              query: { uid: this.uid }
+              query: { uid: this.uid },
             });
         })
         .catch((err) => alert(err.message));

@@ -172,9 +172,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log(
-         this.$route.query.uid,
-      );
+      console.log(this.$route.query.uid);
       axios
         .post("http://localhost:3000/student/create", {
           StudentID: this.StudentID,
@@ -184,7 +182,6 @@ export default {
           Faculty: this.Faculty,
           University: this.University,
           uid: this.$route.query.uid,
-          
         })
         .then((response) => {
           console.log(response);
@@ -192,7 +189,7 @@ export default {
       this.$router.push({
         path: "/Createaccount3",
         query: {
-         uid: this.uid,
+          uid: this.uid,
         },
       });
     },
@@ -201,7 +198,6 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
 
 
