@@ -1,6 +1,7 @@
 <template>
   <q-page class="addbackground q-pt-xl">
     <div class="col">
+      <form @submit.prevent="Login">
       <div class="Logo q-ml-lg"></div>
       <div class="texttitle1 q-ml-lg q-mt-lg">Welcome !</div>
 
@@ -18,9 +19,11 @@
         </div>
         <div class="col-9 q-ml-md q-gutter-xs">
           <q-input
+          type="text" 
+          placeholder="Email"
             class="q-mt-md"
             :input-style="{ color: 'white' }"
-            v-model="Username"
+            v-model="email"
             label-color="grey"
             label=" Username"
             color="white"
@@ -44,16 +47,18 @@
         </div>
         <div class="col-9 q-ml-md q-gutter-xs">
           <q-input
+          
+          placeholder="Password"
             class="q-mt-md"
             :input-style="{ color: 'white' }"
-            v-model="Password"
+            v-model="password"
             label-color="grey"
             label=" Password"
             color="white"
             :rules="[
               (val) => (val && val.length > 0) || 'Please enter password ',
             ]"
-            :type="isPwd ? 'Password' : 'text'"
+            :type="isPwd ? 'password' : 'text'"
           >
             <template v-slot:append>
               <q-icon
@@ -69,7 +74,9 @@
       <div class="row justify-center items-center">
         <div class="button-Sign_in q-mt-lg">
           <q-btn
-            @click="gotoindex()"
+          type="submit" 
+          value="Login"
+            
             push
             align="center"
             no-caps
@@ -81,18 +88,7 @@
         </div>
       </div>
 
-      <div class="row justify-center items-center">
-        <div class="button-Sign_in q-mt-md">
-          <q-btn
-            push
-            align="center"
-            no-caps
-            label="Sign in with google"
-            size="20px"
-            style="width: 330px; background: #40df9f; color: white"
-          />
-        </div>
-      </div>
+  
 
       <div class="row justify-center items-center">
         <div class="text-forgot q-mt-md">
@@ -118,20 +114,46 @@
           />
         </div>
       </div>
+      </form>
     </div>
   </q-page>
 </template>
 
 <script>
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+
 export default {
   data() {
     return {
-      Username: "",
-      Password: "",
+      email: "",
+      password: "",
       isPwd: true,
+      uid: "",
     };
   },
   methods: {
+    Login() {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(this.email, this.password)
+        .then(userCredential => {
+          const user = userCredential.user;
+          this.uid = user.uid;
+          console.log(this.uid),
+            this.$router.push({
+              path: "/Index",
+              query: { uid: this.uid }
+            });
+        })
+        // .then((userCredential) =>
+        //   this.$router.push({
+        //     path: "/Index",
+        //   })
+        // )
+        .catch((err) => alert(err.message));
+    },
+
     gotocreateaccount1() {
       console.log(this.Username);
       console.log(this.Password);
@@ -152,5 +174,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

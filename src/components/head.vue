@@ -7,7 +7,7 @@
           $router.push({
             name: 'profile',
             query: {
-              id: students[0].StudentID,
+              uid: student.uid,
             },
           })
         "
@@ -34,11 +34,10 @@
           style="height: 33px"
         />
       </div>
-      <div :key="index" v-for="(student, index) in students">
-        <div class="row">
-          <div class="text-white text-bold" style="font-size: 20px">
-            {{ student.Name }}
-          </div>
+
+      <div class="row">
+        <div class="text-white text-bold" style="font-size: 20px">
+          {{ student.Fullname }}
         </div>
       </div>
 
@@ -61,7 +60,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      students: [],
+      student: {},
     };
   },
   mounted() {
@@ -69,9 +68,12 @@ export default {
   },
   methods: {
     async getStudentData() {
-      const { data } = await axios.get("http://localhost:3000/student/"
+      console.log(this.$route.query.uid);
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
       );
-      this.students = data.student;
+      console.log(data.student);
+      this.student = data.student;
     },
   },
 };
