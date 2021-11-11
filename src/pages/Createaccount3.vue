@@ -2,7 +2,7 @@
   <q-page class="addbackground q-pt-xl">
     <div class="col">
       <div class="Logo q-ml-lg"></div>
-      <div class="texttitle2 q-ml-lg q-mt-sm">Information</div>
+      <div class="texttitle2 q-ml-lg q-mt-sm">Semester</div>
       <div class="row justify-center items-center">
         <div class="icon_Profile" style="overflow: hidden">
           <div class="row items-center justify-center q-mt-sm">

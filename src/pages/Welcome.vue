@@ -25,7 +25,7 @@
             :input-style="{ color: 'white' }"
             v-model="email"
             label-color="grey"
-            label=" Username"
+            label=" Email"
             color="white"
             :rules="[
               (val) => (val && val.length > 0) || 'Please enter username ',
