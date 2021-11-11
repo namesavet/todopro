@@ -69,8 +69,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log(this.$route.query.uid);
-      console.log(this.StudentID);
+      
       axios
         .post("http://localhost:3000/semester/create", {
           uid: this.$route.query.uid,

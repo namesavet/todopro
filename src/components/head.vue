@@ -8,6 +8,7 @@
             name: 'profile',
             query: {
               uid: student.uid,
+              id: semester.id,
             },
           })
         "
@@ -30,7 +31,7 @@
           color="green"
           @click="$router.push({ name: 'semester' })"
           push
-          label="1/2021"
+          :label="semester.Semester_name"
           style="height: 33px"
         />
       </div>
@@ -61,19 +62,25 @@ export default {
   data() {
     return {
       student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getStudentData();
+    this.getSemesterData();
   },
   methods: {
     async getStudentData() {
-      console.log(this.$route.query.uid);
       const { data } = await axios.get(
         "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
       );
-      console.log(data.student);
       this.student = data.student;
+    },
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
     },
   },
 };
