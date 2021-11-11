@@ -300,7 +300,7 @@ export default {
         (this.countreadtrue(SubjectID) / this.countread(SubjectID)) *
         100
       );
-      console.log(Number.isNaN(process));
+     
       if (Number.isNaN(process) == true) {
         return this.process0;
       } else {
@@ -311,7 +311,7 @@ export default {
       const process = 
         (this.countreadtrue(SubjectID) / this.countread(SubjectID) 
       );
-      console.log(Number.isNaN(process));
+     
       if (Number.isNaN(process) == true) {
         return this.process0;
       } else {
