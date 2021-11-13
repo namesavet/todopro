@@ -9,6 +9,8 @@
               name: 'event',
               query: {
                 id: calendar.NoteID,
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
               },
             })
           "
@@ -119,8 +121,6 @@
           color="white"
           :input-style="{ color: 'white' }"
           label-color="grey"
-          
-           
         >
           <template v-slot:append>
             <q-icon name="event" class="cursor-pointer" color="white">
@@ -220,10 +220,14 @@ export default {
     return {
       calendar: {},
       types: ["Homework", "Test", "Other"],
+      student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getCalendarData();
+    this.getStudentData();
+    this.getSemesterData();
   },
   methods: {
     formatDate(day) {
@@ -234,8 +238,21 @@ export default {
         "http://localhost:3000/calendar/findnote/" + this.$route.query.id
       );
       this.calendar = data.calendar;
-      this.calendar.Note_date = this.formatDate(this.calendar.Note_date)
+      this.calendar.Note_date = this.formatDate(this.calendar.Note_date);
       console.log(this.calendar);
+    },
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
     },
 
     async onSubmit() {
@@ -255,6 +272,8 @@ export default {
         path: "/Event",
         query: {
           id: this.calendar.NoteID,
+          uid: this.student.uid,
+          SemesterID: this.semester.SemesterID,
         },
       });
     },

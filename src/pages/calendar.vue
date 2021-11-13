@@ -124,6 +124,7 @@ export default {
       ListAllEvent: [],
       student: {},
       semester: {},
+      
     };
   },
   mounted() {

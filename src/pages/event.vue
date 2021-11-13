@@ -4,7 +4,15 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'calendar' })"
+          @click="
+            $router.push({
+              name: 'calendar',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           color=""
           icon="keyboard_arrow_left"
@@ -21,6 +29,8 @@
               name: 'editevent',
               query: {
                 id: calendar.NoteID,
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
               },
             })
           "
@@ -177,11 +187,15 @@ export default {
   data() {
     return {
       calendar: {},
+      student: {},
+      semester: {},
     };
   },
 
   mounted() {
     this.getCalendarData();
+    this.getStudentData();
+    this.getSemesterData();
   },
   methods: {
     formatDate(day) {
@@ -193,6 +207,19 @@ export default {
       );
       this.calendar = data.calendar;
     },
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
+    },
 
     DeleteEvent() {
       axios
@@ -200,7 +227,14 @@ export default {
         .then((response) => {
           console.log(response);
         });
-      this.$router.push({ path: "/Calendar" });
+      this.$router.push({
+        path: "/Calendar"
+        ,
+        query: {
+          uid: this.student.uid,
+          SemesterID: this.semester.SemesterID,
+        },
+      });
     },
   },
 };
