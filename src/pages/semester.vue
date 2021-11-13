@@ -58,7 +58,6 @@
             query: {
               uid: student.uid,
               SemesterID: semester.SemesterID,
-              Semestername:semester.Semester_name,
             },
           })
         "
@@ -66,6 +65,7 @@
       >
         <div class="semestertitle">{{ semester.Semester_name }}</div>
       </div>
+      {{ semester.SemesterID }}
       <div class="q-mx-lg q-mt-sm">
         <q-separator color="grey" inset />
       </div>
@@ -97,7 +97,6 @@ export default {
       const { data } = await axios.get(
         "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
       );
-
       this.student = data.student;
     },
   },

@@ -558,6 +558,10 @@ export default {
         });
       this.$router.push({
         path: "/Subject",
+        query: {
+          uid: this.student.uid,
+          SemesterID: this.semester.SemesterID,
+        },
       });
     },
   },
