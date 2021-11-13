@@ -28,7 +28,7 @@
               name: 'profileDetail',
               query: {
                 uid: student.uid,
-                id: semester.id,
+                SemesterID: semester.SemesterID,
               },
             })
           "

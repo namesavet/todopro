@@ -8,7 +8,7 @@
             name: 'profile',
             query: {
               uid: student.uid,
-              id: semester.id,
+              SemesterID: semester.SemesterID,
             },
           })
         "

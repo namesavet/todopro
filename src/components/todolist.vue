@@ -99,7 +99,15 @@
         <div class="row justify-center q-mr-md q-ml-sm q-mt-md">
           <div
             class="calendar text-center"
-            @click="$router.push({ name: 'calendar' })"
+            @click="
+              $router.push({
+                name: 'calendar',
+                query: {
+                  uid: student.uid,
+                  SemesterID: semester.SemesterID,
+                },
+              })
+            "
             push
             style="overflow: hidden"
           >
@@ -162,7 +170,7 @@ export default {
     },
     async getCalendarData() {
       const { data } = await axios.get(
-        "http://localhost:3000/calendar/72100d56-21ae-42fd-8167-0b5c49c68b1d"
+        "http://localhost:3000/calendar/getEvent/"  + this.$route.query.uid
       );
 
       this.ListAllEvent = data.calendar;

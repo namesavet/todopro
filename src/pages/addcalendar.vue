@@ -4,7 +4,15 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'calendar' })"
+          @click="
+            $router.push({
+              name: 'calendar',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           color=""
           icon="keyboard_arrow_left"
@@ -176,7 +184,7 @@
         />
       </div>
     </q-form>
-
+ 
     <br />
     <br />
     <br />
@@ -216,9 +224,31 @@ export default {
       Note_date: "",
       Note_time: "",
       Note_detail: "",
+      student: {},
+      semester: {},
+      uid: this.$route.query.uid,
+      SemesterID: this.$route.query.SemesterID,
     };
   },
+   mounted() {
+    
+    this.getStudentData();
+    this.getSemesterData();
+  },
   methods: {
+        async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
+    },
     onSubmit() {
       axios
         .post("http://localhost:3000/calendar/create", {
@@ -228,13 +258,19 @@ export default {
           Note_date: this.Note_date,
           Note_time: this.Note_time,
           Note_detail: this.Note_detail,
-          StudentID: "6130613034",
-          SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
+          uid: this.$route.query.uid,
+          SemesterID: this.$route.query.SemesterID,
         })
         .then((response) => {
           console.log(response);
         });
-      this.$router.push({ path: "/Calendar" });
+      this.$router.push({
+        path: "/Calendar",
+        query: {
+          uid: this.uid,
+          SemesterID: this.SemesterID,
+        },
+      });
     },
   },
 };

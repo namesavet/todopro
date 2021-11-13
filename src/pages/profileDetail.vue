@@ -9,7 +9,7 @@
               name: 'profile',
               query: {
                 uid: student.uid,
-                id: semester.id,
+                SemesterID: semester.SemesterID,
               },
             })
           "
@@ -46,7 +46,6 @@
             <div class="titleprofiledetail">{{ student.StudentID }}</div>
           </div>
         </div>
-
         <div class="row q-mt-md">
           <div class="col text-right">
             <div class="titleprofile">Name</div>
