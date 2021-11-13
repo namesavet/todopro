@@ -137,7 +137,8 @@ export default {
       return date.formatDate(dateString, "YYYY/MM/DD");
     },
     async getCalendarData() {
-      const { data } = await axios.get("http://localhost:3000/calendar/");
+      const { data } = await axios.get("http://localhost:3000/calendar/getEvent/"  + this.$route.query.uid
+      );
       this.ListAllEvent = data.calendar;
       this.date = this.formatDate(new Date());
       this.events = data.calendar.map((data) => {

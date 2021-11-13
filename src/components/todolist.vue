@@ -170,7 +170,7 @@ export default {
     },
     async getCalendarData() {
       const { data } = await axios.get(
-        "http://localhost:3000/calendar/"
+        "http://localhost:3000/calendar/getEvent/"  + this.$route.query.uid
       );
 
       this.ListAllEvent = data.calendar;
