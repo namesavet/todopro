@@ -4,7 +4,15 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'Index' })"
+          @click="
+            $router.push({
+              name: 'Index',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           color=""
           icon="keyboard_arrow_left"
@@ -17,7 +25,15 @@
           flat
           round
           dense
-          @click="$router.push({ name: 'addcalendar' })"
+          @click="
+            $router.push({
+              name: 'addcalendar',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           text-color="white"
           icon="add"
@@ -46,12 +62,15 @@
               name: 'event',
               query: {
                 id: calendar.NoteID,
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
               },
             })
           "
           push
         >
           <div class="typetest"></div>
+          ,
 
           <div class="col self-center text-bold q-ml-lg">
             <div class="text-white text-bold" style="font-size: 16px">
@@ -103,24 +122,39 @@ export default {
       date: " ",
       events: [],
       ListAllEvent: [],
+      student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getCalendarData();
+    this.getStudentData();
+    this.getSemesterData();
   },
   methods: {
     formatDate(dateString) {
       return date.formatDate(dateString, "YYYY/MM/DD");
     },
     async getCalendarData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/calendar/72100d56-21ae-42fd-8167-0b5c49c68b1d"
-      );
+      const { data } = await axios.get("http://localhost:3000/calendar/");
       this.ListAllEvent = data.calendar;
       this.date = this.formatDate(new Date());
       this.events = data.calendar.map((data) => {
         return this.formatDate(data.Note_date);
       });
+    },
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
     },
   },
   watch: {
