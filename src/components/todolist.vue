@@ -16,7 +16,11 @@
         <div class="row justify-center q-ml-md q-mr-sm q-mt-md">
           <div
             class="subject text-center"
-            @click="$router.push({ name: 'subject' })"
+            @click="$router.push({ name: 'subject' ,
+             query: {
+              uid: student.uid,
+              
+            }, })"
             push
             style="overflow: hidden"
           >
@@ -123,10 +127,12 @@ export default {
       date: " ",
       events: [],
       ListAllEvent: [],
+      student:{},
     };
   },
   mounted() {
     this.getCalendarData();
+    this.getStudentData();
   },
   methods: {
     formatDate(dateString) {
@@ -142,6 +148,14 @@ export default {
       this.events = data.calendar.map((data) => {
         return this.formatDate(data.Note_date);
       });
+    },
+        async getStudentData() {
+      
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+      
+      this.student = data.student;
     },
   },
   watch: {

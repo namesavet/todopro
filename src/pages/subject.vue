@@ -4,7 +4,10 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'Index' })"
+          @click="$router.push({ name: 'Index',
+             query: {
+              uid: student.uid,
+            }, })"
           push
           color=""
           icon="keyboard_arrow_left"
@@ -114,17 +117,27 @@ export default {
     return {
       info: null,
       subjects: [],
+      student:{},
     };
   },
   mounted() {
     this.getSubjectData();
+    this.getStudentData()
   },
   methods: {
     async getSubjectData() {
       const {data} = await axios.get(
-        "http://localhost:3000/subject/72100d56-21ae-42fd-8167-0b5c49c68b1d"
+        "http://localhost:3000/subject/"+ this.$route.query.uid
       );
       this.subjects = data.subject;
+    },
+      async getStudentData() {
+      
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+      
+      this.student = data.student;
     },
   },
 };
