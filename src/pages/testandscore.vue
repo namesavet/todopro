@@ -4,7 +4,15 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'Index' })"
+          @click="
+            $router.push({
+              name: 'Index',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           color=""
           icon="keyboard_arrow_left"
@@ -46,7 +54,9 @@
             $router.push({
               name: 'subjectscore',
               query: {
-                id: subject.SubjectID,
+                SubjectID: subject.SubjectID,
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
               },
             })
           "
@@ -108,22 +118,42 @@ export default {
     return {
       subjects: [],
       scores: [],
+      student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getSubjectData();
+    this.getStudentData();
+    this.getSemesterData();
   },
   methods: {
     async getSubjectData() {
       const { data } = await axios.get(
-        "http://localhost:3000/subject/72100d56-21ae-42fd-8167-0b5c49c68b1d"
+        "http://localhost:3000/subject/" + this.$route.query.SemesterID
       );
       this.subjects = data.subject;
       const url =
-        "http://localhost:3000/score/fineSemester/72100d56-21ae-42fd-8167-0b5c49c68b1d";
+        "http://localhost:3000/score/fineSemester/" +
+        this.$route.query.SemesterID;
       const scoresp = await axios.get(url);
       this.scores = scoresp.data.score;
     },
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
+    },
+
     async getScore() {},
     countscore(subject) {
       if (this.scores.length != 0) {
@@ -135,6 +165,8 @@ export default {
           return acc + cur.Get_point;
         }, 0);
         return calculateScore;
+      } else {
+        return 0;
       }
     },
     barscore(subject) {

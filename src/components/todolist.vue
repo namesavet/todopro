@@ -16,11 +16,15 @@
         <div class="row justify-center q-ml-md q-mr-sm q-mt-md">
           <div
             class="subject text-center"
-            @click="$router.push({ name: 'subject' ,
-             query: {
-              uid: student.uid,
-              
-            }, })"
+            @click="
+              $router.push({
+                name: 'subject',
+                query: {
+                  uid: student.uid,
+                  SemesterID: semester.SemesterID,
+                },
+              })
+            "
             push
             style="overflow: hidden"
           >
@@ -36,7 +40,15 @@
         <div class="row justify-center q-ml-md q-mr-sm q-mt-md">
           <div
             class="read text-center"
-            @click="$router.push({ name: 'Readbook' })"
+            @click="
+              $router.push({
+                name: 'Readbook',
+                query: {
+                  uid: student.uid,
+                  SemesterID: semester.SemesterID,
+                },
+              })
+            "
             push
             style="overflow: hidden"
           >
@@ -57,7 +69,15 @@
         <div class="row justify-center q-mr-md q-ml-sm q-mt-md">
           <div
             class="test text-center"
-            @click="$router.push({ name: 'testandscore' })"
+            @click="
+              $router.push({
+                name: 'testandscore',
+                query: {
+                  uid: student.uid,
+                  SemesterID: semester.SemesterID,
+                },
+              })
+            "
             push
             style="overflow: hidden"
           >
@@ -127,12 +147,14 @@ export default {
       date: " ",
       events: [],
       ListAllEvent: [],
-      student:{},
+      student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getCalendarData();
     this.getStudentData();
+    this.getSemesterData();
   },
   methods: {
     formatDate(dateString) {
@@ -149,13 +171,18 @@ export default {
         return this.formatDate(data.Note_date);
       });
     },
-        async getStudentData() {
-      
+    async getStudentData() {
       const { data } = await axios.get(
         "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
       );
-      
+
       this.student = data.student;
+    },
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
     },
   },
   watch: {

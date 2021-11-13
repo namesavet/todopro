@@ -4,7 +4,15 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'Index' })"
+          @click="
+            $router.push({
+              name: 'Index',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           icon="keyboard_arrow_left"
           label="Back"
@@ -116,38 +124,52 @@ export default {
       grade0: 0,
       gradeinchart: [],
       semestersName: "",
-      yourgradechart:[],
+      yourgradechart: [],
+      student: {},
+      semester: {},
     };
   },
   components: {},
-  watch:{
-    inputgrade(value){
+  watch: {
+    inputgrade(value) {
       console.log(value);
-      this.yourgradechart = value.map(grade=>Number(grade))
-      console.log(this.yourgradechart); 
+      this.yourgradechart = value.map((grade) => Number(grade));
+      console.log(this.yourgradechart);
       this.getchart();
-    
-    }
-    
+    },
   },
   mounted: async function () {
     await this.getSemesterData();
     await this.getSubjectData();
     this.getchart();
-   
+    this.getStudentData();
+    this.getSemesterDataback();
   },
   methods: {
     async getSemesterData() {
       const { data } = await axios.get(
-        "http://localhost:3000/semester/6130613034"
+        "http://localhost:3000/semester/" + this.$route.query.uid
       );
       this.semesters = data.semester;
     },
     async getSubjectData() {
       const { data } = await axios.get(
-        "http://localhost:3000/subject/studentsubject/6130613034"
+        "http://localhost:3000/subject/studentsubject/" + this.$route.query.uid
       );
       this.subjects = data.subject;
+    },
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+    async getSemesterDataback() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
     },
 
     countCredit(semester) {
@@ -229,7 +251,7 @@ export default {
 
         return grade;
       });
-    
+
       var ctx = document.getElementById("graph").getContext("2d");
       var myChart = new Chart(ctx, {
         type: "bar",

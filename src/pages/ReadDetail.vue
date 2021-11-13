@@ -4,7 +4,15 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'Readbook' })"
+          @click="
+            $router.push({
+              name: 'Readbook',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           icon="keyboard_arrow_left"
           label="Back"
@@ -190,14 +198,31 @@ export default {
       chapters: [],
       subject: {},
       countchapter: 0,
+      student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getSubjectData();
+    this.getStudentData();
+    this.getSemesterData();
   },
   methods: {
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
+    },
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
     },
     async getSubjectData() {
       const resp = await axios.get(
@@ -233,7 +258,7 @@ export default {
     },
     processnotnan() {
       const process = (this.readtrue / this.countchapter) * 100;
-      console.log(Number.isNaN(process));
+      
       if (Number.isNaN(process) == true) {
         return this.process0;
       } else {
@@ -242,7 +267,7 @@ export default {
     },
     processbarnotnan() {
       const process = this.readtrue / this.countchapter;
-      console.log(Number.isNaN(process));
+      
       if (Number.isNaN(process) == true) {
         return this.process0;
       } else {

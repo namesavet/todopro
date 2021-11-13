@@ -4,7 +4,15 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'testandscore' })"
+          @click="
+            $router.push({
+              name: 'testandscore',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           color=""
           icon="keyboard_arrow_left"
@@ -17,11 +25,16 @@
           flat
           round
           dense
-          @click="$router.push({ name: 'settingscore',
-           query: {
-                id: subject.SubjectID,
+          @click="
+            $router.push({
+              name: 'settingscore',
+              query: {
+                SubjectID: subject.SubjectID,
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
               },
-           })"
+            })
+          "
           push
           text-color="white"
           icon="settings"
@@ -180,28 +193,46 @@ export default {
   data() {
     return {
       scores: [],
-      subject:{},
+      subject: {},
       progresss: [],
+      student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getSubjectData();
     this.getScore();
+    this.getStudentData();
+    this.getSemesterData();
   },
   methods: {
     async getSubjectData() {
       const resp = await axios.get(
-        "http://localhost:3000/subject/findsubject/"+ this.$route.query.id
+        "http://localhost:3000/subject/findsubject/" +
+          this.$route.query.SubjectID
       );
       this.subject = resp.data.subject;
-      const url =
-        "http://localhost:3000/score/"+ this.$route.query.id;
+      const url = "http://localhost:3000/score/" + this.$route.query.SubjectID;
       const scoresp = await axios.get(url);
       this.scores = scoresp.data.score;
     },
     async getScore() {},
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
+    },
   },
-  
+
   computed: {
     total: function () {
       return this.scores.reduce(function (total, score) {

@@ -4,10 +4,15 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'Index',
-             query: {
-              uid: student.uid,
-            }, })"
+          @click="
+            $router.push({
+              name: 'Index',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           color=""
           icon="keyboard_arrow_left"
@@ -26,21 +31,21 @@
         </div>
       </div>
 
-
-
-      <div :key="index" v-for="(subject,index) in subjects">
+      <div :key="index" v-for="(subject, index) in subjects">
         <div
           class="row justify-center"
-          @click="$router.push({ 
-            name: 'subjectchapter',
-            query: {
+          @click="
+            $router.push({
+              name: 'subjectchapter',
+              query: {
                 id: subject.SubjectID,
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
               },
-               })"
+            })
+          "
           push
-          
         >
-        
           <div class="profilesubject" style="overflow: hidden">
             <div class="profileicon">
               <q-icon name="school" style="color: #ffffff; font-size: 25px">
@@ -49,8 +54,8 @@
           </div>
 
           <div class="col self-center q-ml-md">
-            <div class="text-white">{{subject.Subject_name}}</div>
-            <div class="text-blue-grey-4">{{subject.Teacher_name}}</div>
+            <div class="text-white">{{ subject.Subject_name }}</div>
+            <div class="text-blue-grey-4">{{ subject.Teacher_name }}</div>
           </div>
         </div>
 
@@ -58,14 +63,21 @@
           <q-separator color="grey" inset="item" />
         </div>
       </div>
-
     </div>
 
     <div class="q-px-sm">
       <div class="col items-center" style="margin-top: 20px">
         <div class="row items-center justify-center">
           <q-btn
-            @click="$router.push({ name: 'selectaddsubject' })"
+            @click="
+              $router.push({
+                name: 'selectaddsubject',
+                query: {
+                  uid: student.uid,
+                  SemesterID: semester.SemesterID,
+                },
+              })
+            "
             push
             size="20px"
             round
@@ -112,32 +124,40 @@
 <script>
 import axios from "axios";
 export default {
-  name:"subject",
+  name: "subject",
   data() {
     return {
       info: null,
       subjects: [],
-      student:{},
+      student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getSubjectData();
-    this.getStudentData()
+    this.getStudentData();
+    this.getSemesterData();
   },
   methods: {
     async getSubjectData() {
-      const {data} = await axios.get(
-        "http://localhost:3000/subject/"+ this.$route.query.uid
+      const { data } = await axios.get(
+        "http://localhost:3000/subject/" + this.$route.query.SemesterID
       );
       this.subjects = data.subject;
     },
-      async getStudentData() {
-      
+    async getStudentData() {
       const { data } = await axios.get(
         "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
       );
-      
+
       this.student = data.student;
+    },
+
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
     },
   },
 };

@@ -44,7 +44,15 @@
 
       <div class="row justify-end">
         <q-btn
-          @click="$router.push({ name: 'grade summary' })"
+          @click="
+            $router.push({
+              name: 'grade summary',
+            query: {
+              uid: student.uid,
+              id: semester.id,
+            },
+            })
+          "
           push
           style="font-size: 12px; height: 28px"
           rounded
@@ -81,6 +89,7 @@ export default {
         "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
+      console.log(this.semester);
     },
   },
 };

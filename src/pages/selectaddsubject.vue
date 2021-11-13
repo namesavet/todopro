@@ -6,7 +6,15 @@
           flat
           color=""
           icon="keyboard_arrow_left"
-          @click="$router.push({ name: 'subject' })"
+          @click="
+            $router.push({
+              name: 'subject',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           label="Back"
           style="font-size: 16px; color: #96a7af"
@@ -16,52 +24,63 @@
 
     <div class="row">
       <div class="col q-ml-md q-mt-sm q-gutter-xs">
-        <div class="text-white text-bold" style="font-size: 30px">Add subject</div>
+        <div class="text-white text-bold" style="font-size: 30px">
+          Add subject
+        </div>
       </div>
     </div>
 
-    <div class="row justify-center  q-mt-xl">
-          <div
-            class="addsubject text-center"
-            @click="$router.push({ name: 'addsubject' })"
-            push
-            style="overflow: hidden"
-          >
-            <q-icon
-            class="q-mt-md"
-            name="add"
-            size="100px"
-            style="color: white"
-            />
-          </div>
+    <div class="row justify-center q-mt-xl">
+      <div
+        class="addsubject text-center"
+        @click="
+          $router.push({
+            name: 'addsubject',
+            query: {
+              uid: student.uid,
+              SemesterID: semester.SemesterID,
+            },
+          })
+        "
+        push
+        style="overflow: hidden"
+      >
+        <q-icon class="q-mt-md" name="add" size="100px" style="color: white" />
+      </div>
     </div>
 
     <div class="row items-center justify-center q-mt-md">
-      <div class="text-center " style="color:white">Create new subject</div>
+      <div class="text-center" style="color: white">Create new subject</div>
     </div>
 
-
-    <div class="row justify-center  q-mt-xl">
-          <div
-            class="addsubjectid text-center q-mt-lg"
-            @click="$router.push({ name: 'addsubjectid' })"
-            push
-            style="overflow: hidden"
-          >
-            <q-icon
-            class="q-mt-md"
-            name="search"
-            size="100px"
-            style="color: white"
-            />
-          </div>
+    <div class="row justify-center q-mt-xl">
+      <div
+        class="addsubjectid text-center q-mt-lg"
+        @click="
+          $router.push({
+            name: 'addsubjectid',
+            query: {
+              uid: student.uid,
+              SemesterID: semester.SemesterID,
+            },
+          })
+        "
+        push
+        style="overflow: hidden"
+      >
+        <q-icon
+          class="q-mt-md"
+          name="search"
+          size="100px"
+          style="color: white"
+        />
+      </div>
     </div>
 
     <div class="row items-center justify-center q-mt-md">
-      <div class="text-center " style="color:white">Add subject from ID</div>
+      <div class="text-center" style="color: white">Add subject from ID</div>
     </div>
 
-   
     <div class="row q-mt-xl">
       <q-footer elevated>
         <q-toolbar
@@ -83,10 +102,43 @@
         </q-toolbar>
       </q-footer>
     </div>
-
   </q-page>
 </template>
 
+<script>
+import axios from "axios";
+export default {
+  name: "subject",
+  data() {
+    return {
+      student: {},
+      semester: {},
+    };
+  },
+  mounted() {
+    this.getStudentData();
+    this.getSemesterData();
+  },
+  methods: {
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
 
+      this.student = data.student;
+    },
+
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
+    },
+  },
+};
+</script>
+
+<style scoped>
+</style >
 
 

@@ -5,7 +5,15 @@
         <q-btn
           flat
           color=""
-          @click="$router.push({ name: 'Index' })"
+          @click="
+            $router.push({
+              name: 'Index',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           icon="keyboard_arrow_left"
           label="Back"
@@ -87,6 +95,8 @@
             name: 'ReadDetail',
             query: {
               id: subject.SubjectID,
+              uid: student.uid,
+              SemesterID: semester.SemesterID,
             },
           })
         "
@@ -146,9 +156,7 @@
                 dark
                 rounded
                 size="16px"
-                :value="
-                 processbarnotnan(subject.SubjectID)
-                "
+                :value="processbarnotnan(subject.SubjectID)"
                 :color="
                   statuscolor(
                     (countreadtrue(subject.SubjectID) /
@@ -202,22 +210,40 @@ export default {
       subjects: [],
       chapters: [],
       process0: 0,
+      student: {},
+      semester: {},
     };
   },
   components: {},
   mounted: async function () {
     await this.getSubjectData();
     this.getchart();
+    this.getStudentData();
+    this.getSemesterData();
   },
 
   methods: {
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
+    },
     async getSubjectData() {
       const { data } = await axios.get(
-        "http://localhost:3000/subject/72100d56-21ae-42fd-8167-0b5c49c68b1d"
+        "http://localhost:3000/subject/" + this.$route.query.SemesterID
       );
       this.subjects = data.subject;
       const url =
-        "http://localhost:3000/chapter/findchapterSemester/72100d56-21ae-42fd-8167-0b5c49c68b1d";
+        "http://localhost:3000/chapter/findchapterSemester/" +
+        this.$route.query.SemesterID;
       const chaptersp = await axios.get(url);
       this.chapters = chaptersp.data.chapter;
     },
@@ -296,22 +322,18 @@ export default {
       return iconstatus;
     },
     processnotnan(SubjectID) {
-      const process = (
-        (this.countreadtrue(SubjectID) / this.countread(SubjectID)) *
-        100
-      );
-     
+      const process =
+        (this.countreadtrue(SubjectID) / this.countread(SubjectID)) * 100;
+
       if (Number.isNaN(process) == true) {
         return this.process0;
       } else {
         return process.toFixed(0);
       }
     },
-     processbarnotnan(SubjectID) {
-      const process = 
-        (this.countreadtrue(SubjectID) / this.countread(SubjectID) 
-      );
-     
+    processbarnotnan(SubjectID) {
+      const process = this.countreadtrue(SubjectID) / this.countread(SubjectID);
+
       if (Number.isNaN(process) == true) {
         return this.process0;
       } else {

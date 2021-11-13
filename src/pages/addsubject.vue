@@ -6,7 +6,11 @@
           flat
           color=""
           icon="keyboard_arrow_left"
-          @click="$router.push({ name: 'selectaddsubject' })"
+          @click="$router.push({ name: 'selectaddsubject' ,
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              }, })"
           push
           label="Back"
           style="font-size: 16px; color: #96a7af"
@@ -131,6 +135,8 @@
       <div class="row justify-center">
         <div class="gradewanttext">
           This ID can share the subject with oyher people.
+          
+          
         </div>
       </div>
 
@@ -464,6 +470,8 @@ import axios from "axios";
 export default {
   data() {
     return {
+       student: {},
+      semester: {},
       subject_name: "",
       Abbreviation_name: "",
       teacher_name: "",
@@ -494,6 +502,11 @@ export default {
       Date_final_exam: "",
     };
   },
+    mounted() {
+    
+     this.getStudentData();
+    this.getSemesterData();
+  },
   methods: {
     onSubmit() {
       axios
@@ -515,13 +528,33 @@ export default {
           Score_midterm: this.score_midterm,
           Score_final: this.score_final,
           Desired_grade: this.grade,
-          StudentID: "6130613034",
-          SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
+          uid: this.$route.query.uid,
+          SemesterID: this.$route.query.SemesterID,
         })
         .then((response) => {
           console.log(response);
         });
-      this.$router.push({ path: "/Subject" });
+      this.$router.push({ path: "/Subject",
+            query: {
+                uid: this.student.uid,
+                SemesterID: this.semester.SemesterID,
+              }   });
+              
+    },
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
+      console.log(this.semester);
     },
   },
 };

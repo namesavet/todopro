@@ -11,6 +11,8 @@
               name: 'subjectchapter',
               query: {
                 id: subject.SubjectID,
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
               },
             })
           "
@@ -476,15 +478,32 @@ export default {
       selectgrade: false,
       desiredgrades: ["A", "B+", "B", "C+", "C", "D+", "D", "E"],
       subject: {},
+      student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getSubjectData();
+    this.getStudentData();
+    this.getSemesterData();
   },
 
   methods: {
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
+    },
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
     },
     async getSubjectData() {
       const { data } = await axios.get(
@@ -526,6 +545,8 @@ export default {
         path: "/SubjectChapter",
         query: {
           id: this.subject.SubjectID,
+          uid: this.student.uid,
+          SemesterID: this.semester.SemesterID,
         },
       });
     },

@@ -8,7 +8,9 @@
             $router.push({
               name: 'subjectscore',
               query: {
-                id: subject.SubjectID,
+                SubjectID: subject.SubjectID,
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
               },
             })
           "
@@ -29,7 +31,9 @@
             $router.push({
               name: 'subjectscore',
               query: {
-                id: subject.SubjectID,
+                SubjectID: subject.SubjectID,
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
               },
             })
           "
@@ -140,7 +144,7 @@
                     </div>
                   </div>
                   <div class="col-2 items-center text-center">
-                    <div class="row q-mt-xl justify-center">
+                    <div class="row q-mt-xl justify-center" style=" margin-top: 62px;">
                       <q-btn
                         @click="submitScore(index)"
                         round
@@ -151,17 +155,7 @@
                         style="background-color: #40df9f"
                       />
                     </div>
-                    <div class="row q-mt-md justify-center">
-                      <q-btn
-                        @click="removeField(index, score)"
-                        round
-                        dense
-                        text-color="white"
-                        icon="clear"
-                        class=""
-                        style="background-color: #ff5656"
-                      />
-                    </div>
+                 
                   </div>
                 </div>
               </div>
@@ -171,29 +165,6 @@
       </form>
     </div>
 
-    <div class="q-px-sm q-py-lg">
-      <div class="column items-center" style="margin-top: 20px">
-        <div class="row items-center justify-center">
-          <q-btn
-            @click="addScore"
-            size="20px"
-            round
-            color=""
-            icon="add"
-            style="
-              background-color: #40df9f;
-
-              border-radius: 50%;
-              border: 10px solid #286053;
-            "
-          />
-        </div>
-      </div>
-
-      <div class="row items-center justify-center">
-        <div class="fontaddsubject" style="color: #40df9f">Add Score</div>
-      </div>
-    </div>
 
     <br />
     <br />
@@ -235,36 +206,50 @@ export default {
       ],
       scores: [],
       subject: {},
+      student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getSubjectData();
+    this.getStudentData();
+    this.getSemesterData();
   },
   methods: {
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
+    },
     addScore() {
       this.score.push({
         scoreName: "",
       });
     },
-    removeField(index, score) {
-      //type.splice(index, 1);
-      score.splice(index, 1);
-    },
-
+   
     submitScore(index) {
       axios
         .post("http://localhost:3000/score/create ", {
           Score_title: this.score[index].scoreName,
           Get_point: this.score[index].GetPoin,
           Full_point: this.score[index].FullPoin,
-          SubjectID: this.$route.query.id,
-          StudentID: "6130613034",
-          SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
+          SubjectID: this.$route.query.SubjectID,
+          uid: this.$route.query.uid,
+          SemesterID: this.$route.query.SemesterID,
         })
         .then((response) => {
           this.scores.push(response.data.data);
           this.score[index].scoreName = "";
-          this.score[index].GetPoin= "";
+          this.score[index].GetPoin = "";
           this.score[index].FullPoin = "";
         });
     },
@@ -276,12 +261,12 @@ export default {
           this.scores = this.scores.filter((data, i) => i != index);
         });
     },
-   async getSubjectData() {
+    async getSubjectData() {
       const { data } = await axios.get(
-        `http://localhost:3000/subject/findsubject/${this.$route.query.id}`
+        `http://localhost:3000/subject/findsubject/${this.$route.query.SubjectID}`
       );
       this.subject = data.subject;
-      const url = "http://localhost:3000/score/" + this.$route.query.id;
+      const url = "http://localhost:3000/score/" + this.$route.query.SubjectID;
       const scoresp = await axios.get(url);
       this.scores = scoresp.data.score;
     },

@@ -4,7 +4,15 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'subject' })"
+          @click="
+            $router.push({
+              name: 'subject',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           color=""
           icon="keyboard_arrow_left"
@@ -21,6 +29,8 @@
               name: 'editsubjectchapter',
               query: {
                 id: subject.SubjectID,
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
               },
             })
           "
@@ -102,9 +112,7 @@
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
       <div :key="index" v-for="(chapter, index) in chapters">
-        <div
-          class="row justify-center"
-        >
+        <div class="row justify-center">
           <div class="profilechap text-bold" style="overflow: hidden">
             <div class="chapter row items-center justify-center q-mt-sm">
               {{ index + 1 }}
@@ -120,12 +128,11 @@
               flat
               round
               dense
-              @click="Deletechapter(index,chapter.ChapterID)"
+              @click="Deletechapter(index, chapter.ChapterID)"
               text-color="red"
               icon="delete_forever"
             />
           </div>
-          
         </div>
 
         <div class="q-mr-lg q-my-lg">
@@ -153,7 +160,7 @@
                   />
                 </div>
               </div>
-              <div class="q-mr-sm q-mt-sm">
+              <div class="q-mr-md q-mt-sm">
                 <q-btn
                   @click="submitchapter(index)"
                   round
@@ -164,17 +171,7 @@
                   style="background-color: #40df9f"
                 />
               </div>
-              <div class="q-mr-sm q-mt-sm">
-                <q-btn
-                  @click="removeField(index, chapter)"
-                  round
-                  dense
-                  text-color="white"
-                  icon="clear"
-                  class=""
-                  style="background-color: #ff5656"
-                />
-              </div>
+        
             </div>
             <div class="q-mr-lg q-my-lg">
               <q-separator color="grey" inset="item" />
@@ -184,32 +181,7 @@
       </div>
     </div>
 
-    <div class="q-px-sm q-py-lg">
-      <div class="column items-center" style="margin-top: 20px">
-        <div class="row items-center justify-center">
-          <q-btn
-            @click="addChapter"
-            type="button"
-            class="btn btn-secondary"
-            push
-            size="20px"
-            round
-            color=""
-            icon="add"
-            style="
-              background-color: #40df9f;
-
-              border-radius: 50%;
-              border: 10px solid #286053;
-            "
-          />
-        </div>
-      </div>
-
-      <div class="row items-center justify-center">
-        <div class="fontaddsubject">Add Chapter</div>
-      </div>
-    </div>
+ 
 
     <br />
     <br />
@@ -256,24 +228,38 @@ export default {
       chapters: [],
       subject: {},
       countchapter: 0,
+      student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getSubjectData();
     this.getChapterData();
+    this.getStudentData();
+    this.getSemesterData();
   },
 
   methods: {
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
+    },
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
+    },
     addChapter() {
       // this.countchapter + 1 ;
       this.chapter.push({
         chapterName: "",
       });
     },
-    removeField(index, chapter) {
-      //type.splice(index, 1);
-      chapter.splice(index, 1);
-    },
+
 
     submitchapter(index) {
       axios
@@ -281,19 +267,17 @@ export default {
           Chapter_name: this.chapter[index].chapterName,
           Status: false,
           SubjectID: this.$route.query.id,
-          StudentID: "6130613034",
-          SemesterID: "72100d56-21ae-42fd-8167-0b5c49c68b1d",
+          uid: this.$route.query.uid,
+          SemesterID: this.$route.query.SemesterID,
         })
         .then((response) => {
           this.chapters.push(response.data.data);
           this.chapter[index].chapterName = "";
         });
     },
-    Deletechapter(index,ChapterID) {
+    Deletechapter(index, ChapterID) {
       axios
-        .delete(
-          `http://localhost:3000/chapter/delete/${ChapterID}`
-        )
+        .delete(`http://localhost:3000/chapter/delete/${ChapterID}`)
         .then((response) => {
           console.log(response);
           this.chapters = this.chapters.filter((data, i) => i != index);
