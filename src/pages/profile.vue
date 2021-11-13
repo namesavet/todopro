@@ -28,6 +28,7 @@
               name: 'profileDetail',
               query: {
                 uid: student.uid,
+                id: semester.id,
               },
             })
           "
@@ -66,7 +67,6 @@
           @click="
             $router.push({
               name: 'Index',
-
               query: { uid: student.uid },
             })
           "
@@ -84,18 +84,26 @@ export default {
   data() {
     return {
       student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getStudentData();
+    this.getSemesterData();
   },
   methods: {
     async getStudentData() {
       const { data } = await axios.get(
         "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
       );
-      console.log(data);
+
       this.student = data.student;
+    },
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
     },
     Logout() {
       firebase

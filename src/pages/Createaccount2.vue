@@ -19,7 +19,7 @@
               label="StudentID"
               color="white"
               :rules="[
-                (val) => (val && val.length > 0) || 'Please enter Fullname ',
+                (val) => (val && val.length > 0) || 'Please enter StudentID ',
               ]"
             />
           </div>
@@ -39,7 +39,7 @@
               label="Fullname"
               color="white"
               :rules="[
-                (val) => (val && val.length > 0) || 'Please enter Nickname ',
+                (val) => (val && val.length > 0) || 'Please enter Fullname ',
               ]"
             />
           </div>
@@ -59,7 +59,7 @@
               label="Lastname"
               color="white"
               :rules="[
-                (val) => (val && val.length > 0) || 'Please enter Nickname ',
+                (val) => (val && val.length > 0) || 'Please enter Lastname ',
               ]"
             />
           </div>
@@ -79,7 +79,7 @@
               label="Major"
               color="white"
               :rules="[
-                (val) => (val && val.length > 0) || 'Please enter major ',
+                (val) => (val && val.length > 0) || 'Please enter Major ',
               ]"
             />
           </div>
@@ -99,7 +99,7 @@
               label="Faculty"
               color="white"
               :rules="[
-                (val) => (val && val.length > 0) || 'Please enter faculty',
+                (val) => (val && val.length > 0) || 'Please enter Faculty',
               ]"
             />
           </div>
@@ -119,7 +119,7 @@
               label="University"
               color="white"
               :rules="[
-                (val) => (val && val.length > 0) || 'Please enter university ',
+                (val) => (val && val.length > 0) || 'Please enter University ',
               ]"
             />
           </div>
@@ -172,9 +172,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log(
-         this.$route.query.uid,
-      );
+      console.log(this.$route.query.uid);
       axios
         .post("http://localhost:3000/student/create", {
           StudentID: this.StudentID,
@@ -184,7 +182,6 @@ export default {
           Faculty: this.Faculty,
           University: this.University,
           uid: this.$route.query.uid,
-          
         })
         .then((response) => {
           console.log(response);
@@ -192,7 +189,7 @@ export default {
       this.$router.push({
         path: "/Createaccount3",
         query: {
-         uid: this.uid,
+          uid: this.uid,
         },
       });
     },
@@ -201,7 +198,6 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
 
 

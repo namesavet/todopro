@@ -11,12 +11,7 @@ const routes = [
       { path: 'Createaccount1', name: 'Createaccount1', component: () => import('pages/Createaccount1.vue') },
       { path: 'Createaccount2', name: 'Createaccount2', component: () => import('pages/Createaccount2.vue') },
       { path: 'Createaccount3', name: 'Createaccount3', component: () => import('pages/Createaccount3.vue') },
-      { path: 'Createaccount4', name: 'Createaccount4', component: () => import('pages/Createaccount4.vue') },
-      { path: 'Createaccount5', name: 'Createaccount5', component: () => import('src/pages/Createaccount5.vue') },
-      
       { path: 'Forgotpassword', name: 'Forgotpassword', component: () => import('pages/ForgotPassword.vue') },
-      { path: 'ResetPassword', name: 'Resetpassword', component: () => import('pages/ResetPassword.vue') },
-      { path: 'NewPassword', name: 'Newpassword', component: () => import('pages/NewPassword.vue') },
       { path: 'Profile', name: 'profile', component: () => import('pages/Profile.vue') },
       { path: 'ProfileDetail', name: 'profileDetail', component: () => import('pages/ProfileDetail.vue') },
       { path: 'GradeSummary', name: 'grade summary', component: () => import('src/pages/GradeSummary.vue') },

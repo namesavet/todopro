@@ -4,11 +4,15 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'profile' ,
+          @click="
+            $router.push({
+              name: 'profile',
               query: {
-              uid: student.uid,
-            },
-            })"
+                uid: student.uid,
+                id: semester.id,
+              },
+            })
+          "
           push
           icon="keyboard_arrow_left"
           label="Back"
@@ -32,73 +36,56 @@
         </div>
       </div>
     </div>
-<div class="row ">
-  <div class="col ">
-    <div class="row q-mt-md">
-      <div class="col text-right">
-        <div class="titleprofile">Student ID</div>
-      </div>
-      <div class="col-6  text-left q-mt-sm q-ml-md">
-        <div class="titleprofiledetail">{{ student.StudentID }}</div>
-      </div>
-    </div>
-
-    <div class="row q-mt-md">
-      <div class="col text-right">
-        <div class="titleprofile">Name</div>
-      </div>
-      <div class="col-6 text-left q-mt-sm q-ml-md">
-        <div class="titleprofiledetail">{{ student.Fullname }}</div>
-      </div>
-    </div>
-
-    <div class="row q-mt-md">
-      <div class="col text-right">
-        <div class="titleprofile">Major</div>
-      </div>
-      <div class="col-6 text-left q-mt-sm q-ml-md">
-        <div class="titleprofiledetail">{{ student.Major }}</div>
-      </div>
-    </div>
-
-    <div class="row q-mt-md">
-      <div class="col text-right">
-        <div class="titleprofile">Faculty</div>
-      </div>
-      <div class="col-6 text-left q-mt-sm q-ml-md">
-        <div class="titleprofiledetail">{{ student.Faculty }}</div>
-      </div>
-    </div>
-
-    <div class="row q-mt-md">
-      <div class="col text-right">
-        <div class="titleprofile">Campus</div>
-      </div>
-      <div class="col-6 text-left q-mt-sm q-ml-md">
-        <div class="titleprofiledetail">
-          {{ student.University}}
+    <div class="row">
+      <div class="col">
+        <div class="row q-mt-md">
+          <div class="col text-right">
+            <div class="titleprofile">Student ID</div>
+          </div>
+          <div class="col-6 text-left q-mt-sm q-ml-md">
+            <div class="titleprofiledetail">{{ student.StudentID }}</div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-    <!-- <div class="col items-center" style="margin-top: 50%">
-      <div class="row justify-center">
-        <div
-          class="redbutton"
-          @click="$router.push({ name: 'profile',
-              query: {
-              id: student.uid,
-            }, })"
-          push
-          style="overflow: hidden"
-        >
-          <div class="col text-center q-mt-md">
-            <div class="text-bold text-white" style="font-size: 16px">Done</div>
+
+        <div class="row q-mt-md">
+          <div class="col text-right">
+            <div class="titleprofile">Name</div>
+          </div>
+          <div class="col-6 text-left q-mt-sm q-ml-md">
+            <div class="titleprofiledetail">{{ student.Fullname }}</div>
+          </div>
+        </div>
+
+        <div class="row q-mt-md">
+          <div class="col text-right">
+            <div class="titleprofile">Major</div>
+          </div>
+          <div class="col-6 text-left q-mt-sm q-ml-md">
+            <div class="titleprofiledetail">{{ student.Major }}</div>
+          </div>
+        </div>
+
+        <div class="row q-mt-md">
+          <div class="col text-right">
+            <div class="titleprofile">Faculty</div>
+          </div>
+          <div class="col-6 text-left q-mt-sm q-ml-md">
+            <div class="titleprofiledetail">{{ student.Faculty }}</div>
+          </div>
+        </div>
+
+        <div class="row q-mt-md">
+          <div class="col text-right">
+            <div class="titleprofile">Campus</div>
+          </div>
+          <div class="col-6 text-left q-mt-sm q-ml-md">
+            <div class="titleprofiledetail">
+              {{ student.University }}
+            </div>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </q-page>
 </template>
 <script>
@@ -107,17 +94,25 @@ export default {
   data() {
     return {
       student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getStudentData();
+    this.getSemesterData();
   },
   methods: {
-     async getStudentData() {
-      const { data } = await axios.get("http://localhost:3000/student/findStudentID/"+ this.$route.query.uid
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
       );
-      console.log(data);
       this.student = data.student;
+    },
+    async getSemesterData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      );
+      this.semester = data.semester;
     },
   },
 };

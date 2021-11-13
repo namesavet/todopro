@@ -20,7 +20,7 @@
               :input-style="{ color: 'white' }"
               v-model="email"
               label-color="grey"
-              label="Username"
+              label="Email"
               color="white"
               :rules="[
                 (val) => (val && val.length > 0) || 'Please enter username ',
@@ -106,13 +106,13 @@ export default {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
-        .then(userCredential => {
+        .then((userCredential) => {
           const user = userCredential.user;
           this.uid = user.uid;
           console.log(this.uid),
             this.$router.push({
               path: "/Createaccount2",
-              query: { uid: this.uid }
+              query: { uid: this.uid },
             });
         })
         .catch((err) => alert(err.message));
