@@ -4,7 +4,15 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'Index' })"
+          @click="
+            $router.push({
+              name: 'Index',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           color=""
           icon="keyboard_arrow_left"
@@ -18,7 +26,15 @@
           flat
           round
           dense
-          @click="$router.push({ name: 'settingsemester' })"
+          @click="
+            $router.push({
+              name: 'settingsemester',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           text-color="white"
           icon="settings"
@@ -33,17 +49,27 @@
       </div>
     </div>
 
-<div :key="index" v-for="(semester,index) in semesters">
-  <div class="row items-center justify-center q-mt-xl">
-      <div class="semestertitle">{{semester.Semester_name}}</div>
+    <div :key="index" v-for="(semester, index) in semesters">
+      <div
+        class="row items-center justify-center q-mt-xl"
+        @click="
+          $router.push({
+            name: 'Index',
+            query: {
+              uid: student.uid,
+              SemesterID: semester.SemesterID,
+              Semestername:semester.Semester_name,
+            },
+          })
+        "
+        push
+      >
+        <div class="semestertitle">{{ semester.Semester_name }}</div>
+      </div>
+      <div class="q-mx-lg q-mt-sm">
+        <q-separator color="grey" inset />
+      </div>
     </div>
-    <div class="q-mx-lg q-mt-sm">
-      <q-separator color="grey" inset />
-    </div>
-</div>
-  
-
-   
   </q-page>
 </template>
 <script>
@@ -52,17 +78,27 @@ export default {
   data() {
     return {
       semesters: [],
+      student: {},
+      semester: {},
     };
   },
   mounted() {
     this.getSemester();
+    this.getStudentData();
   },
   methods: {
     async getSemester() {
-      const {data} = await axios.get(
-        "http://localhost:3000/semester/6130613034"
+      const { data } = await axios.get(
+        `http://localhost:3000/semester/${this.$route.query.uid}`
       );
       this.semesters = data.semester;
+    },
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
     },
   },
 };

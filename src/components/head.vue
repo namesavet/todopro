@@ -22,20 +22,27 @@
         </div>
       </div>
     </div>
-
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
       <div class="row justify-between">
         <div class="text-white text-bold" style="font-size: 24px">Hello!</div>
         <q-btn
           rounded
           color="green"
-          @click="$router.push({ name: 'semester' })"
+          @click="
+            $router.push({
+              name: 'semester',
+              query: {
+                uid: student.uid,
+                SemesterID: semester.SemesterID,
+              },
+            })
+          "
           push
           :label="semester.Semester_name"
           style="height: 33px"
         />
       </div>
-
+     {{semester.SemesterID}}
       <div class="row">
         <div class="text-white text-bold" style="font-size: 20px">
           {{ student.Fullname }}
@@ -47,10 +54,10 @@
           @click="
             $router.push({
               name: 'grade summary',
-            query: {
-              uid: student.uid,
-              id: semester.id,
-            },
+              query: {
+                uid: student.uid,
+                id: semester.id,
+              },
             })
           "
           push
@@ -86,7 +93,7 @@ export default {
     },
     async getSemesterData() {
       const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+        `http://localhost:3000/semester/getSemester/${this.$route.query.uid}`
       );
       this.semester = data.semester;
       console.log(this.semester);

@@ -4,7 +4,14 @@
       <q-toolbar-title>
         <q-btn
           flat
-          @click="$router.push({ name: 'semester' })"
+          @click="
+            $router.push({
+              name: 'semester',
+              query: {
+                uid: student.uid,
+              },
+            })
+          "
           push
           color=""
           icon="keyboard_arrow_left"
@@ -18,7 +25,14 @@
           flat
           round
           dense
-          @click="$router.push({ name: 'semester' })"
+          @click="
+            $router.push({
+              name: 'semester',
+              query: {
+                uid: student.uid,
+              },
+            })
+          "
           push
           text-color="white"
           icon="done"
@@ -32,7 +46,6 @@
         <div class="text-white text-bold" style="font-size: 30px">Semester</div>
       </div>
     </div>
-
     <div :key="index" v-for="(semester, index) in semesters">
       <div class="row justify-center text-right" style="margin-top: 15%">
         <div class="col-5 q-ml-md">
@@ -140,9 +153,11 @@ export default {
       },
     ],
     semesters: [],
+    student: {},
   }),
   mounted() {
     this.getSemester();
+    this.getStudentData();
   },
   methods: {
     addSemester() {
@@ -157,9 +172,9 @@ export default {
 
     submitsemester(index) {
       axios
-        .post("http://localhost:3000/semester/create ", {
+        .post(`http://localhost:3000/semester/create/ `, {
           Semester_name: this.semester[index].semester_name,
-          StudentID: "6130613034",
+          uid: this.$route.query.uid,
         })
         .then((response) => {
           this.semesters.push(response.data.data);
@@ -177,9 +192,16 @@ export default {
 
     async getSemester() {
       const { data } = await axios.get(
-        "http://localhost:3000/semester/6130613034"
+        `http://localhost:3000/semester/${this.$route.query.uid}`
       );
       this.semesters = data.semester;
+    },
+    async getStudentData() {
+      const { data } = await axios.get(
+        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      );
+
+      this.student = data.student;
     },
   },
 };
