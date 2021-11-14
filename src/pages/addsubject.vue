@@ -6,11 +6,15 @@
           flat
           color=""
           icon="keyboard_arrow_left"
-          @click="$router.push({ name: 'selectaddsubject' ,
+          @click="
+            $router.push({
+              name: 'selectaddsubject',
               query: {
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
-              }, })"
+                SemesterID: getchangSemester,
+              },
+            })
+          "
           push
           label="Back"
           style="font-size: 16px; color: #96a7af"
@@ -34,15 +38,14 @@
       </div>
     </div>
 
-    
-      <div class="row justify-center">
-        <div class="profile" style="overflow: hidden">
-          <div class="iconteacher">
-            <q-icon name="school" style="color: #ffffff; font-size: 35px">
-            </q-icon>
-          </div>
+    <div class="row justify-center">
+      <div class="profile" style="overflow: hidden">
+        <div class="iconteacher">
+          <q-icon name="school" style="color: #ffffff; font-size: 35px">
+          </q-icon>
         </div>
       </div>
+    </div>
 
     <q-form class="q-gutter-md">
       <div class="row justify-center q-mt-lg">
@@ -135,8 +138,6 @@
       <div class="row justify-center">
         <div class="gradewanttext">
           This ID can share the subject with oyher people.
-          
-          
         </div>
       </div>
 
@@ -193,6 +194,7 @@
                   v-model="a"
                   label-color="grey"
                   label="Enter percent grade"
+                  mask="##"
                 />
               </div>
             </div>
@@ -212,6 +214,7 @@
                   v-model="bplus"
                   label-color="grey"
                   label="Enter percent grade"
+                  mask="##"
                 />
               </div>
             </div>
@@ -231,6 +234,7 @@
                   v-model="b"
                   label-color="grey"
                   label="Enter percent grade"
+                  mask="##"
                 />
               </div>
             </div>
@@ -251,6 +255,7 @@
                   v-model="cplus"
                   label-color="grey"
                   label="Enter percent grade"
+                  mask="##"
                 />
               </div>
             </div>
@@ -270,6 +275,7 @@
                   v-model="c"
                   label-color="grey"
                   label="Enter percent grade"
+                  mask="##"
                 />
               </div>
             </div>
@@ -289,6 +295,7 @@
                   v-model="dplus"
                   label-color="grey"
                   label="Enter percent grade"
+                  mask="##"
                 />
               </div>
             </div>
@@ -308,6 +315,7 @@
                   v-model="d"
                   label-color="grey"
                   label="Enter percent grade"
+                  mask="##"
                 />
               </div>
             </div>
@@ -365,6 +373,7 @@
             label-color="grey"
             v-model="score_midterm"
             label="Score%"
+            mask="##"
           />
         </div>
       </div>
@@ -412,6 +421,7 @@
             label-color="grey"
             v-model="score_final"
             label="Score%"
+            mask="##"
           />
         </div>
       </div>
@@ -455,9 +465,48 @@
           "
         >
           <q-toolbar-title class="row justify-evenly">
-            <q-btn flat name="calendar" icon="calendar_today" />
-            <q-btn flat name="home" icon="home" />
-            <q-btn flat name="book" icon="menu_book" />
+            <q-btn
+              flat
+              name="calendar"
+              icon="calendar_today"
+              @click="
+                $router.push({
+                  name: 'calendar',
+                  query: {
+                    uid: student.uid,
+                    SemesterID: getchangSemester,
+                  },
+                })
+              "
+            />
+            <q-btn
+              flat
+              name="home"
+              icon="home"
+              @click="
+                $router.push({
+                  name: 'Index',
+                  query: {
+                    uid: student.uid,
+                    SemesterID: getchangSemester,
+                  },
+                })
+              "
+            />
+            <q-btn
+              flat
+              name="book"
+              icon="menu_book"
+              @click="
+                $router.push({
+                  name: 'Readbook',
+                  query: {
+                    uid: student.uid,
+                    SemesterID: getchangSemester,
+                  },
+                })
+              "
+            />
           </q-toolbar-title>
         </q-toolbar>
       </q-footer>
@@ -470,7 +519,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-       student: {},
+      student: {},
       semester: {},
       subject_name: "",
       Abbreviation_name: "",
@@ -478,13 +527,7 @@ export default {
       id_subject: "",
 
       credit: "",
-      credits: [
-        "3",
-        "2",
-        "1",
-        "0",
-      
-      ],
+      credits: ["3", "2", "1", "0"],
       Grade_criterionID: false,
       a: "",
       bplus: "",
@@ -500,14 +543,17 @@ export default {
       Desired_grades: ["A", "B+", "B", "C+", "C", "D+", "D", "E"],
       Date_midterm_exam: "",
       Date_final_exam: "",
+      getchangSemester: "",
     };
   },
-    mounted() {
-    
-     this.getStudentData();
-    this.getSemesterData();
+  mounted() {
+    this.getStudentData();
+    this.getchang();
   },
   methods: {
+    getchang() {
+      this.getchangSemester = this.$route.query.SemesterID;
+    },
     onSubmit() {
       axios
         .post("http://localhost:3000/subject/create ", {
@@ -534,12 +580,13 @@ export default {
         .then((response) => {
           console.log(response);
         });
-      this.$router.push({ path: "/Subject",
-            query: {
-                uid: this.student.uid,
-                SemesterID: this.semester.SemesterID,
-              }   });
-              
+      this.$router.push({
+        path: "/Subject",
+        query: {
+          uid: this.student.uid,
+          SemesterID: this.getchangSemester,
+        },
+      });
     },
     async getStudentData() {
       const { data } = await axios.get(
@@ -547,14 +594,6 @@ export default {
       );
 
       this.student = data.student;
-    },
-
-    async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
-      );
-      this.semester = data.semester;
-      console.log(this.semester);
     },
   },
 };

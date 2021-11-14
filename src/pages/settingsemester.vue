@@ -9,6 +9,7 @@
               name: 'semester',
               query: {
                 uid: student.uid,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -20,25 +21,7 @@
         />
       </q-toolbar-title>
 
-      <div class="settingbtn q-mr-md">
-        <q-btn
-          flat
-          round
-          dense
-          @click="
-            $router.push({
-              name: 'semester',
-              query: {
-                uid: student.uid,
-              },
-            })
-          "
-          push
-          text-color="white"
-          icon="done"
-          class=""
-        />
-      </div>
+     
     </q-toolbar>
 
     <div class="row">
@@ -78,11 +61,12 @@
                   color="white"
                   v-model="input.semester_name"
                   label-color="grey"
-                  placeholder="Chapter name"
+                  placeholder="X/YYYY"
+                   mask="#/####"
                 />
               </div>
             </div>
-            <div class="q-mr-sm q-mt-sm">
+            <div class="q-ml-sm q-mt-sm">
               <q-btn
                 @click="submitsemester(index)"
                 round
@@ -93,17 +77,7 @@
                 style="background-color: #40df9f"
               />
             </div>
-            <div class="q-mr-sm q-mt-sm">
-              <q-btn
-                @click="removeField(index, semester)"
-                round
-                dense
-                text-color="white"
-                icon="clear"
-                class=""
-                style="background-color: #ff5656"
-              />
-            </div>
+        
           </div>
           <div class="q-mx-lg q-mt-sm">
             <q-separator color="grey" inset />
@@ -131,21 +105,24 @@ export default {
     ],
     semesters: [],
     student: {},
+    getchangSemester:"",
   }),
   mounted() {
     this.getSemester();
     this.getStudentData();
+    this.getchang()
   },
   methods: {
+    getchang() {
+      this.getchangSemester = this.$route.query.SemesterID;
+      console.log( this.$route.query.SemesterID);
+    },
     addSemester() {
       this.chapter.push({
         chapterName: "",
       });
     },
-    removeField(index, semester) {
-      //type.splice(index, 1);
-      semester.splice(index, 1);
-    },
+
 
     submitsemester(index) {
       axios

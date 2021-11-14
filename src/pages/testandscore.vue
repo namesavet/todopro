@@ -9,7 +9,7 @@
               name: 'Index',
               query: {
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -56,7 +56,7 @@
               query: {
                 SubjectID: subject.SubjectID,
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -101,10 +101,44 @@
           border-radius: 15px 15px 0px 0px;
         "
       >
-        <q-toolbar-title class="row justify-evenly">
-          <q-btn flat name="calendar" icon="calendar_today" />
-          <q-btn flat name="home" icon="home" />
-          <q-btn flat name="book" icon="menu_book" />
+       <q-toolbar-title class="row justify-evenly">
+          <q-btn
+            flat
+            name="calendar"
+            icon="calendar_today"
+            @click="
+              $router.push({
+                name: 'calendar',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
+          <q-btn flat name="home" icon="home"  @click="
+            $router.push({
+              name: 'Index',
+              query: {
+                uid: student.uid,
+                SemesterID: getchangSemester,
+              },
+            })
+          " />
+          <q-btn
+            flat
+            name="book"
+            icon="menu_book"
+            @click="
+              $router.push({
+                name: 'Readbook',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
@@ -120,14 +154,19 @@ export default {
       scores: [],
       student: {},
       semester: {},
+      getchangSemester:"",
     };
   },
   mounted() {
     this.getSubjectData();
     this.getStudentData();
     this.getSemesterData();
+    this.getchang();
   },
   methods: {
+          getchang() {
+      this.getchangSemester = this.$route.query.SemesterID;
+    },
     async getSubjectData() {
       const { data } = await axios.get(
         "http://localhost:3000/subject/" + this.$route.query.SemesterID

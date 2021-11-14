@@ -9,7 +9,7 @@
               name: 'Index',
               query: {
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -127,6 +127,7 @@ export default {
       yourgradechart: [],
       student: {},
       semester: {},
+      getchangSemester: "",
     };
   },
   components: {},
@@ -144,8 +145,12 @@ export default {
     this.getchart();
     this.getStudentData();
     this.getSemesterDataback();
+    this.getchang();
   },
   methods: {
+    getchang() {
+      this.getchangSemester = this.$route.query.SemesterID;
+    },
     async getSemesterData() {
       const { data } = await axios.get(
         "http://localhost:3000/semester/" + this.$route.query.uid
@@ -235,8 +240,7 @@ export default {
       if (Number.isNaN(grade) == true) {
         return this.grade0;
       } else {
-        this.gradeinchart = parseFloat(grade.toFixed(2));
-        return this.gradeinchart;
+        return grade.toFixed(2);
       }
     },
 

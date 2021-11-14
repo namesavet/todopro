@@ -28,7 +28,7 @@
               name: 'profileDetail',
               query: {
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -67,7 +67,8 @@
           @click="
             $router.push({
               name: 'Index',
-              query: { uid: student.uid },
+              query: { uid: student.uid ,
+               SemesterID: getchangSemester,},
             })
           "
           push
@@ -85,13 +86,19 @@ export default {
     return {
       student: {},
       semester: {},
+      getchangSemester:"",
     };
   },
   mounted() {
     this.getStudentData();
     this.getSemesterData();
+    this.getchang();
   },
   methods: {
+      getchang() {
+      this.getchangSemester = this.$route.query.SemesterID;
+      console.log(this.getchangSemester);
+    },
     async getStudentData() {
       const { data } = await axios.get(
         "http://localhost:3000/student/findStudentID/" + this.$route.query.uid

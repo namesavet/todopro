@@ -9,7 +9,7 @@
               name: 'calendar',
               query: {
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -184,7 +184,7 @@
         />
       </div>
     </q-form>
- 
+
     <br />
     <br />
     <br />
@@ -202,10 +202,44 @@
           border-radius: 15px 15px 0px 0px;
         "
       >
-        <q-toolbar-title class="row justify-evenly">
-          <q-btn flat name="calendar" icon="calendar_today" />
-          <q-btn flat name="home" icon="home" />
-          <q-btn flat name="book" icon="menu_book" />
+          <q-toolbar-title class="row justify-evenly">
+          <q-btn
+            flat
+            name="calendar"
+            icon="calendar_today"
+            @click="
+              $router.push({
+                name: 'calendar',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
+          <q-btn flat name="home" icon="home"  @click="
+            $router.push({
+              name: 'Index',
+              query: {
+                uid: student.uid,
+                SemesterID: getchangSemester,
+              },
+            })
+          " />
+          <q-btn
+            flat
+            name="book"
+            icon="menu_book"
+            @click="
+              $router.push({
+                name: 'Readbook',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
@@ -228,15 +262,19 @@ export default {
       semester: {},
       uid: this.$route.query.uid,
       SemesterID: this.$route.query.SemesterID,
+      getchangSemester: "",
     };
   },
-   mounted() {
-    
+  mounted() {
     this.getStudentData();
     this.getSemesterData();
+    this.getchang();
   },
   methods: {
-        async getStudentData() {
+    getchang() {
+      this.getchangSemester = this.$route.query.SemesterID;
+    },
+    async getStudentData() {
       const { data } = await axios.get(
         "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
       );
@@ -268,7 +306,7 @@ export default {
         path: "/Calendar",
         query: {
           uid: this.uid,
-          SemesterID: this.SemesterID,
+          SemesterID: this.getchangSemester,
         },
       });
     },

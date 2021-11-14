@@ -10,7 +10,7 @@
               name: 'Index',
               query: {
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -96,7 +96,7 @@
             query: {
               id: subject.SubjectID,
               uid: student.uid,
-              SemesterID: semester.SemesterID,
+              SemesterID:getchangSemester,
             },
           })
         "
@@ -191,10 +191,36 @@
           "
         >
           <q-toolbar-title class="row justify-evenly">
-            <q-btn flat name="calendar" icon="calendar_today" />
-            <q-btn flat name="home" icon="home" />
-            <q-btn flat name="book" icon="menu_book" />
-          </q-toolbar-title>
+          <q-btn
+            flat
+            name="calendar"
+            icon="calendar_today"
+            @click="
+              $router.push({
+                name: 'calendar',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
+          <q-btn flat name="home" icon="home"  @click="
+            $router.push({
+              name: 'Index',
+              query: {
+                uid: student.uid,
+                SemesterID: getchangSemester,
+              },
+            })
+          " />
+          <q-btn
+            flat
+            name="book"
+            icon="menu_book"
+          
+          />
+        </q-toolbar-title>
         </q-toolbar>
       </q-footer>
     </div>
@@ -212,6 +238,7 @@ export default {
       process0: 0,
       student: {},
       semester: {},
+      getchangSemester:"",
     };
   },
   components: {},
@@ -220,9 +247,14 @@ export default {
     this.getchart();
     this.getStudentData();
     this.getSemesterData();
+    this.getchang();
   },
 
   methods: {
+      getchang() {
+      this.getchangSemester = this.$route.query.SemesterID;
+    
+    },
     async getStudentData() {
       const { data } = await axios.get(
         "http://localhost:3000/student/findStudentID/" + this.$route.query.uid

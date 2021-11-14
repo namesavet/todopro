@@ -9,7 +9,7 @@
               name: 'Index',
               query: {
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -31,7 +31,7 @@
               name: 'settingsemester',
               query: {
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -80,13 +80,19 @@ export default {
       semesters: [],
       student: {},
       semester: {},
+      getchangSemester:""
     };
   },
   mounted() {
     this.getSemester();
     this.getStudentData();
+    this.getchang();
   },
   methods: {
+        getchang() {
+      this.getchangSemester = this.$route.query.SemesterID;
+      console.log(this.getchangSemester);
+    },
     async getSemester() {
       const { data } = await axios.get(
         `http://localhost:3000/semester/${this.$route.query.uid}`

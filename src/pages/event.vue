@@ -9,7 +9,7 @@
               name: 'calendar',
               query: {
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -30,7 +30,7 @@
               query: {
                 id: calendar.NoteID,
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -170,9 +170,43 @@
         "
       >
         <q-toolbar-title class="row justify-evenly">
-          <q-btn flat name="calendar" icon="calendar_today" />
-          <q-btn flat name="home" icon="home" />
-          <q-btn flat name="book" icon="menu_book" />
+          <q-btn
+            flat
+            name="calendar"
+            icon="calendar_today"
+            @click="
+              $router.push({
+                name: 'calendar',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
+          <q-btn flat name="home" icon="home"  @click="
+            $router.push({
+              name: 'Index',
+              query: {
+                uid: student.uid,
+                SemesterID: getchangSemester,
+              },
+            })
+          " />
+          <q-btn
+            flat
+            name="book"
+            icon="menu_book"
+            @click="
+              $router.push({
+                name: 'Readbook',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
@@ -189,6 +223,7 @@ export default {
       calendar: {},
       student: {},
       semester: {},
+      getchangSemester:"",
     };
   },
 
@@ -196,8 +231,12 @@ export default {
     this.getCalendarData();
     this.getStudentData();
     this.getSemesterData();
+    this.getchang();
   },
   methods: {
+     getchang() {
+      this.getchangSemester = this.$route.query.SemesterID;
+    },
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
     },
@@ -232,7 +271,7 @@ export default {
         ,
         query: {
           uid: this.student.uid,
-          SemesterID: this.semester.SemesterID,
+          SemesterID: this.getchangSemester,
         },
       });
     },

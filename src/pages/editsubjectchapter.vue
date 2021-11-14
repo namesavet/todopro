@@ -12,7 +12,7 @@
               query: {
                 id: subject.SubjectID,
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -457,10 +457,44 @@
           "
         >
           <q-toolbar-title class="row justify-evenly">
-            <q-btn flat name="calendar" icon="calendar_today" />
-            <q-btn flat name="home" icon="home" />
-            <q-btn flat name="book" icon="menu_book" />
-          </q-toolbar-title>
+          <q-btn
+            flat
+            name="calendar"
+            icon="calendar_today"
+            @click="
+              $router.push({
+                name: 'calendar',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
+          <q-btn flat name="home" icon="home"  @click="
+            $router.push({
+              name: 'Index',
+              query: {
+                uid: student.uid,
+                SemesterID: getchangSemester,
+              },
+            })
+          " />
+          <q-btn
+            flat
+            name="book"
+            icon="menu_book"
+            @click="
+              $router.push({
+                name: 'Readbook',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
+        </q-toolbar-title>
         </q-toolbar>
       </q-footer>
     </div>
@@ -480,15 +514,21 @@ export default {
       subject: {},
       student: {},
       semester: {},
+      getchangSemester:"",
     };
   },
   mounted() {
     this.getSubjectData();
     this.getStudentData();
     this.getSemesterData();
+    this.getchang();
   },
 
   methods: {
+     async getchang() {
+      this.getchangSemester = this.$route.query.SemesterID;
+    console.log(this.getchangSemester);
+    },
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
     },
@@ -546,11 +586,11 @@ export default {
         query: {
           id: this.subject.SubjectID,
           uid: this.student.uid,
-          SemesterID: this.semester.SemesterID,
+          SemesterID: this.getchangSemester,
         },
       });
     },
-    DeleteSubject() {
+    async DeleteSubject() {
       axios
         .delete(`http://localhost:3000/subject/delete/${this.$route.query.id}`)
         .then((response) => {
@@ -560,7 +600,7 @@ export default {
         path: "/Subject",
         query: {
           uid: this.student.uid,
-          SemesterID: this.semester.SemesterID,
+          SemesterID: this.getchangSemester,
         },
       });
     },

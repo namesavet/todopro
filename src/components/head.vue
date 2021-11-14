@@ -8,7 +8,7 @@
             name: 'profile',
             query: {
               uid: student.uid,
-              SemesterID: semester.SemesterID,
+              SemesterID: getchangSemester,
             },
           })
         "
@@ -33,7 +33,7 @@
               name: 'semester',
               query: {
                 uid: student.uid,
-                SemesterID: semester.SemesterID,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -42,7 +42,7 @@
           style="height: 33px"
         />
       </div>
-     {{semester.SemesterID}}
+     
       <div class="row">
         <div class="text-white text-bold" style="font-size: 20px">
           {{ student.Fullname }}
@@ -56,7 +56,7 @@
               name: 'grade summary',
               query: {
                 uid: student.uid,
-                id: semester.id,
+                SemesterID: getchangSemester,
               },
             })
           "
@@ -78,11 +78,17 @@ export default {
     return {
       student: {},
       semester: {},
+      getchangSemester: " ",
     };
   },
-  mounted() {
-    this.getStudentData();
-    this.getSemesterData();
+  async mounted() {
+    await this.getStudentData();
+
+    if (this.$route.query.SemesterID) {
+      await this.getSemesterName();
+    } else {
+      await this.getSemesterData();
+    }
   },
   methods: {
     async getStudentData() {
@@ -95,8 +101,17 @@ export default {
       const { data } = await axios.get(
         `http://localhost:3000/semester/getSemester/${this.$route.query.uid}`
       );
+      console.log(data);
       this.semester = data.semester;
       console.log(this.semester);
+      this.getchangSemester = data.semester.SemesterID;
+    },
+    async getSemesterName() {
+      const { data } = await axios.get(
+        `http://localhost:3000/semester/findSemester/${this.$route.query.SemesterID}`
+      );
+      this.semester = data.semester;
+      this.getchangSemester = data.semester.SemesterID;
     },
   },
 };

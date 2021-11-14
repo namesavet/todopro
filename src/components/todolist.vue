@@ -21,7 +21,7 @@
                 name: 'subject',
                 query: {
                   uid: student.uid,
-                  SemesterID: semester.SemesterID,
+                  SemesterID: getchangSemester,
                 },
               })
             "
@@ -45,7 +45,7 @@
                 name: 'Readbook',
                 query: {
                   uid: student.uid,
-                  SemesterID: semester.SemesterID,
+                  SemesterID: getchangSemester,
                 },
               })
             "
@@ -74,7 +74,7 @@
                 name: 'testandscore',
                 query: {
                   uid: student.uid,
-                  SemesterID: semester.SemesterID,
+                  SemesterID: getchangSemester,
                 },
               })
             "
@@ -104,7 +104,7 @@
                 name: 'calendar',
                 query: {
                   uid: student.uid,
-                  SemesterID: semester.SemesterID,
+                  SemesterID: getchangSemester,
                 },
               })
             "
@@ -135,9 +135,35 @@
         "
       >
         <q-toolbar-title class="row justify-evenly">
-          <q-btn flat name="calendar" icon="calendar_today" />
+          <q-btn
+            flat
+            name="calendar"
+            icon="calendar_today"
+            @click="
+              $router.push({
+                name: 'calendar',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
           <q-btn flat name="home" icon="home" />
-          <q-btn flat name="book" icon="menu_book" />
+          <q-btn
+            flat
+            name="book"
+            icon="menu_book"
+            @click="
+              $router.push({
+                name: 'Readbook',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
         </q-toolbar-title>
       </q-toolbar>
     </q-footer>
@@ -157,20 +183,30 @@ export default {
       ListAllEvent: [],
       student: {},
       semester: {},
+      getchangSemester: " ",
     };
   },
-  mounted() {
-    this.getCalendarData();
-    this.getStudentData();
-    this.getSemesterData();
+  async mounted() {
+    await this.getCalendarData();
+    await this.getStudentData();
+
+    if (this.$route.query.SemesterID) {
+      await this.getSemesterName();
+    } else {
+      await this.getSemesterData();
+    }
   },
   methods: {
+    getchang() {
+      this.getchangSemester = this.$route.query.SemesterID;
+      console.log(this.getchangSemester);
+    },
     formatDate(dateString) {
       return date.formatDate(dateString, "YYYY/MM/DD");
     },
     async getCalendarData() {
       const { data } = await axios.get(
-        "http://localhost:3000/calendar/getEvent/"  + this.$route.query.uid
+        "http://localhost:3000/calendar/getEvent/" + this.$route.query.uid
       );
 
       this.ListAllEvent = data.calendar;
@@ -188,9 +224,19 @@ export default {
     },
     async getSemesterData() {
       const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+        `http://localhost:3000/semester/getSemester/${this.$route.query.uid}`
+      );
+      console.log(data);
+      this.semester = data.semester;
+      console.log(this.semester);
+      this.getchangSemester = data.semester.SemesterID;
+    },
+    async getSemesterName() {
+      const { data } = await axios.get(
+        `http://localhost:3000/semester/findSemester/${this.$route.query.SemesterID}`
       );
       this.semester = data.semester;
+      this.getchangSemester = data.semester.SemesterID;
     },
   },
   watch: {
