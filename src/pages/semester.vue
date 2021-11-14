@@ -65,7 +65,6 @@
       >
         <div class="semestertitle">{{ semester.Semester_name }}</div>
       </div>
-      {{ semester.SemesterID }}
       <div class="q-mx-lg q-mt-sm">
         <q-separator color="grey" inset />
       </div>

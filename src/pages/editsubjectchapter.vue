@@ -491,8 +491,7 @@
                   uid: student.uid,
                   SemesterID: getchangSemester,
                 },
-              })
-            "
+              })"
           />
         </q-toolbar-title>
         </q-toolbar>
@@ -593,9 +592,6 @@ export default {
     async DeleteSubject() {
       axios
         .delete(`http://localhost:3000/subject/delete/${this.$route.query.id}`)
-        .then((response) => {
-          console.log(response);
-        });
       this.$router.push({
         path: "/Subject",
         query: {

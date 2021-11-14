@@ -190,14 +190,10 @@ export default {
       }
     },
 
-    async submitSubjectID(SubjectID,uid) {
+    async submitSubjectID(SubjectID) {
       await axios.post(
-        `http://localhost:3000/subject/createWithId/${SubjectID}/${this.$route.query.uid}/${this.$route.query.SemesterID}`,{
-          uid:this.$route.query.uid,
-          SemesterID:this.$route.query.SemesterID,
-        }
+        `http://localhost:3000/subject/createWithId/${SubjectID}/${this.$route.query.uid}/${this.$route.query.SemesterID}`
       );
-      console.log(uid);
     },
   },
   watch: {

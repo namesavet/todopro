@@ -161,8 +161,7 @@
                   uid: student.uid,
                   SemesterID: getchangSemester,
                 },
-              })
-            "
+              })"
           />
         </q-toolbar-title>
       </q-toolbar>
@@ -199,7 +198,6 @@ export default {
   methods: {
     getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
-      console.log(this.getchangSemester);
     },
     formatDate(dateString) {
       return date.formatDate(dateString, "YYYY/MM/DD");
@@ -226,9 +224,7 @@ export default {
       const { data } = await axios.get(
         `http://localhost:3000/semester/getSemester/${this.$route.query.uid}`
       );
-      console.log(data);
       this.semester = data.semester;
-      console.log(this.semester);
       this.getchangSemester = data.semester.SemesterID;
     },
     async getSemesterName() {
