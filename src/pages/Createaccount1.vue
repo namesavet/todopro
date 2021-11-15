@@ -59,6 +59,38 @@
             </q-input>
           </div>
         </div>
+
+        <div class="row justify-center items-center">
+          <div class="icon_Key" style="overflow: hidden">
+            <div class="row items-center justify-center q-mt-sm">
+              <q-icon name="lock" size="30px" style="color: #ff575f" />
+            </div>
+          </div>
+          <div class="col-9 q-ml-md q-gutter-xs">
+            <q-input
+              placeholder="Repassword"
+              class="q-mt-md"
+              :input-style="{ color: 'white' }"
+              v-model="repassword"
+              label-color="grey"
+              label="Recheck password"
+              color="white"
+              :rules="[
+                (val) => (val && val.length > 0) || 'Please enter password ',
+              ]"
+              :type="isPwd1 ? 'password' : 'text'"
+            >
+              <template v-slot:append>
+                <q-icon
+                  :name="isPwd1 ? 'visibility_off' : 'visibility'"
+                  class="cursor-pointer"
+                  @click="isPwd1 = !isPwd1"
+                />
+              </template>
+            </q-input>
+          </div>
+        </div>
+
         <div class="row justify-center items-center">
           <div class="button_back q-mt-lg">
             <q-btn
@@ -93,29 +125,37 @@
 <script>
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
+
 export default {
   data() {
     return {
       email: "",
       password: "",
+      repassword: "",
       isPwd: true,
+      isPwd1: true,
     };
   },
   methods: {
     Register() {
-      firebase
-        .auth()
-        .createUserWithEmailAndPassword(this.email, this.password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-          this.uid = user.uid;
-          console.log(this.uid),
-            this.$router.push({
-              path: "/Createaccount2",
-              query: { uid: this.uid },
-            });
-        })
-        .catch((err) => alert(err.message));
+      if (this.password === this.repassword) {
+        firebase
+          .auth()
+          .createUserWithEmailAndPassword(this.email, this.password)
+          .then((userCredential) => {
+            const user = userCredential.user;
+            this.uid = user.uid;
+            console.log(this.uid),
+              this.$router.push({
+                path: "/Createaccount2",
+                query: { uid: this.uid },
+              });
+          })
+          .catch((err) => alert(err.message));
+      }
+      else {
+        alert("sfghjghj")
+      }
     },
   },
 };

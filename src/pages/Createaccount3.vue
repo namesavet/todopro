@@ -30,17 +30,7 @@
       </div>
 
       <div class="row justify-center items-center">
-        <div class="button_back q-mt-lg">
-          <q-btn
-            @click="$router.push({ name: 'Createaccount2' })"
-            push
-            align="center"
-            no-caps
-            icon-right="arrow_back"
-            size="20px"
-            style="width: 50px; background: #286053; color: #3dd598"
-          />
-        </div>
+   
         <div class="button-next q-mt-lg q-ml-md">
           <q-btn
             @click="onSubmit()"
