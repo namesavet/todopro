@@ -154,7 +154,7 @@ export default {
           .catch((err) => alert(err.message));
       }
       else {
-        alert("sfghjghj")
+        alert("Please enter a new password.")
       }
     },
   },
