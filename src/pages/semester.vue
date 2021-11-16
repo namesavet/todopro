@@ -2,23 +2,7 @@
   <q-page class="addbackground">
     <q-toolbar>
       <q-toolbar-title>
-        <q-btn
-          flat
-          @click="
-            $router.push({
-              name: 'Index',
-              query: {
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          "
-          push
-          color=""
-          icon="keyboard_arrow_left"
-          label="Back"
-          style="font-size: 16px; color: #96a7af"
-        />
+        
       </q-toolbar-title>
 
       <div class="settingbtn q-mr-md">
