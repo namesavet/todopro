@@ -110,7 +110,6 @@
                           mask="##"
                           color="white"
                           label-color="grey"
-                          mask="##"
                           required
                         />
                       </div>
@@ -122,7 +121,6 @@
                           mask="##"
                           color="white"
                           label-color="grey"
-                          mask="##"
                           required
                         />
                       </div>
