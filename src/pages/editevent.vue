@@ -1,189 +1,197 @@
 <template>
   <q-page class="addbackground">
-    <q-toolbar>
-      <q-toolbar-title>
-        <q-btn
-          flat
-          @click="
-            $router.push({
-              name: 'event',
-              query: {
-                id: calendar.NoteID,
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          "
-          push
-          color=""
-          icon="keyboard_arrow_left"
-          label="Back"
-          style="font-size: 16px; color: #96a7af"
-        />
-      </q-toolbar-title>
+    <q-form @submit="onSubmit()">
+      <q-toolbar>
+        <q-toolbar-title>
+          <q-btn
+            flat
+            @click="
+              $router.push({
+                name: 'event',
+                query: {
+                  id: calendar.NoteID,
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+            push
+            color=""
+            icon="keyboard_arrow_left"
+            label="Back"
+            style="font-size: 16px; color: #96a7af"
+          />
+        </q-toolbar-title>
 
-      <div class="settingbtn">
-        <q-btn
-          flat
-          @click="onSubmit()"
-          push
-          round
-          dense
-          text-color="white"
-          icon="done"
-          class=""
-        />
-      </div>
-    </q-toolbar>
+        <div class="settingbtn">
+          <q-btn
+            flat
+            push
+            round
+            dense
+            text-color="white"
+            icon="done"
+            class=""
+            type="submit"
+          />
+        </div>
+      </q-toolbar>
 
-    <div class="row justify-center">
-      <div class="text-white text-bold" style="font-size: 30px">
-        Edit Activity
-      </div>
-    </div>
-
-    <div class="row justify-center q-mt-lg">
-      <div class="bgtitle" style="overflow: hidden">
-        <div class="col-2">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-icon
-              name="chrome_reader_mode"
-              size="30px"
-              style="color: #ffc542"
-            />
-          </div>
+      <div class="row justify-center">
+        <div class="text-white text-bold" style="font-size: 30px">
+          Edit Activity
         </div>
       </div>
 
-      <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input
-          v-model="calendar.Note_title"
-          color="white"
-          :input-style="{ color: 'white' }"
-          label-color="grey"
-          label="Title"
-        />
-      </div>
-    </div>
-
-    <div class="row justify-center">
-      <div class="bgtitle" style="overflow: hidden">
-        <div class="col-2">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-icon
-              name="chrome_reader_mode"
-              size="30px"
-              style="color: #ffc542"
-            />
+      <div class="row justify-center q-mt-lg">
+        <div class="bgtitle" style="overflow: hidden">
+          <div class="col-2">
+            <div class="row items-center justify-center q-mt-sm">
+              <q-icon
+                name="chrome_reader_mode"
+                size="30px"
+                style="color: #ffc542"
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-8 q-ml-md q-gutter-xs">
-        <q-select
-          v-model="calendar.Note_type"
-          :options="types"
-          label="type"
-          color="black"
-          :input-style="{ color: 'white' }"
-          label-color="grey"
-        />
-      </div>
-    </div>
 
-    <div class="row justify-center">
-      <div class="bgtitle" style="overflow: hidden">
-        <div class="col-2 item-center">
-          <div class="row items-center justify-center q-mt-sm">
-            <q-icon name="location_on" size="30px" style="color: #ffc542" />
-          </div>
+        <div class="col-8 q-ml-md q-gutter-xs">
+          <q-input
+            v-model="calendar.Note_title"
+            color="white"
+            :input-style="{ color: 'white' }"
+            label-color="grey"
+            label="Title"
+            required
+          />
         </div>
       </div>
-      <div class="col-8 q-ml-md q-gutter-xs">
-        <q-input
-          v-model="calendar.Note_location"
-          color="white"
-          :input-style="{ color: 'white' }"
-          label-color="grey"
-          label="Location"
-        />
-      </div>
-    </div>
 
-    <div class="q-mt-md">
-      <div class="col-2 item-center q-ml-lg q-mr-lg" style="overflow: hidden">
-        <div class="text-white text-bold" style="font-size: 25px">Date</div>
+      <div class="row justify-center">
+        <div class="bgtitle" style="overflow: hidden">
+          <div class="col-2">
+            <div class="row items-center justify-center q-mt-sm">
+              <q-icon
+                name="chrome_reader_mode"
+                size="30px"
+                style="color: #ffc542"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-8 q-ml-md q-gutter-xs">
+          <q-select
+            v-model="calendar.Note_type"
+            :options="types"
+            label="type"
+            color="black"
+            :input-style="{ color: 'white' }"
+            label-color="grey"
+            required
+          />
+        </div>
       </div>
 
-      <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
+      <div class="row justify-center">
+        <div class="bgtitle" style="overflow: hidden">
+          <div class="col-2 item-center">
+            <div class="row items-center justify-center q-mt-sm">
+              <q-icon name="location_on" size="30px" style="color: #ffc542" />
+            </div>
+          </div>
+        </div>
+        <div class="col-8 q-ml-md q-gutter-xs">
+          <q-input
+            v-model="calendar.Note_location"
+            color="white"
+            :input-style="{ color: 'white' }"
+            label-color="grey"
+            label="Location"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="q-mt-md">
+        <div class="col-2 item-center q-ml-lg q-mr-lg" style="overflow: hidden">
+          <div class="text-white text-bold" style="font-size: 25px">Date</div>
+        </div>
+
+        <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
+          <q-input
+            filled
+            v-model="calendar.Note_date"
+            color="white"
+            :input-style="{ color: 'white' }"
+            label-color="grey"
+            required
+          >
+            <template v-slot:append>
+              <q-icon name="event" class="cursor-pointer" color="white">
+                <q-popup-proxy
+                  ref="qDateProxy"
+                  transition-show="scale"
+                  transition-hide="scale"
+                >
+                  <q-date v-model="calendar.Note_date">
+                    <div class="row items-center justify-end">
+                      <q-btn v-close-popup label="Close" color="primary" flat />
+                    </div>
+                  </q-date>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
+        </div>
+      </div>
+
+      <div class="">
+        <div class="col-2 item-center q-ml-lg">
+          <div class="text-white text-bold" style="font-size: 25px">Time</div>
+        </div>
+
+        <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
+          <q-input
+            filled
+            v-model="calendar.Note_time"
+            color="white"
+            :input-style="{ color: 'white' }"
+            label-color="grey"
+            mask="time"
+            :rules="['time']"
+            required
+          >
+            <template v-slot:append>
+              <q-icon name="access_time" class="cursor-pointer" color="white">
+                <q-popup-proxy transition-show="scale" transition-hide="scale">
+                  <q-time v-model="calendar.Note_time">
+                    <div class="row items-center justify-end">
+                      <q-btn v-close-popup label="Close" color="primary" flat />
+                    </div>
+                  </q-time>
+                </q-popup-proxy>
+              </q-icon>
+            </template>
+          </q-input>
+        </div>
+      </div>
+
+      <div class="q-ml-lg text-white text-bold" style="font-size: 25px">
+        Note
+      </div>
+
+      <div class="item-center text-center q-ml-lg q-mr-lg">
         <q-input
+          v-model="calendar.Note_detail"
           filled
-          v-model="calendar.Note_date"
+          type="textarea"
           color="white"
           :input-style="{ color: 'white' }"
           label-color="grey"
-        >
-          <template v-slot:append>
-            <q-icon name="event" class="cursor-pointer" color="white">
-              <q-popup-proxy
-                ref="qDateProxy"
-                transition-show="scale"
-                transition-hide="scale"
-              >
-                <q-date v-model="calendar.Note_date">
-                  <div class="row items-center justify-end">
-                    <q-btn v-close-popup label="Close" color="primary" flat />
-                  </div>
-                </q-date>
-              </q-popup-proxy>
-            </q-icon>
-          </template>
-        </q-input>
+        />
       </div>
-    </div>
-
-    <div class="">
-      <div class="col-2 item-center q-ml-lg">
-        <div class="text-white text-bold" style="font-size: 25px">Time</div>
-      </div>
-
-      <div class="col-8 q-ml-lg q-mr-lg q-gutter-xs">
-        <q-input
-          filled
-          v-model="calendar.Note_time"
-          color="white"
-          :input-style="{ color: 'white' }"
-          label-color="grey"
-          mask="time"
-          :rules="['time']"
-        >
-          <template v-slot:append>
-            <q-icon name="access_time" class="cursor-pointer" color="white">
-              <q-popup-proxy transition-show="scale" transition-hide="scale">
-                <q-time v-model="calendar.Note_time">
-                  <div class="row items-center justify-end">
-                    <q-btn v-close-popup label="Close" color="primary" flat />
-                  </div>
-                </q-time>
-              </q-popup-proxy>
-            </q-icon>
-          </template>
-        </q-input>
-      </div>
-    </div>
-
-    <div class="q-ml-lg text-white text-bold" style="font-size: 25px">Note</div>
-
-    <div class="item-center text-center q-ml-lg q-mr-lg">
-      <q-input
-        v-model="calendar.Note_detail"
-        filled
-        type="textarea"
-        color="white"
-        :input-style="{ color: 'white' }"
-        label-color="grey"
-      />
-    </div>
-
+    </q-form>
     <br />
     <br />
     <br />
@@ -201,7 +209,7 @@
           border-radius: 15px 15px 0px 0px;
         "
       >
-          <q-toolbar-title class="row justify-evenly">
+        <q-toolbar-title class="row justify-evenly">
           <q-btn
             flat
             name="calendar"
@@ -216,15 +224,20 @@
               })
             "
           />
-          <q-btn flat name="home" icon="home"  @click="
-            $router.push({
-              name: 'Index',
-              query: {
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          " />
+          <q-btn
+            flat
+            name="home"
+            icon="home"
+            @click="
+              $router.push({
+                name: 'Index',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
           <q-btn
             flat
             name="book"
@@ -256,17 +269,17 @@ export default {
       types: ["Homework", "Test", "Other"],
       student: {},
       semester: {},
-      getchangSemester:"",
+      getchangSemester: "",
     };
   },
   mounted() {
     this.getCalendarData();
     this.getStudentData();
     this.getSemesterData();
-    this. getchang();
+    this.getchang();
   },
   methods: {
-      getchang() {
+    getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
     },
     formatDate(day) {

@@ -5,7 +5,12 @@
         <div class="texttitle q-mt-sm q-ml-lg">TO DO TODAY</div>
         <div :key="index" v-for="(calendar, index) in calendars">
           <div class="TextNoteTitle q-mt-sm q-ml-lg">
-            - {{ calendar.Note_title }}
+            <div class="row">
+              <div class="col-1">
+                <div class="q-ml-sm dotcalendar"></div>
+              </div>
+              <div class="col-9">{{ calendar.Note_title }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -161,7 +166,8 @@
                   uid: student.uid,
                   SemesterID: getchangSemester,
                 },
-              })"
+              })
+            "
           />
         </q-toolbar-title>
       </q-toolbar>

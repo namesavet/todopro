@@ -1,44 +1,44 @@
 <template>
   <q-page class="addbackground">
-    <q-toolbar>
-      <q-toolbar-title>
+    <q-form @submit="onSubmit()">
+      <q-toolbar>
+        <q-toolbar-title>
+          <q-btn
+            flat
+            @click="
+              $router.push({
+                name: 'calendar',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+            push
+            color=""
+            icon="keyboard_arrow_left"
+            label="Back"
+            style="font-size: 16px; color: #96a7af"
+          />
+        </q-toolbar-title>
+
         <q-btn
           flat
-          @click="
-            $router.push({
-              name: 'calendar',
-              query: {
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          "
-          push
-          color=""
-          icon="keyboard_arrow_left"
-          label="Back"
-          style="font-size: 16px; color: #96a7af"
+          dense
+          text-color="white"
+          icon="done"
+          class="q-mr-xs"
+          style="background-color: #40df9f"
+          type="submit"
         />
-      </q-toolbar-title>
+      </q-toolbar>
 
-      <q-btn
-        flat
-        dense
-        @click="onSubmit()"
-        text-color="white"
-        icon="done"
-        class="q-mr-xs"
-        style="background-color: #40df9f"
-      />
-    </q-toolbar>
-
-    <div class="row justify-center">
-      <div class="text-white text-bold" style="font-size: 30px">
-        New activity
+      <div class="row justify-center">
+        <div class="text-white text-bold" style="font-size: 30px">
+          New activity
+        </div>
       </div>
-    </div>
 
-    <q-form class="q-gutter-md">
       <div class="row justify-center q-mt-lg">
         <div class="bgtitle" style="overflow: hidden">
           <div class="col-2">
@@ -59,6 +59,7 @@
             color="white"
             :input-style="{ color: 'white' }"
             label-color="grey"
+            required
           />
         </div>
       </div>
@@ -82,6 +83,7 @@
             label="type"
             color="black"
             label-color="grey"
+            required
           />
         </div>
       </div>
@@ -101,6 +103,7 @@
             color="white"
             :input-style="{ color: 'white' }"
             label-color="grey"
+            required
           />
         </div>
       </div>
@@ -119,6 +122,7 @@
             v-model="Note_date"
             mask="date"
             :rules="['date']"
+            required
           >
             <template v-slot:append>
               <q-icon name="event" class="cursor-pointer" color="white">
@@ -153,6 +157,7 @@
             v-model="Note_time"
             mask="time"
             :rules="['time']"
+            required
           >
             <template v-slot:append>
               <q-icon name="access_time" class="cursor-pointer" color="white">
@@ -181,6 +186,7 @@
           color="white"
           :input-style="{ color: 'white' }"
           label-color="grey"
+          
         />
       </div>
     </q-form>
@@ -202,7 +208,7 @@
           border-radius: 15px 15px 0px 0px;
         "
       >
-          <q-toolbar-title class="row justify-evenly">
+        <q-toolbar-title class="row justify-evenly">
           <q-btn
             flat
             name="calendar"
@@ -217,15 +223,20 @@
               })
             "
           />
-          <q-btn flat name="home" icon="home"  @click="
-            $router.push({
-              name: 'Index',
-              query: {
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          " />
+          <q-btn
+            flat
+            name="home"
+            icon="home"
+            @click="
+              $router.push({
+                name: 'Index',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
           <q-btn
             flat
             name="book"
