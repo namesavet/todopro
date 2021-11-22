@@ -1,53 +1,56 @@
 <template>
   <q-page class="addbackground">
-    <q-toolbar>
-      <q-toolbar-title>
+    <q-form @submit.prevent="onSubmit">
+      <q-toolbar>
+        <q-toolbar-title>
+          <q-btn
+            flat
+            color=""
+            icon="keyboard_arrow_left"
+            @click="
+              $router.push({
+                name: 'selectaddsubject',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+            push
+            label="Back"
+            style="font-size: 16px; color: #96a7af"
+          />
+        </q-toolbar-title>
+
         <q-btn
           flat
-          color=""
-          icon="keyboard_arrow_left"
-          @click="
-            $router.push({
-              name: 'selectaddsubject',
-              query: {
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          "
-          push
-          label="Back"
-          style="font-size: 16px; color: #96a7af"
+          dense
+          type="submit"
+          value="onSubmit"
+          text-color="white"
+          icon="done"
+          class="q-mr-xs"
+          style="background-color: #40df9f"
         />
-      </q-toolbar-title>
+      </q-toolbar>
 
-      <q-btn
-        flat
-        dense
-        @click="onSubmit()"
-        text-color="white"
-        icon="done"
-        class="q-mr-xs"
-        style="background-color: #40df9f"
-      />
-    </q-toolbar>
-
-    <div class="row">
-      <div class="col q-ml-md q-mt-sm q-gutter-xs">
-        <div class="text-white text-bold" style="font-size: 30px">Subject</div>
-      </div>
-    </div>
-
-    <div class="row justify-center">
-      <div class="profile" style="overflow: hidden">
-        <div class="iconteacher">
-          <q-icon name="school" style="color: #ffffff; font-size: 35px">
-          </q-icon>
+      <div class="row">
+        <div class="col q-ml-md q-mt-sm q-gutter-xs">
+          <div class="text-white text-bold" style="font-size: 30px">
+            Subject
+          </div>
         </div>
       </div>
-    </div>
 
-    <q-form class="q-gutter-md">
+      <div class="row justify-center">
+        <div class="profile" style="overflow: hidden">
+          <div class="iconteacher">
+            <q-icon name="school" style="color: #ffffff; font-size: 35px">
+            </q-icon>
+          </div>
+        </div>
+      </div>
+
       <div class="row justify-center q-mt-lg">
         <div class="name q-mt-sm" style="overflow: hidden">
           <div class="col-2">
@@ -63,6 +66,7 @@
 
         <div class="col-8 q-ml-md q-gutter-xs">
           <q-input
+            required
             :input-style="{ color: 'white' }"
             color="white"
             v-model="subject_name"
@@ -86,6 +90,7 @@
         </div>
         <div class="col-8 q-ml-md q-gutter-xs">
           <q-input
+            required
             :input-style="{ color: 'white' }"
             color="white"
             v-model="Abbreviation_name"
@@ -106,6 +111,7 @@
 
         <div class="col-8 q-ml-md q-gutter-xs">
           <q-input
+            required
             :input-style="{ color: 'white' }"
             color="white"
             v-model="teacher_name"
@@ -126,6 +132,7 @@
 
         <div class="col-8 q-ml-md q-gutter-xs">
           <q-input
+            required
             :input-style="{ color: 'white' }"
             color="white"
             v-model="id_subject"
@@ -149,6 +156,7 @@
       <div class="">
         <div class="col-8 q-mx-md q-gutter-xs">
           <q-select
+            required
             label-color="grey"
             v-model="credit"
             :options="credits"
@@ -189,6 +197,7 @@
               </div>
               <div class="col-8 q-ml-xs q-gutter-xs">
                 <q-input
+                  required
                   :input-style="{ color: 'white' }"
                   color="white"
                   v-model="a"
@@ -209,6 +218,7 @@
               </div>
               <div class="col-8 q-ml-xs q-gutter-xs">
                 <q-input
+                  required
                   :input-style="{ color: 'white' }"
                   color="white"
                   v-model="bplus"
@@ -229,6 +239,7 @@
               </div>
               <div class="col-8 q-ml-xs q-gutter-xs">
                 <q-input
+                  required
                   :input-style="{ color: 'white' }"
                   color="white"
                   v-model="b"
@@ -250,6 +261,7 @@
 
               <div class="col-8 q-ml-xs q-gutter-xs">
                 <q-input
+                  required
                   :input-style="{ color: 'white' }"
                   color="white"
                   v-model="cplus"
@@ -270,6 +282,7 @@
               </div>
               <div class="col-8 q-ml-xs q-gutter-xs">
                 <q-input
+                  required
                   :input-style="{ color: 'white' }"
                   color="white"
                   v-model="c"
@@ -290,6 +303,7 @@
               </div>
               <div class="col-8 q-ml-xs q-gutter-xs">
                 <q-input
+                  required
                   :input-style="{ color: 'white' }"
                   color="white"
                   v-model="dplus"
@@ -310,6 +324,7 @@
               </div>
               <div class="col-8 q-ml-xs q-gutter-xs">
                 <q-input
+                  required
                   :input-style="{ color: 'white' }"
                   color="white"
                   v-model="d"
@@ -340,6 +355,7 @@
       <div class="row justify-around">
         <div class="col-6 q-pa-md" style="max-width: 100%">
           <q-input
+            required
             :input-style="{ color: 'white' }"
             label-color="grey"
             filled
@@ -368,6 +384,7 @@
 
         <div class="col-5 q-mr-md q-mt-md">
           <q-input
+            required
             :input-style="{ color: 'white' }"
             color="white"
             label-color="grey"
@@ -389,6 +406,7 @@
       <div class="row justify-around">
         <div class="col-6 q-pa-md" style="max-width: 100%">
           <q-input
+            required
             filled
             v-model="Date_final_exam"
             mask="date"
@@ -416,6 +434,7 @@
 
         <div class="col-5 q-mr-md q-mt-md">
           <q-input
+            required
             :input-style="{ color: 'white' }"
             color="white"
             label-color="grey"
@@ -437,6 +456,7 @@
       <div class="">
         <div class="col-8 q-mx-md q-gutter-xs">
           <q-select
+            required
             v-model="grade"
             :options="Desired_grades"
             label="Your grade"
@@ -445,71 +465,72 @@
           />
         </div>
       </div>
+
+      <br />
+      <br />
+      <br />
+
+      <div class="row q-mt-xl">
+        <q-footer elevated>
+          <q-toolbar
+            class="shadow-2"
+            style="
+              background: #30444e;
+              color: white;
+              bottom: 0;
+              position: absolute;
+              width: 100%;
+              border-radius: 15px 15px 0px 0px;
+            "
+          >
+            <q-toolbar-title class="row justify-evenly">
+              <q-btn
+                flat
+                name="calendar"
+                icon="calendar_today"
+                @click="
+                  $router.push({
+                    name: 'calendar',
+                    query: {
+                      uid: student.uid,
+                      SemesterID: getchangSemester,
+                    },
+                  })
+                "
+              />
+              <q-btn
+                flat
+                name="home"
+                icon="home"
+                @click="
+                  $router.push({
+                    name: 'Index',
+                    query: {
+                      uid: student.uid,
+                      SemesterID: getchangSemester,
+                    },
+                  })
+                "
+              />
+              <q-btn
+                flat
+                name="book"
+                icon="menu_book"
+                @click="
+                  $router.push({
+                    name: 'Readbook',
+                    query: {
+                      uid: student.uid,
+                      SemesterID: getchangSemester,
+                    },
+                  })
+                "
+              />
+            </q-toolbar-title>
+          </q-toolbar>
+        </q-footer>
+      </div>
     </q-form>
-
-    <br />
-    <br />
-    <br />
-
-    <div class="row q-mt-xl">
-      <q-footer elevated>
-        <q-toolbar
-          class="shadow-2"
-          style="
-            background: #30444e;
-            color: white;
-            bottom: 0;
-            position: absolute;
-            width: 100%;
-            border-radius: 15px 15px 0px 0px;
-          "
-        >
-          <q-toolbar-title class="row justify-evenly">
-            <q-btn
-              flat
-              name="calendar"
-              icon="calendar_today"
-              @click="
-                $router.push({
-                  name: 'calendar',
-                  query: {
-                    uid: student.uid,
-                    SemesterID: getchangSemester,
-                  },
-                })
-              "
-            />
-            <q-btn
-              flat
-              name="home"
-              icon="home"
-              @click="
-                $router.push({
-                  name: 'Index',
-                  query: {
-                    uid: student.uid,
-                    SemesterID: getchangSemester,
-                  },
-                })
-              "
-            />
-            <q-btn
-              flat
-              name="book"
-              icon="menu_book"
-              @click="
-                $router.push({
-                  name: 'Readbook',
-                  query: {
-                    uid: student.uid,
-                    SemesterID: getchangSemester,
-                  },
-                })"
-            />
-          </q-toolbar-title>
-        </q-toolbar>
-      </q-footer>
-    </div>
   </q-page>
 </template>
 
