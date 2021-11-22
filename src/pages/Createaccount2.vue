@@ -3,7 +3,7 @@
     <div class="col edit-space">
       <div class="Logo q-ml-lg"></div>
       <div class="texttitle2 q-ml-lg q-mt-sm">Information</div>
-      <q-form>
+      <form @submit.prevent="onSubmit">
         <div class="row justify-center items-center q-mt-md">
           <div class="icon_Profile" style="overflow: hidden">
             <div class="row items-center justify-center q-mt-sm">
@@ -12,11 +12,13 @@
           </div>
           <div class="col-9 q-ml-md q-gutter-xs">
             <q-input
+              required
               class="q-mt-md"
               :input-style="{ color: 'white' }"
               v-model="StudentID"
               label-color="grey"
               label="StudentID"
+              mask="##########"
               color="white"
               :rules="[
                 (val) => (val && val.length > 0) || 'Please enter StudentID ',
@@ -32,6 +34,7 @@
           </div>
           <div class="col-9 q-ml-md q-gutter-xs">
             <q-input
+              required
               class="q-mt-md"
               :input-style="{ color: 'white' }"
               v-model="Fullname"
@@ -52,6 +55,7 @@
           </div>
           <div class="col-9 q-ml-md q-gutter-xs">
             <q-input
+              required
               class="q-mt-md"
               :input-style="{ color: 'white' }"
               v-model="Name"
@@ -72,6 +76,7 @@
           </div>
           <div class="col-9 q-ml-md q-gutter-xs">
             <q-input
+              required
               class="q-mt-md"
               :input-style="{ color: 'white' }"
               v-model="Major"
@@ -92,6 +97,7 @@
           </div>
           <div class="col-9 q-ml-md q-gutter-xs">
             <q-input
+              required
               class="q-mt-md"
               :input-style="{ color: 'white' }"
               v-model="Faculty"
@@ -112,6 +118,7 @@
           </div>
           <div class="col-9 q-ml-md q-gutter-xs">
             <q-input
+              required
               class="q-mt-md"
               :input-style="{ color: 'white' }"
               v-model="University"
@@ -124,24 +131,24 @@
             />
           </div>
         </div>
-      </q-form>
-      <div>
-        <div class="row justify-center">
-        
-          <div class="button-next q-mt-lg q-ml-md">
-            <q-btn
-              @click="onSubmit()"
-              push
-              align="center"
-              no-caps
-              label="Next "
-              icon-right="arrow_forward"
-              size="20px"
-              style="width: 250px; background: #40df9f; color: white"
-            />
+        <div>
+          <div class="row justify-center">
+            <div class="button-next q-mt-lg q-ml-md">
+              <q-btn
+                type="submit"
+                value="onSubmit"
+                push
+                align="center"
+                no-caps
+                label="Next "
+                icon-right="arrow_forward"
+                size="20px"
+                style="width: 250px; background: #40df9f; color: white"
+              />
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </q-page>
 </template>
@@ -162,7 +169,6 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log(this.$route.query.uid);
       axios
         .post("http://localhost:3000/student/create", {
           StudentID: this.StudentID,
