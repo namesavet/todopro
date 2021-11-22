@@ -85,13 +85,13 @@
     </div>
 
     <div class="row justify-center">
-      <div class="warringscore q-my-md text-white">
+      <div class="warringscore q-my-md text-white" >
         <div class="q-my-sm">
           <div class="row justify-center">
-            You must score {{ subject.GradeD - total }} points to pass a E
+            {{ passEscore(subject.GradeD) }}
           </div>
           <div class="row justify-center">
-            grade and {{ subject.GradeA - total }} points to A grade
+            {{ passAscore(subject.GradeA) }}
           </div>
         </div>
       </div>
@@ -192,15 +192,20 @@
               })
             "
           />
-          <q-btn flat name="home" icon="home"  @click="
-            $router.push({
-              name: 'Index',
-              query: {
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          " />
+          <q-btn
+            flat
+            name="home"
+            icon="home"
+            @click="
+              $router.push({
+                name: 'Index',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
           <q-btn
             flat
             name="book"
@@ -232,6 +237,10 @@ export default {
       student: {},
       semester: {},
       getchangSemester: "",
+      passD: 0,
+      passA: 0,
+      textpassD: 0,
+      textpassA: 0,
     };
   },
   mounted() {
@@ -240,6 +249,7 @@ export default {
     this.getStudentData();
     this.getSemesterData();
     this.getchang();
+    this.passEscore();
   },
   methods: {
     getchang() {
@@ -269,6 +279,24 @@ export default {
         "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
+    },
+    passEscore(GradeD) {
+      this.passD = GradeD;
+      if (this.passD - this.total < 0) {
+        return "You passed grade E";
+      } else {
+        this.textpassD = this.passD - this.total;
+        return "You must score " + this.textpassD + " points to pass a E";
+      }
+    },
+    passAscore(GradeA) {
+      this.passA = GradeA;
+      if (this.passA - this.total < 0) {
+        return "Now You get grade A";
+      } else {
+        this.textpassA = this.passA - this.total;
+        return "grade and "+this.textpassA + " points to A grade";
+      }
     },
   },
 
