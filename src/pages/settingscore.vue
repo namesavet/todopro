@@ -21,8 +21,6 @@
           style="font-size: 16px; color: #96a7af"
         />
       </q-toolbar-title>
-
-    
     </q-toolbar>
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs">
@@ -79,9 +77,9 @@
     </div>
 
     <div id="app" class="container">
-      <form>
-        <div class="work-experiences">
-          <div class="form-row" v-for="(input, index) in score" :key="index">
+      <div class="work-experiences">
+        <div class="form-row" v-for="(input, index) in score" :key="index">
+          <form @submit="submitScore(index)">
             <div class="row justify-center">
               <div class="scoreadd">
                 <div class="row">
@@ -96,6 +94,7 @@
                         placeholder="Name of score"
                         color="white"
                         label-color="grey"
+                        required
                       />
                     </div>
 
@@ -110,6 +109,8 @@
                           placeholder="Get point"
                           color="white"
                           label-color="grey"
+                          mask="##"
+                          required
                         />
                       </div>
                       <div class="col q-ml-lg">
@@ -119,32 +120,35 @@
                           placeholder="Full point"
                           color="white"
                           label-color="grey"
+                          mask="##"
+                          required
                         />
                       </div>
                     </div>
                   </div>
                   <div class="col-2 items-center text-center">
-                    <div class="row q-mt-xl justify-center" style=" margin-top: 62px;">
+                    <div
+                      class="row q-mt-xl justify-center"
+                      style="margin-top: 62px"
+                    >
                       <q-btn
-                        @click="submitScore(index)"
                         round
                         dense
                         text-color="white"
                         icon="done"
                         class=""
                         style="background-color: #40df9f"
+                        type="submit"
                       />
                     </div>
-                 
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </form>
         </div>
-      </form>
+      </div>
     </div>
-
 
     <br />
     <br />
@@ -178,15 +182,20 @@
               })
             "
           />
-          <q-btn flat name="home" icon="home"  @click="
-            $router.push({
-              name: 'Index',
-              query: {
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          " />
+          <q-btn
+            flat
+            name="home"
+            icon="home"
+            @click="
+              $router.push({
+                name: 'Index',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
           <q-btn
             flat
             name="book"
@@ -222,7 +231,7 @@ export default {
       subject: {},
       student: {},
       semester: {},
-      getchangSemester:"",
+      getchangSemester: "",
     };
   },
   mounted() {
@@ -232,7 +241,7 @@ export default {
     this.getchang();
   },
   methods: {
-        getchang() {
+    getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
     },
     async getStudentData() {
@@ -254,7 +263,7 @@ export default {
         scoreName: "",
       });
     },
-   
+
     submitScore(index) {
       axios
         .post("http://localhost:3000/score/create ", {
