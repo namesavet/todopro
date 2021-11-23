@@ -523,8 +523,7 @@
                       uid: student.uid,
                       SemesterID: getchangSemester,
                     },
-                  })
-                "
+                  })"
               />
             </q-toolbar-title>
           </q-toolbar>
