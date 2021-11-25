@@ -617,10 +617,10 @@ export default {
       });
     },
     async DeleteSubject() {
-      axios.delete(
+     await axios.delete(
         `http://localhost:3000/subject/delete/${this.$route.query.id}`
       );
-      this.$router.push({
+     await this.$router.push({
         path: "/Subject",
         query: {
           uid: this.student.uid,

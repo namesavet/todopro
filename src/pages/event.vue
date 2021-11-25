@@ -260,13 +260,13 @@ export default {
       this.semester = data.semester;
     },
 
-    DeleteEvent() {
-      axios
+  async  DeleteEvent() {
+    await  axios
         .delete("http://localhost:3000/calendar/delete/" + this.$route.query.id)
         .then((response) => {
           console.log(response);
         });
-      this.$router.push({
+     await this.$router.push({
         path: "/Calendar"
         ,
         query: {
