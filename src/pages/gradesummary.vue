@@ -133,9 +133,9 @@ export default {
   components: {},
   watch: {
     inputgrade(value) {
-      console.log(value);
+      
       this.yourgradechart = value.map((grade) => Number(grade));
-      console.log(this.yourgradechart);
+      
       this.getchart();
     },
   },

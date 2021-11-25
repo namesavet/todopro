@@ -553,7 +553,7 @@ export default {
   methods: {
     async getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
-      console.log(this.getchangSemester);
+      
     },
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");

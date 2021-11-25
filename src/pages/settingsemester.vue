@@ -115,7 +115,7 @@ export default {
   methods: {
     getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
-      console.log( this.$route.query.SemesterID);
+      
     },
     addSemester() {
       this.chapter.push({

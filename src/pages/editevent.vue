@@ -291,7 +291,7 @@ export default {
       );
       this.calendar = data.calendar;
       this.calendar.Note_date = this.formatDate(this.calendar.Note_date);
-      console.log(this.calendar);
+      
     },
     async getStudentData() {
       const { data } = await this.$axios.get(

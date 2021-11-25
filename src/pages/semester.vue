@@ -74,7 +74,7 @@ export default {
   methods: {
         getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
-      console.log(this.getchangSemester);
+      
     },
     async getSemester() {
       const { data } = await this.$axios.get(

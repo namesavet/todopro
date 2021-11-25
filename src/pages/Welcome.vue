@@ -127,7 +127,7 @@ export default {
         .then((userCredential) => {
           const user = userCredential.user;
           this.uid = user.uid;
-          console.log(this.uid),
+          
             this.$router.push({
               path: "/Index",
               query: { uid: this.uid },
@@ -137,16 +137,14 @@ export default {
     },
 
     gotocreateaccount1() {
-      console.log(this.Username);
-      console.log(this.Password);
+      
       this.$router.push({
         path: "/Createaccount1",
       });
     },
 
     gotoindex() {
-      console.log(this.Username);
-      console.log(this.Password);
+
       this.$router.push({
         path: "/Index",
       });
