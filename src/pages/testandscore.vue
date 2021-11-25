@@ -101,7 +101,7 @@
           border-radius: 15px 15px 0px 0px;
         "
       >
-       <q-toolbar-title class="row justify-evenly">
+        <q-toolbar-title class="row justify-evenly">
           <q-btn
             flat
             name="calendar"
@@ -116,15 +116,20 @@
               })
             "
           />
-          <q-btn flat name="home" icon="home"  @click="
-            $router.push({
-              name: 'Index',
-              query: {
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          " />
+          <q-btn
+            flat
+            name="home"
+            icon="home"
+            @click="
+              $router.push({
+                name: 'Index',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
           <q-btn
             flat
             name="book"
@@ -154,7 +159,7 @@ export default {
       scores: [],
       student: {},
       semester: {},
-      getchangSemester:"",
+      getchangSemester: "",
     };
   },
   mounted() {
@@ -164,31 +169,32 @@ export default {
     this.getchang();
   },
   methods: {
-          getchang() {
+    getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
     },
     async getSubjectData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/subject/" + this.$route.query.SemesterID
+      const { data } = await this.$axios.get(
+        "/subject/" + this.$route.query.SemesterID
       );
       this.subjects = data.subject;
-      const url =
-        "http://localhost:3000/score/fineSemester/" +
-        this.$route.query.SemesterID;
-      const scoresp = await axios.get(url);
+
+      const scoresp = await await this.$axios.get(
+        "/score/fineSemester/" +
+          this.$route.query.SemesterID
+      );
       this.scores = scoresp.data.score;
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;
     },
 
     async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
     },

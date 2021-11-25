@@ -157,24 +157,23 @@ export default {
       this.getchangSemester = this.$route.query.SemesterID;
     },
     async getSubjectData() {
-      const resp = await axios.get(`http://localhost:3000/subject/`);
+      const resp = await this.$axios.get(`/subject/`);
       this.subjects = resp.data.subject;
-      const url = `http://localhost:3000/chapter/findchapter/${this.$route.query.id}`;
-      const chaptersp = await axios.get(url);
+      const chaptersp = await this.$axios.get(`/chapter/findchapter/${this.$route.query.id}`);
       this.chapters = chaptersp.data.chapter;
       this.filteredSubject = this.subjects;
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;
     },
 
     async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
     },
@@ -191,8 +190,8 @@ export default {
     },
 
     async submitSubjectID(SubjectID) {
-      await axios.post(
-        `http://localhost:3000/subject/createWithId/${SubjectID}/${this.$route.query.uid}/${this.$route.query.SemesterID}`
+      await this.$axios.post(
+        `/subject/createWithId/${SubjectID}/${this.$route.query.uid}/${this.$route.query.SemesterID}`
       );
     },
   },

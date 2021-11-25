@@ -523,7 +523,8 @@
                       uid: student.uid,
                       SemesterID: getchangSemester,
                     },
-                  })"
+                  })
+                "
               />
             </q-toolbar-title>
           </q-toolbar>
@@ -573,9 +574,8 @@ export default {
     getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
     },
-    onSubmit() {
-      axios
-        .post("http://localhost:3000/subject/create ", {
+    async onSubmit() {
+      await this.$axios.post("/subject/create ", {
           Subject_name: this.subject_name,
           Intal_name: this.Abbreviation_name,
           Teacher_name: this.teacher_name,
@@ -608,8 +608,8 @@ export default {
       });
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;

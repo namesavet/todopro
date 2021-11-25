@@ -181,22 +181,22 @@ export default {
     },
     async getSubjectData() {
   
-      const { data } = await axios.get(
-        "http://localhost:3000/subject/" + this.$route.query.SemesterID
+      const { data } = await this.$axios.get(
+        "/subject/" + this.$route.query.SemesterID
       );
       this.subjects = data.subject;
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;
     },
 
     async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
     },

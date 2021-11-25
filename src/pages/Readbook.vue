@@ -96,7 +96,7 @@
             query: {
               id: subject.SubjectID,
               uid: student.uid,
-              SemesterID:getchangSemester,
+              SemesterID: getchangSemester,
             },
           })
         "
@@ -191,36 +191,36 @@
           "
         >
           <q-toolbar-title class="row justify-evenly">
-          <q-btn
-            flat
-            name="calendar"
-            icon="calendar_today"
-            @click="
-              $router.push({
-                name: 'calendar',
-                query: {
-                  uid: student.uid,
-                  SemesterID: getchangSemester,
-                },
-              })
-            "
-          />
-          <q-btn flat name="home" icon="home"  @click="
-            $router.push({
-              name: 'Index',
-              query: {
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          " />
-          <q-btn
-            flat
-            name="book"
-            icon="menu_book"
-          
-          />
-        </q-toolbar-title>
+            <q-btn
+              flat
+              name="calendar"
+              icon="calendar_today"
+              @click="
+                $router.push({
+                  name: 'calendar',
+                  query: {
+                    uid: student.uid,
+                    SemesterID: getchangSemester,
+                  },
+                })
+              "
+            />
+            <q-btn
+              flat
+              name="home"
+              icon="home"
+              @click="
+                $router.push({
+                  name: 'Index',
+                  query: {
+                    uid: student.uid,
+                    SemesterID: getchangSemester,
+                  },
+                })
+              "
+            />
+            <q-btn flat name="book" icon="menu_book" />
+          </q-toolbar-title>
         </q-toolbar>
       </q-footer>
     </div>
@@ -238,7 +238,7 @@ export default {
       process0: 0,
       student: {},
       semester: {},
-      getchangSemester:"",
+      getchangSemester: "",
     };
   },
   components: {},
@@ -251,32 +251,31 @@ export default {
   },
 
   methods: {
-      getchang() {
+    getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
-    
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;
     },
     async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
     },
     async getSubjectData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/subject/" + this.$route.query.SemesterID
+      const { data } = await this.$axios.get(
+        "/subject/" + this.$route.query.SemesterID
       );
       this.subjects = data.subject;
-      const url =
-        "http://localhost:3000/chapter/findchapterSemester/" +
-        this.$route.query.SemesterID;
-      const chaptersp = await axios.get(url);
+
+      const chaptersp = await this.$axios.get(
+        "/chapter/findchapterSemester/" + this.$route.query.SemesterID
+      );
       this.chapters = chaptersp.data.chapter;
     },
     countreadtrue(subject) {

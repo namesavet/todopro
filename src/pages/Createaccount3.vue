@@ -61,9 +61,8 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
-      axios
-        .post("http://localhost:3000/semester/create", {
+   async onSubmit() {
+      await this.$axios.post("/semester/create", {
           uid: this.$route.query.uid,
           Semester_name: this.Semester_name,
         })

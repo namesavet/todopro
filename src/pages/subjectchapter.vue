@@ -280,15 +280,15 @@ export default {
     console.log(this.getchangSemester);
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;
     },
     async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
     },
@@ -300,9 +300,8 @@ export default {
     },
 
 
-    submitchapter(index) {
-      axios
-        .post("http://localhost:3000/chapter/create ", {
+   async submitchapter(index) {
+      await this.$axios.post("/chapter/create ", {
           Chapter_name: this.chapter[index].chapterName,
           Status: false,
           SubjectID: this.$route.query.id,
@@ -314,9 +313,8 @@ export default {
           this.chapter[index].chapterName = "";
         });
     },
-    Deletechapter(index, ChapterID) {
-      axios
-        .delete(`http://localhost:3000/chapter/delete/${ChapterID}`)
+   async Deletechapter(index, ChapterID) {
+      await this.$axios.delete(`/chapter/delete/${ChapterID}`)
         .then((response) => {
           console.log(response);
           this.chapters = this.chapters.filter((data, i) => i != index);
@@ -327,15 +325,15 @@ export default {
     },
 
     async getSubjectData() {
-      const { data } = await axios.get(
-        `http://localhost:3000/subject/findsubject/${this.$route.query.id}`
+      const { data } = await this.$axios.get(
+        `/subject/findsubject/${this.$route.query.id}`
       );
       this.subject = data.subject;
     },
 
     async getChapterData() {
-      const { data } = await axios.get(
-        `http://localhost:3000/chapter/findchapter/${this.$route.query.id}`
+      const { data } = await this.$axios.get(
+        `/chapter/findchapter/${this.$route.query.id}`
       );
       this.chapters = data.chapter;
       this.countchapter = this.chapters.length;

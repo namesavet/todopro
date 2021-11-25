@@ -184,15 +184,20 @@
               })
             "
           />
-          <q-btn flat name="home" icon="home"  @click="
-            $router.push({
-              name: 'Index',
-              query: {
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          " />
+          <q-btn
+            flat
+            name="home"
+            icon="home"
+            @click="
+              $router.push({
+                name: 'Index',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
           <q-btn
             flat
             name="book"
@@ -223,7 +228,7 @@ export default {
       calendar: {},
       student: {},
       semester: {},
-      getchangSemester:"",
+      getchangSemester: "",
     };
   },
 
@@ -234,41 +239,39 @@ export default {
     this.getchang();
   },
   methods: {
-     getchang() {
+    getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
     },
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
     },
     async getCalendarData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/calendar/findnote/" + this.$route.query.id
+      const { data } = await this.$axios.get(
+        "/calendar/findnote/" + this.$route.query.id
       );
       this.calendar = data.calendar;
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;
     },
     async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
     },
 
-  async  DeleteEvent() {
-    await  axios
-        .delete("http://localhost:3000/calendar/delete/" + this.$route.query.id)
+    async DeleteEvent() {
+      await this.$axios.delete("/calendar/delete/" + this.$route.query.id)
         .then((response) => {
           console.log(response);
         });
-     await this.$router.push({
-        path: "/Calendar"
-        ,
+      await this.$router.push({
+        path: "/Calendar",
         query: {
           uid: this.student.uid,
           SemesterID: this.getchangSemester,

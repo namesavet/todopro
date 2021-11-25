@@ -177,45 +177,50 @@
             border-radius: 15px 15px 0px 0px;
           "
         >
-         <q-toolbar-title class="row justify-evenly">
-          <q-btn
-            flat
-            name="calendar"
-            icon="calendar_today"
-            @click="
-              $router.push({
-                name: 'calendar',
-                query: {
-                  uid: student.uid,
-                  SemesterID: getchangSemester,
-                },
-              })
-            "
-          />
-          <q-btn flat name="home" icon="home"  @click="
-            $router.push({
-              name: 'Index',
-              query: {
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          " />
-          <q-btn
-            flat
-            name="book"
-            icon="menu_book"
-            @click="
-              $router.push({
-                name: 'Readbook',
-                query: {
-                  uid: student.uid,
-                  SemesterID: getchangSemester,
-                },
-              })
-            "
-          />
-        </q-toolbar-title>
+          <q-toolbar-title class="row justify-evenly">
+            <q-btn
+              flat
+              name="calendar"
+              icon="calendar_today"
+              @click="
+                $router.push({
+                  name: 'calendar',
+                  query: {
+                    uid: student.uid,
+                    SemesterID: getchangSemester,
+                  },
+                })
+              "
+            />
+            <q-btn
+              flat
+              name="home"
+              icon="home"
+              @click="
+                $router.push({
+                  name: 'Index',
+                  query: {
+                    uid: student.uid,
+                    SemesterID: getchangSemester,
+                  },
+                })
+              "
+            />
+            <q-btn
+              flat
+              name="book"
+              icon="menu_book"
+              @click="
+                $router.push({
+                  name: 'Readbook',
+                  query: {
+                    uid: student.uid,
+                    SemesterID: getchangSemester,
+                  },
+                })
+              "
+            />
+          </q-toolbar-title>
         </q-toolbar>
       </q-footer>
     </div>
@@ -234,7 +239,7 @@ export default {
       countchapter: 0,
       student: {},
       semester: {},
-      getchangSemester:"",
+      getchangSemester: "",
     };
   },
   mounted() {
@@ -244,45 +249,43 @@ export default {
     this.getchang();
   },
   methods: {
-       getchang() {
+    getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
-    
     },
     formatDate(day) {
       return date.formatDate(day, "DD MMM YYYY");
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;
     },
     async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
     },
     async getSubjectData() {
-      const resp = await axios.get(
-        `http://localhost:3000/subject/findsubject/${this.$route.query.id}`
+      const resp = await this.$axios.get(
+        `/subject/findsubject/${this.$route.query.id}`
       );
       this.subject = resp.data.subject;
-      const url = `http://localhost:3000/chapter/findchapter/${this.$route.query.id}`;
-      const chaptersp = await axios.get(url);
+
+      const chaptersp = await this.$axios.get(
+        `/chapter/findchapter/${this.$route.query.id}`
+      );
       this.chapters = chaptersp.data.chapter;
       this.countchapter = this.chapters.length;
     },
 
     async updateStatusChapter(chapter) {
       const { ChapterID, Status } = chapter;
-      await axios.put(
-        `http://localhost:3000/chapter/updateStatus/${ChapterID}`,
-        {
-          Status: Status,
-        }
-      );
+      await this.$axios.put(`/chapter/updateStatus/${ChapterID}`, {
+        Status: Status,
+      });
     },
 
     statuscolor(allstatus, statuscolor) {
@@ -298,7 +301,7 @@ export default {
     },
     processnotnan() {
       const process = (this.readtrue / this.countchapter) * 100;
-      
+
       if (Number.isNaN(process) == true) {
         return this.process0;
       } else {
@@ -307,7 +310,7 @@ export default {
     },
     processbarnotnan() {
       const process = this.readtrue / this.countchapter;
-      
+
       if (Number.isNaN(process) == true) {
         return this.process0;
       } else {

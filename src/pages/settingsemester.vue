@@ -124,9 +124,8 @@ export default {
     },
 
 
-    submitsemester(index) {
-      axios
-        .post(`http://localhost:3000/semester/create/ `, {
+   async submitsemester(index) {
+      await this.$axios.post(`/semester/create/ `, {
           Semester_name: this.semester[index].semester_name,
           uid: this.$route.query.uid,
         })
@@ -135,9 +134,8 @@ export default {
           this.semester[index].semester_name = "";
         });
     },
-    Deletesemester(index, SemesterID) {
-      axios
-        .delete(`http://localhost:3000/semester/delete/${SemesterID}`)
+    async Deletesemester(index, SemesterID) {
+      await this.$axios.delete(`/semester/delete/${SemesterID}`)
         .then((response) => {
           console.log(response);
           this.semesters = this.semesters.filter((data, i) => i != index);
@@ -145,14 +143,14 @@ export default {
     },
 
     async getSemester() {
-      const { data } = await axios.get(
-        `http://localhost:3000/semester/${this.$route.query.uid}`
+      const { data } = await this.$axios.get(
+        `/semester/${this.$route.query.uid}`
       );
       this.semesters = data.semester;
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;

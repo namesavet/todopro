@@ -245,16 +245,16 @@ export default {
       this.getchangSemester = this.$route.query.SemesterID;
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;
     },
 
     async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
     },
@@ -264,9 +264,8 @@ export default {
       });
     },
 
-    submitScore(index) {
-      axios
-        .post("http://localhost:3000/score/create ", {
+   async submitScore(index) {
+      await this.$axios.post("/score/create ", {
           Score_title: this.score[index].scoreName,
           Get_point: this.score[index].GetPoin,
           Full_point: this.score[index].FullPoin,
@@ -281,21 +280,20 @@ export default {
           this.score[index].FullPoin = "";
         });
     },
-    Deletechapter(index, ScoreID) {
-      axios
-        .delete(`http://localhost:3000/score/delete/${ScoreID}`)
+    async Deletechapter(index, ScoreID) {
+     await this.$axios.delete(`/score/delete/${ScoreID}`)
         .then((response) => {
           console.log(response);
           this.scores = this.scores.filter((data, i) => i != index);
         });
     },
     async getSubjectData() {
-      const { data } = await axios.get(
-        `http://localhost:3000/subject/findsubject/${this.$route.query.SubjectID}`
+      const { data } = await this.$axios.get(
+        `/subject/findsubject/${this.$route.query.SubjectID}`
       );
       this.subject = data.subject;
-      const url = "http://localhost:3000/score/" + this.$route.query.SubjectID;
-      const scoresp = await axios.get(url);
+     
+      const scoresp = await this.$axios.get("/score/" + this.$route.query.SubjectID);
       this.scores = scoresp.data.score;
     },
   },

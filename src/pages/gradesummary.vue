@@ -152,27 +152,27 @@ export default {
       this.getchangSemester = this.$route.query.SemesterID;
     },
     async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/" + this.$route.query.uid
       );
       this.semesters = data.semester;
     },
     async getSubjectData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/subject/studentsubject/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/subject/studentsubject/" + this.$route.query.uid
       );
       this.subjects = data.subject;
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;
     },
     async getSemesterDataback() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
     },

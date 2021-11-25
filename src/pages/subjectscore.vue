@@ -256,27 +256,27 @@ export default {
       this.getchangSemester = this.$route.query.SemesterID;
     },
     async getSubjectData() {
-      const resp = await axios.get(
-        "http://localhost:3000/subject/findsubject/" +
+      const resp = await this.$axios.get(
+        "/subject/findsubject/" +
           this.$route.query.SubjectID
       );
       this.subject = resp.data.subject;
-      const url = "http://localhost:3000/score/" + this.$route.query.SubjectID;
-      const scoresp = await axios.get(url);
+      
+      const scoresp = await this.$axios.get("/score/" + this.$route.query.SubjectID);
       this.scores = scoresp.data.score;
     },
     async getScore() {},
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;
     },
 
     async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
     },

@@ -77,14 +77,14 @@ export default {
       console.log(this.getchangSemester);
     },
     async getSemester() {
-      const { data } = await axios.get(
-        `http://localhost:3000/semester/${this.$route.query.uid}`
+      const { data } = await this.$axios.get(
+        `/semester/${this.$route.query.uid}`
       );
       this.semesters = data.semester;
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
       this.student = data.student;
     },

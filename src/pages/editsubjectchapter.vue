@@ -559,21 +559,21 @@ export default {
       return date.formatDate(day, "DD MMM YYYY");
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;
     },
     async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
     },
     async getSubjectData() {
-      const { data } = await axios.get(
-        `http://localhost:3000/subject/findsubject/${this.$route.query.id}`
+      const { data } = await this.$axios.get(
+        `/subject/findsubject/${this.$route.query.id}`
       );
       this.subject = data.subject;
       this.subject.Date_midterm_exam = this.formatDate(
@@ -584,8 +584,8 @@ export default {
       );
     },
     async submitUpdateData() {
-      const { data } = await axios.put(
-        `http://localhost:3000/subject/update/${this.$route.query.id}`,
+      const { data } = await this.$axios.put(
+        `/subject/update/${this.$route.query.id}`,
         {
           Subject_name: this.subject.Subject_name,
           Intal_name: this.subject.Intal_name,
@@ -617,8 +617,8 @@ export default {
       });
     },
     async DeleteSubject() {
-     await axios.delete(
-        `http://localhost:3000/subject/delete/${this.$route.query.id}`
+     await this.$axios.delete(
+        `/subject/delete/${this.$route.query.id}`
       );
      await this.$router.push({
         path: "/Subject",

@@ -168,9 +168,8 @@ export default {
     };
   },
   methods: {
-    onSubmit() {
-      axios
-        .post("http://localhost:3000/student/create", {
+    async onSubmit() {
+      await this.$axios.post("/student/create", {
           StudentID: this.StudentID,
           Name: this.Name,
           Fullname: this.Fullname,

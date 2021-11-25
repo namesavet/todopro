@@ -286,30 +286,30 @@ export default {
       return date.formatDate(day, "DD MMM YYYY");
     },
     async getCalendarData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/calendar/findnote/" + this.$route.query.id
+      const { data } = await this.$axios.get(
+        "/calendar/findnote/" + this.$route.query.id
       );
       this.calendar = data.calendar;
       this.calendar.Note_date = this.formatDate(this.calendar.Note_date);
       console.log(this.calendar);
     },
     async getStudentData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/student/findStudentID/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/student/findStudentID/" + this.$route.query.uid
       );
 
       this.student = data.student;
     },
     async getSemesterData() {
-      const { data } = await axios.get(
-        "http://localhost:3000/semester/getSemester/" + this.$route.query.uid
+      const { data } = await this.$axios.get(
+        "/semester/getSemester/" + this.$route.query.uid
       );
       this.semester = data.semester;
     },
 
     async onSubmit() {
-      const { data } = await axios.put(
-        "http://localhost:3000/calendar/update/" + this.$route.query.id,
+      const { data } = await this.$axios.put(
+        "/calendar/update/" + this.$route.query.id,
         {
           Note_title: this.calendar.Note_title,
           Note_type: this.calendar.Note_type,
