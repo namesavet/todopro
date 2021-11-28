@@ -20,8 +20,6 @@
           style="font-size: 16px; color: #96a7af"
         />
       </q-toolbar-title>
-
-     
     </q-toolbar>
 
     <div class="row">
@@ -51,24 +49,26 @@
     </div>
 
     <div id="app" class="container">
-      <form>
         <div class="form-row" v-for="(input, index) in semester" :key="index">
+          <form @submit.prevent="submitsemester(index)">
           <div class="row justify-center" style="margin-top: 11%">
             <div class="col-7 q-ml-md">
               <div class="semestertitle q-mt-sm">
                 <q-input
+                  required
                   :input-style="{ color: 'white' }"
                   color="white"
                   v-model="input.semester_name"
                   label-color="grey"
                   placeholder="X/YYYY"
-                   mask="#/####"
+                  mask="#/####"
                 />
               </div>
             </div>
             <div class="q-ml-sm q-mt-sm">
               <q-btn
-                @click="submitsemester(index)"
+                type="submit"
+                value="submitsemester"
                 round
                 dense
                 text-color="white"
@@ -77,15 +77,13 @@
                 style="background-color: #40df9f"
               />
             </div>
-        
           </div>
           <div class="q-mx-lg q-mt-sm">
             <q-separator color="grey" inset />
           </div>
+         </form> 
         </div>
-      </form>
     </div>
-
 
     <br />
     <br />
@@ -105,17 +103,16 @@ export default {
     ],
     semesters: [],
     student: {},
-    getchangSemester:"",
+    getchangSemester: "",
   }),
   mounted() {
     this.getSemester();
     this.getStudentData();
-    this.getchang()
+    this.getchang();
   },
   methods: {
     getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
-      
     },
     addSemester() {
       this.chapter.push({
@@ -123,9 +120,9 @@ export default {
       });
     },
 
-
-   async submitsemester(index) {
-      await this.$axios.post(`/semester/create/ `, {
+    async submitsemester(index) {
+      await this.$axios
+        .post(`/semester/create/ `, {
           Semester_name: this.semester[index].semester_name,
           uid: this.$route.query.uid,
         })
@@ -135,7 +132,8 @@ export default {
         });
     },
     async Deletesemester(index, SemesterID) {
-      await this.$axios.delete(`/semester/delete/${SemesterID}`)
+      await this.$axios
+        .delete(`/semester/delete/${SemesterID}`)
         .then((response) => {
           console.log(response);
           this.semesters = this.semesters.filter((data, i) => i != index);

@@ -107,7 +107,7 @@
                           :input-style="{ color: 'white' }"
                           v-model="input.GetPoin"
                           placeholder="Get point"
-                          mask="##"
+                          mask="###"
                           color="white"
                           label-color="grey"
                           required
@@ -118,7 +118,7 @@
                           :input-style="{ color: 'white' }"
                           v-model="input.FullPoin"
                           placeholder="Full point"
-                          mask="##"
+                          mask="###"
                           color="white"
                           label-color="grey"
                           required
