@@ -101,9 +101,9 @@ export default {
       const { data } = await this.$axios.get(
         `/semester/getSemester/${this.$route.query.uid}`
       );
-      console.log(data);
+      
       this.semester = data.semester;
-      console.log(this.semester);
+      
       this.getchangSemester = data.semester.SemesterID;
     },
     async getSemesterName() {
