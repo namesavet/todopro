@@ -177,8 +177,7 @@ export default {
       this.events = data.calendar.map((data) => {
         return this.formatDate(data.Note_date);
       });
-      console.log(this.events);
-      console.log(data.calendar);
+      
     },
     async getStudentData() {
       const { data } = await this.$axios.get(

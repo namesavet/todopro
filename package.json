@@ -6,7 +6,8 @@
   "author": "Pongsavet <Pongsavet_name@hotmail.com>",
   "private": true,
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "deploy":"quasar build -m pwa && firebase deploy"
   },
   "dependencies": {
     "@quasar/extras": "^1.10.11",
@@ -20,7 +21,8 @@
     "vue-router": "^3.5.2"
   },
   "devDependencies": {
-    "@quasar/app": "^2.2.10"
+    "@quasar/app": "^2.2.10",
+    "workbox-webpack-plugin": "^5.1.4"
   },
   "browserslist": [
     "last 10 Chrome versions",
