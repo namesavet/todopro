@@ -54,7 +54,7 @@
           </div>
           <div class="items-center q-mr-md">
             <q-btn
-              @click="clickSubject(subject.SubjectID)"
+              @click.once="clickSubject(subject.SubjectID)"
               round
               dense
               text-color="white"
