@@ -55,6 +55,7 @@
 
     <div class="col q-ml-md q-mt-sm q-gutter-xs q-mt-lg">
       <div :key="index" v-for="(calendar, index) in calendars">
+         
         <div
           class="row justify-center"
           @click="
@@ -172,9 +173,12 @@ export default {
       );
       this.ListAllEvent = data.calendar;
       this.date = this.formatDate(new Date());
+     
       this.events = data.calendar.map((data) => {
         return this.formatDate(data.Note_date);
       });
+      console.log(this.events);
+      console.log(data.calendar);
     },
     async getStudentData() {
       const { data } = await this.$axios.get(
@@ -193,7 +197,8 @@ export default {
   watch: {
     date(value) {
       this.calendars = this.ListAllEvent.filter((data) => {
-        return new Date(value).getTime() == new Date(data.Note_date).getTime();
+        return value ==this.formatDate(data.Note_date);
+
       });
     },
   },
