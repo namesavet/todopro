@@ -244,7 +244,7 @@ export default {
   watch: {
     date(value) {
       this.calendars = this.ListAllEvent.filter((data) => {
-        return new Date(value).getTime() == new Date(data.Note_date).getTime();
+        return value ==this.formatDate(data.Note_date);
       });
     },
   },
