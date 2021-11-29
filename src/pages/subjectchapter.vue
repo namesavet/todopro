@@ -141,8 +141,8 @@
       </div>
 
       <div id="app" class="container">
-        <form>
-          <div class="form-row" v-for="(input, index) in chapter" :key="index">
+        <div class="form-row" v-for="(input, index) in chapter" :key="index">
+          <form @submit.prevent="submitchapter(index)">
             <div class="row justify-center">
               <div class="profilechap text-bold" style="overflow: hidden">
                 <div class="chapter row items-center justify-center q-mt-sm">
@@ -152,6 +152,7 @@
               <div class="col self-center text-bold q-ml-lg">
                 <div class="text-white text-bold" style="font-size: 16px">
                   <q-input
+                    required
                     :input-style="{ color: 'white' }"
                     color="white"
                     v-model="input.chapterName"
@@ -162,7 +163,8 @@
               </div>
               <div class="q-mr-md q-mt-sm">
                 <q-btn
-                  @click="submitchapter(index)"
+                  type="submit"
+                  value="submitchapter"
                   round
                   dense
                   text-color="white"
@@ -171,17 +173,14 @@
                   style="background-color: #40df9f"
                 />
               </div>
-        
             </div>
             <div class="q-mr-lg q-my-lg">
               <q-separator color="grey" inset="item" />
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
-
- 
 
     <br />
     <br />
@@ -200,7 +199,7 @@
           border-radius: 15px 15px 0px 0px;
         "
       >
-       <q-toolbar-title class="row justify-evenly">
+        <q-toolbar-title class="row justify-evenly">
           <q-btn
             flat
             name="calendar"
@@ -215,15 +214,20 @@
               })
             "
           />
-          <q-btn flat name="home" icon="home"  @click="
-            $router.push({
-              name: 'Index',
-              query: {
-                uid: student.uid,
-                SemesterID: getchangSemester,
-              },
-            })
-          " />
+          <q-btn
+            flat
+            name="home"
+            icon="home"
+            @click="
+              $router.push({
+                name: 'Index',
+                query: {
+                  uid: student.uid,
+                  SemesterID: getchangSemester,
+                },
+              })
+            "
+          />
           <q-btn
             flat
             name="book"
@@ -235,7 +239,8 @@
                   uid: student.uid,
                   SemesterID: getchangSemester,
                 },
-              })"
+              })
+            "
           />
         </q-toolbar-title>
       </q-toolbar>
@@ -263,7 +268,7 @@ export default {
       countchapter: 0,
       student: {},
       semester: {},
-      getchangSemester:"",
+      getchangSemester: "",
     };
   },
   mounted() {
@@ -275,9 +280,8 @@ export default {
   },
 
   methods: {
-      getchang() {
+    getchang() {
       this.getchangSemester = this.$route.query.SemesterID;
-   
     },
     async getStudentData() {
       const { data } = await this.$axios.get(
@@ -299,9 +303,9 @@ export default {
       });
     },
 
-
-   async submitchapter(index) {
-      await this.$axios.post("/chapter/create ", {
+    async submitchapter(index) {
+      await this.$axios
+        .post("/chapter/create ", {
           Chapter_name: this.chapter[index].chapterName,
           Status: false,
           SubjectID: this.$route.query.id,
@@ -313,8 +317,9 @@ export default {
           this.chapter[index].chapterName = "";
         });
     },
-   async Deletechapter(index, ChapterID) {
-      await this.$axios.delete(`/chapter/delete/${ChapterID}`)
+    async Deletechapter(index, ChapterID) {
+      await this.$axios
+        .delete(`/chapter/delete/${ChapterID}`)
         .then((response) => {
           console.log(response);
           this.chapters = this.chapters.filter((data, i) => i != index);
