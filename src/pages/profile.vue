@@ -38,7 +38,7 @@
             <q-avatar icon="perm_identity" style="color: #96a7af" />
           </div>
           <div class="q-mt-md">
-            <div class="titlechoice">Profile</div>
+            <div class="titlechoice">Profile.</div>
           </div>
         </div>
 
